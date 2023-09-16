@@ -14,8 +14,17 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <script src="https://bundle.run/noble-secp256k1@1.2.14"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100;0,400;0,600;0,900;1,100;1,400;1,600;1,900&display=swap" rel="stylesheet">
         <style type="text/css">
         /** CUSTOM HERE **/
+
+        .logo {
+          font-family: "Azeret Mono", "SF Mono", "Courier New", courier, monospace !important;
+          font-weight: 900 !important;
+          font-style: italic !important;
+        }
 
         .magic_string_box {
           text-align: center !important;
@@ -25,6 +34,10 @@
         .circle {
           margin-bottom: -12px;
           z-index: 999
+        }
+
+        .circle_row {
+          text-align: center !important;
         }
 
         .blue {
@@ -321,8 +334,18 @@
 
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="goodstr" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="10"/>
-      <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
+      <path d="M12 1.75C13.1366 1.75 14.2267 2.21094 15.0305 3.03141C15.8342 3.85188 16.2857 4.96468 16.2857 6.125V7H7.71429V6.125C7.71429 4.96468 8.16582 3.85188 8.96954 3.03141C9.77327 2.21094 10.8634 1.75 12 1.75ZM18 7V6.125C18 4.50055 17.3679 2.94263 16.2426 1.79397C15.1174 0.645311 13.5913 0 12 0C10.4087 0 8.88258 0.645311 7.75736 1.79397C6.63214 2.94263 6 4.50055 6 6.125V7H0V24.5C0 25.4283 0.361224 26.3185 1.00421 26.9749C1.64719 27.6313 2.51926 28 3.42857 28H20.5714C21.4807 28 22.3528 27.6313 22.9958 26.9749C23.6388 26.3185 24 25.4283 24 24.5V7H18Z" fill="url(#paint0_linear_649_566)"/>
+      <path d="M10.0161 11.2917C10.0405 11.2074 10.0911 11.1335 10.1603 11.0809C10.2295 11.0283 10.3136 10.9999 10.4001 11H13.5999C13.6632 11 13.7256 11.0154 13.782 11.0447C13.8384 11.0741 13.8871 11.1166 13.9241 11.1688C13.9611 11.221 13.9854 11.2814 13.995 11.345C14.0045 11.4086 13.9991 11.4736 13.9791 11.5346L12.5551 15.8747H15.5997C15.6747 15.8747 15.7481 15.896 15.8116 15.9362C15.8752 15.9765 15.9263 16.034 15.9593 16.1023C15.9922 16.1707 16.0056 16.247 15.9979 16.3227C15.9902 16.3984 15.9617 16.4703 15.9157 16.5304L10.3161 23.8424C10.2587 23.9177 10.1772 23.9701 10.0856 23.9905C9.99409 24.011 9.8984 23.9981 9.81525 23.9542C9.73211 23.9103 9.66678 23.8381 9.63068 23.7503C9.59458 23.6624 9.59 23.5645 9.61773 23.4736L11.0584 18.7183H8.40021C8.33802 18.7183 8.27669 18.7036 8.22107 18.6754C8.16545 18.6471 8.11709 18.6061 8.07982 18.5556C8.04254 18.505 8.01739 18.4463 8.00635 18.3842C7.99531 18.322 7.9987 18.2581 8.01623 18.1975L10.0161 11.2917Z" fill="url(#paint1_linear_649_566)"/>
+      <defs>
+      <linearGradient id="paint0_linear_649_566" x1="12" y1="0" x2="12" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#663399"/>
+      <stop offset="1" stop-color="#FF00FF"/>
+      </linearGradient>
+      <linearGradient id="paint1_linear_649_566" x1="12" y1="11" x2="12" y2="24" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFF00"/>
+      <stop offset="1" stop-color="#FF9500"/>
+      </linearGradient>
+      </defs>
     </symbol>
     <symbol id="cart" viewBox="0 0 16 16">
       <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
@@ -336,7 +359,7 @@
     <div class="container">
       <a class="navbar-brand d-md-none" href="#">
         <svg class="bi" width="24" height="24"><use xlink:href="#goodstr"/></svg>
-        <strong class="logo">GoodStr</strong>
+        <strong class="logo">GoodStr<sup>α</sup></strong>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="#offcanvas" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -350,7 +373,7 @@
           <ul class="navbar-nav flex-grow-1 justify-content-between">
             <li class="nav-item"><a class="nav-link" href="#">
               <svg class="bi" width="24" height="24"><use xlink:href="#goodstr"/></svg>
-              <strong class="logo">GoodStr</strong>
+              <strong class="logo">GoodStr<sup>α</sup></strong>
             </a></li>
             <li class="nav-item"><a class="nav-link" href="#up">Welcome</a></li>
             <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
@@ -400,7 +423,7 @@
           <h2 class="display-5">The Magic String</h2>
           <p class="lead">With GoodStr, your entire store is contained in your magic string, like a genie in a lamp. You just need to save that one string (safely!).</p>
         </div>
-        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+        <div class="bg-body-primary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
       </div>
     </div>
 
@@ -410,7 +433,7 @@
           <h2 class="display-5">The Big Difference</h2>
           <p class="lead">Unlike traditional webstores, GoodStr doesn't need your identity or bank account information, so the onboarding process is sleek and simple. No KYC.</p>
         </div>
-        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+        <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
       </div>
       <!-- div id="stock" class="text-bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" -->
       <div id="stock" class="bg-body-secondary pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
@@ -418,7 +441,7 @@
           <h2 class="display-5">Decentralized Stock</h2>
           <p class="lead">Once you publish an item, it will be bradcasted along the <code>nostr</code> protocol unter the <a href="https://github.com/nostr-protocol/nips/blob/master/15.md" target="_blank">NIP15</a> reserved for Nostr Marketplace items.</p>
         </div>
-        <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
       </div>
     </div>
 
@@ -428,14 +451,14 @@
             <h2 class="display-5">Ecommerce Simplified</h2>
             <p class="lead">GoodStr is focused on reducing the headaches of selling items online and easily collect payments.</p>
           </div>
-          <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+          <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
         </div>
         <div id="magic" class="text-bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
           <div class="my-3 p-3">
             <h2 class="display-5">The Magic String</h2>
             <p class="lead">With GoodStr, your entire store is contained in your magic string, like a genie in a lamp. You just need to save that one string (safely!).</p>
           </div>
-          <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+          <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
         </div>
       </div>
 
@@ -562,7 +585,7 @@
     <hr class="my-5">
     <div class="row">
       <div class="col-12 col-md">
-        <strong class="logo">GoodStr</strong>
+        <strong class="logo">GoodStr<sup>α</sup></strong>
         <small class="d-block mb-3 text-body-secondary">&copy; 2021–2023</small>
       </div>
       <div class="col-6 col-md">
@@ -633,6 +656,7 @@
   						</div>
   						<i class="bi bi-magic" style="font-size:42px; opacity: .5;"></i>
   						<div class="instruction mb-2"><span class="blue" onclick="genString()">Generate</span> your magic string.</div>
+              <small>Your magic string is the only way to access and manage your store. If you lose it, you will not only lose access to your store but also to any money you received since the last time you withdrew! Make sure you back this up before continuing.</small>
   					</div>
             <div class="magic_string_box">
   						<div class="magic_string" style="display: block!important;"></div>
