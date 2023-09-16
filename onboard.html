@@ -17,7 +17,8 @@
         /** CUSTOM HERE **/
 
         .circle {
-          margin-bottom: -21px;
+          margin-bottom: -12px;
+          z-index: 999
         }
 
         .blue {
@@ -634,7 +635,7 @@
                 setTimeout( function() {$( '.magic_string' ).innerText = "••";}, 200 );
                 setTimeout( function() {$( '.magic_string' ).innerText = "•••";}, 400 );
                 setTimeout( function() {
-                    $( '.magic_string_box' ).innerHTML = `<p>Your magic string</p><code><div class="magic_string"></div></code>`;
+                    $( '.magic_string_box' ).innerHTML = `<code><div class="magic_string"></div></code>`;
                     $( '.magic_string' ).style.fontSize = "100%";
                     $( '.magic_string' ).innerText = "00" + bytesToHex( nobleSecp256k1.utils.randomPrivateKey() ).substring( 2, 64 ) + textToHex( JSON.stringify( relays ) );
                 }, 600 );
