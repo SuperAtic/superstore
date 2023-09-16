@@ -1,4 +1,4 @@
-# GoodStr - Go from 0 to 1M
+# GoodStrᵅ - Go from 0 to 1M
 A simple web store with whisper addresses for enhanced privacy
 
 # What is this?

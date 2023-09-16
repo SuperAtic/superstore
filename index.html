@@ -6,147 +6,13 @@
     <title>GoodStrᵅ</title>
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://bitcoincore.tech/apps/bitcoinjs-ui/lib/bitcoinjs-lib.js"></script>
     <script src="https://supertestnet.github.io/bitcoin-chess/js/qrcode.js"></script>
     <script src="https://bundle.run/noble-secp256k1@1.2.14"></script>
     <script src="https://bundle.run/browserify-cipher@1.0.1"></script>
     <script src="https://bundle.run/buffer@6.0.3"></script>
-    <style>
-        * {
-            box-sizing: border-box;
-            font-size: 1.15rem;
-            font-family: Arial, sans-serif;
-        }
-        html {
-            max-width: 70ch;
-            padding: 3rem 1rem;
-            margin: auto;
-            line-height: 1.25;
-        }
-        h1 {
-            font-size: 2rem;
-        }
-        h2 {
-            font-size: 1.5rem;
-        }
-        input, textarea {
-            line-height: 1.25;
-            width: calc( 100% );
-            height: 1.8rem;
-            font-size: 1.15rem;
-            border: 1px solid grey;
-            margin-bottom: 1rem;
-        }
-        .make_store {
-          display: none;
-        }
-        .product {
-            border: 1px solid black;
-            border-radius: 1rem;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        .product input, .product select, .product textarea {
-            width: calc( 50% - 0.2rem );
-            margin-left: .2rem;
-            margin-bottom: 1rem;
-        }
-        .product .desc {
-            width: calc( 100% - .2rem );
-            height: 5rem;
-        }
-        .plus_and_minus {
-            margin-left: .2rem;
-        }
-        .view_store, .blank_view {
-            display: none;
-        }
-        .minicart {
-            padding: 0.5rem;
-            background-color: tan;
-            text-align: right;
-            margin-bottom: 1rem;
-        }
-        .black-bg {
-            display: none;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: black;
-            opacity: .5;
-            width: 100vw;
-            height: 100vh;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            box-sizing: border-box;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            width: 100%;
-            max-width: 560px;
-            background-color: white;
-            border-radius: 1rem;
-            padding: 20px;
-            color: black;
-            text-align: center;
-            word-wrap: break-word;
-        }
-        .payment_box {
-            max-width: 400px;
-            border: 1px solid black;
-            border-radius: 1rem;
-            padding: 1rem;
-            text-align: center;
-            word-wrap: break-word;
-        }
-        .qr_code {
-            width: 100%;
-        }
-        .ln_box {
-            display: none;
-        }
-        .title {
-            display: none;
-        }
-        .order {
-            display: flex;
-            justify-content: space-between;
-            text-align: left;
-        }
-        .public_link {
-            display: none;
-        }
-        .store_name {
-            margin-top: 1rem;
-        }
-        @media screen and (max-width: 600px) {
-            .product input, .product select, .product textarea {
-                width: calc( 100% );
-            }
-            .product .desc {
-                width: calc( 100% );
-            }
-            .product button {
-                width: calc( 100% );
-                margin-bottom: 1rem;
-            }
-            .order {
-                flex-wrap: wrap;
-            }
-            .payment_info {
-                border-top: 1px solid black;
-                padding-top: 1rem;
-                margin-top: 1rem;
-            }
-            .plus_and_minus {
-                margin-left: 0;
-            }
-        }
-</style>
     <script>
         var $ = document.querySelector.bind( document );
         var $$ = document.querySelectorAll.bind( document );
@@ -502,8 +368,8 @@
         }
         function showModal( content, block_til_clear ) {
             if ( block_til_clear ) var fn = `modalVanish();sessionStorage[ 'modal_cleared' ] = true;`; else var fn = `modalVanish();`;
-            $( ".modal" ).innerHTML = `<div style="position: absolute;right: 1rem;top: 0.5rem;font-size: 2rem; cursor: pointer;" onclick="${fn}">&times;</div>`;
-            $( ".modal" ).innerHTML += `<div style="overflow-y: scroll; max-height: 80vh; margin-top: 1.5rem;">${content}</div>`;
+            $( ".modal" ).innerHTML = `<div onclick="${fn}">&times;</div>`;
+            $( ".modal" ).innerHTML += `<div>${content}</div>`;
             $( ".black-bg" ).style.display = "block";
             $( ".modal" ).style.display = "block";
         }
@@ -741,8 +607,8 @@
                     var price = content[ "price" ] / 100;
                     var existing_num = $$( '.store_product' ).length;
                     var html = `
-                        <div class="store_product" style="background-color: lightgrey; border: 1px solid black; border-radius: 1rem; width: 100%; max-width: 13rem; text-align: center; padding: 1rem; word-wrap: break-word; margin-bottom: 1rem;">
-                            <img class="product_image" style="border: 1px solid black; width: 100%; max-width: 10rem; margin: auto;">
+                        <div class="store_product">
+                            <img class="product_image" >
                             <div class="product_name"></div>
                             <div>$<span class="product_price"></span></div>
                             <div style="display: none;" class="shipping_zone"></span></div>
@@ -771,15 +637,15 @@
                             $( '.store_products' ).style.display = "none";
                             $( '.blank_view' ).innerHTML = `
                                 <div class="viewed_product">
-                                    <div style="font-weight: bold; font-size: 3rem; cursor: pointer;" onclick="$( '.blank_view' ).style.display = 'none';$( '.store_products' ).style.display = 'flex';">⇦ <span style="vertical-align: middle; font-size: 1.5rem;">Back</span></div>
-                                    <div style="font-weight: bold;">Product</div>
+                                    <div onclick="$( '.blank_view' ).style.display = 'none';$( '.store_products' ).style.display = 'flex';">⇦ <span class="back">Back</span></div>
+                                    <div>Product</div>
                                     <div><span class="product_name"></span></div><br>
-                                    <img class="product_image" style="border: 1px solid black; width: 100%; margin: auto;"><br><br>
-                                    <div style="font-weight: bold;">Price</div>
+                                    <img class="product_image"><br><br>
+                                    <div>Price</div>
                                     <div>$<span class="product_price"></span></div><br>
-                                    <div style="font-weight: bold;">Description</div>
+                                    <div>Description</div>
                                     <div class="product_description"></div><br>
-                                    <div style="font-weight: bold;">Ships to</div>
+                                    <div>Ships to</div>
                                     <div class="shipping_zone"></div><br>
                                     <button class="add_to_cart">Add to cart</button>
                                 </div>
@@ -965,11 +831,11 @@
 </head>
 <body>
     <div class="title"></div>
-    <div class="splash_screen">Loading...</div>
+    <div class="splash_screen"><i class="bi bi-battery-charging"></i> Loading...</div>
     <div class="make_store">
         <div class="products">
             <div class="manage_sales_toolbar"></div>
-            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center;">
+            <div>
                 <h2 class="name_instructions">Name your store</h2>
                 <a class="public_link" target="_blank"><button>View store</button></a>
             </div>
@@ -982,9 +848,9 @@
         <p><button class="store_maker">Submit</button></p>
         <div class="preview_pane"></div>
         <div class="progress" style="display: none;">
-            <h2>Progress bar <span id="goal" style="font-size: .8em; font-weight: normal;"></span></h2>
-            <div class="progressOutline" style="height: 2em; border: 1px solid grey; border-radius: 25px; overflow: hidden;">
-                <div class="progressBar" style="height: 2em; background-color: #61eb34; width: 0%; transition: width 1s;">
+            <h2>Progress bar <span id="goal"></span></h2>
+            <div class="progressOutline">
+                <div class="progressBar">
                 </div>
             </div>
             <div class="status"></div>
@@ -992,7 +858,7 @@
     </div>
     <div class="view_store">
         <div class="minicart">Cart (<span class="minicart_item_count">0</span> items) <button class="view_cart">View cart</button></div>
-        <div class="store_products" style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;"></div>
+        <div class="store_products"></div>
     </div>
     <div class="blank_view"></div>
     <script>
@@ -1000,7 +866,7 @@
         $( '.store_name' ).value = "";
         var title = {
           html: () => {
-            var default_name = "Welcome to Magic Webstore, a simple webstore based on bitcoin";
+            var default_name = "Welcome to SuperStore, a simple webstore based on bitcoin";
             var name = title.name ? title.name : default_name;
             return `
               <h1>
@@ -1048,8 +914,8 @@
                 var price = Number( e.target.parentElement.children[ 4 ].value );
                 var html = `
                     <h2>Preview pane</h2>
-                    <div class="store_product" style="background-color: lightgrey; border: 1px solid black; border-radius: 1rem; width: 100%; max-width: 13rem; text-align: center; padding: 1rem; word-wrap: break-word;">
-                        <img src="${e.target.parentElement.children[ 1 ].value}" style="border: 1px solid black; width: 100%; max-width: 10rem; margin: auto;">
+                    <div class="store_product">
+                        <img src="${e.target.parentElement.children[ 1 ].value}">
                         <div>${e.target.parentElement.children[ 0 ].value}</div>
                         <div>$${price.toFixed( 2 )}</div>
                         <button>View product</button>
@@ -1085,8 +951,8 @@
             var price = Number( e.target.parentElement.children[ 4 ].value );
             var html = `
                 <h2>Preview pane</h2>
-                <div class="store_product" style="background-color: lightgrey; border: 1px solid black; border-radius: 1rem; width: 100%; max-width: 13rem; text-align: center; padding: 1rem; word-wrap: break-word;">
-                    <img src="${e.target.parentElement.children[ 1 ].value}" style="border: 1px solid black; width: 100%; max-width: 10rem; margin: auto;">
+                <div class="store_product">
+                    <img src="${e.target.parentElement.children[ 1 ].value}">
                     <div>${e.target.parentElement.children[ 0 ].value}</div>
                     <div>$${price.toFixed( 2 )}</div>
                     <button>View product</button>
@@ -1183,22 +1049,22 @@
             cart.forEach( function( item ) {
                 if ( item[ "shipping_zone" ] != "Free (digital)" ) requires_shipping = true; else requires_edelivery = true;
                 total = total + item[ "price" ];
-                items += `<div class="minicart" style="display: flex; justify-content: space-between; text-align: left;"><div>${item[ "item" ]}</div><div style="text-align: right;align-self: center;">$${( item[ "price" ] / 100 ).toFixed( 2 )} <span style="border: 1px solid black;border-radius: 50%;width: 1.5rem;height: 1.5rem;display: inline-block;text-align: center; cursor: pointer;" onclick="var child = this.parentElement.parentElement;var parent = child.parentNode;var index = Array.prototype.indexOf.call(parent.children, child);cart.splice( index, 1 );renderCart();$( '.minicart_item_count' ).innerText = Number( $( '.minicart_item_count' ).innerText ) - 1;">&times;</span></div></div>`;
+                items += `<div class="minicart"><div>${item[ "item" ]}</div><div>$${( item[ "price" ] / 100 ).toFixed( 2 )} <span onclick="var child = this.parentElement.parentElement;var parent = child.parentNode;var index = Array.prototype.indexOf.call(parent.children, child);cart.splice( index, 1 );renderCart();$( '.minicart_item_count' ).innerText = Number( $( '.minicart_item_count' ).innerText ) - 1;">&times;</span></div></div>`;
             });
-            var total_div = `<div class="minicart" style="display: flex; justify-content: space-between; text-align: left;"><div>Total</div><div>$${( total / 100 ).toFixed( 2 )} aka ${dollarsToSats( ( total / 100 ).toFixed( 2 ) )} sats</div></div>`;
+            var total_div = `<div class="minicart"><div>Total</div><div>$${( total / 100 ).toFixed( 2 )} aka ${dollarsToSats( ( total / 100 ).toFixed( 2 ) )} sats</div></div>`;
             var edelivery_div = ``;
-            if ( requires_edelivery ) edelivery_div = `<div>Enter instructions for how to deliver your digital good(s) (e.g. email address? telegram handle? Please leave detailed instructions about what you want us to do)</div><textarea class="edelivery_form" style="width: 100%; height: 5rem;"></textarea>`
+            if ( requires_edelivery ) edelivery_div = `<div>Enter instructions for how to deliver your digital good(s) (e.g. email address? telegram handle? Please leave detailed instructions about what you want us to do)</div><textarea class="edelivery_form"></textarea>`
             var shipping_div = ``;
-            if ( requires_shipping ) shipping_div = `<div>Enter what you want on your shipping label (and, if desired, a message for the merchant)</div><textarea class="shipping_label_form" style="width: 100%; height: 5rem;"></textarea>`
+            if ( requires_shipping ) shipping_div = `<div>Enter what you want on your shipping label (and, if desired, a message for the merchant)</div><textarea class="shipping_label_form"></textarea>`
             $( '.blank_view' ).innerHTML = `
                 <div>
-                    <div style="font-weight: bold; font-size: 3rem; cursor: pointer;" onclick="$( '.blank_view' ).style.display = 'none';$( '.view_store' ).style.display = 'block';">⇦ <span style="vertical-align: middle; font-size: 1.5rem;">Back</span></div>
+                    <div onclick="$( '.blank_view' ).style.display = 'none';$( '.view_store' ).style.display = 'block';">⇦ <span>Back</span></div>
                     <h2>Your cart</h2>
                     <div class="items">${items}</div>
                     ${total_div}
                     ${edelivery_div}
                     ${shipping_div}
-                    <div style="text-align: right;"><button class="checkout">Checkout</button></div>
+                    <div><button class="checkout">Checkout</button></div>
                 </div>
             `;
             $( '.view_store' ).style.display = "none";
@@ -1211,7 +1077,7 @@
                 if ( $( '.shipping_label_form' ) ) sessionStorage.shipping_label_form = $( '.shipping_label_form' ).value;
                 if ( $( '.edelivery_form' ) ) sessionStorage.edelivery_form = $( '.edelivery_form' ).value;
                 $( '.blank_view' ).innerHTML = `
-                    <div style="font-weight: bold; font-size: 3rem; cursor: pointer;" onclick="renderCart();">⇦ <span style="vertical-align: middle; font-size: 1.5rem;">Back</span></div>
+                    <div onclick="renderCart();">⇦ <span class="back">Back</span></div>
                     <h2>Checkout</h2>
                     Please send <span class="sats_to_pay">${dollarsToSats( ( total / 100 ).toFixed( 2 ) )}</span> sats and wait for your auto-generated receipt (your shipment is not guaranteed til you have your receipt)
                     <br><br>
@@ -1219,7 +1085,7 @@
                 `;
                 if ( ln_domain && ln_readkey ) {
                     $( '.payment_box' ).innerHTML += `
-                        <div style="display: flex;justify-content: center;">
+                        <div>
                             <button class="ln_button">Lightning</button>
                             <button class="bl_button">Base layer</button>
                         </div>
@@ -1272,7 +1138,7 @@
                     });
                     cart = [];
                     if ( $( '.minicart_item_count' ) ) $( '.minicart_item_count' ).innerText = 0;
-                    var content = `<p>Thank you for your business. Here is your receipt:</p><p style="font-weight: bold;">Items purchased</p>${receipt_items}<p>Total: $${( total / 100 ).toFixed( 2 )}</p><p>Proof of payment: ${whisper_key}</p><p>Keep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.</p>`;
+                    var content = `<p>Thank you for your business. Here is your receipt:</p><p class="bold">Items purchased</p>${receipt_items}<p>Total: $${( total / 100 ).toFixed( 2 )}</p><p>Proof of payment: ${whisper_key}</p><p>Keep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.</p>`;
                     showModal( content, true );
                     await getNote( "modal_cleared" );
                     // alert( `Thank you for your business. Here is your proof of payment: ${whisper_key}\n\nKeep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.` );
@@ -1312,7 +1178,7 @@
             });
             cart = [];
             if ( $( '.minicart_item_count' ) ) $( '.minicart_item_count' ).innerText = 0;
-            var content = `<p>Thank you for your business. Here is your receipt:</p><p style="font-weight: bold;">Items purchased</p>${receipt_items}<p>Total: $${( total / 100 ).toFixed( 2 )}</p><p>Proof of payment: ${buyer_info[ "pmthash" ]}</p><p>Keep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.</p>`;
+            var content = `<p>Thank you for your business. Here is your receipt:</p><p class="bold">Items purchased</p>${receipt_items}<p>Total: $${( total / 100 ).toFixed( 2 )}</p><p>Proof of payment: ${buyer_info[ "pmthash" ]}</p><p>Keep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.</p>`;
             showModal( content, true );
             await getNote( "modal_cleared" );
         }
@@ -1427,27 +1293,27 @@
                 $( '.blank_view' ).style.display = "block";
                 $( '.blank_view' ).innerHTML = `
                     <div>
-                        <div style="font-weight: bold; font-size: 3rem; cursor: pointer;" onclick="$( '.blank_view' ).style.display = 'none';$( '.products' ).style.display = 'block';$( '.store_maker' ).parentElement.style.display = 'block';">⇦ <span style="vertical-align: middle; font-size: 1.5rem;">Back</span></div>
-                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between;"><div style="font-weight: bold;">Wallet</div><button class="connect_node">Connect your node</button></div><br>
-                        <div class="wallet" style="display: flex;justify-content: space-between;background-color: orange;padding: 0.5rem;align-items: center;"><div>Base layer balance: $<span class="usd_balance">0.00</span> (<span class="btc_balance">0</span>&nbsp;sats)</div><div><button class="withdraw">Withdraw</button></div></div><br>
+                        <div onclick="$( '.blank_view' ).style.display = 'none';$( '.products' ).style.display = 'block';$( '.store_maker' ).parentElement.style.display = 'block';">⇦ <span class="back">Back</span></div>
+                        <div><div class="bold">Wallet</div><button class="connect_node">Connect your node</button></div><br>
+                        <div class="wallet"><div>Base layer balance: $<span class="usd_balance">0.00</span> (<span class="btc_balance">0</span>&nbsp;sats)</div><div><button class="withdraw">Withdraw</button></div></div><br>
                 `;
                 if ( ln_domain && ln_readkey ) $( '.blank_view' ).innerHTML += `
-                        <div class="ln_wallet" style="display: flex;justify-content: space-between;background-color: lightblue;padding: 0.5rem;align-items: center;"><div>Lightning balance: $<span class="usd_balance">0.00</span> (<span class="btc_balance">0</span>&nbsp;sats)</div><div><button class="withdraw">Manage</button></div></div><br>
+                        <div class="ln_wallet"><div>Lightning balance: $<span class="usd_balance">0.00</span> (<span class="btc_balance">0</span>&nbsp;sats)</div><div><button class="withdraw">Manage</button></div></div><br>
                 `;
                 $( '.blank_view' ).innerHTML += `
-                        <div style="font-weight: bold;">Sales</div><br>
+                        <div>Sales</div><br>
                         <div class="orders"></div>
                     </div>
                 `;
                 $( '.connect_node' ).onclick = async () => {
                     var content = `
                         <p>
-                            Base-layer bitcoin payments on Magic Webstore are fully self-custodied by you. You alone have the private key to that money. However, for the lightning network, Magic Webstore automatically sets you up with a custodial lightning wallet from lnbits.com. Custodial solutions are typically easy to get started, but they usually stop operating at some point, so it's good to prepare for that.
+                            Base-layer bitcoin payments on SuperStore are fully self-custodied by you. You alone have the private key to that money. However, for the lightning network, SuperStore automatically sets you up with a custodial lightning wallet from lnbits.com. Custodial solutions are typically easy to get started, but they usually stop operating at some point, so it's good to prepare for that.
                         </p>
                         <p>
-                            A really good way to ensure you don't lose your funds on lightning when lnbits eventually ceases operations is to run your own lightning node. If you don't know what that is, <a href="https://thebitcoinmanual.com/behind-btc/nodes/lightning-node/" target="_blank">click here</a>. I'm not finished making it easy to connect your store to your own lightning node, but in the meantime, if you're brave and you already have a lightning node running with your own lnbits instance, you can hook Magic Webstore up to your node with a little in-browser coding. Here are instructions:
+                            A really good way to ensure you don't lose your funds on lightning when lnbits eventually ceases operations is to run your own lightning node. If you don't know what that is, <a href="https://thebitcoinmanual.com/behind-btc/nodes/lightning-node/" target="_blank">click here</a>. I'm not finished making it easy to connect your store to your own lightning node, but in the meantime, if you're brave and you already have a lightning node running with your own lnbits instance, you can hook SuperStore up to your node with a little in-browser coding. Here are instructions:
                         </p>
-                        <ul style="text-align: left;">
+                        <ul>
                             <li>
                                 enter this into your browser console: console.log(&nbsp;localStorage[&nbsp;"wallet_info"&nbsp;]&nbsp;)
                             </li>
@@ -1563,7 +1429,7 @@
                     var names_and_prices = [];
                     sale[ 1 ].forEach( function( item, index ) {
                         total = total + Number( item[ "price" ] );
-                        items += `<div class="minicart" style="display: flex; justify-content: space-between; text-align: left;"><div class="product_name"></div><div class="product_price" style="text-align: right;align-self: center;"></div></div>`;
+                        items += `<div class="minicart"><div class="product_name"></div><div class="product_price"></div></div>`;
                         names_and_prices.push( [ item[ "item" ], item[ "price" ] ] );
                     });
                     var paid_amount = balance_in_dollars;
@@ -1573,15 +1439,15 @@
                     if ( sale[ 3 ] ) paid_amount = ( total / 100 ).toFixed( 2 );
                     var delivery_info = (sale[ 0 ][ "shipping_info" ]) ? sale[ 0 ][ "shipping_info" ]:sale[ 0 ][ "edelivery_info" ];
                     var order = `
-                        <div class="minicart order" style="background-color: ${bgcolor};" data-order_id="${sale[ 2 ]}"><div>Delivery info:<br><div class="delivery_info"></div></div><div class="payment_info" style="text-align: right;align-self: center;">They paid: $${paid_amount} <button class="order_details" onclick="if ( this.parentElement.parentElement.nextElementSibling.style.display != 'none' ) this.parentElement.parentElement.nextElementSibling.style.display = 'none'; else this.parentElement.parentElement.nextElementSibling.style.display = 'block';">details</button> <button class="click_when_shipped" onclick="if ( sales[ ${index} ][ 3 ] ) return;var conf = confirm( 'Are you sure you want to mark this order as shipped?' );if ( !conf ) return;this.parentElement.parentElement.style.backgroundColor = 'lightgreen';this.innerText = 'shipped';this.onclick = () => {return false};sales[ ${index} ][ 3 ] = 1;$( '.sales_count' ).innerText = Number( $( '.sales_count' ).innerText ) - 1;shipped_orders.push( sales[ ${index} ][ 2 ] );localStorage.shipped_orders = JSON.stringify( shipped_orders );var order_id = this.parentElement.parentElement.getAttribute( 'data-order_id' );labelAsShipped( order_id );">${shipped_instructions}</button></div></div>
+                        <div class="minicart order" style="background-color: ${bgcolor};" data-order_id="${sale[ 2 ]}"><div>Delivery info:<br><div class="delivery_info"></div></div><div class="payment_info">They paid: $${paid_amount} <button class="order_details" onclick="if ( this.parentElement.parentElement.nextElementSibling.style.display != 'none' ) this.parentElement.parentElement.nextElementSibling.style.display = 'none'; else this.parentElement.parentElement.nextElementSibling.style.display = 'block';">details</button> <button class="click_when_shipped" onclick="if ( sales[ ${index} ][ 3 ] ) return;var conf = confirm( 'Are you sure you want to mark this order as shipped?' );if ( !conf ) return;this.parentElement.parentElement.style.backgroundColor = 'lightgreen';this.innerText = 'shipped';this.onclick = () => {return false};sales[ ${index} ][ 3 ] = 1;$( '.sales_count' ).innerText = Number( $( '.sales_count' ).innerText ) - 1;shipped_orders.push( sales[ ${index} ][ 2 ] );localStorage.shipped_orders = JSON.stringify( shipped_orders );var order_id = this.parentElement.parentElement.getAttribute( 'data-order_id' );labelAsShipped( order_id );">${shipped_instructions}</button></div></div>
                     `;
-                    if ( !txinfo[ 3 ] ) {
+                    if ( !txinfo[ 3 ] ) {ßst
                         order += `
-                            <div style="display: none; border: 1px solid black; border-radius: 1rem; padding: 1rem; margin-bottom: 1rem;"><div style="font-weight: bold;">Details</div><br>${items}<div style="text-align: right;">Total they owed: $${( total / 100 ).toFixed( 2 )}</div><div style="text-align: right;">Total they paid: $${paid_amount}</div><div style="text-align: right;"><a href="https://mempool.space/${mempoolNetwork}tx/${txinfo[ 0 ]}:${txinfo[ 1 ]}" target="_blank">Inspect transaction</a></div></div>
+                            <div><div class="bold">Details</div><br>${items}<div>Total they owed: $${( total / 100 ).toFixed( 2 )}</div><div >Total they paid: $${paid_amount}</div><div ><a href="https://mempool.space/${mempoolNetwork}tx/${txinfo[ 0 ]}:${txinfo[ 1 ]}" target="_blank">Inspect transaction</a></div></div>
                         `;
                     } else {
                         order += `
-                            <div style="display: none; border: 1px solid black; border-radius: 1rem; padding: 1rem; margin-bottom: 1rem;"><div style="font-weight: bold;">Details</div><br>${items}<div style="text-align: right;">Total they owed: $${( total / 100 ).toFixed( 2 )}</div><div style="text-align: right;">Total they paid: $${paid_amount}</div><div style="text-align: right;"><a href="${JSON.parse( localStorage.wallet_info )[ "wallet_url" ]}" target="_blank">Inspect transaction</a></div></div>
+                            <div><div class="bold">Details</div><br>${items}<div >Total they owed: $${( total / 100 ).toFixed( 2 )}</div><div >Total they paid: $${paid_amount}</div><div ><a href="${JSON.parse( localStorage.wallet_info )[ "wallet_url" ]}" target="_blank">Inspect transaction</a></div></div>
                         `;
                     }
                     $( '.orders' ).innerHTML += order;

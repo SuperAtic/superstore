@@ -3,162 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        <title>GoodStrᵅ OnBoarding</title>
+        <title>GoodStrᵅ - OnBoarding</title>
         <link rel="shortcut icon" type="image/png" href="favicon.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <script src="https://bundle.run/noble-secp256k1@1.2.14"></script>
-        <style>
-            * {
-                box-sizing: border-box;
-                font-size: 1.15rem;
-                font-family: Arial, sans-serif;
-            }
-            html {
-                max-width: 120ch;
-                padding: 3rem 1rem;
-                margin: auto;
-                line-height: 1.25;
-                background-color: #ebebeb;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            h2 {
-                font-size: 1.5rem;
-            }
-            input {
-                line-height: 1.25;
-                width: 100%;
-                height: 1.8rem;
-                font-size: 1.15rem;
-                border: 1px solid grey;
-            }
-            .border {
-                border: 1px solid black;
-            }
-            .row {
-                display: flex;
-                justify-content: space-between;
-                filter: drop-shadow(0 0 3px #000);
-                background-color: white;
-                margin-bottom: 1rem;
-                margin-top: 1rem;
-                padding: 1rem;
-                border-radius: 0.5rem;
-            }
-            .video {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex: 5;
-            }
-            .video img {
-                max-width: 450px;
-            }
-            .basics {
-                display: flex;
-                flex-direction: column;
-                flex: 4;
-                align-items: center;
-                padding: 1rem;
-            }
-            .big_title {
-                text-align: center;
-            }
-            .simple_desc {
-                width: 90%;
-                text-align: center;
-            }
-            .big_buttons {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                margin-bottom: 2rem;
-            }
-            .big_button {
-                padding: 1rem;
-                background-color: red;
-                color: white;
-                font-weight: bold;
-                text-align: center;
-                min-width: 8rem;
-                cursor: pointer;
-            }
-            .genie {
-                max-height: 15rem;
-            }
-            .signup {
-                display: none;
-                border: 1px solid black;
-                border-radius: 1rem;
-                padding: 1rem;
-                max-width: 25rem;
-                margin: auto;
-                background-color: white;
-                filter: drop-shadow(0 0 3px #000);
-            }
-            .circle_row {
-                display: flex;
-                align-items: center;
-            }
-            .circle {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 4rem;
-                height: 4rem;
-                border: 1px solid black;
-                border-radius: 2rem;
-                margin: 1rem;
-            }
-            .blue {
-                color: blue;
-                text-decoration: underline;
-                cursor: pointer;
-            }
-            .black-bg {
-                display: none;
-                width: 100%;
-                position: fixed;
-                top: 0;
-                left: 0;
-                background-color: black;
-                opacity: .5;
-                width: 100vw;
-                height: 100vh;
-            }
-            .modal {
-                display: none;
-                position: fixed;
-                box-sizing: border-box;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%,-50%);
-                width: 90%;
-                max-width: 560px;
-                background-color: white;
-                border-radius: 1rem;
-                padding: 20px;
-                color: black;
-                text-align: center;
-                word-wrap: break-word;
-            }
-            .back_btn {
-                display: none;
-            }
-            @media screen and (max-width: 700px) {
-                .row {
-                    display: block;
-                }
-            @media screen and (max-width: 400px) {
-                .big_buttons {
-                    display: block;
-                }
-                .genie {
-                    max-height: initial;
-                    width: 100%;
-                }
-            }
-        </style>
         <script>
             var $ = document.querySelector.bind( document );
             var $$ = document.querySelectorAll.bind( document );
@@ -194,8 +43,8 @@
             }
             function showModal( content, block_til_clear ) {
                 if ( block_til_clear ) var fn = `modalVanish();sessionStorage[ 'modal_cleared' ] = true;`; else var fn = `modalVanish();`;
-                $( ".modal" ).innerHTML = `<div style="position: absolute;right: 1rem;top: 0.5rem;font-size: 2rem; cursor: pointer;" onclick="${fn}">&times;</div>`;
-                $( ".modal" ).innerHTML += `<div style="overflow-y: scroll; max-height: 80vh; margin-top: 1.5rem;">${content}</div>`;
+                $( ".modal" ).innerHTML = `<div onclick="${fn}">&times;</div>`;
+                $( ".modal" ).innerHTML += `<div>${content}</div>`;
                 $( ".black-bg" ).style.display = "block";
                 $( ".modal" ).style.display = "block";
             }
@@ -203,19 +52,19 @@
     </head>
     <body>
         <h1>
-            Magic Webstore 🪄
+            SuperStore 🪄
         </h1>
         <div class="explain">
             <div class="row">
                 <div class="video">
-                    <a href="https://www.youtube.com/watch?v=cAH0384V1Bo" target="_blank"><img style="width: 100%; filter: drop-shadow(0 0 3px #000);" src="https://camo.githubusercontent.com/2224bee86d24077884a26c7aa6e72596ca60ec004a9ac4f8f2b73d78dc291c1a/68747470733a2f2f7375706572746573746e65742e6769746875622e696f2f737570657273746f72652f737570657273746f72652d7468756d626e61696c2e706e67"></a>
+                    <a href="https://www.youtube.com/watch?v=cAH0384V1Bo" target="_blank"><img src="https://camo.githubusercontent.com/2224bee86d24077884a26c7aa6e72596ca60ec004a9ac4f8f2b73d78dc291c1a/68747470733a2f2f7375706572746573746e65742e6769746875622e696f2f737570657273746f72652f737570657273746f72652d7468756d626e61696c2e706e67"></a>
                 </div>
                 <div class="basics">
                     <h2 class="big_title">
                         Ecommerce Simplified
                     </h2>
                     <p class="simple_desc">
-                        Magic Webstore is focused on reducing the headaches of running a webstore.
+                        SuperStore is focused on reducing the headaches of running a webstore.
                     </p>
                     <div class="big_buttons">
                         <div class="big_button signup_btn">Get&nbsp;started</div>
@@ -230,7 +79,7 @@
                         The Magic String
                     </h2>
                     <p class="simple_desc">
-                        With Magic Webstore, your entire store is contained in your magic string, like a genie in a lamp. You just need to save that one string (back it up and store it safely) and you can do everything you need: add products to your store, manage your inventory, track your income, and keep you money safe.
+                        With SuperStore, your entire store is contained in your magic string, like a genie in a lamp. You just need to save that one string (back it up and store it safely) and you can do everything you need: add products to your store, manage your inventory, track your income, and keep you money safe.
                     </p>
                 </div>
                 <div class="video">
@@ -239,37 +88,37 @@
             </div>
             <div class="row">
                 <div class="video">
-                    <img style="width: 100%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Teacher_%2814016%29_-_The_Noun_Project.svg/768px-Teacher_%2814016%29_-_The_Noun_Project.svg.png">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Teacher_%2814016%29_-_The_Noun_Project.svg/768px-Teacher_%2814016%29_-_The_Noun_Project.svg.png">
                 </div>
                 <div class="basics">
                     <h2 class="big_title">
                         The Big Difference
                     </h2>
                     <p class="simple_desc">
-                         Unlike traditional webstores, Magic Webstore doesn't need your identity or bank account information, so the onboarding process is sleek and simple. Your Magic Webstore will automatically create a bitcoin wallet for you and even your private key is contained in your Magic String.<br><br>You just start adding products to your store and then share the link with people. They can view your products, buy items from you, and send you messages.
+                         Unlike traditional webstores, SuperStore doesn't need your identity or bank account information, so the onboarding process is sleek and simple. Your SuperStore will automatically create a bitcoin wallet for you and even your private key is contained in your Magic String.<br><br>You just start adding products to your store and then share the link with people. They can view your products, buy items from you, and send you messages.
                     </p>
                 </div>
             </div>
             <div class="row">
                 <div class="basics">
                     <h2 class="big_title">
-                        How can I use Magic Webstore?
+                        How can I use SuperStore?
                     </h2>
                     <p class="simple_desc">
-                         Magic Webstore lets you monetize your life. Have a youtube channel? Start selling merchandise through Magic Webstore. Have a blog? Let people support you through sales and branding. Want to sell items at a farmer's market? Treat Magic Webstore as your point of sale system and let people check out with ease.<br><br>Try it out today! Magic Webstore is proudly built on bitcoin, the money of the internet, and nostr, a distributed data caching protocol. Magic Webstore is completely free and open source and you can dive into its source code by <a href="https://github.com/supertestnet/superstore" target="_blank">clicking here</a>.
+                         SuperStore lets you monetize your life. Have a youtube channel? Start selling merchandise through SuperStore. Have a blog? Let people support you through sales and branding. Want to sell items at a farmer's market? Treat SuperStore as your point of sale system and let people check out with ease.<br><br>Try it out today! SuperStore is proudly built on bitcoin, the money of the internet, and nostr, a distributed data caching protocol. SuperStore is completely free and open source and you can dive into its source code by <a href="https://github.com/supertestnet/superstore" target="_blank">clicking here</a>.
                     </p>
                 </div>
                 <div class="video">
-                    <img style="width: 100%; max-width: 18rem;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Home_Business_BLUE_Graphic.png/693px-Home_Business_BLUE_Graphic.png">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Home_Business_BLUE_Graphic.png/693px-Home_Business_BLUE_Graphic.png">
                 </div>
             </div>
         </div>
-        <div style="text-align: right; margin: auto; margin-bottom: 1rem; max-width: 25rem;"><button class="back_btn">Back</button></div>
+        <div><button class="back_btn">Back</button></div>
         <div class="signup">
-            <div style="text-align: center;">
-                Magic Webstore does not use traditional usernames and passwords, it uses magic strings. Make sure to back yours up! Your magic string is the only way to access your store.<br>
+            <div>
+                SuperStore does not use traditional usernames and passwords, it uses magic strings. Make sure to back yours up! Your magic string is the only way to access your store.<br>
             </div>
-            <div style="flex-direction: column; justify-content: center; align-items: center; word-wrap: break-word; overflow-wrap: anywhere; padding: 1rem; border: 1px solid black; margin-top: 1rem; display: none;" class="magic_string_box"><p style="font-weight: bold; text-decoration: underline;">Your magic string</p><div class="magic_string"></div></div>
+            <div class="magic_string_box"><p>Your magic string</p><div class="magic_string"></div></div>
             <div class="circle_row">
                 <div class="circle"><div>1</div></div>
                 <div class="instruction"><span class="blue" onclick="genString()">Generate</span> your magic string</div>
@@ -301,13 +150,13 @@
                 setTimeout( function() {$( '.magic_string' ).innerText = "••";}, 200 );
                 setTimeout( function() {$( '.magic_string' ).innerText = "•••";}, 400 );
                 setTimeout( function() {
-                    $( '.magic_string_box' ).innerHTML = `<p style="font-weight: bold; text-decoration: underline;">Your magic string</p><div class="magic_string" style="text-align: center;"></div>`;
+                    $( '.magic_string_box' ).innerHTML = `<p>Your magic string</p><div class="magic_string"></div>`;
                     $( '.magic_string' ).style.fontSize = "100%";
                     $( '.magic_string' ).innerText = "00" + bytesToHex( nobleSecp256k1.utils.randomPrivateKey() ).substring( 2, 64 ) + textToHex( JSON.stringify( relays ) );
                 }, 600 );
             }
             var backupString = () => {
-                var content = `<p>Did you back up your magic string? Save it somewhere safe where only you can access it. Your magic string is the only way to access your store. If you lose it, you will not only lose access to your store but also to any money you received since the last time you withdrew. Make sure you back this up before continuing:</p><p style="text-decoration: underline; font-weight: bold;">Your magic string</p><p>${$( '.magic_string' ).innerText}</p>`;
+                var content = `<p>Did you back up your magic string? Save it somewhere safe where only you can access it. Your magic string is the only way to access your store. If you lose it, you will not only lose access to your store but also to any money you received since the last time you withdrew. Make sure you back this up before continuing:</p><p>Your magic string</p><p>${$( '.magic_string' ).innerText}</p>`;
                 showModal( content );
             }
         </script>
