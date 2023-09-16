@@ -345,20 +345,22 @@
     </div>
   </nav>
 
-  <main>
+  <main class="explain">
     <div class="onboard position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary">
       <div class="col-md-6 p-lg-5 mx-auto my-5">
         <h1 class="display-3 fw-bold">Designed for everyone</h1>
         <h3 class="fw-normal text-muted mb-3">Buy & Sell anything you want, <u>anonymously</u> with GoodStr</h3>
-        <div class="d-flex gap-3 justify-content-center lead fw-normal">
-          <a class="icon-link" href="#">
-            Learn more
+        <div class="big_buttons d-flex gap-3 justify-content-center lead fw-normal">
+
+          <a class="icon-link big_button signup_btn" href="#">
+            Get&nbsp;started
             <svg class="bi"><use xlink:href="#chevron-right"/></svg>
           </a>
-          <a class="icon-link" href="#">
-            Try
+          <a class="icon-link big_button login_btn" href="#">
+            Log&nbsp;in
             <svg class="bi"><use xlink:href="#chevron-right"/></svg>
           </a>
+
         </div>
       </div>
       <div class="product-device shadow-sm d-none d-md-block"></div>
@@ -366,14 +368,14 @@
     </div>
 
     <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-      <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div id="simple" class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
         <div class="my-3 py-3">
           <h2 class="display-5">Ecommerce Simplified</h2>
           <p class="lead">GoodStr is focused on reducing the headaches of selling items online and easily collect payments.</p>
         </div>
         <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
       </div>
-      <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div id="magic" class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
         <div class="my-3 p-3">
           <h2 class="display-5">The Magic String</h2>
           <p class="lead">With GoodStr, your entire store is contained in your magic string, like a genie in a lamp. You just need to save that one string (safely!).</p>
@@ -383,14 +385,14 @@
     </div>
 
     <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-      <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div id="big" class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
         <div class="my-3 p-3">
           <h2 class="display-5">The Big Difference</h2>
           <p class="lead">Unlike traditional webstores, GoodStr doesn't need your identity or bank account information, so the onboarding process is sleek and simple.</p>
         </div>
         <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
       </div>
-      <div class="text-bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div id="stock" class="text-bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
         <div class="my-3 py-3">
           <h2 class="display-5">Decentralized Stock</h2>
           <p class="lead">Once you publish an item, it will be bradcasted along the <code>nostr</code> protocol unter the <a href="https://github.com/nostr-protocol/nips/blob/master/15.md" target="_blank">NIP15</a> reserved for Nostr Marketplace items.</p>
@@ -401,19 +403,22 @@
 
     <div class="col-lg-8 mx-auto p-4 py-md-5">
 
-<h1 class="text-body-emphasis">Get started with Bootstrap</h1>
-<p class="fs-5 col-md-8">Quickly and easily get started with Bootstrap's compiled, production-ready files with this barebones example featuring some basic HTML and helpful links. Download all our examples to get started.</p>
+<h1 class="text-body-emphasis">Get started with GoodStr</h1>
+<p class="fs-5 col-md-8">Quickly and easily get started with GoodStr's webstore generator online, create barebone marketplaces featuring all your greatest products & services. Simple online payments guaranteed!</p>
 
 <div class="mb-5">
-  <a href="../examples/" class="btn btn-primary btn-lg px-4">Download examples</a>
+  <a href="../examples/" class="btn btn-primary btn-lg px-4">Open your NewStr</a>
 </div>
 
 <hr class="col-3 col-md-2 mb-5">
 
 <div class="row g-5">
-  <div class="col-md-6">
-    <h2 class="text-body-emphasis">Starter projects</h2>
-    <p>Ready to go beyond the starter template? Check out these open source projects that you can quickly duplicate to a new GitHub repository.</p>
+  <div class="col-md-6 basics">
+    <h2 class="text-body-emphasis big_title">How can I use GoodStr?</h2>
+            <p class="simple_desc">
+                 GoodStr lets you monetize your life. Have a youtube channel? Start selling merchandise through GoodStr. Have a blog? Let people support you through sales and branding. Want to sell items at a farmer's market? Treat GoodStr as your point of sale system and let people check out with ease.<br><br>Try it out today! GoodStr is proudly built on bitcoin, the money of the internet, and nostr, a distributed data caching protocol. GoodStr is completely free and open source and you can dive into its source code by <a href="https://github.com/supertestnet/GoodStr" target="_blank">clicking here</a>.</p>
+        </div>
+    </div>
     <ul class="list-unstyled ps-0">
       <li>
         <a class="icon-link mb-1" href="https://github.com/twbs/examples/tree/main/icons-font" rel="noopener" target="_blank">
@@ -443,7 +448,7 @@
   </div>
 
   <div class="col-md-6">
-    <h2 class="text-body-emphasis">Guides</h2>
+    <h2 class="text-body-emphasis">Nostr Protocol</h2>
     <p>Read more detailed instructions and documentation on using or contributing to Bootstrap.</p>
     <ul class="list-unstyled ps-0">
       <li>
@@ -486,35 +491,45 @@
     <div class="row">
       <div class="col-12 col-md">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-        <small class="d-block mb-3 text-body-secondary">&copy; 2017–2023</small>
+        <small class="d-block mb-3 text-body-secondary">&copy; 2021–2023</small>
       </div>
       <div class="col-6 col-md">
         <h5>Features</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Random feature</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Team feature</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Stuff for developers</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Another one</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Last time</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#simple">Ecommerce Simplified</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#magic">The Magic String</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#big">The Big Difference</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#stock">Decentralized Stock</a></li>
+          <!-- li><a class="link-secondary text-decoration-none" href="#">Simple Withdrawn</a></li -->
         </ul>
       </div>
       <div class="col-6 col-md">
         <h5>Resources</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="link-secondary text-decoration-none" href="#">Resource name</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Resource</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Another resource</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Final resource</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#start">How can I use it?</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#guide">Nostr Standard</a></li>
+          <li><a class="link-secondary text-decoration-none" href="https://Bolt.Fun/project/GoodStr">Blog</a></li>
+          <li><a class="link-secondary text-decoration-none" href="https://snort.social/p/npub1hwluk4vax4g9lq882gktv75scuseferw3gvht7sdq6gthd7rqyxqluj4z3">Follow Us on Nostr</a></li>
+          <li><a class="link-secondary text-decoration-none" href="nostr:npub1hwluk4vax4g9lq882gktv75scuseferw3gvht7sdq6gthd7rqyxqluj4z3"><code>npub</code></a></li>
         </ul>
       </div>
       <div class="col-6 col-md">
-        <h5>Resources</h5>
+        <h5>Popular Tags</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="link-secondary text-decoration-none" href="#">Business</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Audio Books</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Business & Money</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Comics & Graphic Novels</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Courses</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Drawing & Painting</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">E-books</a></li>
           <li><a class="link-secondary text-decoration-none" href="#">Education</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Government</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Films</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Fonts</a></li>
           <li><a class="link-secondary text-decoration-none" href="#">Gaming</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Icon Sets</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Illustrations</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Music & Sounds</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Photography</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">
@@ -529,84 +544,56 @@
     </div>
   </footer>
 
-        <h1>
-            GoodStr 🪄
-        </h1>
-        <div class="explain">
-            <div class="row">
-                <div class="video">
-                    <a href="https://www.youtube.com/watch?v=cAH0384V1Bo" target="_blank"><img src="https://camo.githubusercontent.com/2224bee86d24077884a26c7aa6e72596ca60ec004a9ac4f8f2b73d78dc291c1a/68747470733a2f2f7375706572746573746e65742e6769746875622e696f2f737570657273746f72652f737570657273746f72652d7468756d626e61696c2e706e67"></a>
-                </div>
-                <div class="basics">
-                    <h2 class="big_title">
-                        Ecommerce Simplified
-                    </h2>
-                    <p class="simple_desc">
-                        GoodStr is focused on reducing the headaches of running a webstore.
-                    </p>
-                    <div class="big_buttons">
-                        <div class="big_button signup_btn">Get&nbsp;started</div>
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        <div class="big_button login_btn">Log&nbsp;in</div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="basics">
-                    <h2 class="big_title">
-                        The Magic String
-                    </h2>
-                    <p class="simple_desc">
-                        With GoodStr, your entire store is contained in your magic string, like a genie in a lamp. You just need to save that one string (back it up and store it safely) and you can do everything you need: add products to your store, manage your inventory, track your income, and keep you money safe.
-                    </p>
-                </div>
-                <div class="video">
-                </div>
-            </div>
-            <div class="row">
-                <div class="video">
-                </div>
-                <div class="basics">
-                    <h2 class="big_title">
-                        The Big Difference
-                    </h2>
-                    <p class="simple_desc">
-                         Unlike traditional webstores, GoodStr doesn't need your identity or bank account information, so the onboarding process is sleek and simple. Your GoodStr will automatically create a bitcoin wallet for you and even your private key is contained in your Magic String.<br><br>You just start adding products to your store and then share the link with people. They can view your products, buy items from you, and send you messages.
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="basics">
-                    <h2 class="big_title">
-                        How can I use GoodStr?
-                    </h2>
-                    <p class="simple_desc">
-                         GoodStr lets you monetize your life. Have a youtube channel? Start selling merchandise through GoodStr. Have a blog? Let people support you through sales and branding. Want to sell items at a farmer's market? Treat GoodStr as your point of sale system and let people check out with ease.<br><br>Try it out today! GoodStr is proudly built on bitcoin, the money of the internet, and nostr, a distributed data caching protocol. GoodStr is completely free and open source and you can dive into its source code by <a href="https://github.com/supertestnet/GoodStr" target="_blank">clicking here</a>.
-                    </p>
-                </div>
-                <div class="video">
-                </div>
-            </div>
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="signup modal fade" id="sigup" class="signup"tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Get Your Magic String</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <p>GoodStr does not use traditional usernames and passwords, it uses magic strings. Make sure to back yours up! Your magic string is the only way to access your store.</p>
+          <div class="magic_string_box"><p>Your magic string</p><div class="magic_string"></div></div>
+
+          <div class="circle_row">
+              <div class="circle"><div>1</div></div>
+              <div class="instruction"><span class="blue" onclick="genString()">Generate</span> your magic string</div>
+          </div>
+          <div class="circle_row">
+              <div class="circle"><div>2</div></div>
+              <div class="instruction"><span class="blue" onclick="backupString()">Back up</span> your magic string</div>
+          </div>
+          <div class="circle_row">
+              <div class="circle"><div>3</div></div>
+              <div class="instruction"><span class="blue" onclick="useString()">Log in</span> with your magic string</div>
+          </div>
+
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
         <div><button class="back_btn">Back</button></div>
-        <div class="signup">
-            <div>
-                GoodStr does not use traditional usernames and passwords, it uses magic strings. Make sure to back yours up! Your magic string is the only way to access your store.<br>
-            </div>
-            <div class="magic_string_box"><p>Your magic string</p><div class="magic_string"></div></div>
-            <div class="circle_row">
-                <div class="circle"><div>1</div></div>
-                <div class="instruction"><span class="blue" onclick="genString()">Generate</span> your magic string</div>
-            </div>
-            <div class="circle_row">
-                <div class="circle"><div>2</div></div>
-                <div class="instruction"><span class="blue" onclick="backupString()">Back up</span> your magic string</div>
-            </div>
-            <div class="circle_row">
-                <div class="circle"><div>3</div></div>
-                <div class="instruction"><span class="blue" onclick="useString()">Log in</span> with your magic string</div>
-            </div>
-        </div>
+
+        <script>
+            const myModal = document.getElementById('signup')
+
+            myModal.addEventListener('shown.bs.modal', () => {
+              myInput.focus()
+            })
+        </script>
         <script>
             var useString = () => {
                 var ms = prompt( "Please enter your magic string" );
