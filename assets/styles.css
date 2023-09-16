@@ -1,3 +1,32 @@
+/** CUSTOM HERE **/
+
+.bold {
+  font-weight: bold;
+}
+
+
+.purple {
+  color: #663399 ;
+}
+
+a,
+.pink {
+    color: #FF00FF;
+}
+.orange {
+  color: #FF9500 ;
+}
+
+.yellow {
+  color: #FFFF00 ;
+}"
+
+.onboard {
+ background-image: url('img/bg-onboarding.png');
+ background-size: cover;
+}
+
+
 /* more from  <link href="product.css" rel="stylesheet"> */
 
 .container {
@@ -73,12 +102,6 @@
   .flex-md-equal > * {
     flex: 1;
   }
-}
-
-/** CUSTOM HERE **/
-
-.bold {
-  font-weight: bold;
 }
 
 /** BootStrap Product styles **/
