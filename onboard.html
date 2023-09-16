@@ -592,7 +592,11 @@
               <div class="instruction"><span class="blue" onclick="genString()">Generate</span> your magic string.</div>
           </div>
           <div class="magic_string_box" style="display: block!important;"><div class="magic_string" style="display: block!important;"></div><br/>
-          <small>Your magic string is the only way to access and manage your store. If you lose it, you will not only lose access to your store but also to any money you received since the last time you withdrew! Make sure you back this up before continuing.</small>
+          <div class="alert alert-waring alert-dismissible fade show" role="alert">
+            <small>Your magic string is the only way to access and manage your store. If you lose it, you will not only lose access to your store but also to any money you received since the last time you withdrew! Make sure you back this up before continuing.</small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
         </div>
           <hr class="separator">
           <div class="circle_row">
@@ -614,7 +618,7 @@
 
       </div>
         <div class="modal-footer">
-          <div class="alert alert- alert-dismissible fade show" role="alert">
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
             🥑 <strong>Holy guacamole!</strong> Did you back up your <code>magic string</code>? Save it somewhere safe, ideally offline, maybe encrypted...
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
