@@ -20,12 +20,17 @@
         <style type="text/css">
         /** CUSTOM HERE **/
 
+        #root .card {
+          box-shadow: on !important;
+        }
+
         .nav-link {
           padding-top: 15px;
           line-height: 1.5rem;
         }
 
-        .logo {
+        .logo,
+        #root .card h3 {
           font-family: "Azeret Mono", "SF Mono", "Courier New", courier, monospace !important;
           font-weight: 900 !important;
           font-style: italic !important;
@@ -66,9 +71,18 @@
           color: #663399 ;
         }
 
+        .purple-bg {
+          background-color: #663399 !important;
+        }
+
         .pink {
             color: #FF00FF !important;
         }
+
+        .pink-bg {
+            background-color: #FF00FF !important;
+        }
+
         .orange {
           color: #FF9500 ;
         }
@@ -590,7 +604,7 @@
       </div>
     </div>
     <div id="help" class="col-md-6">
-      <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+      <div class="h-100 p-5 purple-bg border rounded-3">
         <h2 class="text-body-emphasis big_title">Get in Touch</h2>
         <p class="simple_desc">We are here to help, feel free to sennt us all your enquiries via <code>nostr</code>:</p>
         <p>npub:<code>npub1hwluk4vax4g9lq882gktv75scuseferw3gvht7sdq6gthd7rqyxqluj4z3</code></p>
@@ -610,7 +624,7 @@
   </div>
 
   <div id="sats" class="col-md-6">
-    <div class="h-100 p-5 text-bg-dark border rounded-3">
+    <div class="h-100 p-5 pink-bg border rounded-3">
       <lightning-widget
         name="GoodSt"
         accent="#ff00ff"
