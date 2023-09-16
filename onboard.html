@@ -18,6 +18,9 @@
 
         .blue {
           text-decoration: underline;
+          cursor: pointer !important;
+          /*cursor: url() !important;
+          */
         }
 
         .bold {
@@ -366,7 +369,7 @@
       <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
     </div>
 
-    <div class="d-md-flex flex-md-equal w-100">
+      <div class="d-md-flex flex-md-equal w-100">
       <div id="simple" class="text-bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
         <div class="my-3 py-3">
           <h2 class="display-5">Ecommerce Simplified</h2>
@@ -568,26 +571,33 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>GoodStr does not use traditional usernames and passwords, it uses magic strings. Make sure to back yours up! Your magic string is the only way to access your store.</p>
+          <p>GoodStr does not use traditional <code>usernames</code> and <code>passwords</code>, it uses magic strings to identyfy and backup your store. Make sure to back yours Magic Strinng! It's the only way to access and manage your store.</p>
           <div class="magic_string_box"><p>Your magic string</p><div class="magic_string"></div></div>
 
           <div class="circle_row">
-              <div class="circle"><div>1</div></div>
+              <div class="circle">
+                <div><code>1</code></div></div>
+                <i class="bi bi-magic" size="42"></i>
               <div class="instruction"><span class="blue" onclick="genString()">Generate</span> your magic string</div>
           </div>
           <div class="circle_row">
-              <div class="circle"><div>2</div></div>
+              <div class="circle">
+                <div><code>2</code></div></div>
+                <!--i class="bi bi-fingerprint" size="42"></i-->
+                <i class="bi bi-key" size="42"></i>
               <div class="instruction"><span class="blue" onclick="backupString()">Back up</span> your magic string</div>
           </div>
           <div class="circle_row">
-              <div class="circle"><div>3</div></div>
+              <div class="circle">
+                <div><code>3</code></div></div>
+                <i class="bi bi-door-open-fill" size="42"></i>
+                <!--i class="bi bi-shop-window"></i -->
               <div class="instruction"><span class="blue" onclick="useString()">Log in</span> with your magic string</div>
           </div>
 
       </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cool!</button>
         </div>
       </div>
     </div>
@@ -618,7 +628,7 @@
                 setTimeout( function() {$( '.magic_string' ).innerText = "••";}, 200 );
                 setTimeout( function() {$( '.magic_string' ).innerText = "•••";}, 400 );
                 setTimeout( function() {
-                    $( '.magic_string_box' ).innerHTML = `<p>Your magic string</p><div class="magic_string"></div>`;
+                    $( '.magic_string_box' ).innerHTML = `<i class="bi bi-key" size="42"></i><br/><p>Your magic string</p><code><div class="magic_string"></div></code>`;
                     $( '.magic_string' ).style.fontSize = "100%";
                     $( '.magic_string' ).innerText = "00" + bytesToHex( nobleSecp256k1.utils.randomPrivateKey() ).substring( 2, 64 ) + textToHex( JSON.stringify( relays ) );
                 }, 600 );
