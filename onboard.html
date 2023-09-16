@@ -17,7 +17,7 @@
         /** CUSTOM HERE **/
 
         .circle {
-          margin-bottom: -12px;
+          margin-bottom: -21px;
           z-index: 999
         }
 
@@ -51,6 +51,11 @@
         .onboard {
          background-image: url('assets/img/bg-onboarding.png');
          background-size: cover;
+        }
+
+        ::-moz-selection,
+        ::selection {
+          background-color: rgba(255,255,0,50) !important; 
         }
 
 
@@ -583,7 +588,7 @@
             <div class="circle_row">
               <div class="circle">
                 <code>1</code></div>
-                <i class="bi bi-magic" style="font-size:42px;"></i>
+                <i class="bi bi-magic" style="font-size:42px; opacity: .5;"></i>
               <div class="instruction"><span class="blue" onclick="genString()">Generate</span> your magic string</div>
           </div>
           <div class="magic_string_box" style="display: block!important;"><div class="magic_string" style="display: block!important;"></div></div>
@@ -592,14 +597,14 @@
               <div class="circle">
                 <code>2</code></div>
                 <!--i class="bi bi-fingerprint" size="42"></i-->
-                <i class="bi bi-key" style="font-size:42px;"></i>
+                <i class="bi bi-key" style="font-size:42px; opacity: .5;"></i>
               <div class="instruction"><span class="blue" onclick="backupString()">Back up</span> your magic string</div>
           </div>
           <hr class="separator">
           <div class="circle_row">
               <div class="circle">
                 <code>3</code></div>
-                <i class="bi bi-door-open-fill" style="font-size:42px;"></i>
+                <i class="bi bi-door-open-fill" style="font-size:42px; opacity: .5;"></i>
                 <!--i class="bi bi-shop-window"></i -->
               <div class="instruction"><span class="blue" onclick="useString()">Log in</span> with your magic string</div>
             </div>
@@ -607,7 +612,10 @@
 
       </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cool!</button>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> You should backup on some of those fields above befor conntinuing!.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
         </div>
       </div>
     </div>
