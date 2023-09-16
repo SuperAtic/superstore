@@ -320,7 +320,7 @@
 
 
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-    <symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+    <symbol id="goodstr" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
       <circle cx="12" cy="12" r="10"/>
       <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
     </symbol>
@@ -335,8 +335,8 @@
   <nav id="up" class="navbar navbar-expand-md bg-dark border-bottom" data-bs-theme="dark">
     <div class="container">
       <a class="navbar-brand d-md-none" href="#">
-        <svg class="bi" width="24" height="24"><use xlink:href="#aperture"/></svg>
-        GoodStr
+        <svg class="bi" width="24" height="24"><use xlink:href="#goodstr"/></svg>
+        <strong class="logo">GoodStr</strong>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="#offcanvas" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -349,12 +349,13 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav flex-grow-1 justify-content-between">
             <li class="nav-item"><a class="nav-link" href="#">
-              <svg class="bi" width="24" height="24"><use xlink:href="#aperture"/></svg>
+              <svg class="bi" width="24" height="24"><use xlink:href="#goodstr"/></svg>
+              <strong class="logo">GoodStr</strong>
             </a></li>
             <li class="nav-item"><a class="nav-link" href="#up">Welcome</a></li>
             <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
             <li class="nav-item"><a class="nav-link" href="#discover">Discover</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
+            <li class="nav-item"><a class="nav-link" href="#faqs">FAQs</a></li>
             <li class="nav-item"><a class="nav-link" href="#">
               <i class="bi bi-cart"></i> BagStr
             </a></li>
@@ -374,7 +375,7 @@
     <div class="onboard position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary">
       <div class="col-md-6 p-lg-5 mx-auto my-5">
         <h1 class="display-3 fw-bold">Designed for everyone</h1>
-        <h3 class="fw-normal text-muted mb-3">Buy & Sell anything you want,<br><u>anonymously</u> with GoodStr</h3>
+        <h3 class="fw-normal text-muted mb-3">Buy & Sell anything you want,<br/><u>anonymously</u> with GoodStr</h3>
         <div class="big_buttons gap-3 justify-content-center lead fw-normal">
 
           <code>Access yours with <span class="blue" onclick="useString()">Magic String</span> or</code><br/><br/>
@@ -386,7 +387,7 @@
       <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
     </div>
 
-      <div id="features"class="d-md-flex flex-md-equal w-100">
+      <div id="features" class="d-md-flex flex-md-equal w-100">
       <div id="simple" class="bg-body-secondary pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
         <div class="my-3 py-3">
           <h2 class="display-5">Ecommerce Simplified</h2>
@@ -561,7 +562,7 @@
     <hr class="my-5">
     <div class="row">
       <div class="col-12 col-md">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+        <strong class="logo">GoodStr</strong>
         <small class="d-block mb-3 text-body-secondary">&copy; 2021–2023</small>
       </div>
       <div class="col-6 col-md">
@@ -633,10 +634,6 @@
   						<i class="bi bi-magic" style="font-size:42px; opacity: .5;"></i>
   						<div class="instruction mb-2"><span class="blue" onclick="genString()">Generate</span> your magic string.</div>
   					</div>
-  					<div class="alert alert-warning fade show" role="alert">
-  						<small style="opacity:0.5;">Your magic string is the only way to access and manage your store. If you lose it, you will not only lose access to your store but also to any money you received since the last time you withdrew! Make sure you back this up before continuing.</small>
-  					</div>
-            <br>
             <div class="magic_string_box">
   						<div class="magic_string" style="display: block!important;"></div>
   					</div>
