@@ -1,821 +1,784 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <script src="/assets/color-modes.js"></script>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no">
-        <meta name="description" content="GoodStr is focused on reducing the headaches of running a webstore. GoodStr lets you monetize your life freely and anonymously.">
-        <meta name="author" content="GoodStr and contributors">
-        <meta name="generator" content="GoodStr 0.118.2">
-        <title>GoodStrᵅ - Welcome</title>
-        <link rel="shortcut icon" type="image/png" href="favicon.png">
-        <!-- link rel="stylesheet" href="assets/bootstrap.css"-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        <script src="https://bundle.run/noble-secp256k1@1.2.14"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100;0,400;0,600;0,900;1,100;1,400;1,600;1,900&display=swap" rel="stylesheet">
-        <style type="text/css">
-        /** CUSTOM HERE **/
-
-        #root .card {
-          box-shadow: none !important;
-        }
-
-        .nav-link {
-          padding-top: 15px;
-          line-height: 1.5rem;
-        }
-
-        .logo,
-        #root .card h3 {
-          font-family: "Azeret Mono", "SF Mono", "Courier New", courier, monospace !important;
-          font-weight: 900 !important;
-          font-style: italic !important;
-          font-size: 1.6rem;
-        }
-
-        .logobag {
-          margin-top: -11px;
-        }
-
-        .magic_string_box {
-          text-align: center !important;
-          display: block!important;
-        }
-
-        .circle {
-          margin-bottom: -12px;
-          z-index: 999
-        }
-
-        .circle_row {
-          text-align: center !important;
-        }
-
-        .blue {
-          text-decoration: underline;
-          cursor: pointer !important;
-          /*cursor: url() !important;
-          */
-        }
-
-        .bold {
-          font-weight: bold;
-        }
-
-        .purple,
-        .blue {
-          color: #663399 ;
-        }
-
-        .purple-bg {
-          background-color: #663399 !important;
-        }
-
-        .pink {
-            color: #FF00FF !important;
-        }
-
-        .pink-bg {
-            background-color: #FF00FF !important;
-        }
-
-        .orange {
-          color: #FF9500 ;
-        }
-
-        .yellow {
-          color: #FFFF00 ;
-        }
-
-        .onboard {
-         background-image: url('assets/img/bg-onboarding.png');
-         background-size: cover;
-         background-position: center center;
-        }
-
-        ::-moz-selection,
-        ::selection {
-          color: inherit;
-          background-color: rgba(255,255,0,0.5) !important;
-        }
-
-
-        /* more from  <link href="product.css" rel="stylesheet"> */
-
-        .container {
-          max-width: 960px;
-        }
-
-        .icon-link > .bi {
-          width: .75em;
-          height: .75em;
-        }
-
-        /*
-         * Custom translucent site header
-         */
-
-        .site-header {
-          background-color: rgba(0, 0, 0, .85);
-          -webkit-backdrop-filter: saturate(180%) blur(20px);
-          backdrop-filter: saturate(180%) blur(20px);
-        }
-        .site-header a {
-          color: #8e8e8e;
-          transition: color .15s ease-in-out;
-        }
-        .site-header a:hover {
-          color: #fff;
-          text-decoration: none;
-        }
-
-        /*
-         * Dummy devices (replace them with your own or something else entirely!)
-         */
-
-        .product-device {
-          position: absolute;
-          right: 10%;
-          bottom: -30%;
-          width: 300px;
-          height: 540px;
-          background-color: #333;
-          border-radius: 21px;
-          transform: rotate(30deg);
-        }
-
-        .product-device::before {
-          position: absolute;
-          top: 10%;
-          right: 10px;
-          bottom: 10%;
-          left: 10px;
-          content: "";
-          background-color: rgba(255, 255, 255, .1);
-          border-radius: 5px;
-        }
-
-        .product-device-2 {
-          top: -25%;
-          right: auto;
-          bottom: 0;
-          left: 5%;
-          background-color: #e5e5e5;
-        }
-
-
-        /*
-         * Extra utilities
-         */
-
-        .flex-equal > * {
-          flex: 1;
-        }
-        @media (min-width: 768px) {
-          .flex-md-equal > * {
-            flex: 1;
-          }
-        }
-
-        /** BootStrap Product styles **/
-
-        .bd-placeholder-img {
-          font-size: 1.125rem;
-          text-anchor: middle;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          user-select: none;
-        }
-
-        @media (min-width: 768px) {
-          .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-          }
-        }
-
-        .b-example-divider {
-          width: 100%;
-          height: 3rem;
-          background-color: rgba(0, 0, 0, .1);
-          border: solid rgba(0, 0, 0, .15);
-          border-width: 1px 0;
-          box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
-
-        .b-example-vr {
-          flex-shrink: 0;
-          width: 1.5rem;
-          height: 100vh;
-        }
-
-        .bi {
-          vertical-align: -.125em;
-          fill: currentColor;
-        }
-
-        .nav-scroller {
-          position: relative;
-          z-index: 2;
-          height: 2.75rem;
-          overflow-y: hidden;
-        }
-
-        .nav-scroller .nav {
-          display: flex;
-          flex-wrap: nowrap;
-          padding-bottom: 1rem;
-          margin-top: -1px;
-          overflow-x: auto;
-          text-align: center;
-          white-space: nowrap;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        .btn-bd-primary {
-          --bd-violet-bg: #712cf9;
-          --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-          --bs-btn-font-weight: 600;
-          --bs-btn-color: var(--bs-white);
-          --bs-btn-bg: var(--bd-violet-bg);
-          --bs-btn-border-color: var(--bd-violet-bg);
-          --bs-btn-hover-color: var(--bs-white);
-          --bs-btn-hover-bg: #6528e0;
-          --bs-btn-hover-border-color: #6528e0;
-          --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-          --bs-btn-active-color: var(--bs-btn-hover-color);
-          --bs-btn-active-bg: #5a23c8;
-          --bs-btn-active-border-color: #5a23c8;
-        }
-
-        .bd-mode-toggle {
-          z-index: 1500;
-        }
-
-        .bd-mode-toggle .dropdown-menu .active .bi {
-          display: block !important;
-        }
-
-        </style>
-
-        <script>
-            var $ = document.querySelector.bind( document );
-            var $$ = document.querySelectorAll.bind( document );
-            var url_params = new URLSearchParams( window.location.search );
-            var url_keys = url_params.keys();
-            var $_GET = {}
-            for ( var key of url_keys ) $_GET[ key ] = url_params.get( key );
-            var relays = [
-                "wss://nostrue.com",
-                "wss://relayable.org",
-                "wss://nostr.oxtr.dev"
-            ]
-        </script>
-        <script>
-            function bytesToHex( bytes ) {
-                return bytes.reduce( ( str, byte ) => str + byte.toString( 16 ).padStart( 2, "0" ), "" );
-            }
-            function textToHex( text ) {
-                var encoder = new TextEncoder().encode( text );
-                return [...new Uint8Array(encoder)]
-                    .map( x => x.toString( 16 ).padStart( 2, "0" ) )
-                    .join( "" );
-            }
-            function hexToText( hex ) {
-                var bytes = new Uint8Array(Math.ceil(hex.length / 2));
-                for (var i = 0; i < hex.length; i++) bytes[i] = parseInt(hex.substr(i * 2, 2), 16);
-                var text = new TextDecoder().decode( bytes );
-                return text;
-            }
-            function modalVanish() {
-                $( ".black-bg" ).style.display = "none";
-                $( ".modal" ).style.display = "none";
-            }
-            function showModal( content, block_til_clear ) {
-                if ( block_til_clear ) var fn = `modalVanish();sessionStorage[ 'modal_cleared' ] = true;`; else var fn = `modalVanish();`;
-                $( ".modal" ).innerHTML = `<div onclick="${fn}">&times;</div>`;
-                $( ".modal" ).innerHTML += `<div>${content}</div>`;
-                $( ".black-bg" ).style.display = "block";
-                $( ".modal" ).style.display = "block";
-            }
-        </script>
-    </head>
-    <body>
-      <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-        <symbol id="check2" viewBox="0 0 16 16">
-          <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-        </symbol>
-        <symbol id="circle-half" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
-        </symbol>
-        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-          <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
-          <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
-        </symbol>
-        <symbol id="sun-fill" viewBox="0 0 16 16">
-          <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-        </symbol>
-      </svg>
-
-      <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-        <button class="btn btn-bd-primary py-2  d-flex align-items-center"
-                id="bd-theme"
-                type="button"
-                aria-expanded="false"
-                data-bs-toggle="dropdown"
-                aria-label="Toggle theme (auto)">
-          <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
-          <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-          <li>
-            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-              <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-              Light
-              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-            </button>
-          </li>
-          <li>
-            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-              <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-              Dark
-              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-            </button>
-          </li>
-          <li>
-            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-              <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
-              Auto
-              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-            </button>
-          </li>
-        </ul>
-      </div>
-
-
-  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-    <symbol id="goodstr" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-      <path d="M12.25 2.00521C13.1735 2.00521 14.0592 2.37972 14.7122 3.04635C15.3653 3.71299 15.7321 4.61713 15.7321 5.5599V6.27083H8.76786V5.5599C8.76786 4.61713 9.13472 3.71299 9.78775 3.04635C10.4408 2.37972 11.3265 2.00521 12.25 2.00521ZM17.125 6.27083V5.5599C17.125 4.24003 16.6114 2.97422 15.6971 2.04094C14.7829 1.10765 13.5429 0.583334 12.25 0.583334C10.9571 0.583334 9.71709 1.10765 8.80285 2.04094C7.88862 2.97422 7.375 4.24003 7.375 5.5599V6.27083H2.5V20.4896C2.5 21.2438 2.79349 21.9671 3.31592 22.5004C3.83834 23.0337 4.5469 23.3333 5.28571 23.3333H19.2143C19.9531 23.3333 20.6617 23.0337 21.1841 22.5004C21.7065 21.9671 22 21.2438 22 20.4896V6.27083H17.125Z" fill="url(#paint0_linear_649_568)"/>
-      <path d="M10.6381 9.75781C10.6579 9.68938 10.699 9.6293 10.7552 9.58658C10.8115 9.54386 10.8798 9.52079 10.9501 9.52083H13.5499C13.6014 9.52087 13.6521 9.53333 13.6979 9.55717C13.7437 9.58101 13.7833 9.61556 13.8133 9.65797C13.8434 9.70038 13.8632 9.74945 13.8709 9.80112C13.8787 9.85279 13.8742 9.9056 13.858 9.95519L12.7011 13.4815H15.1748C15.2357 13.4815 15.2953 13.4988 15.3469 13.5315C15.3986 13.5642 15.4402 13.611 15.4669 13.6665C15.4937 13.722 15.5045 13.784 15.4983 13.8455C15.492 13.907 15.4689 13.9655 15.4315 14.0142L10.8818 19.9553C10.8352 20.0165 10.7689 20.059 10.6946 20.0756C10.6202 20.0922 10.5424 20.0818 10.4749 20.0461C10.4073 20.0104 10.3543 19.9518 10.3249 19.8804C10.2956 19.809 10.2919 19.7295 10.3144 19.6556L11.485 15.7919H9.32517C9.27464 15.792 9.22481 15.78 9.17962 15.7571C9.13443 15.7341 9.09513 15.7008 9.06485 15.6597C9.03457 15.6186 9.01413 15.571 9.00516 15.5205C8.99619 15.47 8.99894 15.418 9.01319 15.3688L10.6381 9.75781Z" fill="url(#paint1_linear_649_568)"/>
-      <defs>
-      <linearGradient id="paint0_linear_649_568" x1="12.25" y1="0.583334" x2="12.25" y2="23.3333" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#663399"/>
-      <stop offset="1" stop-color="#FF00FF"/>
-      </linearGradient>
-      <linearGradient id="paint1_linear_649_568" x1="12.25" y1="9.52083" x2="12.25" y2="20.0833" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFFF00"/>
-      <stop offset="1" stop-color="#FF9500"/>
-      </linearGradient>
-      </defs>
-    </symbol>
-    <symbol id="cart" viewBox="0 0 16 16">
-      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-    </symbol>
-    <symbol id="chevron-right" viewBox="0 0 16 16">
-      <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-    </symbol>
-  </svg>
-
-  <nav id="up" class="navbar navbar-expand-md bg-dark border-bottom" data-bs-theme="dark">
-    <div class="container">
-      <a class="navbar-brand d-md-none" href="#">
-        <!-- svg class="bi" width="24" height="24"><use xlink:href="#goodstr"/></svg-->
-        <img src="assets/img/GoodStr_logo.png" class="logobag" alt="GoodStr" width="24" height="24">
-        <strong class="logo">GoodStr<sup>α</sup></strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="#offcanvas" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="#offcanvas" aria-labelledby="#offcanvasLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="#offcanvasLabel">GoodStr</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav flex-grow-1 justify-content-between">
-            <li class="nav-item"><a class="nav-link" href="#up">
-              <!-- svg class="bi" width="24" height="24"><use xlink:href="#goodstr"/></svg-->
-              <img src="assets/img/GoodStr_logo.png" class="logobag" alt="GoodStr" width="24" height="24">
-              <strong class="logo">GoodStr<sup>α</sup></strong>
-            </a></li>
-            <!-- li class="nav-item"><a class="nav-link" href="#up">Welcome</a></li-->
-            <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-            <li class="nav-item"><a class="nav-link" href="#discover">Discover</a></li>
-            <li class="nav-item"><a class="nav-link" href="#faqs">FAQs</a></li>
-            <li class="nav-item"><a class="nav-link" href="#help  ">Help</a></li>
-            <!-- li class="nav-item"><a class="nav-link" href="#">
-              <i class="bi bi-cart"></i> BagStr
-            </a></li>
-            <li class="nav-item"><a class="nav-link" href="#">
-              <i class="bi bi-shop-window"></i> ManageStr
-            </a></li>
-            <li class="nav-item"><a class="nav-link" href="#">
-              <i class="bi bi-magic"></i> NewStr
-            </a></li-->
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main class="explain">
-    <div class="onboard position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary">
-      <div class="col-md-6 p-lg-5 mx-auto my-5">
-        <h1 class="display-3 fw-bold">Designed for everyone</h1>
-        <h3 class="fw-normal text-muted mb-3">Buy & Sell anything you want,<br/><u>anonymously</u> with GoodStr</h3>
-        <div class="big_buttons gap-3 justify-content-center lead fw-normal">
-
-          <code>Access yours with <span class="blue" onclick="useString()">Magic String</span> or</code><br/><br/>
-          <button type="button" class="btn btn-lg btn-primary btn-outline" data-bs-toggle="modal" data-bs-target="#signup">Open a NewStr</button>
-
-        </div>
-      </div>
-      <div class="product-device shadow-sm d-none d-md-block"></div>
-      <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-    </div>
-
-      <div id="features" class="d-md-flex flex-md-equal w-100">
-      <div id="simple" class="bg-body-secondary pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 py-3">
-          <h2 class="display-5">Ecommerce Simplified</h2>
-          <p class="lead">GoodStr is focused on reducing the headaches of selling items online and easily collect payments.</p>
-        </div>
-        <div class="text-bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-      <div id="magic" class="text-bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-          <h2 class="display-5">The Magic String</h2>
-          <p class="lead">With GoodStr, your entire store is contained in your magic string, like a genie in a lamp. You just need to save that one string (safely!).</p>
-        </div>
-          <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-    </div>
-
-    <div class="d-md-flex flex-md-equal w-100">
-      <div id="big" class="text-bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
-          <h2 class="display-5">The Big Difference</h2>
-          <p class="lead">Unlike traditional webstores, GoodStr doesn't need your identity or bank account information, so the onboarding process is sleek and simple. No KYC.</p>
-        </div>
-        <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-      <!-- div id="stock" class="text-bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" -->
-      <div id="stock" class="bg-body-secondary pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 py-3">
-          <h2 class="display-5">Decentralized Stock</h2>
-          <p class="lead">Once you publish an item, it will be bradcasted along the <code>nostr</code> protocol unter the <a href="https://github.com/nostr-protocol/nips/blob/master/15.md" target="_blank">NIP15</a> reserved for Nostr Marketplace items.</p>
-        </div>
-        <div class="text-bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-      </div>
-    </div>
-
-      <div class="d-md-flex flex-md-equal w-100">
-        <div id="simple" class="bg-body-secondary pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-          <div class="my-3 py-3">
-            <h2 class="display-5">Ecommerce Simplified</h2>
-            <p class="lead">GoodStr is focused on reducing the headaches of selling items online and easily collect payments.</p>
-          </div>
-          <div class="text-bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-        </div>
-        <div id="magic" class="text-bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-          <div class="my-3 p-3">
-            <h2 class="display-5">The Magic String</h2>
-            <p class="lead">With GoodStr, your entire store is contained in your magic string, like a genie in a lamp. You just need to save that one string (safely!).</p>
-          </div>
-          <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-        </div>
-      </div>
-
-    <div id="discover " class="col-lg-8 mx-auto p-4 py-md-5 my-5">
-
-<h1 class="text-body-emphasis">Get started with GoodStr</h1>
-<p class="fs-5 col-md-8">Quickly and easily get started with GoodStr's webstore generator online, create barebone marketplaces featuring all your greatest products & services. Simple online payments guaranteed!</p>
-
-<!-- Button trigger modal -->
-<code>Access yours with <span class="blue" onclick="useString()">Magic String</span> or ...</code><br/><br/>
-<button type="button" class="btn btn-lg btn-primary btn-outline" data-bs-toggle="modal" data-bs-target="#signup" style="margin-right:8px;">Open a NewStr</button>
-
-<hr class="col-3 col-md-2 my-5">
-
-<div class="row g-5">
-  <div class="col-md-6">
-    <h2 class="text-body-emphasis big_title">How can I use GoodStr?</h2>
-            <p class="simple_desc">GoodStr lets you monetize your life. Have a youtube channel? Start selling merchandise through GoodStr. Have a blog? Let people support you through sales and branding. Want to sell items at a farmer's market? Treat GoodStr as your point of sale system and let people check out with ease.</p>
-    <ul class="list-unstyled ps-0">
-      <li>
-        <a class="icon-link mb-1" href="#start">
-          <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
-          Quick Start
-        </a>
-      </li>
-      <li>
-        <a class="icon-link mb-1" href="#payments">
-          <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
-          Simple Payments
-        </a>
-      </li>
-      <li>
-        <a class="icon-link mb-1" href="#parcels">
-          <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
-          Orgaize Parcels
-        </a>
-      </li>
-      <li>
-        <a class="icon-link mb-1" href="#sellers">
-          <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
-          Sellers Guides
-        </a>
-      </li>
-      <li>
-        <a class="icon-link mb-1" href="https://github.com/superatic/superstore/">
-          <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
-          Contribute
-        </a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="col-md-6">
-    <h2 class="text-body-emphasis">GoodStr Webstores</h2>
-    <p>Try it out today! GoodStr is proudly built on bitcoin, the money of the internet, and nostr, a distributed data caching protocol. GoodStr is completely free and open source and you can dive into its source code by <a href="https://github.com/supertestnet/GoodStr" target="_blank">clicking here</a>.</p>
-    <ul class="list-unstyled ps-0">
-      <liid="#btc">
-        <a class="icon-link mb-1" href="#">
-          <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
-          What's Bitcoin?
-        </a>
-      </li>
-      <li id="#ln">
-        <a class="icon-link mb-1" href="#">
-          <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
-          What's Lightning?
-        </a>
-      </li>
-      <li id="#nostr">
-        <a class="icon-link mb-1" href="#">
-          <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
-          What's Nostr?
-        </a>
-      </li>
-      <li id="#v4v">
-        <a class="icon-link mb-1" href="#">
-          <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
-          Value 4 Value
-        </a>
-      </li>
-    </ul>
-  </div>
-
-<div class="row mt-5">
-  <div class="row align-items-md-stretch">
-    <div id="faqs" class="col-md-6">
-      <div class="h-100 p-5 pink-bg border rounded-3">
-        <h2 class="text-body-emphasis big_title">Do you have any qiestion?</h2>
-        <p class="simple_desc">We got Answers :)</p>
-
-        <h4>
-          <a style="text-decoration: none;" type="button" data-bs-toggle="collapse" data-bs-target="#01" aria-expanded="false" aria-controls="collapseWidthExample">
-            Question
-          </a>
-        </h4>
-        <div style="min-height: 120px;">
-          <div class="collapse collapse-horizontal" id="01">
-            <div class="card card-body">
-
-              Answer
-            </div>
-          </div>
-          <h4>
-            <a style="text-decoration: none;" type="button" data-bs-toggle="collapse" data-bs-target="#02" aria-expanded="false" aria-controls="collapseWidthExample">
-              Question
-            </a>
-          </h4>
-          <div style="min-height: 120px;">
-            <div class="collapse collapse-horizontal" id="02">
-              <div class="card card-body">
-                    Answer
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="help" class="col-md-6">
-      <div class="h-100 p-5 bg-body-secondary border rounded-3">
-        <h2 class="text-body-emphasis big_title">Get in Touch</h2>
-        <p class="simple_desc">We are here to help, feel free to sennt us all your enquiries via <code>nostr</code>:</p>
-        <p>npub:<code>npub1hwluk4vax4g9lq882gktv75scuseferw3gvht7sdq6gthd7rqyxqluj4z3</code></p>
-        <a href="https://snort.social/p/npub1hwluk4vax4g9lq882gktv75scuseferw3gvht7sdq6gthd7rqyxqluj4z3" class="btn btn-outline-secondary" type="button">Send Us an Encrypted Message</a>
-      </div>
-    </div>
-  </div>
-
-</div>
-<div class="row mt-2">
-
-  <div id="onch" class="col-md-6">
-    <div class="h-100 p-5 bg-body-secondary border rounded-3">
-      <h2 class="text-body-emphasis big_title">Support the Project</h2>
-      <p class="simple_desc">Hopingt that you find this tool helpful, we always welcome anny type of contrybution</p>
-      <p>Contribute to code: <code>git clone https://github.com/supertestnet/superstore</code></p>
-      <p>On-chain donation: <code>bc1qj4gga0uwczclaa0g0acxm3kt9ch4gy79pal90x</code></p>
-      <p>Or sen us some <code>sats</code> usig the near form. 👉<p>
-      <p>👇</p>
-    </div>
-  </div>
-
-  <div id="sats" class="col-md-6">
-    <div class="h-100 p-5 purple-bg border rounded-3">
-      <lightning-widget
-        name="GoodSt"
-        accent="#ff00ff"
-        to="goodstr@getalby.com"
-        image="https://placehold.co/256x256/663399/663399/png"
-        amounts="210,2100,21000"
-        labels="🍬,☕,🍕"
-      />
-      <script src="https://embed.twentyuno.net/js/app.js"></script>
-    </div>
-  </div>
-
-</div>
-</div>
-
-</div>
-
-  </main>
-
-
-  <footer class="container py-5">
-    <hr class="my-5">
-    <div class="row">
-      <div class="col-12 col-md">
-        <img src="assets/img/GoodStr_logo.png" class="logobag" alt="GoodStr" width="24" height="24" style="vertical-aligh: top;"> <strong class="logo">GoodStr<sup>α</sup></strong>
-        <small class="d-block mb-3 text-body-secondary">&copy; 2021–2023</small>
-      </div>
-      <div class="col-3 col-md">
-        <h5>About</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="link-secondary text-decoration-none" href="https://stacker.news/goodstr/r/goodstr" target="_blank">News</a></li>
-          <li><a class="link-secondary text-decoration-none" href="https://bolt.fun/project/goodstr" target="_blank">Blog</a></li>
-          <li><a class="link-secondary text-decoration-none" href="/privacy.html">Privacy</a></li>
-          <li><a class="link-secondary text-decoration-none" href="/terms.html">Terms</a></li>
-        </ul>
-      </div>
-      <div class="col-7 col-md">
-        <h5>Features</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="link-secondary text-decoration-none" href="#simple">Ecommerce Simplified</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#magic">The Magic String</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#big">The Big Difference</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#stock">Decentralized Stock</a></li>
-          <!-- li><a class="link-secondary text-decoration-none" href="#">Simple Withdrawn</a></li -->
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>Popular Tags</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="link-secondary text-decoration-none" href="#">Audio Books</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Business & Money</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Comics & Graphic Novels</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Courses</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Drawing & Painting</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">E-books</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Education</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Films</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Fonts</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Gaming</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Icon Sets</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Illustrations</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Music & Sounds</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Photography</a></li>
-        </ul>
-      </div>
-      <div class="col-8 col-md">
-        <h5>Resources</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="link-secondary text-decoration-none" href="#start">How to use it?</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#nostr">Nostr Standard</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#ln">Lightning Network</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#btc">Bitcoin Blockchain</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#v4v">Value 4 Value</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Modal -->
-  <div class="signup modal fade" id="signup" class="signup"tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  	<div class="modal-dialog">
-  		<div class="modal-content">
-  			<div class="modal-header">
-  				<h1 class="modal-title fs-5" id="exampleModalLabel">Get Your Magic String</h1>
-  				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-  			</div>
-  			<div class="modal-body">
-  				<p>GoodStr does not use traditional <code>usernames</code> and <code>passwords</code>, it uses magic strings to identyfy and backup your store. Make sure to back yours Magic Strinng! It's the only way to access and manage your store.</p>
-  				<div style="text-align: center;">
-  					<div class="circle_row">
-  						<div class="circle">
-  							<code>1</code>
-  						</div>
-  						<i class="bi bi-magic" style="font-size:42px; opacity: .5;"></i>
-  						<div class="instruction mb-2"><span class="blue" onclick="genString()">Generate</span> your magic string.</div>
-              <small>Your magic string is the only way to access and manage your store. If you lose it, you will not only lose access to your store but also to any money you received since the last time you withdrew! Make sure you back this up before continuing.</small>
-  					</div>
-  				</div>
-  				<hr class="separator">
-  				<div class="circle_row">
-  					<div class="circle">
-  						<code>2</code>
-  					</div>
-  					<!--i class="bi bi-fingerprint" size="42"></i-->
-  					<i class="bi bi-key" style="font-size:42px; opacity: .5;"></i>
-            <div class="magic_string_box mb-3">
-  						<div class="magic_string" style="display: block!important;"></div>
-  					</div>
-  					<div class="instruction"><span class="blue" onclick="backupString()">Back up</span> your magic string.</div>
-  				</div>
-  				<hr class="separator">
-  				<div class="circle_row">
-  					<div class="circle">
-  						<code>3</code>
-  					</div>
-  					<i class="bi bi-door-open-fill" style="font-size:42px; opacity: .5;"></i>
-  					<!--i class="bi bi-shop-window"></i -->
-  					<div class="instruction"><span class="blue" onclick="useString()">Log in</span> with your magic string.</div>
-  					<small style="opacity:0.5;">You'll be redirected to your GoodStr Admin page to access and manage your product and/or services.</small>
-  				</div>
-  			</div>
-        <div class="modal-footer">
-    			<!--div class="alert alert-success alert-dismissible fade show" role="alert">
-    				🥑 <strong>Holy guacamole!</strong> Did you back up your <code>magic string</code>? Save it somewhere safe, ideally offline, maybe encrypted...
-    				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    			</div-->
-    		</div>
-  		</div>
-  	</div>
-  </div>
-</div>
-
-        <script>
-          const collapseElementList = document.querySelectorAll('.collapse')
-          const collapseList = [...collapseElementList].map(collapseEl => new bootstrap.Collapse(collapseEl))
-        </script>
-        <script>
-            const myModal = document.getElementById('signup')
-
-            myModal.addEventListener('shown.bs.modal', () => {
-              myInput.focus()
-            })
-        </script>
-        <script>
-            var useString = () => {
-                var ms = prompt( "Please enter your magic string" );
-                if ( !ms ) return;
-                var privkey = ms.substring( 0, 64 );
-                var relays = hexToText( ms.substring( 64 ) );
-                var index = window.location.pathname.indexOf( "onboard.htm" ) > -1 ? window.location.pathname.indexOf( "onboard.htm" ):100000;
-                var extra_slash = window.location.pathname.substring( 0, index ).endsWith( "/" ) ? "":"/";
-                var url = window.location.protocol + "//" + window.location.hostname + window.location.pathname.substring( 0, index ) + extra_slash + "index.html?privkey=" + privkey + "&relays=" + encodeURI( relays );
-                window.location.href = url;
-            }
-            var genString = () => {
-                $( '.magic_string_box' ).style.display = "flex";
-                $( '.magic_string' ).innerText = "•";
-                $( '.magic_string' ).style.fontSize = "250%";
-                setTimeout( function() {$( '.magic_string' ).innerText = "••";}, 200 );
-                setTimeout( function() {$( '.magic_string' ).innerText = "•••";}, 400 );
-                setTimeout( function() {
-                    $( '.magic_string_box' ).innerHTML = `<code><div class="magic_string"></div></code>`;
-                    $( '.magic_string' ).style.fontSize = "100%";
-                    $( '.magic_string' ).innerText = "00" + bytesToHex( nobleSecp256k1.utils.randomPrivateKey() ).substring( 2, 64 ) + textToHex( JSON.stringify( relays ) );
-                }, 600 );
-            }
-        </script>
-        <script>
-            $( '.signup_btn' ).onclick = () => {
-                $( '.explain' ).style.display = "none";
-                $( '.signup_btn' ).style.display = "none";
-                $( '.back_btn' ).style.display = "inline";
-                $( '.signup' ).style.display = "block";
-                $( '.magic_string_box' ).style.display = "none";
-            }
-            $( '.login_btn' ).onclick = () => {
-                useString();
-            }
-            $( '.back_btn' ).onclick = () => {
-                $( '.explain' ).style.display = "block";
-                $( '.signup_btn' ).style.display = "inline";
-                $( '.back_btn' ).style.display = "none";
-                $( '.signup' ).style.display = "none";
-            }
-        </script>
-        <div class="black-bg"></div>
-        <div class="modal"></div>
-    </body>
+	<head>
+		<script src="/assets/color-modes.js"></script>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<meta name="description" content="GoodStr is focused on reducing the headaches of running a webstore. GoodStr lets you monetize your life freely and anonymously.">
+		<meta name="author" content="GoodStr and contributors">
+		<meta name="generator" content="GoodStr 0.118.2">
+		<title>GoodStrᵅ - Welcome</title>
+		<link rel="shortcut icon" type="image/png" href="favicon.png">
+		<!-- link rel="stylesheet" href="assets/bootstrap.css"-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+		<script src="https://bundle.run/noble-secp256k1@1.2.14"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100;0,400;0,600;0,900;1,100;1,400;1,600;1,900&display=swap" rel="stylesheet">
+		<style type="text/css">
+			/** CUSTOM HERE **/
+			#root .card {
+			box-shadow: none !important;
+			}
+			.nav-link {
+			padding-top: 15px;
+			line-height: 1.5rem;
+			}
+			.logo,
+			#root .card h3 {
+			font-family: "Azeret Mono", "SF Mono", "Courier New", courier, monospace !important;
+			font-weight: 900 !important;
+			font-style: italic !important;
+			font-size: 1.6rem;
+			}
+			.logobag {
+			margin-top: -11px;
+			}
+			.magic_string_box {
+			text-align: center !important;
+			display: block!important;
+			}
+			.circle {
+			margin-bottom: -12px;
+			z-index: 999
+			}
+			.circle_row {
+			text-align: center !important;
+			}
+			.blue {
+			text-decoration: underline;
+			cursor: pointer !important;
+			/*cursor: url() !important;
+			*/
+			}
+			.bold {
+			font-weight: bold;
+			}
+			.purple,
+			.blue {
+			color: #663399 ;
+			}
+			.purple-bg {
+			background-color: #663399 !important;
+			}
+			.pink {
+			color: #FF00FF !important;
+			}
+			.pink-bg {
+			background-color: #FF00FF !important;
+			}
+			.orange {
+			color: #FF9500 ;
+			}
+			.yellow {
+			color: #FFFF00 ;
+			}
+			.onboard {
+			background-image: url('assets/img/bg-onboarding.png');
+			background-size: cover;
+			background-position: center center;
+			}
+			::-moz-selection,
+			::selection {
+			color: inherit;
+			background-color: rgba(255,255,0,0.5) !important;
+			}
+			/* more from
+			<link href="product.css" rel="stylesheet">
+			*/
+			.container {
+			max-width: 960px;
+			}
+			.icon-link > .bi {
+			width: .75em;
+			height: .75em;
+			}
+			/*
+			* Custom translucent site header
+			*/
+			.site-header {
+			background-color: rgba(0, 0, 0, .85);
+			-webkit-backdrop-filter: saturate(180%) blur(20px);
+			backdrop-filter: saturate(180%) blur(20px);
+			}
+			.site-header a {
+			color: #8e8e8e;
+			transition: color .15s ease-in-out;
+			}
+			.site-header a:hover {
+			color: #fff;
+			text-decoration: none;
+			}
+			/*
+			* Dummy devices (replace them with your own or something else entirely!)
+			*/
+			.product-device {
+			position: absolute;
+			right: 10%;
+			bottom: -30%;
+			width: 300px;
+			height: 540px;
+			background-color: #333;
+			border-radius: 21px;
+			transform: rotate(30deg);
+			}
+			.product-device::before {
+			position: absolute;
+			top: 10%;
+			right: 10px;
+			bottom: 10%;
+			left: 10px;
+			content: "";
+			background-color: rgba(255, 255, 255, .1);
+			border-radius: 5px;
+			}
+			.product-device-2 {
+			top: -25%;
+			right: auto;
+			bottom: 0;
+			left: 5%;
+			background-color: #e5e5e5;
+			}
+			/*
+			* Extra utilities
+			*/
+			.flex-equal > * {
+			flex: 1;
+			}
+			@media (min-width: 768px) {
+			.flex-md-equal > * {
+			flex: 1;
+			}
+			}
+			/** BootStrap Product styles **/
+			.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+			}
+			@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+			font-size: 3.5rem;
+			}
+			}
+			.b-example-divider {
+			width: 100%;
+			height: 3rem;
+			background-color: rgba(0, 0, 0, .1);
+			border: solid rgba(0, 0, 0, .15);
+			border-width: 1px 0;
+			box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+			}
+			.b-example-vr {
+			flex-shrink: 0;
+			width: 1.5rem;
+			height: 100vh;
+			}
+			.bi {
+			vertical-align: -.125em;
+			fill: currentColor;
+			}
+			.nav-scroller {
+			position: relative;
+			z-index: 2;
+			height: 2.75rem;
+			overflow-y: hidden;
+			}
+			.nav-scroller .nav {
+			display: flex;
+			flex-wrap: nowrap;
+			padding-bottom: 1rem;
+			margin-top: -1px;
+			overflow-x: auto;
+			text-align: center;
+			white-space: nowrap;
+			-webkit-overflow-scrolling: touch;
+			}
+			.btn-bd-primary {
+			--bd-violet-bg: #712cf9;
+			--bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+			--bs-btn-font-weight: 600;
+			--bs-btn-color: var(--bs-white);
+			--bs-btn-bg: var(--bd-violet-bg);
+			--bs-btn-border-color: var(--bd-violet-bg);
+			--bs-btn-hover-color: var(--bs-white);
+			--bs-btn-hover-bg: #6528e0;
+			--bs-btn-hover-border-color: #6528e0;
+			--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+			--bs-btn-active-color: var(--bs-btn-hover-color);
+			--bs-btn-active-bg: #5a23c8;
+			--bs-btn-active-border-color: #5a23c8;
+			}
+			.bd-mode-toggle {
+			z-index: 1500;
+			}
+			.bd-mode-toggle .dropdown-menu .active .bi {
+			display: block !important;
+			}
+		</style>
+		<script>
+			var $ = document.querySelector.bind( document );
+			var $$ = document.querySelectorAll.bind( document );
+			var url_params = new URLSearchParams( window.location.search );
+			var url_keys = url_params.keys();
+			var $_GET = {}
+			for ( var key of url_keys ) $_GET[ key ] = url_params.get( key );
+			var relays = [
+			    "wss://nostrue.com",
+			    "wss://relayable.org",
+			    "wss://nostr.oxtr.dev"
+			]
+		</script>
+		<script>
+			function bytesToHex( bytes ) {
+			    return bytes.reduce( ( str, byte ) => str + byte.toString( 16 ).padStart( 2, "0" ), "" );
+			}
+			function textToHex( text ) {
+			    var encoder = new TextEncoder().encode( text );
+			    return [...new Uint8Array(encoder)]
+			        .map( x => x.toString( 16 ).padStart( 2, "0" ) )
+			        .join( "" );
+			}
+			function hexToText( hex ) {
+			    var bytes = new Uint8Array(Math.ceil(hex.length / 2));
+			    for (var i = 0; i < hex.length; i++) bytes[i] = parseInt(hex.substr(i * 2, 2), 16);
+			    var text = new TextDecoder().decode( bytes );
+			    return text;
+			}
+			function modalVanish() {
+			    $( ".black-bg" ).style.display = "none";
+			    $( ".modal" ).style.display = "none";
+			}
+			function showModal( content, block_til_clear ) {
+			    if ( block_til_clear ) var fn = `modalVanish();sessionStorage[ 'modal_cleared' ] = true;`; else var fn = `modalVanish();`;
+			    $( ".modal" ).innerHTML = `<div onclick="${fn}">&times;</div>`;
+			    $( ".modal" ).innerHTML += `<div>${content}</div>`;
+			    $( ".black-bg" ).style.display = "block";
+			    $( ".modal" ).style.display = "block";
+			}
+		</script>
+	</head>
+	<body>
+		<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+			<symbol id="check2" viewBox="0 0 16 16">
+				<path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+			</symbol>
+			<symbol id="circle-half" viewBox="0 0 16 16">
+				<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+			</symbol>
+			<symbol id="moon-stars-fill" viewBox="0 0 16 16">
+				<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+				<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+			</symbol>
+			<symbol id="sun-fill" viewBox="0 0 16 16">
+				<path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+			</symbol>
+		</svg>
+		<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+			<button class="btn btn-bd-primary py-2  d-flex align-items-center"
+				id="bd-theme"
+				type="button"
+				aria-expanded="false"
+				data-bs-toggle="dropdown"
+				aria-label="Toggle theme (auto)">
+				<svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+					<use href="#circle-half"></use>
+				</svg>
+				<span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+			</button>
+			<ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+				<li>
+					<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+						<svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+							<use href="#sun-fill"></use>
+						</svg>
+						Light
+						<svg class="bi ms-auto d-none" width="1em" height="1em">
+							<use href="#check2"></use>
+						</svg>
+					</button>
+				</li>
+				<li>
+					<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+						<svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+							<use href="#moon-stars-fill"></use>
+						</svg>
+						Dark
+						<svg class="bi ms-auto d-none" width="1em" height="1em">
+							<use href="#check2"></use>
+						</svg>
+					</button>
+				</li>
+				<li>
+					<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+						<svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+							<use href="#circle-half"></use>
+						</svg>
+						Auto
+						<svg class="bi ms-auto d-none" width="1em" height="1em">
+							<use href="#check2"></use>
+						</svg>
+					</button>
+				</li>
+			</ul>
+		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+			<symbol id="goodstr" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+				<path d="M12.25 2.00521C13.1735 2.00521 14.0592 2.37972 14.7122 3.04635C15.3653 3.71299 15.7321 4.61713 15.7321 5.5599V6.27083H8.76786V5.5599C8.76786 4.61713 9.13472 3.71299 9.78775 3.04635C10.4408 2.37972 11.3265 2.00521 12.25 2.00521ZM17.125 6.27083V5.5599C17.125 4.24003 16.6114 2.97422 15.6971 2.04094C14.7829 1.10765 13.5429 0.583334 12.25 0.583334C10.9571 0.583334 9.71709 1.10765 8.80285 2.04094C7.88862 2.97422 7.375 4.24003 7.375 5.5599V6.27083H2.5V20.4896C2.5 21.2438 2.79349 21.9671 3.31592 22.5004C3.83834 23.0337 4.5469 23.3333 5.28571 23.3333H19.2143C19.9531 23.3333 20.6617 23.0337 21.1841 22.5004C21.7065 21.9671 22 21.2438 22 20.4896V6.27083H17.125Z" fill="url(#paint0_linear_649_568)"/>
+				<path d="M10.6381 9.75781C10.6579 9.68938 10.699 9.6293 10.7552 9.58658C10.8115 9.54386 10.8798 9.52079 10.9501 9.52083H13.5499C13.6014 9.52087 13.6521 9.53333 13.6979 9.55717C13.7437 9.58101 13.7833 9.61556 13.8133 9.65797C13.8434 9.70038 13.8632 9.74945 13.8709 9.80112C13.8787 9.85279 13.8742 9.9056 13.858 9.95519L12.7011 13.4815H15.1748C15.2357 13.4815 15.2953 13.4988 15.3469 13.5315C15.3986 13.5642 15.4402 13.611 15.4669 13.6665C15.4937 13.722 15.5045 13.784 15.4983 13.8455C15.492 13.907 15.4689 13.9655 15.4315 14.0142L10.8818 19.9553C10.8352 20.0165 10.7689 20.059 10.6946 20.0756C10.6202 20.0922 10.5424 20.0818 10.4749 20.0461C10.4073 20.0104 10.3543 19.9518 10.3249 19.8804C10.2956 19.809 10.2919 19.7295 10.3144 19.6556L11.485 15.7919H9.32517C9.27464 15.792 9.22481 15.78 9.17962 15.7571C9.13443 15.7341 9.09513 15.7008 9.06485 15.6597C9.03457 15.6186 9.01413 15.571 9.00516 15.5205C8.99619 15.47 8.99894 15.418 9.01319 15.3688L10.6381 9.75781Z" fill="url(#paint1_linear_649_568)"/>
+				<defs>
+					<linearGradient id="paint0_linear_649_568" x1="12.25" y1="0.583334" x2="12.25" y2="23.3333" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#663399"/>
+						<stop offset="1" stop-color="#FF00FF"/>
+					</linearGradient>
+					<linearGradient id="paint1_linear_649_568" x1="12.25" y1="9.52083" x2="12.25" y2="20.0833" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#FFFF00"/>
+						<stop offset="1" stop-color="#FF9500"/>
+					</linearGradient>
+				</defs>
+			</symbol>
+			<symbol id="cart" viewBox="0 0 16 16">
+				<path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+			</symbol>
+			<symbol id="chevron-right" viewBox="0 0 16 16">
+				<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+			</symbol>
+		</svg>
+		<nav id="up" class="navbar navbar-expand-md bg-dark border-bottom" data-bs-theme="dark">
+			<div class="container">
+				<a class="navbar-brand d-md-none" href="#">
+					<!-- svg class="bi" width="24" height="24"><use xlink:href="#goodstr"/></svg-->
+					<img src="assets/img/GoodStr_logo.png" class="logobag" alt="GoodStr" width="24" height="24">
+					<strong class="logo">GoodStr<sup>α</sup></strong>
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="#offcanvas" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="offcanvas offcanvas-end" tabindex="-1" id="#offcanvas" aria-labelledby="#offcanvasLabel">
+					<div class="offcanvas-header">
+						<h5 class="offcanvas-title" id="#offcanvasLabel">GoodStr</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+					</div>
+					<div class="offcanvas-body">
+						<ul class="navbar-nav flex-grow-1 justify-content-between">
+							<li class="nav-item">
+								<a class="nav-link" href="#up">
+									<!-- svg class="bi" width="24" height="24"><use xlink:href="#goodstr"/></svg-->
+									<img src="assets/img/GoodStr_logo.png" class="logobag" alt="GoodStr" width="24" height="24">
+									<strong class="logo">GoodStr<sup>α</sup></strong>
+								</a>
+							</li>
+							<!-- li class="nav-item"><a class="nav-link" href="#up">Welcome</a></li-->
+							<li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+							<li class="nav-item"><a class="nav-link" href="#discover">Discover</a></li>
+							<li class="nav-item"><a class="nav-link" href="#faqs">FAQs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#help  ">Help</a></li>
+							<!-- li class="nav-item"><a class="nav-link" href="#">
+								<i class="bi bi-cart"></i> BagStr
+								</a></li>
+								<li class="nav-item"><a class="nav-link" href="#">
+								<i class="bi bi-shop-window"></i> ManageStr
+								</a></li>
+								<li class="nav-item"><a class="nav-link" href="#">
+								<i class="bi bi-magic"></i> NewStr
+								</a></li-->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<main class="explain">
+			<div class="onboard position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary">
+				<div class="col-md-6 p-lg-5 mx-auto my-5">
+					<h1 class="display-3 fw-bold">Designed for everyone</h1>
+					<h3 class="fw-normal text-muted mb-3">Buy & Sell anything you want,<br/><u>anonymously</u> with GoodStr</h3>
+					<div class="big_buttons gap-3 justify-content-center lead fw-normal">
+						<code>Access yours with <span class="blue" onclick="useString()">Magic String</span> or</code><br/><br/>
+						<button type="button" class="btn btn-lg btn-primary btn-outline" data-bs-toggle="modal" data-bs-target="#signup">Open a NewStr</button>
+					</div>
+				</div>
+				<div class="product-device shadow-sm d-none d-md-block"></div>
+				<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+			</div>
+			<div id="features" class="d-md-flex flex-md-equal w-100">
+				<div id="simple" class="bg-body-secondary pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+					<div class="my-3 py-3">
+						<h2 class="display-5">Ecommerce Simplified</h2>
+						<p class="lead">GoodStr is focused on reducing the headaches of selling items online and easily collect payments.</p>
+					</div>
+					<div class="text-bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+				</div>
+				<div id="magic" class="text-bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+					<div class="my-3 p-3">
+						<h2 class="display-5">The Magic String</h2>
+						<p class="lead">With GoodStr, your entire store is contained in your magic string, like a genie in a lamp. You just need to save that one string (safely!).</p>
+					</div>
+					<div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+				</div>
+			</div>
+			<div class="d-md-flex flex-md-equal w-100">
+				<div id="big" class="text-bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+					<div class="my-3 p-3">
+						<h2 class="display-5">The Big Difference</h2>
+						<p class="lead">Unlike traditional webstores, GoodStr doesn't need your identity or bank account information, so the onboarding process is sleek and simple. No KYC.</p>
+					</div>
+					<div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+				</div>
+				<!-- div id="stock" class="text-bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" -->
+				<div id="stock" class="bg-body-secondary pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+					<div class="my-3 py-3">
+						<h2 class="display-5">Decentralized Stock</h2>
+						<p class="lead">Once you publish an item, it will be bradcasted along the <code>nostr</code> protocol unter the <a href="https://github.com/nostr-protocol/nips/blob/master/15.md" target="_blank">NIP15</a> reserved for Nostr Marketplace items.</p>
+					</div>
+					<div class="text-bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+				</div>
+			</div>
+			<div class="d-md-flex flex-md-equal w-100">
+				<div id="simple" class="bg-body-secondary pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+					<div class="my-3 py-3">
+						<h2 class="display-5">Ecommerce Simplified</h2>
+						<p class="lead">GoodStr is focused on reducing the headaches of selling items online and easily collect payments.</p>
+					</div>
+					<div class="text-bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+				</div>
+				<div id="magic" class="text-bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+					<div class="my-3 p-3">
+						<h2 class="display-5">The Magic String</h2>
+						<p class="lead">With GoodStr, your entire store is contained in your magic string, like a genie in a lamp. You just need to save that one string (safely!).</p>
+					</div>
+					<div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+				</div>
+			</div>
+			<div id="discover " class="col-lg-8 mx-auto p-4 py-md-5 my-5">
+				<h1 class="text-body-emphasis">Get started with GoodStr</h1>
+				<p class="fs-5 col-md-8">Quickly and easily get started with GoodStr's webstore generator online, create barebone marketplaces featuring all your greatest products & services. Simple online payments guaranteed!</p>
+				<!-- Button trigger modal -->
+				<code>Access yours with <span class="blue" onclick="useString()">Magic String</span> or ...</code><br/><br/>
+				<button type="button" class="btn btn-lg btn-primary btn-outline" data-bs-toggle="modal" data-bs-target="#signup" style="margin-right:8px;">Open a NewStr</button>
+				<hr class="col-3 col-md-2 my-5">
+				<div class="row g-5">
+					<div class="col-md-6">
+						<h2 class="text-body-emphasis big_title">How can I use GoodStr?</h2>
+						<p class="simple_desc">GoodStr lets you monetize your life. Have a youtube channel? Start selling merchandise through GoodStr. Have a blog? Let people support you through sales and branding. Want to sell items at a farmer's market? Treat GoodStr as your point of sale system and let people check out with ease.</p>
+						<ul class="list-unstyled ps-0">
+							<li>
+								<a class="icon-link mb-1" href="#start">
+									<svg class="bi" width="16" height="16">
+										<use xlink:href="#arrow-right-circle"/>
+									</svg>
+									Quick Start
+								</a>
+							</li>
+							<li>
+								<a class="icon-link mb-1" href="#payments">
+									<svg class="bi" width="16" height="16">
+										<use xlink:href="#arrow-right-circle"/>
+									</svg>
+									Simple Payments
+								</a>
+							</li>
+							<li>
+								<a class="icon-link mb-1" href="#parcels">
+									<svg class="bi" width="16" height="16">
+										<use xlink:href="#arrow-right-circle"/>
+									</svg>
+									Orgaize Parcels
+								</a>
+							</li>
+							<li>
+								<a class="icon-link mb-1" href="#sellers">
+									<svg class="bi" width="16" height="16">
+										<use xlink:href="#arrow-right-circle"/>
+									</svg>
+									Sellers Guides
+								</a>
+							</li>
+							<li>
+								<a class="icon-link mb-1" href="https://github.com/superatic/superstore/">
+									<svg class="bi" width="16" height="16">
+										<use xlink:href="#arrow-right-circle"/>
+									</svg>
+									Contribute
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<h2 class="text-body-emphasis">GoodStr Webstores</h2>
+						<p>Try it out today! GoodStr is proudly built on bitcoin, the money of the internet, and nostr, a distributed data caching protocol. GoodStr is completely free and open source and you can dive into its source code by <a href="https://github.com/supertestnet/GoodStr" target="_blank">clicking here</a>.</p>
+						<ul class="list-unstyled ps-0">
+							<liid="#btc">
+							<a class="icon-link mb-1" href="#">
+								<svg class="bi" width="16" height="16">
+									<use xlink:href="#arrow-right-circle"/>
+								</svg>
+								What's Bitcoin?
+							</a>
+							</li>
+							<li id="#ln">
+								<a class="icon-link mb-1" href="#">
+									<svg class="bi" width="16" height="16">
+										<use xlink:href="#arrow-right-circle"/>
+									</svg>
+									What's Lightning?
+								</a>
+							</li>
+							<li id="#nostr">
+								<a class="icon-link mb-1" href="#">
+									<svg class="bi" width="16" height="16">
+										<use xlink:href="#arrow-right-circle"/>
+									</svg>
+									What's Nostr?
+								</a>
+							</li>
+							<li id="#v4v">
+								<a class="icon-link mb-1" href="#">
+									<svg class="bi" width="16" height="16">
+										<use xlink:href="#arrow-right-circle"/>
+									</svg>
+									Value 4 Value
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="row mt-5">
+						<div class="row align-items-md-stretch">
+							<div id="faqs" class="col-md-6">
+								<div class="h-100 p-5 pink-bg border rounded-3">
+									<h2 class="text-body-emphasis big_title">Do you have any qiestion?</h2>
+									<p class="simple_desc">We got Answers :)</p>
+									<h4>
+										<a style="text-decoration: none;" type="button" data-bs-toggle="collapse" data-bs-target="#01" aria-expanded="false" aria-controls="collapseWidthExample">
+										Question
+										</a>
+									</h4>
+									<div style="min-height: 120px;">
+										<div class="collapse collapse-horizontal" id="01">
+											<div class="card card-body">
+												Answer
+											</div>
+										</div>
+										<h4>
+											<a style="text-decoration: none;" type="button" data-bs-toggle="collapse" data-bs-target="#02" aria-expanded="false" aria-controls="collapseWidthExample">
+											Question
+											</a>
+										</h4>
+										<div style="min-height: 120px;">
+											<div class="collapse collapse-horizontal" id="02">
+												<div class="card card-body">
+													Answer
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="help" class="col-md-6">
+								<div class="h-100 p-5 bg-body-secondary border rounded-3">
+									<h2 class="text-body-emphasis big_title">Get in Touch</h2>
+									<p class="simple_desc">We are here to help, feel free to sennt us all your enquiries via <code>nostr</code>:</p>
+									<p>npub:<code>npub1hwluk4vax4g9lq882gktv75scuseferw3gvht7sdq6gthd7rqyxqluj4z3</code></p>
+									<a href="https://snort.social/p/npub1hwluk4vax4g9lq882gktv75scuseferw3gvht7sdq6gthd7rqyxqluj4z3" class="btn btn-outline-secondary" type="button">Send Us an Encrypted Message</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-2">
+						<div id="onch" class="col-md-6">
+							<div class="h-100 p-5 bg-body-secondary border rounded-3">
+								<h2 class="text-body-emphasis big_title">Support the Project</h2>
+								<p class="simple_desc">Hopingt that you find this tool helpful, we always welcome anny type of contrybution</p>
+								<p>Contribute to code: <code>git clone https://github.com/supertestnet/superstore</code></p>
+								<p>On-chain donation: <code>bc1qj4gga0uwczclaa0g0acxm3kt9ch4gy79pal90x</code></p>
+								<p>Or sen us some <code>sats</code> usig the near form. 👉
+								<p>
+								<p>👇</p>
+							</div>
+						</div>
+						<div id="sats" class="col-md-6">
+							<div class="h-100 p-5 purple-bg border rounded-3">
+								<lightning-widget
+									name="GoodSt"
+									accent="#ff00ff"
+									to="goodstr@getalby.com"
+									image="https://placehold.co/256x256/663399/663399/png"
+									amounts="210,2100,21000"
+									labels="🍬,☕,🍕"
+									/>
+								<script src="https://embed.twentyuno.net/js/app.js"></script>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="container py-5">
+			<hr class="my-5">
+			<div class="row">
+				<div class="col-12 col-md">
+					<img src="assets/img/GoodStr_logo.png" class="logobag" alt="GoodStr" width="24" height="24" style="vertical-aligh: top;"> <strong class="logo">GoodStr<sup>α</sup></strong>
+					<small class="d-block mb-3 text-body-secondary">&copy; 2021–2023</small>
+				</div>
+				<div class="col-3 col-md">
+					<h5>About</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="link-secondary text-decoration-none" href="https://stacker.news/goodstr/r/goodstr" target="_blank">News</a></li>
+						<li><a class="link-secondary text-decoration-none" href="https://bolt.fun/project/goodstr" target="_blank">Blog</a></li>
+						<li><a class="link-secondary text-decoration-none" href="/privacy.html">Privacy</a></li>
+						<li><a class="link-secondary text-decoration-none" href="/terms.html">Terms</a></li>
+					</ul>
+				</div>
+				<div class="col-7 col-md">
+					<h5>Features</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="link-secondary text-decoration-none" href="#simple">Ecommerce Simplified</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#magic">The Magic String</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#big">The Big Difference</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#stock">Decentralized Stock</a></li>
+						<!-- li><a class="link-secondary text-decoration-none" href="#">Simple Withdrawn</a></li -->
+					</ul>
+				</div>
+				<div class="col-6 col-md">
+					<h5>Popular Tags</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="link-secondary text-decoration-none" href="#">Audio Books</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#">Business & Money</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#">Comics & Graphic Novels</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#">Courses</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#">Drawing & Painting</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#">E-books</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#">Education</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#">Films</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#">Fonts</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#">Gaming</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#">Icon Sets</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#">Illustrations</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#">Music & Sounds</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#">Photography</a></li>
+					</ul>
+				</div>
+				<div class="col-8 col-md">
+					<h5>Resources</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="link-secondary text-decoration-none" href="#start">How to use it?</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#nostr">Nostr Standard</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#ln">Lightning Network</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#btc">Bitcoin Blockchain</a></li>
+						<li><a class="link-secondary text-decoration-none" href="#v4v">Value 4 Value</a></li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+		<!-- Modal -->
+		<div class="signup modal fade" id="signup" class="signup"tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">Get Your Magic String</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p>GoodStr does not use traditional <code>usernames</code> and <code>passwords</code>, it uses magic strings to identyfy and backup your store. Make sure to back yours Magic Strinng! It's the only way to access and manage your store.</p>
+						<div style="text-align: center;">
+							<div class="circle_row">
+								<div class="circle">
+									<code>1</code>
+								</div>
+								<i class="bi bi-magic" style="font-size:42px; opacity: .5;"></i>
+								<div class="instruction mb-2"><span class="blue" onclick="genString()">Generate</span> your magic string.</div>
+								<small>Your magic string is the only way to access and manage your store. If you lose it, you will not only lose access to your store but also to any money you received since the last time you withdrew! Make sure you back this up before continuing.</small>
+							</div>
+						</div>
+						<hr class="separator">
+						<div class="circle_row">
+							<div class="circle">
+								<code>2</code>
+							</div>
+							<!--i class="bi bi-fingerprint" size="42"></i-->
+							<i class="bi bi-key" style="font-size:42px; opacity: .5;"></i>
+							<div class="magic_string_box mb-3">
+								<div class="magic_string" style="display: block!important;"></div>
+							</div>
+							<div class="instruction"><span class="blue" onclick="backupString()">Back up</span> your magic string.</div>
+						</div>
+						<hr class="separator">
+						<div class="circle_row">
+							<div class="circle">
+								<code>3</code>
+							</div>
+							<i class="bi bi-door-open-fill" style="font-size:42px; opacity: .5;"></i>
+							<!--i class="bi bi-shop-window"></i -->
+							<div class="instruction"><span class="blue" onclick="useString()">Log in</span> with your magic string.</div>
+							<small style="opacity:0.5;">You'll be redirected to your GoodStr Admin page to access and manage your product and/or services.</small>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<!--div class="alert alert-success alert-dismissible fade show" role="alert">
+							🥑 <strong>Holy guacamole!</strong> Did you back up your <code>magic string</code>? Save it somewhere safe, ideally offline, maybe encrypted...
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			const collapseElementList = document.querySelectorAll('.collapse')
+			const collapseList = [...collapseElementList].map(collapseEl => new bootstrap.Collapse(collapseEl))
+		</script>
+		<script>
+			const myModal = document.getElementById('signup')
+
+			myModal.addEventListener('shown.bs.modal', () => {
+			  myInput.focus()
+			})
+		</script>
+		<script>
+			var useString = () => {
+			    var ms = prompt( "Please enter your magic string" );
+			    if ( !ms ) return;
+			    var privkey = ms.substring( 0, 64 );
+			    var relays = hexToText( ms.substring( 64 ) );
+			    var index = window.location.pathname.indexOf( "onboard.htm" ) > -1 ? window.location.pathname.indexOf( "onboard.htm" ):100000;
+			    var extra_slash = window.location.pathname.substring( 0, index ).endsWith( "/" ) ? "":"/";
+			    var url = window.location.protocol + "//" + window.location.hostname + window.location.pathname.substring( 0, index ) + extra_slash + "index.html?privkey=" + privkey + "&relays=" + encodeURI( relays );
+			    window.location.href = url;
+			}
+			var genString = () => {
+			    $( '.magic_string_box' ).style.display = "flex";
+			    $( '.magic_string' ).innerText = "•";
+			    $( '.magic_string' ).style.fontSize = "250%";
+			    setTimeout( function() {$( '.magic_string' ).innerText = "••";}, 200 );
+			    setTimeout( function() {$( '.magic_string' ).innerText = "•••";}, 400 );
+			    setTimeout( function() {
+			        $( '.magic_string_box' ).innerHTML = `<code><div class="magic_string"></div></code>`;
+			        $( '.magic_string' ).style.fontSize = "100%";
+			        $( '.magic_string' ).innerText = "00" + bytesToHex( nobleSecp256k1.utils.randomPrivateKey() ).substring( 2, 64 ) + textToHex( JSON.stringify( relays ) );
+			    }, 600 );
+			}
+		</script>
+		<script>
+			$( '.signup_btn' ).onclick = () => {
+			    $( '.explain' ).style.display = "none";
+			    $( '.signup_btn' ).style.display = "none";
+			    $( '.back_btn' ).style.display = "inline";
+			    $( '.signup' ).style.display = "block";
+			    $( '.magic_string_box' ).style.display = "none";
+			}
+			$( '.login_btn' ).onclick = () => {
+			    useString();
+			}
+			$( '.back_btn' ).onclick = () => {
+			    $( '.explain' ).style.display = "block";
+			    $( '.signup_btn' ).style.display = "inline";
+			    $( '.back_btn' ).style.display = "none";
+			    $( '.signup' ).style.display = "none";
+			}
+		</script>
+		<div class="black-bg"></div>
+		<div class="modal"></div>
+	</body>
 </html>
