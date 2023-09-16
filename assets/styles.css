@@ -11,7 +11,7 @@
 
 a,
 .pink {
-    color: #FF00FF;
+    color: #FF00FF !important;
 }
 .orange {
   color: #FF9500 ;
@@ -19,7 +19,7 @@ a,
 
 .yellow {
   color: #FFFF00 ;
-}"
+}
 
 .onboard {
  background-image: url('img/bg-onboarding.png');
