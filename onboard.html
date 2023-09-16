@@ -22,7 +22,7 @@
         }
 
         .circle {
-          margin-bottom: -21px;
+          margin-bottom: -12px;
           z-index: 999
         }
 
@@ -56,6 +56,7 @@
         .onboard {
          background-image: url('assets/img/bg-onboarding.png');
          background-size: cover;
+         background-position: center center;
         }
 
         ::-moz-selection,
@@ -528,6 +529,7 @@
         <div style="min-height: 120px;">
           <div class="collapse collapse-horizontal" id="01">
             <div class="card card-body">
+
               Answer
             </div>
           </div>
@@ -545,6 +547,7 @@
 
           </div>
           </div>
+
   </div>
 </div>
 
@@ -613,58 +616,59 @@
 
   <!-- Modal -->
   <div class="signup modal fade" id="signup" class="signup"tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Get Your Magic String</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>GoodStr does not use traditional <code>usernames</code> and <code>passwords</code>, it uses magic strings to identyfy and backup your store. Make sure to back yours Magic Strinng! It's the only way to access and manage your store.</p>
-
-          <div style="text-align: center;">
-            <div class="circle_row">
-              <div class="circle">
-                <code>1</code></div>
-                <i class="bi bi-magic" style="font-size:42px; opacity: .5;"></i>
-              <div class="instruction mb-2"><span class="blue" onclick="genString()">Generate</span> your magic string.</div>
-          </div>
-
-          <div class="alert alert-warning fade show" role="alert">
-            <small style="opacity:0.5;">Your magic string is the only way to access and manage your store. If you lose it, you will not only lose access to your store but also to any money you received since the last time you withdrew! Make sure you back this up before continuing.</small>
-          </div>
-
-        </div>
-          <hr class="separator">
-          <div class="circle_row">
-              <div class="circle">
-                <code>2</code></div>
-                <!--i class="bi bi-fingerprint" size="42"></i-->
-                <i class="bi bi-key" style="font-size:42px; opacity: .5;"></i>
-                <div class="magic_string_box"><div class="magic_string" style="display: block!important;"></div></div><br/>
-
-              <div class="instruction"><span class="blue" onclick="backupString()">Back up</span> your magic string.</div>
-          </div>
-          <hr class="separator">
-          <div class="circle_row">
-              <div class="circle">
-                <code>3</code></div>
-                <i class="bi bi-door-open-fill" style="font-size:42px; opacity: .5;"></i>
-                <!--i class="bi bi-shop-window"></i -->
-              <div class="instruction"><span class="blue" onclick="useString()">Log in</span> with your magic string.</div>
-              <small style="opacity:0.5;">You'll be redirected to your GoodStr Admin page to access and manage your product and/or services.</small>
-            </div>
-          </div>
-
-      </div>
-        <div class="modal-footer">
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            🥑 <strong>Holy guacamole!</strong> Did you back up your <code>magic string</code>? Save it somewhere safe, ideally offline, maybe encrypted...
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        </div>
-      </div>
-    </div>
+  	<div class="modal-dialog">
+  		<div class="modal-content">
+  			<div class="modal-header">
+  				<h1 class="modal-title fs-5" id="exampleModalLabel">Get Your Magic String</h1>
+  				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  			</div>
+  			<div class="modal-body">
+  				<p>GoodStr does not use traditional <code>usernames</code> and <code>passwords</code>, it uses magic strings to identyfy and backup your store. Make sure to back yours Magic Strinng! It's the only way to access and manage your store.</p>
+  				<div style="text-align: center;">
+  					<div class="circle_row">
+  						<div class="circle">
+  							<code>1</code>
+  						</div>
+  						<i class="bi bi-magic" style="font-size:42px; opacity: .5;"></i>
+  						<div class="instruction mb-2"><span class="blue" onclick="genString()">Generate</span> your magic string.</div>
+  					</div>
+  					<div class="alert alert-warning fade show" role="alert">
+  						<small style="opacity:0.5;">Your magic string is the only way to access and manage your store. If you lose it, you will not only lose access to your store but also to any money you received since the last time you withdrew! Make sure you back this up before continuing.</small>
+  					</div>
+            <br>
+            <div class="magic_string_box">
+  						<div class="magic_string" style="display: block!important;"></div>
+  					</div>
+  					<br/>
+  				</div>
+  				<hr class="separator">
+  				<div class="circle_row">
+  					<div class="circle">
+  						<code>2</code>
+  					</div>
+  					<!--i class="bi bi-fingerprint" size="42"></i-->
+  					<i class="bi bi-key" style="font-size:42px; opacity: .5;"></i>
+  					<div class="instruction"><span class="blue" onclick="backupString()">Back up</span> your magic string.</div>
+  				</div>
+  				<hr class="separator">
+  				<div class="circle_row">
+  					<div class="circle">
+  						<code>3</code>
+  					</div>
+  					<i class="bi bi-door-open-fill" style="font-size:42px; opacity: .5;"></i>
+  					<!--i class="bi bi-shop-window"></i -->
+  					<div class="instruction"><span class="blue" onclick="useString()">Log in</span> with your magic string.</div>
+  					<small style="opacity:0.5;">You'll be redirected to your GoodStr Admin page to access and manage your product and/or services.</small>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="modal-footer">
+  			<div class="alert alert-success alert-dismissible fade show" role="alert">
+  				🥑 <strong>Holy guacamole!</strong> Did you back up your <code>magic string</code>? Save it somewhere safe, ideally offline, maybe encrypted...
+  				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  			</div>
+  		</div>
+  	</div>
   </div>
 
         <script>
