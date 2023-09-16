@@ -17,6 +17,69 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100;0,400;0,600;0,900;1,100;1,400;1,600;1,900&display=swap" rel="stylesheet">
 
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+		<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+
     <script src="https://bitcoincore.tech/apps/bitcoinjs-ui/lib/bitcoinjs-lib.js"></script>
     <script src="https://supertestnet.github.io/bitcoin-chess/js/qrcode.js"></script>
     <script src="https://bundle.run/noble-secp256k1@1.2.14"></script>
@@ -839,730 +902,822 @@
     </script>
 </head>
 <body>
-    <div class="title"></div>
-    <div class="splash_screen"><i class="bi bi-battery-charging"></i> Loading...</div>
-    <div class="make_store">
-        <div class="products">
-            <div class="manage_sales_toolbar"></div>
-            <div>
-                <h2 class="name_instructions">Name your store</h2>
-                <a class="public_link" target="_blank"><button>View store</button></a>
-            </div>
-            <input class="store_name">
-            <h2 class="product_instructions">Add products</h2>
-            <div class="product">
-                <input placeholder="product name"><input placeholder="image url"><textarea placeholder="description" class="desc"></textarea><select placeholder="shipping zone"><option>--- Shipping zone ---</option><option>Free (digital)</option><option>Worldwide</option><option>Europe</option><option>Australia</option><option>Austria</option><option>Belgium</option><option>Brazil</option><option>Canada</option><option>Denmark</option><option>Finland</option><option>France</option><option>Germany</option><option>Greece</option><option>Hong Kong</option><option>Hungary</option><option>Ireland</option><option>Indonesia</option><option>Israel</option><option>Italy</option><option>Japan</option><option>Kazakhstan</option><option>Korea</option><option>Luxembourg</option><option>Malaysia</option><option>Mexico</option><option>Netherlands</option><option>New Zealand</option><option>Norway</option><option>Poland</option><option>Portugal</option><option>Russia</option><option>Saudi Arabia</option><option>Singapore</option><option>Spain</option><option>Sweden</option><option>Switzerland</option><option>Thailand</option><option>Turkey</option><option>Ukraine</option><option>United Kingdom</option><option>United States</option><option>Vietnam</option><option>China</option></select><input placeholder="usd price (e.g. 5.99)" class="price" type="number" step="0.01" min="0"><button class="preview">Product preview</button><button class="plus_and_minus">Add another product</button>
-            </div>
-        </div>
-        <p><button class="store_maker">Submit</button></p>
-        <div class="preview_pane"></div>
-        <div class="progress" style="display: none;">
-            <h2>Progress bar <span id="goal"></span></h2>
-            <div class="progressOutline">
-                <div class="progressBar">
-                </div>
-            </div>
-            <div class="status"></div>
-        </div>
-    </div>
-    <div class="view_store">
-        <div class="minicart">Cart (<span class="minicart_item_count">0</span> items) <button class="view_cart">View cart</button></div>
-        <div class="store_products"></div>
-    </div>
-    <div class="blank_view"></div>
-    <script>
-        if ( !$_GET[ "pubkey" ] && !$_GET[ "privkey" ] ) $( '.title' ).style.display = "block";
-        $( '.store_name' ).value = "";
-        var title = {
-          html: () => {
-            var default_name = "Welcome to GoodStr, a simple webstore based on bitcoin";
-            var name = title.name ? title.name : default_name;
-            return `
-              <h1>
-                ${name}
-              </h1>
-            `;
-          },
-          name: "",
-          setState: (callback) => {
-            callback();
-            title.render();
-          },
-          render: () => {
-            $( ".title" ).innerHTML = title.html();
-          }
-        };
-        title.render();
-        $( '.store_name' ).onkeyup = () => {
-            title.setState( () => title.name = $( '.store_name' ).value );
-        }
-        if ( $_GET[ "pubkey" ] ) {$( '.products' ).style.display = "none";$( '.store_maker' ).style.display = "none";}
-        var cart = [];
-        $$( '.price' ).forEach( function( item, index ) {
-            $$( '.price' )[ index ].value = "";
-            item.onkeyup = ( e ) => {
-                if ( e.key === "$" ) {
-                    alert( "Error, please do not include a dollar sign. Just type 5.00 or similar." );
-                    $$( '.price' )[ index ].blur();
-                    $$( '.price' )[ index ].value = "";
-                    return;
-                }
-            }
-            item.onchange = () => {
-                $$( '.price' )[ index ].value = Number( $$( '.price' )[ index ].value ).toFixed(2);
-                if ( $$( '.price' )[ index ].value == "0.00" || $$( '.price' )[ index ].value == "0" ) $$( '.price' )[ index ].value = "";
-            }
-        });
-        $( '.plus_and_minus' ).onclick = () => {
-            var product = document.createElement( "div" );
-            product.className = "product";
-            product.innerHTML = `<input placeholder="product name"><input placeholder="image url"><textarea placeholder="description" class="desc"></textarea><select placeholder="shipping zone"><option>--- Shipping zone ---</option><option>Free (digital)</option><option>Worldwide</option><option>Europe</option><option>Australia</option><option>Austria</option><option>Belgium</option><option>Brazil</option><option>Canada</option><option>Denmark</option><option>Finland</option><option>France</option><option>Germany</option><option>Greece</option><option>Hong Kong</option><option>Hungary</option><option>Ireland</option><option>Indonesia</option><option>Israel</option><option>Italy</option><option>Japan</option><option>Kazakhstan</option><option>Korea</option><option>Luxembourg</option><option>Malaysia</option><option>Mexico</option><option>Netherlands</option><option>New Zealand</option><option>Norway</option><option>Poland</option><option>Portugal</option><option>Russia</option><option>Saudi Arabia</option><option>Singapore</option><option>Spain</option><option>Sweden</option><option>Switzerland</option><option>Thailand</option><option>Turkey</option><option>Ukraine</option><option>United Kingdom</option><option>United States</option><option>Vietnam</option><option>China</option></select><input placeholder="usd price (e.g. 5.99)" class="price" type="number" step="0.01" min="0">`;
-            var button = document.createElement( "button" );
-            button.innerText = "Product preview";
-            button.onclick = (e) => {
-                var price = Number( e.target.parentElement.children[ 4 ].value );
-                var html = `
-                    <h2>Preview pane</h2>
-                    <div class="store_product">
-                        <img src="${e.target.parentElement.children[ 1 ].value}">
-                        <div>${e.target.parentElement.children[ 0 ].value}</div>
-                        <div>$${price.toFixed( 2 )}</div>
-                        <button>View product</button>
-                        <button class="add_to_cart">Add to cart</button>
-                    </div>
-                `;
-                $( '.preview_pane' ).innerHTML = html;
-            }
-            product.append( button );
-            //append an input and a minus button
-            var button = document.createElement( "button" );
-            button.className = "plus_and_minus";
-            button.innerText = "Remove this product";
-            button.onclick = () => button.parentElement.remove();
-            product.append( button );
-            $( '.products' ).insertBefore( product, $( '.products' ).lastElementChild );
-            $$( '.price' ).forEach( function( item, index ) {
-                item.onchange = () => {
-                    item.onkeyup = ( e ) => {
-                        if ( e.key === "$" ) {
-                            alert( "Error, please do not include a dollar sign. Just type 5.00 or similar." );
-                            $$( '.price' )[ index ].blur();
-                            $$( '.price' )[ index ].value = "";
-                            return;
-                        }
-                    }
-                    $$( '.price' )[ index ].value = Number( $$( '.price' )[ index ].value ).toFixed(2);
-                    if ( $$( '.price' )[ index ].value == "0.00" || $$( '.price' )[ index ].value == "0" ) $$( '.price' )[ index ].value = "";
-                }
-            });
-        }
-        $( '.preview' ).onclick = (e) => {
-            var price = Number( e.target.parentElement.children[ 4 ].value );
-            var html = `
-                <h2>Preview pane</h2>
-                <div class="store_product">
-                    <img src="${e.target.parentElement.children[ 1 ].value}">
-                    <div>${e.target.parentElement.children[ 0 ].value}</div>
-                    <div>$${price.toFixed( 2 )}</div>
-                    <button>View product</button>
-                    <button class="add_to_cart">Add to cart</button>
-                </div>
-            `;
-            $( '.preview_pane' ).innerHTML = html;
-        }
-        $( '.store_maker' ).onclick = async () => {
-            $( '.progress' ).style.display = "block";
-            var i; for ( i=0; i<$$( 'select' ).length; i++ ) {
-                var item = $$( 'select' )[ i ];
-                if ( item.value.includes( "---" ) ) {
-                    alert( "You forgot to select a shipping zone on one of your products. Please try again." );
-                    return;
-                }
-            }
-            var product_ids = [];
-            var i; for ( i=0; i<$$( '.product' ).length; i++ ) {
-                var array = [...$$( '.product' )[ i ].children];
-                array.pop();
-                array.forEach( ( item, index ) => array[ index ] = item.value);
-                var obj = {
-                    product: array[ 0 ],
-                    image: array[ 1 ],
-                    description: array[ 2 ],
-                    shipping_zone: array[ 3 ],
-                    price: Number( array[ 4 ] * 100 )
-                }
-                var content = JSON.stringify( obj );
-                var event = {
-                    "content"    : content,
-                    "created_at" : Math.floor( Date.now() / 1000 ),
-                    "kind"       : 42196,
-                    "tags"       : [],
-                    "pubkey"     : pubKey,
-                }
-                var signedEvent = await getSignedEvent(event, privKey);
-                console.log( "signed product event:", signedEvent );
-                product_ids.push( signedEvent.id );
-                Object.keys( relays_obj ).forEach( function( relay ) {
-                    relays_obj[ relay ].send(JSON.stringify([ "EVENT", signedEvent ]));
-                });
-                // socket.send(JSON.stringify([ "EVENT", signedEvent ]));
-                await waitSomeSeconds( 1 );
-                console.log( i + 1, $$( '.product' ).length, Math.floor( ( ( Number( i ) + Number( 1 ) ) / $$( '.product' ).length ) * 100 ) );
-                var percent = String( Math.floor( ( ( Number( i ) + Number( 1 ) ) / $$( '.product' ).length ) * 100 ) ) + "%";
-                $( '.progressBar' ).style.width = percent;
-                $( '.status' ).innerText = String( ( Number( i ) + Number( 1 ) ) ) + " out of " + String( $$( '.product' ).length ) + " products created";
-            }
-            console.log( "product ids:", product_ids );
-            var store_info = {}
-            store_info[ "whisper_address_linking_key" ] = original_pubkey;
-            await ensureWalletIsAvailable();
-            var domain = JSON.parse( localStorage[ "wallet_info" ] )[ "wallet_url" ].substring( 0, JSON.parse( localStorage[ "wallet_info" ] )[ "wallet_url" ].indexOf( "/wallet" ) );
-            var readkey = JSON.parse( localStorage[ "wallet_info" ] )[ "readkey" ];
-            store_info[ "lnbits_public" ] = {domain, readkey}
-            store_info[ "lnbits_secret" ] = encrypt( privKey, pubKey, localStorage[ "wallet_info" ] );
-            store_info[ "store_name" ] = $( '.title' ).innerText;
-            var event = {
-                "content"    : JSON.stringify( store_info ),
-                "created_at" : Math.floor( Date.now() / 1000 ),
-                "kind"       : 12196,
-                "tags"       : [ [ "products", ...product_ids ] ],
-                "pubkey"     : pubKey,
-            }
-            var signedEvent = await getSignedEvent(event, privKey);
-            console.log( "signed store event:", signedEvent );
-            Object.keys( relays_obj ).forEach( function( relay ) {
-                relays_obj[ relay ].send(JSON.stringify([ "EVENT", signedEvent ]));
-            });
-            // socket.send(JSON.stringify([ "EVENT", signedEvent ]));
-            if ( window.location.href.indexOf( "?" ) > -1 ) var url = window.location.href.substring( 0, window.location.href.indexOf( "?" ) ); else var url = window.location.href;
-            sessionStorage.removeItem( "modal_cleared" );
-            var shareable = `${url}?pubkey=${original_pubkey}&relays=${encodeURI( JSON.stringify( relays ) )}`;
-            var private = `${url}?privkey=${privKey}&relays=${encodeURI( JSON.stringify( relays ) )}`;
-            if ( $_GET[ "network" ] ) {
-                shareable += `&network=${$_GET[ "network" ]}`;
-                private += `&network=${$_GET[ "network" ]}`;
-            }
-            // var content = `<p><a href="${shareable}" target="_blank">Click here</a> to share your store</p><p><a href="${private}" target="_blank">Click here</a> to manage your store and withdraw your earnings</p>`;
-            var content = `Success, your store is now ready`;
-            showModal( content, true );
-            await getNote( "modal_cleared" );
-            //alert( "Here is your sharable store url:\n\n" + url + "?pubkey=" + original_pubkey +
-            // "\n\nHere is your private management url:\n\n" + url + "?privkey=" + privKey );
-            window.location.href = private;
-        }
-        var renderCart = () => {
-            var total = 0;
-            var items = ``;
-            var requires_edelivery = false;
-            var requires_shipping = false;
-            cart.forEach( function( item ) {
-                if ( item[ "shipping_zone" ] != "Free (digital)" ) requires_shipping = true; else requires_edelivery = true;
-                total = total + item[ "price" ];
-                items += `<div class="minicart"><div>${item[ "item" ]}</div><div>$${( item[ "price" ] / 100 ).toFixed( 2 )} <span onclick="var child = this.parentElement.parentElement;var parent = child.parentNode;var index = Array.prototype.indexOf.call(parent.children, child);cart.splice( index, 1 );renderCart();$( '.minicart_item_count' ).innerText = Number( $( '.minicart_item_count' ).innerText ) - 1;">&times;</span></div></div>`;
-            });
-            var total_div = `<div class="minicart"><div>Total</div><div>$${( total / 100 ).toFixed( 2 )} aka ${dollarsToSats( ( total / 100 ).toFixed( 2 ) )} sats</div></div>`;
-            var edelivery_div = ``;
-            if ( requires_edelivery ) edelivery_div = `<div>Enter instructions for how to deliver your digital good(s) (e.g. email address? telegram handle? Please leave detailed instructions about what you want us to do)</div><textarea class="edelivery_form"></textarea>`
-            var shipping_div = ``;
-            if ( requires_shipping ) shipping_div = `<div>Enter what you want on your shipping label (and, if desired, a message for the merchant)</div><textarea class="shipping_label_form"></textarea>`
-            $( '.blank_view' ).innerHTML = `
-                <div>
-                    <div onclick="$( '.blank_view' ).style.display = 'none';$( '.view_store' ).style.display = 'block';">⇦ <span>Back</span></div>
-                    <h2>Your cart</h2>
-                    <div class="items">${items}</div>
-                    ${total_div}
-                    ${edelivery_div}
-                    ${shipping_div}
-                    <div><button class="checkout">Checkout</button></div>
-                </div>
-            `;
-            $( '.view_store' ).style.display = "none";
-            $( '.blank_view' ).style.display = "block";
-            $( '.checkout' ).onclick = async () => {
-                if ( ( $( '.shipping_label_form' ) && !$( '.shipping_label_form' ).value ) || ( $( '.edelivery_form' ) && !$( '.edelivery_form' ).value ) ) {
-                    alert( "You forgot to enter delivery instructions, please do so and click the checkout button again" );
-                    return;
-                }
-                if ( $( '.shipping_label_form' ) ) sessionStorage.shipping_label_form = $( '.shipping_label_form' ).value;
-                if ( $( '.edelivery_form' ) ) sessionStorage.edelivery_form = $( '.edelivery_form' ).value;
-                $( '.blank_view' ).innerHTML = `
-                    <div onclick="renderCart();">⇦ <span class="back">Back</span></div>
-                    <h2>Checkout</h2>
-                    Please send <span class="sats_to_pay">${dollarsToSats( ( total / 100 ).toFixed( 2 ) )}</span> sats and wait for your auto-generated receipt (your shipment is not guaranteed til you have your receipt)
-                    <br><br>
-                    <div class="payment_box"></div>
-                `;
-                if ( ln_domain && ln_readkey ) {
-                    $( '.payment_box' ).innerHTML += `
-                        <div>
-                            <button class="ln_button">Lightning</button>
-                            <button class="bl_button">Base layer</button>
-                        </div>
-                        <div class="ln_box"></div>
-                    `;
-                    $( '.bl_button' ).onclick = () => {
-                        $( '.bl_box' ).style.display = "block";
-                        $( '.ln_box' ).style.display = "none";
-                    }
-                    $( '.ln_button' ).onclick = async () => {
-                        $( '.bl_box' ).style.display = "none";
-                        $( '.ln_box' ).style.display = "block";
-                    }
-                    getInvoice( total );
-                }
-                var div = document.createElement( "div" );
-                div.className = "bl_box";
-                $( '.payment_box' ).append( div );
-                $( '.bl_box' ).append( createQR( whisper_address ) );
-                $( '.bl_box' ).append( whisper_address );
-                var was_it_stopped = await loopTilAddressReceivesMoney( whisper_address, mempoolNetwork );
-                if ( was_it_stopped == "stopped" ) return;
-                await waitSomeSeconds( 2 );
-                var txinfo = await addressReceivedMoneyInThisTx( whisper_address, mempoolNetwork );
-                if ( txinfo[ 2 ] >= dollarsToSats( ( total / 100 ).toFixed( 2 ) ) ) {
-                    var buyer_info = {}
-                    buyer_info[ "whisper_key" ] = whisper_key;
-                    if ( sessionStorage.edelivery_form ) buyer_info[ "edelivery_info" ] = sessionStorage.edelivery_form;
-                    if ( sessionStorage.shipping_label_form ) buyer_info[ "shipping_info" ] = sessionStorage.shipping_label_form;
-                    var message = JSON.stringify( [ buyer_info, [...cart] ] );
-                    var encrypted = encrypt( privKey, $_GET[ "pubkey" ].substring( 2 ), message );
-                    var event = {
-                        "content"    : encrypted,
-                        "created_at" : Math.floor( Date.now() / 1000 ),
-                        "kind"       : 4,
-                        "tags"       : [ [ 'p', $_GET[ "pubkey" ].substring( 2 ) ] ],
-                        "pubkey"     : pubKey,
-                    }
-                    var signedEvent = await getSignedEvent(event, privKey);
-                    Object.keys( relays_obj ).forEach( function( relay ) {
-                        relays_obj[ relay ].send( JSON.stringify([ "EVENT", signedEvent ]) );
-                    });
-                    // socket.send( JSON.stringify([ "EVENT", signedEvent ]) );
-                    console.log( "make sure this gets to the relay:", JSON.stringify([ "EVENT", signedEvent ]) );
-                    await waitSomeSeconds( 2 );
-                    sessionStorage.removeItem( "modal_cleared" );
-                    var receipt_items = ``;
-                    cart.forEach( function( item, index ) {
-                        receipt_items += `<div>Item: ${item[ "item" ]} | Price: $${( item[ "price" ] / 100 ).toFixed( 2 )}</div>`;
-                    });
-                    cart = [];
-                    if ( $( '.minicart_item_count' ) ) $( '.minicart_item_count' ).innerText = 0;
-                    var content = `<p>Thank you for your business. Here is your receipt:</p><p class="bold">Items purchased</p>${receipt_items}<p>Total: $${( total / 100 ).toFixed( 2 )}</p><p>Proof of payment: ${whisper_key}</p><p>Keep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.</p>`;
-                    showModal( content, true );
-                    await getNote( "modal_cleared" );
-                    // alert( `Thank you for your business. Here is your proof of payment: ${whisper_key}\n\nKeep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.` );
-                }
-            }
-        }
-        $( '.view_cart' ).onclick = renderCart;
-        var getInvoice = async ( total ) => {
-            var invoice_data = await postData( `${ln_domain}/api/v1/payments`, `{"out": false, "amount": ${Number( $( '.sats_to_pay' ).innerText )}}`, "application/json", ln_readkey );
-            $( '.ln_box' ).append( createQR( JSON.parse( invoice_data )[ "payment_request" ] ) );
-            $( '.ln_box' ).append( JSON.parse( invoice_data )[ "payment_request" ] );
-            await loopTilInvoiceIsPaid( JSON.parse( invoice_data )[ "payment_hash" ] );
-            var buyer_info = {}
-            buyer_info[ "pmthash" ] = JSON.parse( invoice_data )[ "payment_hash" ];
-            if ( sessionStorage.edelivery_form ) buyer_info[ "edelivery_info" ] = sessionStorage.edelivery_form;
-            if ( sessionStorage.shipping_label_form ) buyer_info[ "shipping_info" ] = sessionStorage.shipping_label_form;
-            var message = JSON.stringify( [ buyer_info, [...cart] ] );
-            var encrypted = encrypt( privKey, $_GET[ "pubkey" ].substring( 2 ), message );
-            var event = {
-                "content"    : encrypted,
-                "created_at" : Math.floor( Date.now() / 1000 ),
-                "kind"       : 4,
-                "tags"       : [ [ 'p', $_GET[ "pubkey" ].substring( 2 ) ] ],
-                "pubkey"     : pubKey,
-            }
-            var signedEvent = await getSignedEvent(event, privKey);
-            Object.keys( relays_obj ).forEach( function( relay ) {
-                relays_obj[ relay ].send( JSON.stringify([ "EVENT", signedEvent ]) );
-            });
-            // socket.send( JSON.stringify([ "EVENT", signedEvent ]) );
-            console.log( "make sure this gets to the relay:", JSON.stringify([ "EVENT", signedEvent ]) );
-            await waitSomeSeconds( 2 );
-            sessionStorage.removeItem( "modal_cleared" );
-            var receipt_items = ``;
-            cart.forEach( function( item, index ) {
-                receipt_items += `<div>Item: ${item[ "item" ]} | Price: $${( item[ "price" ] / 100 ).toFixed( 2 )}</div>`;
-            });
-            cart = [];
-            if ( $( '.minicart_item_count' ) ) $( '.minicart_item_count' ).innerText = 0;
-            var content = `<p>Thank you for your business. Here is your receipt:</p><p class="bold">Items purchased</p>${receipt_items}<p>Total: $${( total / 100 ).toFixed( 2 )}</p><p>Proof of payment: ${buyer_info[ "pmthash" ]}</p><p>Keep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.</p>`;
-            showModal( content, true );
-            await getNote( "modal_cleared" );
-        }
-        var checkInvoice = async ( pmthash ) => {
-            var status = await getData( `${ln_domain}/api/v1/payments/${pmthash}`, "application/json", ln_readkey );
-            status = JSON.parse( status );
-            return status;
-        }
-        var loopTilInvoiceIsPaid = async ( pmthash ) => {
-            var status = await checkInvoice( pmthash );
-            if ( !status[ "paid" ] ) {
-                await waitSomeSeconds( 2 );
-                console.log( "waiting..." );
-                return loopTilInvoiceIsPaid( pmthash );
-            } else {
-                return true;
-            }
-        }
-        var labelAsShipped = async ( order_id ) => {
-            var event = {
-                "content"    : "shipped",
-                "created_at" : Math.floor( Date.now() / 1000 ),
-                "kind"       : 42197,
-                "tags"       : [ [ "e", order_id ] ],
-                "pubkey"     : pubKey,
-            }
-            var signedEvent = await getSignedEvent(event, privKey);
-            Object.keys( relays_obj ).forEach( function( relay ) {
-                relays_obj[ relay ].send(JSON.stringify([ "EVENT", signedEvent ]));
-            });
-        }
-    </script>
-    <script>
-        async function openConnection() {
-            console.log( "connected to " + this.url );
-            var subId   = ( "00" + bitcoinjs.ECPair.makeRandom().privateKey.toString( "hex" ) ).substring( 0, 16 );
-            if ( $_GET[ "pubkey"] ) {
-                var filter  = { authors: [ $_GET[ "pubkey" ].substring( 2 ) ], kinds: [ 12196, 42197 ] }
-                var subscription = [ "REQ", subId, filter ];
-            }
-            if ( $_GET[ "privkey"] ) {
-                var filter  = { "#p": [ pubKey ], kinds: [ 4 ] }
-                var filter2  = { authors: [ pubKey ], kinds: [ 12196, 42197 ] }
-                var subscription = [ "REQ", subId, filter, filter2 ];
-            }
-            this.send(JSON.stringify( subscription ));
-            // socket.send(JSON.stringify( subscription ));
-            //I decided to pull in my wallet when I get my 12196 event, only
-            //there are two problems with that: first, in its current position,
-            //it will check if I have a wallet (and potentially make a new one)
-            //*before* getting my 12196 event, and second, I have to think of
-            //where to move it. If I move it *inside* the function that gets
-            //my 12196 event, it won't fire when someone is first creating a
-            //store, because I only reach out for a 12196 event if the user
-            //is viewing or managing an existing store -- and if I just move
-            //it to *after* the part where they request my 12196 event, which
-            //I might do so that it waits to make a wallet til after one has
-            //been found, I will still have to ensure that it runs *after* my
-            //12196 event (if any) has been found -- which might be hard since
-            //that can take a variable amount of time
-            //so the solution is: make a function that checks if I am getting
-            //a 12196 event, which is the same thing as checking if there is a
-            //url query parameter of privkey or pubkey; if there is not, it
-            //should immediately run ensureWalletIsAvailable, otherwise it
-            //should wait for some variable to be marked true (one that I mark
-            //true when I get a result after searching nostr for my 12196
-            //event) and *then* run ensureWalletIsAvailable -- and this
-            //function should run when I connect to a relay, otherwise the
-            //ensureWalletIsAvailable function might not work, since it
-            //sometimes has to send a message to a relay
-            if ( !$_GET[ "pubkey" ] && !$_GET[ "privkey" ] ) {
-                ensureWalletIsAvailable();
-            } else {
-                await getNote( "wallet_found_if_any" );
-                ensureWalletIsAvailable();
-            }
-        }
-        var openConnections = async () => {
-            var i; for ( i=0; i<relays.length; i++ ) {
-                var myrelay = relays[ i ];
-                relays_obj[ myrelay ] = new WebSocket( myrelay );
-                relays_obj[ myrelay ].addEventListener( 'open', openConnection );
-                relays_obj[ myrelay ].addEventListener( 'message', handleMessage );
-                await waitSomeSeconds( 1 );
-            }
-        }
-        openConnections();
-        // socket.addEventListener( 'open', openConnection );
-        if ( $_GET[ "pubkey" ] ) {
-            //this codeblock creates the whisper address
-            var linking_pubkey = $_GET[ "pubkey" ];
-            var whisper_key = makeSmallPrivkey();
-            var whisper_pubkey = getCompressedPubkeyHexFromPrivkeyHex( whisper_key );
-            var combokey = getCompressedPubkeyHexFromUncompressedPubkeyHex( add2Pubkeys( linking_pubkey, whisper_pubkey ) );
-            var whisper_address = getNativeSegwitAddressFromPubkeyHex( combokey, mempoolNetwork );
-            $( '.make_store' ).style.display = "none";
-        }
-        if ( $_GET[ "privkey" ] ) {
-            var html = `<div class="minicart"><span class="sales_count">0</span> new sales <button class="manage_sales_btn">Manage sales</button></div>`;
-            $( '.manage_sales_toolbar' ).innerHTML = html;
-            var manageSales = async () => {
-                $( '.splash_screen' ).style.display = "block";
-                $( '.products' ).style.display = "none";
-                $( '.store_maker' ).style.display = "none";
-                await getNote( "btc_price" );
-                await getNote( "wallet_found_if_any" );
-                $( '.splash_screen' ).style.display = "none";
-                $( '.store_maker' ).style.display = "inline";
-                $( '.products' ).style.display = "none";
-                $( '.preview_pane' ).style.display = "none"
-                $( '.store_maker' ).parentElement.style.display = "none";
-                $( '.blank_view' ).style.display = "block";
-                $( '.blank_view' ).innerHTML = `
-                    <div>
-                        <div onclick="$( '.blank_view' ).style.display = 'none';$( '.products' ).style.display = 'block';$( '.store_maker' ).parentElement.style.display = 'block';">⇦ <span class="back">Back</span></div>
-                        <div><div class="bold">Wallet</div><button class="connect_node">Connect your node</button></div><br>
-                        <div class="wallet"><div>Base layer balance: $<span class="usd_balance">0.00</span> (<span class="btc_balance">0</span>&nbsp;sats)</div><div><button class="withdraw">Withdraw</button></div></div><br>
-                `;
-                if ( ln_domain && ln_readkey ) $( '.blank_view' ).innerHTML += `
-                        <div class="ln_wallet"><div>Lightning balance: $<span class="usd_balance">0.00</span> (<span class="btc_balance">0</span>&nbsp;sats)</div><div><button class="withdraw">Manage</button></div></div><br>
-                `;
-                $( '.blank_view' ).innerHTML += `
-                        <div>Sales</div><br>
-                        <div class="orders"></div>
-                    </div>
-                `;
-                $( '.connect_node' ).onclick = async () => {
-                    var content = `
-                        <p>
-                            Base-layer bitcoin payments on GoodStr are fully self-custodied by you. You alone have the private key to that money. However, for the lightning network, GoodStr automatically sets you up with a custodial lightning wallet from lnbits.com. Custodial solutions are typically easy to get started, but they usually stop operating at some point, so it's good to prepare for that.
-                        </p>
-                        <p>
-                            A really good way to ensure you don't lose your funds on lightning when lnbits eventually ceases operations is to run your own lightning node. If you don't know what that is, <a href="https://thebitcoinmanual.com/behind-btc/nodes/lightning-node/" target="_blank">click here</a>. I'm not finished making it easy to connect your store to your own lightning node, but in the meantime, if you're brave and you already have a lightning node running with your own lnbits instance, you can hook GoodStr up to your node with a little in-browser coding. Here are instructions:
-                        </p>
-                        <ul>
-                            <li>
-                                enter this into your browser console: console.log(&nbsp;localStorage[&nbsp;"wallet_info"&nbsp;]&nbsp;)
-                            </li>
-                            <li>
-                                it will show you your lnbits info in json format
-                            </li>
-                            <li>
-                                use a text editor to change the info in the json so that it shows info from your own node (or e.g. a voltage node)
-                            </li>
-                            <li>
-                                then enter this into your browser console: var&nbsp;json&nbsp;=&nbsp;your_modified_json (but replace your_modified_json with the text you modified using your text editor)
-                            </li>
-                            <li>
-                                then enter this into your browser console: localStorage[&nbsp;"wallet_info"&nbsp;]&nbsp;=&nbsp;JSON.stringify(json)
-                            </li>
-                            <li>
-                                then resubmit your store
-                            </li>
-                        </ul>
-                        <p>
-                            If you do all that, all the sats you earn on lightning will flow to your own node. But beware! If your lnbits instance is a hidden service on tor, as most of them are, people won't be able to send you funds on lightning unless they happen to be using a tor compatible web browser. So test it first to make sure it works how you want it to.
-                        </p>
-                        <p>
-                            If all of that stuff sounds confusing or daunting, you have a few options: first, you can learn. Don't be afraid to learn how bitcoin works so you can take full advantage of its awesome features. Second, you can freely ignore this message because the site works fine without running your own node. Just know that if you don't run your own node you can easily and quickly lose any money you have on the lightning network.
-                        </p>
-                        <p>
-                            A decent compromise is to daily withdraw any money you earn on lightning to a lightning wallet like breez or phoenix. Those phone wallets are easy to set up on your phone so give them a try! And let me know if you have any issues. On twitter I am @super_testnet.
-                        </p>
-                    `;
-                    showModal( content );
-                }
-                if ( ln_domain && ln_readkey ) {
-                    var ln_balance = await getLNBalance();
-                    $$( '.btc_balance' )[ 1 ].innerText = ln_balance;
-                    $$( '.usd_balance' )[ 1 ].innerText = satsToDollars( ln_balance ).toFixed( 2 );
-                }
-                sales.forEach( async function( sale, index ) {
-                    if ( "whisper_key" in sale[ 0 ] ) {
-                        var whisper_key = sale[ 0 ][ "whisper_key" ];
-                        var privkey = addKeys( privKey, whisper_key );
-                        var combokey = getCompressedPubkeyHexFromPrivkeyHex( privkey );
-                        var whisper_address = getNativeSegwitAddressFromPubkeyHex( combokey, mempoolNetwork );
-                        var txinfo = await addressReceivedMoneyInThisTx( whisper_address, mempoolNetwork );
-                        //if the address *currently* has less money than it originally held
-                        //then the order was shipped
-                        var current_utxos = await getUTXOs( privkey, mempoolNetwork );
-                        var current_balance = 0;
-                        current_utxos.forEach( function( utxo ) {
-                            current_balance = current_balance + Number( utxo[ "amount" ] );
-                        });
-                        if ( txinfo[ 2 ] > current_balance ) {
-                            txinfo[ 2 ] = current_balance;
-                            sale[ 3 ] = 1;
-                        }
-                    }
-                    if ( "pmthash" in sale[ 0 ] ) {
-                        var status = await checkInvoice( sale[ 0 ][ "pmthash" ] );
-                        var txinfo = [];
-                        txinfo[ 0 ] = sale[ 0 ][ "pmthash" ];
-                        txinfo[ 1 ] = 0;
-                        txinfo[ 2 ] = Number( ( status[ "details" ][ "amount" ] / 1000 ).toFixed( 0 ) );
-                        //the following line helps me determine later that it is a lightning payment
-                        txinfo[ 3 ] = true;
-                    }
-                    if ( $_GET[ "debug" ] == "true" || !txinfo[ 0 ] ) {
-	                    if ( !txinfo[ 0 ] ) txinfo[ 0 ] = "abababababababababababababababababababababababababababababababab";
-	                    if ( !txinfo[ 1 ] ) txinfo[ 1 ] = 0;
-	                    if ( !txinfo[ 2 ] ) txinfo[ 2 ] = 0;
-                    }
-                    //don't display orders that are not paid for
-                    //but do show them if they only *seem* unpaid for but really are
-                    //because the money was withdrawn before they were shipped
-                    //I detect that (or try to) by checking if the item was shipped
-                    //because if the amount paid is zero *and* the amount was shipped
-                    //then I can be pretty confident the order was paid for (otherwise
-                    //the seller wouldn't mark it shipped) but then they just withdrew
-                    //their money before marking it as shipped -- the stuff about
-                    //changing txinfo items to other things is a tool that helps me
-                    //when trying stuff on testnet. Mainnet orders that got shipped
-                    //show up with undefined info that makes the total amount available
-                    //in my wallet "turn into" an NaN. By pretending there are values
-                    //and setting them to 0 I fixed that error while still allowing me
-                    //to spend the money that actually *is* in my wallet.
-                    if ( shipped_orders.includes( sale[ 2 ] ) ) {
-                    	sale[ 3 ] = 1;
-	                    if ( !txinfo[ 0 ] ) txinfo[ 0 ] = "abababababababababababababababababababababababababababababababab";
-	                    if ( !txinfo[ 1 ] ) txinfo[ 1 ] = 0;
-                    	txinfo[ 2 ] = 0;
-                    }
-                    var address_balance = txinfo[ 2 ];
-                    // var address_balance = await getAddressBalance( whisper_address, mempoolNetwork );
-                    var balance_in_dollars = satsToDollars( address_balance ).toFixed( 2 );
-                    if ( balance_in_dollars == "0.00" && !sale[ 3 ] ) return;
-                    if ( !txinfo[ 3 ] ) {
-                        $$( '.btc_balance' )[ 0 ].innerText = Number( $$( '.btc_balance' )[ 0 ].innerText ) + address_balance;
-                    } else {
-                        // $$( '.btc_balance' )[ 1 ].innerText = Number( $$( '.btc_balance' )[ 1 ].innerText ) + address_balance;
-                    }
-                    if ( !txinfo[ 3 ] ) {
-                        $$( '.usd_balance' )[ 0 ].innerText = satsToDollars( Number( $$( '.btc_balance' )[ 0 ].innerText ) ).toFixed( 2 );
-                    } else {
-                        // $$( '.usd_balance' )[ 1 ].innerText = satsToDollars( Number( $$( '.btc_balance' )[ 1 ].innerText ) ).toFixed( 2 );
-                    }
-                    if ( !private_keys.includes( privkey ) && !txinfo[ 3 ] ) private_keys.push( privkey );
-                    var bgcolor = "pink";
-                    var shipped_instructions = "click when shipped";
-                    if ( sale[ 3 ] ) {
-                        bgcolor = "lightgreen";
-                        shipped_instructions = "shipped";
-                    }
-                    var total = 0;
-                    var items = ``;
-                    var names_and_prices = [];
-                    sale[ 1 ].forEach( function( item, index ) {
-                        total = total + Number( item[ "price" ] );
-                        items += `<div class="minicart"><div class="product_name"></div><div class="product_price"></div></div>`;
-                        names_and_prices.push( [ item[ "item" ], item[ "price" ] ] );
-                    });
-                    var paid_amount = balance_in_dollars;
-                    //if the item is shipped, display the amount as paid even if the address is empty
-                    //because the address probably *is* empty -- that just means the merchant withdrew
-                    //the money
-                    if ( sale[ 3 ] ) paid_amount = ( total / 100 ).toFixed( 2 );
-                    var delivery_info = (sale[ 0 ][ "shipping_info" ]) ? sale[ 0 ][ "shipping_info" ]:sale[ 0 ][ "edelivery_info" ];
-                    var order = `
-                        <div class="minicart order" style="background-color: ${bgcolor};" data-order_id="${sale[ 2 ]}"><div>Delivery info:<br><div class="delivery_info"></div></div><div class="payment_info">They paid: $${paid_amount} <button class="order_details" onclick="if ( this.parentElement.parentElement.nextElementSibling.style.display != 'none' ) this.parentElement.parentElement.nextElementSibling.style.display = 'none'; else this.parentElement.parentElement.nextElementSibling.style.display = 'block';">details</button> <button class="click_when_shipped" onclick="if ( sales[ ${index} ][ 3 ] ) return;var conf = confirm( 'Are you sure you want to mark this order as shipped?' );if ( !conf ) return;this.parentElement.parentElement.style.backgroundColor = 'lightgreen';this.innerText = 'shipped';this.onclick = () => {return false};sales[ ${index} ][ 3 ] = 1;$( '.sales_count' ).innerText = Number( $( '.sales_count' ).innerText ) - 1;shipped_orders.push( sales[ ${index} ][ 2 ] );localStorage.shipped_orders = JSON.stringify( shipped_orders );var order_id = this.parentElement.parentElement.getAttribute( 'data-order_id' );labelAsShipped( order_id );">${shipped_instructions}</button></div></div>
-                    `;
-                    if ( !txinfo[ 3 ] ) {ßst
-                        order += `
-                            <div><div class="bold">Details</div><br>${items}<div>Total they owed: $${( total / 100 ).toFixed( 2 )}</div><div >Total they paid: $${paid_amount}</div><div ><a href="https://mempool.space/${mempoolNetwork}tx/${txinfo[ 0 ]}:${txinfo[ 1 ]}" target="_blank">Inspect transaction</a></div></div>
-                        `;
-                    } else {
-                        order += `
-                            <div><div class="bold">Details</div><br>${items}<div >Total they owed: $${( total / 100 ).toFixed( 2 )}</div><div >Total they paid: $${paid_amount}</div><div ><a href="${JSON.parse( localStorage.wallet_info )[ "wallet_url" ]}" target="_blank">Inspect transaction</a></div></div>
-                        `;
-                    }
-                    $( '.orders' ).innerHTML += order;
-                    $$( '.delivery_info' )[ $$( '.delivery_info' ).length - 1 ].innerText = delivery_info;
-                    var existing_number = $$( '.blank_view .minicart .product_name' ).length;
-                    names_and_prices.forEach( function( item, index ) {
-                        //must be -2 the first time and -1 the second time
-                        //names_and_prices.length is 2 so I can emulate -2 with - names_and_prices.length - index
-                        //then the second time it will be names_and_prices.length - 1 which is -1
-                        $$( '.blank_view .minicart .product_name' )[ existing_number - ( names_and_prices.length - index ) ].innerText = item[ 0 ];
-                        $$( '.blank_view .minicart .product_price' )[ existing_number - ( names_and_prices.length - index ) ].innerText = "$" + ( item[ 1 ] / 100 ).toFixed( 2 )
-                    });
-                });
-                $$( '.withdraw' )[ 0 ].onclick = async () => {
-                    var some_unshipped_items = false;
-                    sales.forEach( function( sale ) {
-                        if ( !sale[ 3 ] ) some_unshipped_items = true;
-                    });
-                    if ( some_unshipped_items ) {
-                        alert( `You cannot withdraw your money til you ship all your orders.` );
-                        return;
-                    }
-                    var from_amount = 0;
-                    var i; for ( i=0; i<private_keys.length; i++ ) {
-                        var utxos_in_this_address = await getUTXOs( private_keys[ i ], mempoolNetwork );
-                        utxos_in_this_address.forEach( function( utxo ) {
-                            available_utxos.push( utxo );
-                            from_amount = from_amount + utxo[ "amount" ];
-                        });
-                    }
-                    var destino = prompt( "Enter the bitcoin address where you want your sats to go" );
-                    var base_size = 200;
-                    var full_size = base_size + ( available_utxos.length * 50 );
-                    var fee_options = await getThreeFeeRates( mempoolNetwork );
-                    var sats_per_byte = prompt( `Please enter a fee rate as a number. Specifically, the number of sats per byte you want to pay. The minimum rate is ${fee_options[ 0 ]}, the average rate is ${fee_options[ 1 ]}, and the urgent rate is ${fee_options[ 2 ]}.` );
-                    var sats_per_byte = Number( sats_per_byte );
-                    if ( !sats_per_byte ) {
-                        alert( "You entered an invalid fee rate. You must enter a number greater than 0, such as 5, 10, or 25. Please try again." );
-                        return;
-                    }
-                    var txfee = sats_per_byte * full_size;
-                    var txhex = craftTransaction( available_utxos, from_amount - txfee, destino, mempoolNetwork );
-                    var conf = confirm( `Click ok if this is what you want to do:\n\nAmount this shop has: ${from_amount} sats\n\nMining fee for this tx: ${txfee} sats\n\nAmount you will receive: ${from_amount - txfee} sats\n\nAmount this shop will have leftover: 0 sats\n\nDestination address: ${destino}\n\n` );
-                    if ( !conf ) return;
-                    var txid = await pushBTCpmt( txhex, mempoolNetwork );
-                    if ( txid && txid != "error" ) {
-                        sessionStorage.removeItem( "modal_cleared" );
-                        var content = `<p>Success! You can <a href="https://mempool.space/${mempoolNetwork}tx/${txid}:0" target="_blank">view your transaction here</a></p>`;
-                        showModal( content, true );
-                        await getNote( "modal_cleared" );
-                        // alert( `Success! You can view your transaction here: https://mempool.space/${mempoolNetwork}tx/${txid}` );
-                    } else {
-                        sessionStorage.removeItem( "modal_cleared" );
-                        var content = `<p>Oh no, there was a transaction failure! Try broadcasting your raw transaction <a href="https://mempool.space/${mempoolNetwork}tx/push" target="_blank">here</a></p><p>${txhex}</p>`;
-                        showModal( content, true );
-                        await getNote( "modal_cleared" );
-                        // alert( `Oh no, there was a transaction failure! Try broadcasting your raw transaction here: https://mempool.space/${mempoolNetwork}tx/push\n\n${txhex}` );
-                    }
-                    console.log( "raw tx:", txhex );
-                    await waitSomeSeconds( 2 );
-                    $( '.manage_sales_btn' ).click();
-                }
-                if ( $$( '.withdraw' )[ 1 ] ) $$( '.withdraw' )[ 1 ].onclick = async () => {
-                    window.open( JSON.parse( localStorage[ "wallet_info" ] )[ "wallet_url" ], '_blank' );
-                }
-            }
-            $( '.manage_sales_btn' ).onclick = manageSales;
-        }
-    </script>
-    <script>
-        function checkHeartbeat() {
-            setTimeout( () => {
-                //it is important that this be inside the timeout otherwise
-                //it may detect a connection loss on pageload
-                Object.keys( relays_obj ).forEach( function( relay ) {
-                    if ( relays_obj[ relay ].readyState != 1 ) {
-                        alert( "You lost your connection to one of your relays. If you receive this message several times, please refresh your browser." );
-                        relays_obj[ relay ] = new WebSocket( relay );
-                        relays_obj[ relay ].removeEventListener( 'open', openConnection );
-                        relays_obj[ relay ].removeEventListener( 'message', handleMessage );
-                        relays_obj[ relay ] = new WebSocket( relay );
-                        relays_obj[ relay ].addEventListener( 'message', handleMessage );
-                        relays_obj[ relay ].addEventListener( 'open', openConnection );
-                    }
-                });
-                // if ( socket.readyState != 1 ) {
-                //     alert( "You lost your connection to your relay. If you receive this message twice, please refresh your browser." );
-                //     socket = new WebSocket( relay );
-                //     socket.removeEventListener( 'open', openConnection );
-                //     socket.removeEventListener( 'message', handleMessage );
-                //     socket = new WebSocket( relay );
-                //     socket.addEventListener( 'message', handleMessage );
-                //     socket.addEventListener( 'open', openConnection );
-                // }
-                checkHeartbeat();
-            }, 10000 );
-        }
-        async function init() {
-            $( '.splash_screen' ).style.display = "none";
-            $( '.make_store' ).style.display = "block";
-            sessionStorage[ "btc_price" ] = await getBitcoinPrice();
-            checkHeartbeat();
-        }
-        init();
-    </script>
-    <div class="black-bg"></div>
-    <div class="modal"></div>
-</body>
-</html>
+	    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+	      <symbol id="check2" viewBox="0 0 16 16">
+	        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+	      </symbol>
+	      <symbol id="circle-half" viewBox="0 0 16 16">
+	        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+	      </symbol>
+	      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+	        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+	        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+	      </symbol>
+	      <symbol id="sun-fill" viewBox="0 0 16 16">
+	        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+	      </symbol>
+	    </svg>
+
+	    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+	      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+	              id="bd-theme"
+	              type="button"
+	              aria-expanded="false"
+	              data-bs-toggle="dropdown"
+	              aria-label="Toggle theme (auto)">
+	        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+	        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+	      </button>
+	      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+	        <li>
+	          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+	            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+	            Light
+	            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+	          </button>
+	        </li>
+	        <li>
+	          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+	            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+	            Dark
+	            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+	          </button>
+	        </li>
+	        <li>
+	          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+	            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+	            Auto
+	            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+	          </button>
+	        </li>
+	      </ul>
+	    </div>
+
+
+	<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+	  <symbol id="arrow-right-circle" viewBox="0 0 16 16">
+	    <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+	  </symbol>
+	  <symbol id="bootstrap" viewBox="0 0 118 94">
+	    <title>Bootstrap</title>
+	    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+	  </symbol>
+	</svg>
+
+	<div class="col-lg-8 mx-auto p-4 py-md-5">
+	  <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+	    <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+	      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+	      <span class="fs-4">Starter template</span>
+	    </a>
+	  </header>
+
+	  <main>
+	    <h1 class="text-body-emphasis">Get started with Bootstrap</h1>
+	    <p class="fs-5 col-md-8">Quickly and easily get started with Bootstrap's compiled, production-ready files with this barebones example featuring some basic HTML and helpful links. Download all our examples to get started.</p>
+
+	    <div class="mb-5">
+	      <a href="../examples/" class="btn btn-primary btn-lg px-4">Download examples</a>
+	    </div>
+
+	    <hr class="col-3 col-md-2 mb-5">
+
+	  </main>
+	  <footer class="pt-5 my-5 text-body-secondary border-top">
+	    Created by the Bootstrap team &middot; &copy; 2023
+	  </footer>
+	</div>
+	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--  -->
+
+<div class="title"></div>
+<div class="splash_screen"><i class="bi bi-battery-charging"></i> Loading...</div>
+<div class="make_store">
+		<div class="products">
+				<div class="manage_sales_toolbar"></div>
+				<div>
+						<h2 class="name_instructions">Name your store</h2>
+						<a class="public_link" target="_blank"><button>View store</button></a>
+				</div>
+				<input class="store_name">
+				<h2 class="product_instructions">Add products</h2>
+				<div class="product">
+						<input placeholder="product name"><input placeholder="image url"><textarea placeholder="description" class="desc"></textarea><select placeholder="shipping zone"><option>--- Shipping zone ---</option><option>Free (digital)</option><option>Worldwide</option><option>Europe</option><option>Australia</option><option>Austria</option><option>Belgium</option><option>Brazil</option><option>Canada</option><option>Denmark</option><option>Finland</option><option>France</option><option>Germany</option><option>Greece</option><option>Hong Kong</option><option>Hungary</option><option>Ireland</option><option>Indonesia</option><option>Israel</option><option>Italy</option><option>Japan</option><option>Kazakhstan</option><option>Korea</option><option>Luxembourg</option><option>Malaysia</option><option>Mexico</option><option>Netherlands</option><option>New Zealand</option><option>Norway</option><option>Poland</option><option>Portugal</option><option>Russia</option><option>Saudi Arabia</option><option>Singapore</option><option>Spain</option><option>Sweden</option><option>Switzerland</option><option>Thailand</option><option>Turkey</option><option>Ukraine</option><option>United Kingdom</option><option>United States</option><option>Vietnam</option><option>China</option></select><input placeholder="usd price (e.g. 5.99)" class="price" type="number" step="0.01" min="0"><button class="preview">Product preview</button><button class="plus_and_minus">Add another product</button>
+				</div>
+		</div>
+		<p><button class="store_maker">Submit</button></p>
+		<div class="preview_pane"></div>
+		<div class="progress" style="display: none;">
+				<h2>Progress bar <span id="goal"></span></h2>
+				<div class="progressOutline">
+						<div class="progressBar">
+						</div>
+				</div>
+				<div class="status"></div>
+		</div>
+</div>
+<div class="view_store">
+		<div class="minicart">Cart (<span class="minicart_item_count">0</span> items) <button class="view_cart">View cart</button></div>
+		<div class="store_products"></div>
+</div>
+<div class="blank_view"></div>
+<script>
+		if ( !$_GET[ "pubkey" ] && !$_GET[ "privkey" ] ) $( '.title' ).style.display = "block";
+		$( '.store_name' ).value = "";
+		var title = {
+			html: () => {
+				var default_name = "Welcome to GoodStr, a simple webstore based on bitcoin";
+				var name = title.name ? title.name : default_name;
+				return `
+					<h1>
+						${name}
+					</h1>
+				`;
+			},
+			name: "",
+			setState: (callback) => {
+				callback();
+				title.render();
+			},
+			render: () => {
+				$( ".title" ).innerHTML = title.html();
+			}
+		};
+		title.render();
+		$( '.store_name' ).onkeyup = () => {
+				title.setState( () => title.name = $( '.store_name' ).value );
+		}
+		if ( $_GET[ "pubkey" ] ) {$( '.products' ).style.display = "none";$( '.store_maker' ).style.display = "none";}
+		var cart = [];
+		$$( '.price' ).forEach( function( item, index ) {
+				$$( '.price' )[ index ].value = "";
+				item.onkeyup = ( e ) => {
+						if ( e.key === "$" ) {
+								alert( "Error, please do not include a dollar sign. Just type 5.00 or similar." );
+								$$( '.price' )[ index ].blur();
+								$$( '.price' )[ index ].value = "";
+								return;
+						}
+				}
+				item.onchange = () => {
+						$$( '.price' )[ index ].value = Number( $$( '.price' )[ index ].value ).toFixed(2);
+						if ( $$( '.price' )[ index ].value == "0.00" || $$( '.price' )[ index ].value == "0" ) $$( '.price' )[ index ].value = "";
+				}
+		});
+		$( '.plus_and_minus' ).onclick = () => {
+				var product = document.createElement( "div" );
+				product.className = "product";
+				product.innerHTML = `<input placeholder="product name"><input placeholder="image url"><textarea placeholder="description" class="desc"></textarea><select placeholder="shipping zone"><option>--- Shipping zone ---</option><option>Free (digital)</option><option>Worldwide</option><option>Europe</option><option>Australia</option><option>Austria</option><option>Belgium</option><option>Brazil</option><option>Canada</option><option>Denmark</option><option>Finland</option><option>France</option><option>Germany</option><option>Greece</option><option>Hong Kong</option><option>Hungary</option><option>Ireland</option><option>Indonesia</option><option>Israel</option><option>Italy</option><option>Japan</option><option>Kazakhstan</option><option>Korea</option><option>Luxembourg</option><option>Malaysia</option><option>Mexico</option><option>Netherlands</option><option>New Zealand</option><option>Norway</option><option>Poland</option><option>Portugal</option><option>Russia</option><option>Saudi Arabia</option><option>Singapore</option><option>Spain</option><option>Sweden</option><option>Switzerland</option><option>Thailand</option><option>Turkey</option><option>Ukraine</option><option>United Kingdom</option><option>United States</option><option>Vietnam</option><option>China</option></select><input placeholder="usd price (e.g. 5.99)" class="price" type="number" step="0.01" min="0">`;
+				var button = document.createElement( "button" );
+				button.innerText = "Product preview";
+				button.onclick = (e) => {
+						var price = Number( e.target.parentElement.children[ 4 ].value );
+						var html = `
+								<h2>Preview pane</h2>
+								<div class="store_product">
+										<img src="${e.target.parentElement.children[ 1 ].value}">
+										<div>${e.target.parentElement.children[ 0 ].value}</div>
+										<div>$${price.toFixed( 2 )}</div>
+										<button>View product</button>
+										<button class="add_to_cart">Add to cart</button>
+								</div>
+						`;
+						$( '.preview_pane' ).innerHTML = html;
+				}
+				product.append( button );
+				//append an input and a minus button
+				var button = document.createElement( "button" );
+				button.className = "plus_and_minus";
+				button.innerText = "Remove this product";
+				button.onclick = () => button.parentElement.remove();
+				product.append( button );
+				$( '.products' ).insertBefore( product, $( '.products' ).lastElementChild );
+				$$( '.price' ).forEach( function( item, index ) {
+						item.onchange = () => {
+								item.onkeyup = ( e ) => {
+										if ( e.key === "$" ) {
+												alert( "Error, please do not include a dollar sign. Just type 5.00 or similar." );
+												$$( '.price' )[ index ].blur();
+												$$( '.price' )[ index ].value = "";
+												return;
+										}
+								}
+								$$( '.price' )[ index ].value = Number( $$( '.price' )[ index ].value ).toFixed(2);
+								if ( $$( '.price' )[ index ].value == "0.00" || $$( '.price' )[ index ].value == "0" ) $$( '.price' )[ index ].value = "";
+						}
+				});
+		}
+		$( '.preview' ).onclick = (e) => {
+				var price = Number( e.target.parentElement.children[ 4 ].value );
+				var html = `
+						<h2>Preview pane</h2>
+						<div class="store_product">
+								<img src="${e.target.parentElement.children[ 1 ].value}">
+								<div>${e.target.parentElement.children[ 0 ].value}</div>
+								<div>$${price.toFixed( 2 )}</div>
+								<button>View product</button>
+								<button class="add_to_cart">Add to cart</button>
+						</div>
+				`;
+				$( '.preview_pane' ).innerHTML = html;
+		}
+		$( '.store_maker' ).onclick = async () => {
+				$( '.progress' ).style.display = "block";
+				var i; for ( i=0; i<$$( 'select' ).length; i++ ) {
+						var item = $$( 'select' )[ i ];
+						if ( item.value.includes( "---" ) ) {
+								alert( "You forgot to select a shipping zone on one of your products. Please try again." );
+								return;
+						}
+				}
+				var product_ids = [];
+				var i; for ( i=0; i<$$( '.product' ).length; i++ ) {
+						var array = [...$$( '.product' )[ i ].children];
+						array.pop();
+						array.forEach( ( item, index ) => array[ index ] = item.value);
+						var obj = {
+								product: array[ 0 ],
+								image: array[ 1 ],
+								description: array[ 2 ],
+								shipping_zone: array[ 3 ],
+								price: Number( array[ 4 ] * 100 )
+						}
+						var content = JSON.stringify( obj );
+						var event = {
+								"content"    : content,
+								"created_at" : Math.floor( Date.now() / 1000 ),
+								"kind"       : 42196,
+								"tags"       : [],
+								"pubkey"     : pubKey,
+						}
+						var signedEvent = await getSignedEvent(event, privKey);
+						console.log( "signed product event:", signedEvent );
+						product_ids.push( signedEvent.id );
+						Object.keys( relays_obj ).forEach( function( relay ) {
+								relays_obj[ relay ].send(JSON.stringify([ "EVENT", signedEvent ]));
+						});
+						// socket.send(JSON.stringify([ "EVENT", signedEvent ]));
+						await waitSomeSeconds( 1 );
+						console.log( i + 1, $$( '.product' ).length, Math.floor( ( ( Number( i ) + Number( 1 ) ) / $$( '.product' ).length ) * 100 ) );
+						var percent = String( Math.floor( ( ( Number( i ) + Number( 1 ) ) / $$( '.product' ).length ) * 100 ) ) + "%";
+						$( '.progressBar' ).style.width = percent;
+						$( '.status' ).innerText = String( ( Number( i ) + Number( 1 ) ) ) + " out of " + String( $$( '.product' ).length ) + " products created";
+				}
+				console.log( "product ids:", product_ids );
+				var store_info = {}
+				store_info[ "whisper_address_linking_key" ] = original_pubkey;
+				await ensureWalletIsAvailable();
+				var domain = JSON.parse( localStorage[ "wallet_info" ] )[ "wallet_url" ].substring( 0, JSON.parse( localStorage[ "wallet_info" ] )[ "wallet_url" ].indexOf( "/wallet" ) );
+				var readkey = JSON.parse( localStorage[ "wallet_info" ] )[ "readkey" ];
+				store_info[ "lnbits_public" ] = {domain, readkey}
+				store_info[ "lnbits_secret" ] = encrypt( privKey, pubKey, localStorage[ "wallet_info" ] );
+				store_info[ "store_name" ] = $( '.title' ).innerText;
+				var event = {
+						"content"    : JSON.stringify( store_info ),
+						"created_at" : Math.floor( Date.now() / 1000 ),
+						"kind"       : 12196,
+						"tags"       : [ [ "products", ...product_ids ] ],
+						"pubkey"     : pubKey,
+				}
+				var signedEvent = await getSignedEvent(event, privKey);
+				console.log( "signed store event:", signedEvent );
+				Object.keys( relays_obj ).forEach( function( relay ) {
+						relays_obj[ relay ].send(JSON.stringify([ "EVENT", signedEvent ]));
+				});
+				// socket.send(JSON.stringify([ "EVENT", signedEvent ]));
+				if ( window.location.href.indexOf( "?" ) > -1 ) var url = window.location.href.substring( 0, window.location.href.indexOf( "?" ) ); else var url = window.location.href;
+				sessionStorage.removeItem( "modal_cleared" );
+				var shareable = `${url}?pubkey=${original_pubkey}&relays=${encodeURI( JSON.stringify( relays ) )}`;
+				var private = `${url}?privkey=${privKey}&relays=${encodeURI( JSON.stringify( relays ) )}`;
+				if ( $_GET[ "network" ] ) {
+						shareable += `&network=${$_GET[ "network" ]}`;
+						private += `&network=${$_GET[ "network" ]}`;
+				}
+				// var content = `<p><a href="${shareable}" target="_blank">Click here</a> to share your store</p><p><a href="${private}" target="_blank">Click here</a> to manage your store and withdraw your earnings</p>`;
+				var content = `Success, your store is now ready`;
+				showModal( content, true );
+				await getNote( "modal_cleared" );
+				//alert( "Here is your sharable store url:\n\n" + url + "?pubkey=" + original_pubkey +
+				// "\n\nHere is your private management url:\n\n" + url + "?privkey=" + privKey );
+				window.location.href = private;
+		}
+		var renderCart = () => {
+				var total = 0;
+				var items = ``;
+				var requires_edelivery = false;
+				var requires_shipping = false;
+				cart.forEach( function( item ) {
+						if ( item[ "shipping_zone" ] != "Free (digital)" ) requires_shipping = true; else requires_edelivery = true;
+						total = total + item[ "price" ];
+						items += `<div class="minicart"><div>${item[ "item" ]}</div><div>$${( item[ "price" ] / 100 ).toFixed( 2 )} <span onclick="var child = this.parentElement.parentElement;var parent = child.parentNode;var index = Array.prototype.indexOf.call(parent.children, child);cart.splice( index, 1 );renderCart();$( '.minicart_item_count' ).innerText = Number( $( '.minicart_item_count' ).innerText ) - 1;">&times;</span></div></div>`;
+				});
+				var total_div = `<div class="minicart"><div>Total</div><div>$${( total / 100 ).toFixed( 2 )} aka ${dollarsToSats( ( total / 100 ).toFixed( 2 ) )} sats</div></div>`;
+				var edelivery_div = ``;
+				if ( requires_edelivery ) edelivery_div = `<div>Enter instructions for how to deliver your digital good(s) (e.g. email address? telegram handle? Please leave detailed instructions about what you want us to do)</div><textarea class="edelivery_form"></textarea>`
+				var shipping_div = ``;
+				if ( requires_shipping ) shipping_div = `<div>Enter what you want on your shipping label (and, if desired, a message for the merchant)</div><textarea class="shipping_label_form"></textarea>`
+				$( '.blank_view' ).innerHTML = `
+						<div>
+								<div onclick="$( '.blank_view' ).style.display = 'none';$( '.view_store' ).style.display = 'block';">⇦ <span>Back</span></div>
+								<h2>Your cart</h2>
+								<div class="items">${items}</div>
+								${total_div}
+								${edelivery_div}
+								${shipping_div}
+								<div><button class="checkout">Checkout</button></div>
+						</div>
+				`;
+				$( '.view_store' ).style.display = "none";
+				$( '.blank_view' ).style.display = "block";
+				$( '.checkout' ).onclick = async () => {
+						if ( ( $( '.shipping_label_form' ) && !$( '.shipping_label_form' ).value ) || ( $( '.edelivery_form' ) && !$( '.edelivery_form' ).value ) ) {
+								alert( "You forgot to enter delivery instructions, please do so and click the checkout button again" );
+								return;
+						}
+						if ( $( '.shipping_label_form' ) ) sessionStorage.shipping_label_form = $( '.shipping_label_form' ).value;
+						if ( $( '.edelivery_form' ) ) sessionStorage.edelivery_form = $( '.edelivery_form' ).value;
+						$( '.blank_view' ).innerHTML = `
+								<div onclick="renderCart();">⇦ <span class="back">Back</span></div>
+								<h2>Checkout</h2>
+								Please send <span class="sats_to_pay">${dollarsToSats( ( total / 100 ).toFixed( 2 ) )}</span> sats and wait for your auto-generated receipt (your shipment is not guaranteed til you have your receipt)
+								<br><br>
+								<div class="payment_box"></div>
+						`;
+						if ( ln_domain && ln_readkey ) {
+								$( '.payment_box' ).innerHTML += `
+										<div>
+												<button class="ln_button">Lightning</button>
+												<button class="bl_button">Base layer</button>
+										</div>
+										<div class="ln_box"></div>
+								`;
+								$( '.bl_button' ).onclick = () => {
+										$( '.bl_box' ).style.display = "block";
+										$( '.ln_box' ).style.display = "none";
+								}
+								$( '.ln_button' ).onclick = async () => {
+										$( '.bl_box' ).style.display = "none";
+										$( '.ln_box' ).style.display = "block";
+								}
+								getInvoice( total );
+						}
+						var div = document.createElement( "div" );
+						div.className = "bl_box";
+						$( '.payment_box' ).append( div );
+						$( '.bl_box' ).append( createQR( whisper_address ) );
+						$( '.bl_box' ).append( whisper_address );
+						var was_it_stopped = await loopTilAddressReceivesMoney( whisper_address, mempoolNetwork );
+						if ( was_it_stopped == "stopped" ) return;
+						await waitSomeSeconds( 2 );
+						var txinfo = await addressReceivedMoneyInThisTx( whisper_address, mempoolNetwork );
+						if ( txinfo[ 2 ] >= dollarsToSats( ( total / 100 ).toFixed( 2 ) ) ) {
+								var buyer_info = {}
+								buyer_info[ "whisper_key" ] = whisper_key;
+								if ( sessionStorage.edelivery_form ) buyer_info[ "edelivery_info" ] = sessionStorage.edelivery_form;
+								if ( sessionStorage.shipping_label_form ) buyer_info[ "shipping_info" ] = sessionStorage.shipping_label_form;
+								var message = JSON.stringify( [ buyer_info, [...cart] ] );
+								var encrypted = encrypt( privKey, $_GET[ "pubkey" ].substring( 2 ), message );
+								var event = {
+										"content"    : encrypted,
+										"created_at" : Math.floor( Date.now() / 1000 ),
+										"kind"       : 4,
+										"tags"       : [ [ 'p', $_GET[ "pubkey" ].substring( 2 ) ] ],
+										"pubkey"     : pubKey,
+								}
+								var signedEvent = await getSignedEvent(event, privKey);
+								Object.keys( relays_obj ).forEach( function( relay ) {
+										relays_obj[ relay ].send( JSON.stringify([ "EVENT", signedEvent ]) );
+								});
+								// socket.send( JSON.stringify([ "EVENT", signedEvent ]) );
+								console.log( "make sure this gets to the relay:", JSON.stringify([ "EVENT", signedEvent ]) );
+								await waitSomeSeconds( 2 );
+								sessionStorage.removeItem( "modal_cleared" );
+								var receipt_items = ``;
+								cart.forEach( function( item, index ) {
+										receipt_items += `<div>Item: ${item[ "item" ]} | Price: $${( item[ "price" ] / 100 ).toFixed( 2 )}</div>`;
+								});
+								cart = [];
+								if ( $( '.minicart_item_count' ) ) $( '.minicart_item_count' ).innerText = 0;
+								var content = `<p>Thank you for your business. Here is your receipt:</p><p class="bold">Items purchased</p>${receipt_items}<p>Total: $${( total / 100 ).toFixed( 2 )}</p><p>Proof of payment: ${whisper_key}</p><p>Keep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.</p>`;
+								showModal( content, true );
+								await getNote( "modal_cleared" );
+								// alert( `Thank you for your business. Here is your proof of payment: ${whisper_key}\n\nKeep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.` );
+						}
+				}
+		}
+		$( '.view_cart' ).onclick = renderCart;
+		var getInvoice = async ( total ) => {
+				var invoice_data = await postData( `${ln_domain}/api/v1/payments`, `{"out": false, "amount": ${Number( $( '.sats_to_pay' ).innerText )}}`, "application/json", ln_readkey );
+				$( '.ln_box' ).append( createQR( JSON.parse( invoice_data )[ "payment_request" ] ) );
+				$( '.ln_box' ).append( JSON.parse( invoice_data )[ "payment_request" ] );
+				await loopTilInvoiceIsPaid( JSON.parse( invoice_data )[ "payment_hash" ] );
+				var buyer_info = {}
+				buyer_info[ "pmthash" ] = JSON.parse( invoice_data )[ "payment_hash" ];
+				if ( sessionStorage.edelivery_form ) buyer_info[ "edelivery_info" ] = sessionStorage.edelivery_form;
+				if ( sessionStorage.shipping_label_form ) buyer_info[ "shipping_info" ] = sessionStorage.shipping_label_form;
+				var message = JSON.stringify( [ buyer_info, [...cart] ] );
+				var encrypted = encrypt( privKey, $_GET[ "pubkey" ].substring( 2 ), message );
+				var event = {
+						"content"    : encrypted,
+						"created_at" : Math.floor( Date.now() / 1000 ),
+						"kind"       : 4,
+						"tags"       : [ [ 'p', $_GET[ "pubkey" ].substring( 2 ) ] ],
+						"pubkey"     : pubKey,
+				}
+				var signedEvent = await getSignedEvent(event, privKey);
+				Object.keys( relays_obj ).forEach( function( relay ) {
+						relays_obj[ relay ].send( JSON.stringify([ "EVENT", signedEvent ]) );
+				});
+				// socket.send( JSON.stringify([ "EVENT", signedEvent ]) );
+				console.log( "make sure this gets to the relay:", JSON.stringify([ "EVENT", signedEvent ]) );
+				await waitSomeSeconds( 2 );
+				sessionStorage.removeItem( "modal_cleared" );
+				var receipt_items = ``;
+				cart.forEach( function( item, index ) {
+						receipt_items += `<div>Item: ${item[ "item" ]} | Price: $${( item[ "price" ] / 100 ).toFixed( 2 )}</div>`;
+				});
+				cart = [];
+				if ( $( '.minicart_item_count' ) ) $( '.minicart_item_count' ).innerText = 0;
+				var content = `<p>Thank you for your business. Here is your receipt:</p><p class="bold">Items purchased</p>${receipt_items}<p>Total: $${( total / 100 ).toFixed( 2 )}</p><p>Proof of payment: ${buyer_info[ "pmthash" ]}</p><p>Keep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.</p>`;
+				showModal( content, true );
+				await getNote( "modal_cleared" );
+		}
+		var checkInvoice = async ( pmthash ) => {
+				var status = await getData( `${ln_domain}/api/v1/payments/${pmthash}`, "application/json", ln_readkey );
+				status = JSON.parse( status );
+				return status;
+		}
+		var loopTilInvoiceIsPaid = async ( pmthash ) => {
+				var status = await checkInvoice( pmthash );
+				if ( !status[ "paid" ] ) {
+						await waitSomeSeconds( 2 );
+						console.log( "waiting..." );
+						return loopTilInvoiceIsPaid( pmthash );
+				} else {
+						return true;
+				}
+		}
+		var labelAsShipped = async ( order_id ) => {
+				var event = {
+						"content"    : "shipped",
+						"created_at" : Math.floor( Date.now() / 1000 ),
+						"kind"       : 42197,
+						"tags"       : [ [ "e", order_id ] ],
+						"pubkey"     : pubKey,
+				}
+				var signedEvent = await getSignedEvent(event, privKey);
+				Object.keys( relays_obj ).forEach( function( relay ) {
+						relays_obj[ relay ].send(JSON.stringify([ "EVENT", signedEvent ]));
+				});
+		}
+</script>
+<script>
+		async function openConnection() {
+				console.log( "connected to " + this.url );
+				var subId   = ( "00" + bitcoinjs.ECPair.makeRandom().privateKey.toString( "hex" ) ).substring( 0, 16 );
+				if ( $_GET[ "pubkey"] ) {
+						var filter  = { authors: [ $_GET[ "pubkey" ].substring( 2 ) ], kinds: [ 12196, 42197 ] }
+						var subscription = [ "REQ", subId, filter ];
+				}
+				if ( $_GET[ "privkey"] ) {
+						var filter  = { "#p": [ pubKey ], kinds: [ 4 ] }
+						var filter2  = { authors: [ pubKey ], kinds: [ 12196, 42197 ] }
+						var subscription = [ "REQ", subId, filter, filter2 ];
+				}
+				this.send(JSON.stringify( subscription ));
+				// socket.send(JSON.stringify( subscription ));
+				//I decided to pull in my wallet when I get my 12196 event, only
+				//there are two problems with that: first, in its current position,
+				//it will check if I have a wallet (and potentially make a new one)
+				//*before* getting my 12196 event, and second, I have to think of
+				//where to move it. If I move it *inside* the function that gets
+				//my 12196 event, it won't fire when someone is first creating a
+				//store, because I only reach out for a 12196 event if the user
+				//is viewing or managing an existing store -- and if I just move
+				//it to *after* the part where they request my 12196 event, which
+				//I might do so that it waits to make a wallet til after one has
+				//been found, I will still have to ensure that it runs *after* my
+				//12196 event (if any) has been found -- which might be hard since
+				//that can take a variable amount of time
+				//so the solution is: make a function that checks if I am getting
+				//a 12196 event, which is the same thing as checking if there is a
+				//url query parameter of privkey or pubkey; if there is not, it
+				//should immediately run ensureWalletIsAvailable, otherwise it
+				//should wait for some variable to be marked true (one that I mark
+				//true when I get a result after searching nostr for my 12196
+				//event) and *then* run ensureWalletIsAvailable -- and this
+				//function should run when I connect to a relay, otherwise the
+				//ensureWalletIsAvailable function might not work, since it
+				//sometimes has to send a message to a relay
+				if ( !$_GET[ "pubkey" ] && !$_GET[ "privkey" ] ) {
+						ensureWalletIsAvailable();
+				} else {
+						await getNote( "wallet_found_if_any" );
+						ensureWalletIsAvailable();
+				}
+		}
+		var openConnections = async () => {
+				var i; for ( i=0; i<relays.length; i++ ) {
+						var myrelay = relays[ i ];
+						relays_obj[ myrelay ] = new WebSocket( myrelay );
+						relays_obj[ myrelay ].addEventListener( 'open', openConnection );
+						relays_obj[ myrelay ].addEventListener( 'message', handleMessage );
+						await waitSomeSeconds( 1 );
+				}
+		}
+		openConnections();
+		// socket.addEventListener( 'open', openConnection );
+		if ( $_GET[ "pubkey" ] ) {
+				//this codeblock creates the whisper address
+				var linking_pubkey = $_GET[ "pubkey" ];
+				var whisper_key = makeSmallPrivkey();
+				var whisper_pubkey = getCompressedPubkeyHexFromPrivkeyHex( whisper_key );
+				var combokey = getCompressedPubkeyHexFromUncompressedPubkeyHex( add2Pubkeys( linking_pubkey, whisper_pubkey ) );
+				var whisper_address = getNativeSegwitAddressFromPubkeyHex( combokey, mempoolNetwork );
+				$( '.make_store' ).style.display = "none";
+		}
+		if ( $_GET[ "privkey" ] ) {
+				var html = `<div class="minicart"><span class="sales_count">0</span> new sales <button class="manage_sales_btn">Manage sales</button></div>`;
+				$( '.manage_sales_toolbar' ).innerHTML = html;
+				var manageSales = async () => {
+						$( '.splash_screen' ).style.display = "block";
+						$( '.products' ).style.display = "none";
+						$( '.store_maker' ).style.display = "none";
+						await getNote( "btc_price" );
+						await getNote( "wallet_found_if_any" );
+						$( '.splash_screen' ).style.display = "none";
+						$( '.store_maker' ).style.display = "inline";
+						$( '.products' ).style.display = "none";
+						$( '.preview_pane' ).style.display = "none"
+						$( '.store_maker' ).parentElement.style.display = "none";
+						$( '.blank_view' ).style.display = "block";
+						$( '.blank_view' ).innerHTML = `
+								<div>
+										<div onclick="$( '.blank_view' ).style.display = 'none';$( '.products' ).style.display = 'block';$( '.store_maker' ).parentElement.style.display = 'block';">⇦ <span class="back">Back</span></div>
+										<div><div class="bold">Wallet</div><button class="connect_node">Connect your node</button></div><br>
+										<div class="wallet"><div>Base layer balance: $<span class="usd_balance">0.00</span> (<span class="btc_balance">0</span>&nbsp;sats)</div><div><button class="withdraw">Withdraw</button></div></div><br>
+						`;
+						if ( ln_domain && ln_readkey ) $( '.blank_view' ).innerHTML += `
+										<div class="ln_wallet"><div>Lightning balance: $<span class="usd_balance">0.00</span> (<span class="btc_balance">0</span>&nbsp;sats)</div><div><button class="withdraw">Manage</button></div></div><br>
+						`;
+						$( '.blank_view' ).innerHTML += `
+										<div>Sales</div><br>
+										<div class="orders"></div>
+								</div>
+						`;
+						$( '.connect_node' ).onclick = async () => {
+								var content = `
+										<p>
+												Base-layer bitcoin payments on GoodStr are fully self-custodied by you. You alone have the private key to that money. However, for the lightning network, GoodStr automatically sets you up with a custodial lightning wallet from lnbits.com. Custodial solutions are typically easy to get started, but they usually stop operating at some point, so it's good to prepare for that.
+										</p>
+										<p>
+												A really good way to ensure you don't lose your funds on lightning when lnbits eventually ceases operations is to run your own lightning node. If you don't know what that is, <a href="https://thebitcoinmanual.com/behind-btc/nodes/lightning-node/" target="_blank">click here</a>. I'm not finished making it easy to connect your store to your own lightning node, but in the meantime, if you're brave and you already have a lightning node running with your own lnbits instance, you can hook GoodStr up to your node with a little in-browser coding. Here are instructions:
+										</p>
+										<ul>
+												<li>
+														enter this into your browser console: console.log(&nbsp;localStorage[&nbsp;"wallet_info"&nbsp;]&nbsp;)
+												</li>
+												<li>
+														it will show you your lnbits info in json format
+												</li>
+												<li>
+														use a text editor to change the info in the json so that it shows info from your own node (or e.g. a voltage node)
+												</li>
+												<li>
+														then enter this into your browser console: var&nbsp;json&nbsp;=&nbsp;your_modified_json (but replace your_modified_json with the text you modified using your text editor)
+												</li>
+												<li>
+														then enter this into your browser console: localStorage[&nbsp;"wallet_info"&nbsp;]&nbsp;=&nbsp;JSON.stringify(json)
+												</li>
+												<li>
+														then resubmit your store
+												</li>
+										</ul>
+										<p>
+												If you do all that, all the sats you earn on lightning will flow to your own node. But beware! If your lnbits instance is a hidden service on tor, as most of them are, people won't be able to send you funds on lightning unless they happen to be using a tor compatible web browser. So test it first to make sure it works how you want it to.
+										</p>
+										<p>
+												If all of that stuff sounds confusing or daunting, you have a few options: first, you can learn. Don't be afraid to learn how bitcoin works so you can take full advantage of its awesome features. Second, you can freely ignore this message because the site works fine without running your own node. Just know that if you don't run your own node you can easily and quickly lose any money you have on the lightning network.
+										</p>
+										<p>
+												A decent compromise is to daily withdraw any money you earn on lightning to a lightning wallet like breez or phoenix. Those phone wallets are easy to set up on your phone so give them a try! And let me know if you have any issues. On twitter I am @super_testnet.
+										</p>
+								`;
+								showModal( content );
+						}
+						if ( ln_domain && ln_readkey ) {
+								var ln_balance = await getLNBalance();
+								$$( '.btc_balance' )[ 1 ].innerText = ln_balance;
+								$$( '.usd_balance' )[ 1 ].innerText = satsToDollars( ln_balance ).toFixed( 2 );
+						}
+						sales.forEach( async function( sale, index ) {
+								if ( "whisper_key" in sale[ 0 ] ) {
+										var whisper_key = sale[ 0 ][ "whisper_key" ];
+										var privkey = addKeys( privKey, whisper_key );
+										var combokey = getCompressedPubkeyHexFromPrivkeyHex( privkey );
+										var whisper_address = getNativeSegwitAddressFromPubkeyHex( combokey, mempoolNetwork );
+										var txinfo = await addressReceivedMoneyInThisTx( whisper_address, mempoolNetwork );
+										//if the address *currently* has less money than it originally held
+										//then the order was shipped
+										var current_utxos = await getUTXOs( privkey, mempoolNetwork );
+										var current_balance = 0;
+										current_utxos.forEach( function( utxo ) {
+												current_balance = current_balance + Number( utxo[ "amount" ] );
+										});
+										if ( txinfo[ 2 ] > current_balance ) {
+												txinfo[ 2 ] = current_balance;
+												sale[ 3 ] = 1;
+										}
+								}
+								if ( "pmthash" in sale[ 0 ] ) {
+										var status = await checkInvoice( sale[ 0 ][ "pmthash" ] );
+										var txinfo = [];
+										txinfo[ 0 ] = sale[ 0 ][ "pmthash" ];
+										txinfo[ 1 ] = 0;
+										txinfo[ 2 ] = Number( ( status[ "details" ][ "amount" ] / 1000 ).toFixed( 0 ) );
+										//the following line helps me determine later that it is a lightning payment
+										txinfo[ 3 ] = true;
+								}
+								if ( $_GET[ "debug" ] == "true" || !txinfo[ 0 ] ) {
+									if ( !txinfo[ 0 ] ) txinfo[ 0 ] = "abababababababababababababababababababababababababababababababab";
+									if ( !txinfo[ 1 ] ) txinfo[ 1 ] = 0;
+									if ( !txinfo[ 2 ] ) txinfo[ 2 ] = 0;
+								}
+								//don't display orders that are not paid for
+								//but do show them if they only *seem* unpaid for but really are
+								//because the money was withdrawn before they were shipped
+								//I detect that (or try to) by checking if the item was shipped
+								//because if the amount paid is zero *and* the amount was shipped
+								//then I can be pretty confident the order was paid for (otherwise
+								//the seller wouldn't mark it shipped) but then they just withdrew
+								//their money before marking it as shipped -- the stuff about
+								//changing txinfo items to other things is a tool that helps me
+								//when trying stuff on testnet. Mainnet orders that got shipped
+								//show up with undefined info that makes the total amount available
+								//in my wallet "turn into" an NaN. By pretending there are values
+								//and setting them to 0 I fixed that error while still allowing me
+								//to spend the money that actually *is* in my wallet.
+								if ( shipped_orders.includes( sale[ 2 ] ) ) {
+									sale[ 3 ] = 1;
+									if ( !txinfo[ 0 ] ) txinfo[ 0 ] = "abababababababababababababababababababababababababababababababab";
+									if ( !txinfo[ 1 ] ) txinfo[ 1 ] = 0;
+									txinfo[ 2 ] = 0;
+								}
+								var address_balance = txinfo[ 2 ];
+								// var address_balance = await getAddressBalance( whisper_address, mempoolNetwork );
+								var balance_in_dollars = satsToDollars( address_balance ).toFixed( 2 );
+								if ( balance_in_dollars == "0.00" && !sale[ 3 ] ) return;
+								if ( !txinfo[ 3 ] ) {
+										$$( '.btc_balance' )[ 0 ].innerText = Number( $$( '.btc_balance' )[ 0 ].innerText ) + address_balance;
+								} else {
+										// $$( '.btc_balance' )[ 1 ].innerText = Number( $$( '.btc_balance' )[ 1 ].innerText ) + address_balance;
+								}
+								if ( !txinfo[ 3 ] ) {
+										$$( '.usd_balance' )[ 0 ].innerText = satsToDollars( Number( $$( '.btc_balance' )[ 0 ].innerText ) ).toFixed( 2 );
+								} else {
+										// $$( '.usd_balance' )[ 1 ].innerText = satsToDollars( Number( $$( '.btc_balance' )[ 1 ].innerText ) ).toFixed( 2 );
+								}
+								if ( !private_keys.includes( privkey ) && !txinfo[ 3 ] ) private_keys.push( privkey );
+								var bgcolor = "pink";
+								var shipped_instructions = "click when shipped";
+								if ( sale[ 3 ] ) {
+										bgcolor = "lightgreen";
+										shipped_instructions = "shipped";
+								}
+								var total = 0;
+								var items = ``;
+								var names_and_prices = [];
+								sale[ 1 ].forEach( function( item, index ) {
+										total = total + Number( item[ "price" ] );
+										items += `<div class="minicart"><div class="product_name"></div><div class="product_price"></div></div>`;
+										names_and_prices.push( [ item[ "item" ], item[ "price" ] ] );
+								});
+								var paid_amount = balance_in_dollars;
+								//if the item is shipped, display the amount as paid even if the address is empty
+								//because the address probably *is* empty -- that just means the merchant withdrew
+								//the money
+								if ( sale[ 3 ] ) paid_amount = ( total / 100 ).toFixed( 2 );
+								var delivery_info = (sale[ 0 ][ "shipping_info" ]) ? sale[ 0 ][ "shipping_info" ]:sale[ 0 ][ "edelivery_info" ];
+								var order = `
+										<div class="minicart order" style="background-color: ${bgcolor};" data-order_id="${sale[ 2 ]}"><div>Delivery info:<br><div class="delivery_info"></div></div><div class="payment_info">They paid: $${paid_amount} <button class="order_details" onclick="if ( this.parentElement.parentElement.nextElementSibling.style.display != 'none' ) this.parentElement.parentElement.nextElementSibling.style.display = 'none'; else this.parentElement.parentElement.nextElementSibling.style.display = 'block';">details</button> <button class="click_when_shipped" onclick="if ( sales[ ${index} ][ 3 ] ) return;var conf = confirm( 'Are you sure you want to mark this order as shipped?' );if ( !conf ) return;this.parentElement.parentElement.style.backgroundColor = 'lightgreen';this.innerText = 'shipped';this.onclick = () => {return false};sales[ ${index} ][ 3 ] = 1;$( '.sales_count' ).innerText = Number( $( '.sales_count' ).innerText ) - 1;shipped_orders.push( sales[ ${index} ][ 2 ] );localStorage.shipped_orders = JSON.stringify( shipped_orders );var order_id = this.parentElement.parentElement.getAttribute( 'data-order_id' );labelAsShipped( order_id );">${shipped_instructions}</button></div></div>
+								`;
+								if ( !txinfo[ 3 ] ) {ßst
+										order += `
+												<div><div class="bold">Details</div><br>${items}<div>Total they owed: $${( total / 100 ).toFixed( 2 )}</div><div >Total they paid: $${paid_amount}</div><div ><a href="https://mempool.space/${mempoolNetwork}tx/${txinfo[ 0 ]}:${txinfo[ 1 ]}" target="_blank">Inspect transaction</a></div></div>
+										`;
+								} else {
+										order += `
+												<div><div class="bold">Details</div><br>${items}<div >Total they owed: $${( total / 100 ).toFixed( 2 )}</div><div >Total they paid: $${paid_amount}</div><div ><a href="${JSON.parse( localStorage.wallet_info )[ "wallet_url" ]}" target="_blank">Inspect transaction</a></div></div>
+										`;
+								}
+								$( '.orders' ).innerHTML += order;
+								$$( '.delivery_info' )[ $$( '.delivery_info' ).length - 1 ].innerText = delivery_info;
+								var existing_number = $$( '.blank_view .minicart .product_name' ).length;
+								names_and_prices.forEach( function( item, index ) {
+										//must be -2 the first time and -1 the second time
+										//names_and_prices.length is 2 so I can emulate -2 with - names_and_prices.length - index
+										//then the second time it will be names_and_prices.length - 1 which is -1
+										$$( '.blank_view .minicart .product_name' )[ existing_number - ( names_and_prices.length - index ) ].innerText = item[ 0 ];
+										$$( '.blank_view .minicart .product_price' )[ existing_number - ( names_and_prices.length - index ) ].innerText = "$" + ( item[ 1 ] / 100 ).toFixed( 2 )
+								});
+						});
+						$$( '.withdraw' )[ 0 ].onclick = async () => {
+								var some_unshipped_items = false;
+								sales.forEach( function( sale ) {
+										if ( !sale[ 3 ] ) some_unshipped_items = true;
+								});
+								if ( some_unshipped_items ) {
+										alert( `You cannot withdraw your money til you ship all your orders.` );
+										return;
+								}
+								var from_amount = 0;
+								var i; for ( i=0; i<private_keys.length; i++ ) {
+										var utxos_in_this_address = await getUTXOs( private_keys[ i ], mempoolNetwork );
+										utxos_in_this_address.forEach( function( utxo ) {
+												available_utxos.push( utxo );
+												from_amount = from_amount + utxo[ "amount" ];
+										});
+								}
+								var destino = prompt( "Enter the bitcoin address where you want your sats to go" );
+								var base_size = 200;
+								var full_size = base_size + ( available_utxos.length * 50 );
+								var fee_options = await getThreeFeeRates( mempoolNetwork );
+								var sats_per_byte = prompt( `Please enter a fee rate as a number. Specifically, the number of sats per byte you want to pay. The minimum rate is ${fee_options[ 0 ]}, the average rate is ${fee_options[ 1 ]}, and the urgent rate is ${fee_options[ 2 ]}.` );
+								var sats_per_byte = Number( sats_per_byte );
+								if ( !sats_per_byte ) {
+										alert( "You entered an invalid fee rate. You must enter a number greater than 0, such as 5, 10, or 25. Please try again." );
+										return;
+								}
+								var txfee = sats_per_byte * full_size;
+								var txhex = craftTransaction( available_utxos, from_amount - txfee, destino, mempoolNetwork );
+								var conf = confirm( `Click ok if this is what you want to do:\n\nAmount this shop has: ${from_amount} sats\n\nMining fee for this tx: ${txfee} sats\n\nAmount you will receive: ${from_amount - txfee} sats\n\nAmount this shop will have leftover: 0 sats\n\nDestination address: ${destino}\n\n` );
+								if ( !conf ) return;
+								var txid = await pushBTCpmt( txhex, mempoolNetwork );
+								if ( txid && txid != "error" ) {
+										sessionStorage.removeItem( "modal_cleared" );
+										var content = `<p>Success! You can <a href="https://mempool.space/${mempoolNetwork}tx/${txid}:0" target="_blank">view your transaction here</a></p>`;
+										showModal( content, true );
+										await getNote( "modal_cleared" );
+										// alert( `Success! You can view your transaction here: https://mempool.space/${mempoolNetwork}tx/${txid}` );
+								} else {
+										sessionStorage.removeItem( "modal_cleared" );
+										var content = `<p>Oh no, there was a transaction failure! Try broadcasting your raw transaction <a href="https://mempool.space/${mempoolNetwork}tx/push" target="_blank">here</a></p><p>${txhex}</p>`;
+										showModal( content, true );
+										await getNote( "modal_cleared" );
+										// alert( `Oh no, there was a transaction failure! Try broadcasting your raw transaction here: https://mempool.space/${mempoolNetwork}tx/push\n\n${txhex}` );
+								}
+								console.log( "raw tx:", txhex );
+								await waitSomeSeconds( 2 );
+								$( '.manage_sales_btn' ).click();
+						}
+						if ( $$( '.withdraw' )[ 1 ] ) $$( '.withdraw' )[ 1 ].onclick = async () => {
+								window.open( JSON.parse( localStorage[ "wallet_info" ] )[ "wallet_url" ], '_blank' );
+						}
+				}
+				$( '.manage_sales_btn' ).onclick = manageSales;
+		}
+</script>
+<script>
+		function checkHeartbeat() {
+				setTimeout( () => {
+						//it is important that this be inside the timeout otherwise
+						//it may detect a connection loss on pageload
+						Object.keys( relays_obj ).forEach( function( relay ) {
+								if ( relays_obj[ relay ].readyState != 1 ) {
+										alert( "You lost your connection to one of your relays. If you receive this message several times, please refresh your browser." );
+										relays_obj[ relay ] = new WebSocket( relay );
+										relays_obj[ relay ].removeEventListener( 'open', openConnection );
+										relays_obj[ relay ].removeEventListener( 'message', handleMessage );
+										relays_obj[ relay ] = new WebSocket( relay );
+										relays_obj[ relay ].addEventListener( 'message', handleMessage );
+										relays_obj[ relay ].addEventListener( 'open', openConnection );
+								}
+						});
+						// if ( socket.readyState != 1 ) {
+						//     alert( "You lost your connection to your relay. If you receive this message twice, please refresh your browser." );
+						//     socket = new WebSocket( relay );
+						//     socket.removeEventListener( 'open', openConnection );
+						//     socket.removeEventListener( 'message', handleMessage );
+						//     socket = new WebSocket( relay );
+						//     socket.addEventListener( 'message', handleMessage );
+						//     socket.addEventListener( 'open', openConnection );
+						// }
+						checkHeartbeat();
+				}, 10000 );
+		}
+		async function init() {
+				$( '.splash_screen' ).style.display = "none";
+				$( '.make_store' ).style.display = "block";
+				sessionStorage[ "btc_price" ] = await getBitcoinPrice();
+				checkHeartbeat();
+		}
+		init();
+</script>
+<div class="black-bg"></div>
+<div class="modal"></div>
+
+
+
+	    </body>
+	</html>
