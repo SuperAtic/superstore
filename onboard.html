@@ -16,6 +16,10 @@
         <style type="text/css">
         /** CUSTOM HERE **/
 
+        .circle {
+          margin-bottom: -21px;
+        }
+
         .blue {
           text-decoration: underline;
           cursor: pointer !important;
@@ -427,7 +431,7 @@
 <p class="fs-5 col-md-8">Quickly and easily get started with GoodStr's webstore generator online, create barebone marketplaces featuring all your greatest products & services. Simple online payments guaranteed!</p>
 
 <!-- Button trigger modal -->
-<code> or access yours with <span class="blue" onclick="useString()">Magic String</span>.</code><br/><br/>
+<code>Access yours with <span class="blue" onclick="useString()">Magic String</span> or ...</code><br/><br/>
 <button type="button" class="btn btn-lg btn-primary btn-outline" data-bs-toggle="modal" data-bs-target="#signup" style="margin-right:8px;">Open a NewStr</button>
 
 <hr class="col-3 col-md-2 my-5">
@@ -573,25 +577,25 @@
         </div>
         <div class="modal-body">
           <p>GoodStr does not use traditional <code>usernames</code> and <code>passwords</code>, it uses magic strings to identyfy and backup your store. Make sure to back yours Magic Strinng! It's the only way to access and manage your store.</p>
-          <div class="magic_string_box"><p>Your magic string</p><div class="magic_string"></div></div>
-
           <div class="circle_row">
               <div class="circle">
-                <div><code>1</code></div></div>
-                <i class="bi bi-magic" size="42"></i>
+                <code>1</code></div>
+                <i class="bi bi-magic" style="font-size:42px;"></i>
               <div class="instruction"><span class="blue" onclick="genString()">Generate</span> your magic string</div>
+              <div class="magic_string_box" style="display: block;"><div class="magic_string"></div></div>
           </div>
+          <hr class="">
           <div class="circle_row">
               <div class="circle">
-                <div><code>2</code></div></div>
+                <code>2</code></div>
                 <!--i class="bi bi-fingerprint" size="42"></i-->
-                <i class="bi bi-key" size="42"></i>
+                <i class="bi bi-key" style="font-size:42px;"></i>
               <div class="instruction"><span class="blue" onclick="backupString()">Back up</span> your magic string</div>
           </div>
           <div class="circle_row">
               <div class="circle">
-                <div><code>3</code></div></div>
-                <i class="bi bi-door-open-fill" size="42"></i>
+                <code>3</code></div>
+                <i class="bi bi-door-open-fill" style="font-size:42px;"></i>
                 <!--i class="bi bi-shop-window"></i -->
               <div class="instruction"><span class="blue" onclick="useString()">Log in</span> with your magic string</div>
           </div>
@@ -629,7 +633,7 @@
                 setTimeout( function() {$( '.magic_string' ).innerText = "••";}, 200 );
                 setTimeout( function() {$( '.magic_string' ).innerText = "•••";}, 400 );
                 setTimeout( function() {
-                    $( '.magic_string_box' ).innerHTML = `<i class="bi bi-key" size="42"></i><br/><p>Your magic string</p><code><div class="magic_string"></div></code>`;
+                    $( '.magic_string_box' ).innerHTML = `<p>Your magic string</p><code><div class="magic_string"></div></code>`;
                     $( '.magic_string' ).style.fontSize = "100%";
                     $( '.magic_string' ).innerText = "00" + bytesToHex( nobleSecp256k1.utils.randomPrivateKey() ).substring( 2, 64 ) + textToHex( JSON.stringify( relays ) );
                 }, 600 );
