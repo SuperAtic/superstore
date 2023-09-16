@@ -55,7 +55,7 @@
 
         ::-moz-selection,
         ::selection {
-          background-color: rgba(255,255,0,50) !important; 
+          background-color: rgba(255,255,0,50) !important;
         }
 
 
@@ -589,16 +589,18 @@
               <div class="circle">
                 <code>1</code></div>
                 <i class="bi bi-magic" style="font-size:42px; opacity: .5;"></i>
-              <div class="instruction"><span class="blue" onclick="genString()">Generate</span> your magic string</div>
+              <div class="instruction"><span class="blue" onclick="genString()">Generate</span> your magic string.</div>
           </div>
-          <div class="magic_string_box" style="display: block!important;"><div class="magic_string" style="display: block!important;"></div></div>
+          <div class="magic_string_box" style="display: block!important;"><div class="magic_string" style="display: block!important;"></div><br/>
+          <small>Your magic string is the only way to access and manage your store. If you lose it, you will not only lose access to your store but also to any money you received since the last time you withdrew! Make sure you back this up before continuing.</small>
+        </div>
           <hr class="separator">
           <div class="circle_row">
               <div class="circle">
                 <code>2</code></div>
                 <!--i class="bi bi-fingerprint" size="42"></i-->
                 <i class="bi bi-key" style="font-size:42px; opacity: .5;"></i>
-              <div class="instruction"><span class="blue" onclick="backupString()">Back up</span> your magic string</div>
+              <div class="instruction"><span class="blue" onclick="backupString()">Back up</span> your magic string.</div>
           </div>
           <hr class="separator">
           <div class="circle_row">
@@ -606,14 +608,14 @@
                 <code>3</code></div>
                 <i class="bi bi-door-open-fill" style="font-size:42px; opacity: .5;"></i>
                 <!--i class="bi bi-shop-window"></i -->
-              <div class="instruction"><span class="blue" onclick="useString()">Log in</span> with your magic string</div>
+              <div class="instruction"><span class="blue" onclick="useString()">Log in</span> with your magic string.</div>
             </div>
           </div>
 
       </div>
         <div class="modal-footer">
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Holy guacamole!</strong> You should backup on some of those fields above befor conntinuing!.
+          <div class="alert alert- alert-dismissible fade show" role="alert">
+            🥑 <strong>Holy guacamole!</strong> Did you back up your <code>magic string</code>? Save it somewhere safe, ideally offline, maybe encrypted...
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         </div>
@@ -650,10 +652,6 @@
                     $( '.magic_string' ).style.fontSize = "100%";
                     $( '.magic_string' ).innerText = "00" + bytesToHex( nobleSecp256k1.utils.randomPrivateKey() ).substring( 2, 64 ) + textToHex( JSON.stringify( relays ) );
                 }, 600 );
-            }
-            var backupString = () => {
-                var content = `<p>Did you back up your magic string? Save it somewhere safe where only you can access it. Your magic string is the only way to access your store. If you lose it, you will not only lose access to your store but also to any money you received since the last time you withdrew. Make sure you back this up before continuing:</p><p>Your magic string</p><p>${$( '.magic_string' ).innerText}</p>`;
-                showModal( content );
             }
         </script>
         <script>
