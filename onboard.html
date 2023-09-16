@@ -20,10 +20,15 @@
         <style type="text/css">
         /** CUSTOM HERE **/
 
+        .nav-link {
+          padding-top: 15px;
+        }
+
         .logo {
           font-family: "Azeret Mono", "SF Mono", "Courier New", courier, monospace !important;
           font-weight: 900 !important;
           font-style: italic !important;
+          font-size: 1.6rem;
         }
 
         .magic_string_box {
@@ -334,14 +339,14 @@
 
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="goodstr" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-      <path d="M12 1.75C13.1366 1.75 14.2267 2.21094 15.0305 3.03141C15.8342 3.85188 16.2857 4.96468 16.2857 6.125V7H7.71429V6.125C7.71429 4.96468 8.16582 3.85188 8.96954 3.03141C9.77327 2.21094 10.8634 1.75 12 1.75ZM18 7V6.125C18 4.50055 17.3679 2.94263 16.2426 1.79397C15.1174 0.645311 13.5913 0 12 0C10.4087 0 8.88258 0.645311 7.75736 1.79397C6.63214 2.94263 6 4.50055 6 6.125V7H0V24.5C0 25.4283 0.361224 26.3185 1.00421 26.9749C1.64719 27.6313 2.51926 28 3.42857 28H20.5714C21.4807 28 22.3528 27.6313 22.9958 26.9749C23.6388 26.3185 24 25.4283 24 24.5V7H18Z" fill="url(#paint0_linear_649_566)"/>
-      <path d="M10.0161 11.2917C10.0405 11.2074 10.0911 11.1335 10.1603 11.0809C10.2295 11.0283 10.3136 10.9999 10.4001 11H13.5999C13.6632 11 13.7256 11.0154 13.782 11.0447C13.8384 11.0741 13.8871 11.1166 13.9241 11.1688C13.9611 11.221 13.9854 11.2814 13.995 11.345C14.0045 11.4086 13.9991 11.4736 13.9791 11.5346L12.5551 15.8747H15.5997C15.6747 15.8747 15.7481 15.896 15.8116 15.9362C15.8752 15.9765 15.9263 16.034 15.9593 16.1023C15.9922 16.1707 16.0056 16.247 15.9979 16.3227C15.9902 16.3984 15.9617 16.4703 15.9157 16.5304L10.3161 23.8424C10.2587 23.9177 10.1772 23.9701 10.0856 23.9905C9.99409 24.011 9.8984 23.9981 9.81525 23.9542C9.73211 23.9103 9.66678 23.8381 9.63068 23.7503C9.59458 23.6624 9.59 23.5645 9.61773 23.4736L11.0584 18.7183H8.40021C8.33802 18.7183 8.27669 18.7036 8.22107 18.6754C8.16545 18.6471 8.11709 18.6061 8.07982 18.5556C8.04254 18.505 8.01739 18.4463 8.00635 18.3842C7.99531 18.322 7.9987 18.2581 8.01623 18.1975L10.0161 11.2917Z" fill="url(#paint1_linear_649_566)"/>
+      <path d="M24.5 5.03125C26.2523 5.03125 27.9329 5.74186 29.172 7.00675C30.411 8.27165 31.1071 9.98721 31.1071 11.776V13.125H17.8929V11.776C17.8929 9.98721 18.589 8.27165 19.828 7.00675C21.0671 5.74186 22.7477 5.03125 24.5 5.03125ZM33.75 13.125V11.776C33.75 9.27168 32.7754 6.86989 31.0407 5.09904C29.306 3.32819 26.9533 2.33333 24.5 2.33333C22.0467 2.33333 19.694 3.32819 17.9593 5.09904C16.2246 6.86989 15.25 9.27168 15.25 11.776V13.125H6V40.1042C6 41.5352 6.55689 42.9077 7.54815 43.9196C8.53941 44.9315 9.88386 45.5 11.2857 45.5H37.7143C39.1161 45.5 40.4606 44.9315 41.4518 43.9196C42.4431 42.9077 43 41.5352 43 40.1042V13.125H33.75Z" fill="url(#paint0_linear_649_568)"/>
+      <path d="M21.4415 19.7413C21.4791 19.6115 21.5571 19.4975 21.6638 19.4164C21.7705 19.3354 21.9002 19.2916 22.0335 19.2917H26.9665C27.0642 19.2917 27.1604 19.3154 27.2473 19.3606C27.3342 19.4058 27.4093 19.4714 27.4664 19.5519C27.5235 19.6324 27.5609 19.7254 27.5756 19.8235C27.5904 19.9215 27.5819 20.0217 27.5511 20.1158L25.3559 26.8068H30.0497C30.1651 26.8068 30.2783 26.8396 30.3763 26.9017C30.4743 26.9637 30.5532 27.0524 30.6039 27.1578C30.6547 27.2631 30.6753 27.3808 30.6634 27.4975C30.6516 27.6141 30.6077 27.7251 30.5368 27.8176L21.904 39.0904C21.8156 39.2064 21.6898 39.2873 21.5487 39.3187C21.4076 39.3502 21.2601 39.3304 21.1319 39.2627C21.0037 39.195 20.903 39.0837 20.8473 38.9483C20.7917 38.8129 20.7846 38.6619 20.8274 38.5218L23.0485 31.1907H18.9504C18.8545 31.1908 18.7599 31.1681 18.6742 31.1246C18.5884 31.081 18.5139 31.0178 18.4564 30.9398C18.399 30.8619 18.3602 30.7714 18.3432 30.6756C18.3261 30.5798 18.3314 30.4812 18.3584 30.3878L21.4415 19.7413Z" fill="url(#paint1_linear_649_568)"/>
       <defs>
-      <linearGradient id="paint0_linear_649_566" x1="12" y1="0" x2="12" y2="28" gradientUnits="userSpaceOnUse">
+      <linearGradient id="paint0_linear_649_568" x1="24.5" y1="2.33333" x2="24.5" y2="45.5" gradientUnits="userSpaceOnUse">
       <stop stop-color="#663399"/>
       <stop offset="1" stop-color="#FF00FF"/>
       </linearGradient>
-      <linearGradient id="paint1_linear_649_566" x1="12" y1="11" x2="12" y2="24" gradientUnits="userSpaceOnUse">
+      <linearGradient id="paint1_linear_649_568" x1="24.5" y1="19.2917" x2="24.5" y2="39.3333" gradientUnits="userSpaceOnUse">
       <stop stop-color="#FFFF00"/>
       <stop offset="1" stop-color="#FF9500"/>
       </linearGradient>
@@ -371,23 +376,24 @@
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav flex-grow-1 justify-content-between">
-            <li class="nav-item"><a class="nav-link" href="#">
+            <li class="nav-item"><a class="nav-link" href="#up">
               <svg class="bi" width="24" height="24"><use xlink:href="#goodstr"/></svg>
               <strong class="logo">GoodStr<sup>α</sup></strong>
             </a></li>
-            <li class="nav-item"><a class="nav-link" href="#up">Welcome</a></li>
+            <!-- li class="nav-item"><a class="nav-link" href="#up">Welcome</a></li-->
             <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
             <li class="nav-item"><a class="nav-link" href="#discover">Discover</a></li>
             <li class="nav-item"><a class="nav-link" href="#faqs">FAQs</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">
+            <li class="nav-item"><a class="nav-link" href="#help  ">Help</a></li>
+            <!-- li class="nav-item"><a class="nav-link" href="#">
               <i class="bi bi-cart"></i> BagStr
             </a></li>
-            <!-- li class="nav-item"><a class="nav-link" href="#">
+            <li class="nav-item"><a class="nav-link" href="#">
               <i class="bi bi-shop-window"></i> ManageStr
-            </a></li-->
+            </a></li>
             <li class="nav-item"><a class="nav-link" href="#">
               <i class="bi bi-magic"></i> NewStr
-            </a></li>
+            </a></li-->
           </ul>
         </div>
       </div>
@@ -658,9 +664,6 @@
   						<div class="instruction mb-2"><span class="blue" onclick="genString()">Generate</span> your magic string.</div>
               <small>Your magic string is the only way to access and manage your store. If you lose it, you will not only lose access to your store but also to any money you received since the last time you withdrew! Make sure you back this up before continuing.</small>
   					</div>
-            <div class="magic_string_box">
-  						<div class="magic_string" style="display: block!important;"></div>
-  					</div>
   				</div>
   				<hr class="separator">
   				<div class="circle_row">
@@ -669,6 +672,9 @@
   					</div>
   					<!--i class="bi bi-fingerprint" size="42"></i-->
   					<i class="bi bi-key" style="font-size:42px; opacity: .5;"></i>
+            <div class="magic_string_box">
+  						<div class="magic_string" style="display: block!important;"></div>
+  					</div>
   					<div class="instruction"><span class="blue" onclick="backupString()">Back up</span> your magic string.</div>
   				</div>
   				<hr class="separator">
