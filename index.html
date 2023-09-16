@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>Beta.GoodStr.io</title>
+    <title>GoodStrᵅ</title>
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -12,7 +12,141 @@
     <script src="https://bundle.run/noble-secp256k1@1.2.14"></script>
     <script src="https://bundle.run/browserify-cipher@1.0.1"></script>
     <script src="https://bundle.run/buffer@6.0.3"></script>
-    <style src="asssets/style.css"> </style>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 1.15rem;
+            font-family: Arial, sans-serif;
+        }
+        html {
+            max-width: 70ch;
+            padding: 3rem 1rem;
+            margin: auto;
+            line-height: 1.25;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+        }
+        input, textarea {
+            line-height: 1.25;
+            width: calc( 100% );
+            height: 1.8rem;
+            font-size: 1.15rem;
+            border: 1px solid grey;
+            margin-bottom: 1rem;
+        }
+        .make_store {
+          display: none;
+        }
+        .product {
+            border: 1px solid black;
+            border-radius: 1rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .product input, .product select, .product textarea {
+            width: calc( 50% - 0.2rem );
+            margin-left: .2rem;
+            margin-bottom: 1rem;
+        }
+        .product .desc {
+            width: calc( 100% - .2rem );
+            height: 5rem;
+        }
+        .plus_and_minus {
+            margin-left: .2rem;
+        }
+        .view_store, .blank_view {
+            display: none;
+        }
+        .minicart {
+            padding: 0.5rem;
+            background-color: tan;
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+        .black-bg {
+            display: none;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: black;
+            opacity: .5;
+            width: 100vw;
+            height: 100vh;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            box-sizing: border-box;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 100%;
+            max-width: 560px;
+            background-color: white;
+            border-radius: 1rem;
+            padding: 20px;
+            color: black;
+            text-align: center;
+            word-wrap: break-word;
+        }
+        .payment_box {
+            max-width: 400px;
+            border: 1px solid black;
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+            word-wrap: break-word;
+        }
+        .qr_code {
+            width: 100%;
+        }
+        .ln_box {
+            display: none;
+        }
+        .title {
+            display: none;
+        }
+        .order {
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+        }
+        .public_link {
+            display: none;
+        }
+        .store_name {
+            margin-top: 1rem;
+        }
+        @media screen and (max-width: 600px) {
+            .product input, .product select, .product textarea {
+                width: calc( 100% );
+            }
+            .product .desc {
+                width: calc( 100% );
+            }
+            .product button {
+                width: calc( 100% );
+                margin-bottom: 1rem;
+            }
+            .order {
+                flex-wrap: wrap;
+            }
+            .payment_info {
+                border-top: 1px solid black;
+                padding-top: 1rem;
+                margin-top: 1rem;
+            }
+            .plus_and_minus {
+                margin-left: 0;
+            }
+        }
+</style>
     <script>
         var $ = document.querySelector.bind( document );
         var $$ = document.querySelectorAll.bind( document );
