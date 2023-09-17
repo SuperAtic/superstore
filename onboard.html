@@ -74,6 +74,7 @@
 			font-weight: bold;
 			}
 			.purple,
+			.text-purple,
 			.blue {
 			color: #663399 ;
 			}
@@ -225,6 +226,38 @@
 			.bd-mode-toggle .dropdown-menu .active .bi {
 			display: block !important;
 			}
+			.btn-bd-primary {
+				--bd-violet-bg: #FF00FF;
+				--bd-violet-rgb: 255, 0, 255;
+				--bs-btn-font-weight: 600;
+				--bs-btn-color: var(--bs-black);
+				--bs-btn-bg: var(--bd-violet-bg);
+				--bs-btn-border-color: var(--bd-violet-bg);
+				--bs-btn-hover-color: var(--bs-black);
+				--bs-btn-hover-bg: #E800E8;
+				--bs-btn-hover-border-color: #E800E8;
+				--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+				--bs-btn-active-color: var(--bs-btn-hover-color);
+				--bs-btn-active-bg: #FF00FF;
+				--bs-btn-active-border-color: #FF00FF;
+			}
+
+			.btn-bd-secondary {
+				--bd-violet-bg: #663399;
+				--bd-violet-rgb: 102, 51, 153;
+				--bs-btn-font-weight: 600;
+				--bs-btn-color: var(--bs-white);
+				--bs-btn-bg: var(--bd-violet-bg);
+				--bs-btn-border-color: var(--bd-violet-bg);
+				--bs-btn-hover-color: var(--bs-white);
+				--bs-btn-hover-bg: #7E45B7;
+				--bs-btn-hover-border-color: #7E45B7;
+				--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+				--bs-btn-active-color: var(--bs-btn-hover-color);
+				--bs-btn-active-bg: #663399;
+				--bs-btn-active-border-color: #663399;
+			}
+
 		</style>
 		<script>
 			var $ = document.querySelector.bind( document );
@@ -608,7 +641,7 @@
 
 				<div class="row g-5">
 					<div class="col-md-6">
-						<h2 class="text-body-emphasis big_title">How can I use GoodStr?</h2>
+						<h2 class="text-body-emphasis ">How can I use GoodStr?</h2>
 						<p class="simple_desc">GoodStr lets you monetize your life. Have a youtube channel? Start selling merchandise through GoodStr. Have a blog? Let people support you through sales and branding. Want to sell items at a farmer's market? Treat GoodStr as your point of sale system and let people check out with ease.</p>
 						<ul class="list-unstyled ps-0">
 							<li>
@@ -692,8 +725,8 @@
 						</ul>
 					</div>
 
-					<div class="row g-5 mb-5">
-					<div class="container-fluid purple-bg position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary" 	style="border-radius: 21px;">
+					<div class="container-fluid row g-5 mb-5">
+					<div class="purple-bg position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary" 	style="border-radius: 21px;">
 						<div class="col-md-6 p-lg-5 mx-auto my-5">
 							<figure class="text-center">
 								<blockquote class="blockquote">
@@ -706,42 +739,18 @@
 						</div>
 					</div>
 
-						<div class="row align-items-md-stretch">
+						<div class="container-fluid row align-items-md-stretch">
 
 							<div id="faqs" class="col-md-6 mt-5">
 								<div class="h-100 p-5 pink-bg border rounded-3">
-									<h2 class="text-body-emphasis big_title">Do you have any qiestion?</h2>
+									<h2 class="text-body-emphasis ">Do you have any qiestion?</h2>
 									<p class="simple_desc">We got Answers :)</p>
-									<h4>
-										<a style="text-decoration: none;" type="button" data-bs-toggle="collapse" data-bs-target="#01" aria-expanded="false" aria-controls="collapseWidthExample">
-										Question
-										</a>
-									</h4>
-									<div>
-										<div class="collapse collapse-horizontal" id="01">
-											<div class="card card-body">
-												Answer
-											</div>
-										</div>
-										<h4>
-											<a style="text-decoration: none;" type="button" data-bs-toggle="collapse" data-bs-target="#02" aria-expanded="false" aria-controls="collapseWidthExample">
-											Question
-											</a>
-										</h4>
-										<div>
-											<div class="collapse collapse-horizontal" id="02">
-												<div class="card card-body">
-													Answer
-												</div>
-											</div>
-										</div>
-									</div>
 								</div>
 							</div>
 
 							<div id="help" class="col-md-6 my-5">
 									<div class="h-100 p-5 bg-body-secondary border rounded-3">
-									<h2 class="text-body-emphasis big_title">Get in Touch</h2>
+									<h2 class="text-body-emphasis ">Get in Touch</h2>
 									<p class="simple_desc">Feel free to sent us all your enquiries via nostr: <code>npub1hwluk4vax4g9lq882gktv75scuseferw3gvht7sdq6gthd7rqyxqluj4z3</code><br/>
 										<br/>
 									 <a href="https://snort.social/p/npub1hwluk4vax4g9lq882gktv75scuseferw3gvht7sdq6gthd7rqyxqluj4z3" class="btn btn-outline-secondary" type="button">Send us an Encrypted Note</a>
@@ -758,7 +767,7 @@
 
   						<div id="onch" class="col-md-6 mt-5">
 								<div class="h-100 p-5 bg-body-secondary border rounded-3">
-									<h2 class="text-body-emphasis big_title">Support the Project</h2>
+									<h2 class="text-body-emphasis ">Support the Project</h2>
 									<p class="simple_desc">Hopingt that you find this tool helpful, we always welcome anny type of contrybution</p>
 									<p>Contribute to code: <code>git clone <a href="https://github.com/superatic/superstore" target="_blank">https://GitHub.com/SuperAtic/SuperStore</a></code></p>
 									<p>On-chain donation: <code><a href="https://GetAlby.com/GoodStr">bc1qj4gga0uwczclaa0g0acxm3kt9ch4gy79pal90x</a></code></p>

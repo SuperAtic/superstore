@@ -21,7 +21,34 @@
 		.container {
 		  max-width: 960px;
 		}
-		.list-inline-item:not(:last-child) {
+
+
+		.purple,
+		.text-purple,
+		.blue {
+		color: #663399 ;
+		}
+		.purple-bg {
+		background-color: #663399 !important;
+		}
+		.pink,
+		main a:focus, main a:hover, code a, a code{
+		color: #FF00FF !important;
+		}
+		.rosa,
+		a.link-secondary:focus, a.link-secondary:hover, main a, main a:visited {color: #e685b5 !important;}
+
+		.pink-bg {
+		background-color: #FF00FF !important;
+		}
+		.orange, .btc {
+		color: #FF9500 ;
+		}
+		.yellow {
+		color: #FFFF00 ;
+		}
+
+				.list-inline-item:not(:last-child) {
     margin-right: 0rem;
 		}
 		.logo {
@@ -50,6 +77,7 @@
 				font-size: 3.5rem;
 			}
 		}
+
 
 		.b-example-divider {
 			width: 100%;
@@ -89,21 +117,55 @@
 			-webkit-overflow-scrolling: touch;
 		}
 
+		.btn-primary,
 		.btn-bd-primary {
-			--bd-violet-bg: #712cf9;
-			--bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
+			--bd-violet-bg: #FF00FF;
+			--bd-violet-rgb: 255, 0, 255;
 			--bs-btn-font-weight: 600;
-			--bs-btn-color: var(--bs-white);
+			--bs-btn-color: var(--bs-dark);
 			--bs-btn-bg: var(--bd-violet-bg);
 			--bs-btn-border-color: var(--bd-violet-bg);
-			--bs-btn-hover-color: var(--bs-white);
-			--bs-btn-hover-bg: #6528e0;
-			--bs-btn-hover-border-color: #6528e0;
+			--bs-btn-hover-color: var(--bs-dark);
+			--bs-btn-hover-bg: #E800E8;
+			--bs-btn-hover-border-color: #E800E8;
 			--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
 			--bs-btn-active-color: var(--bs-btn-hover-color);
-			--bs-btn-active-bg: #5a23c8;
-			--bs-btn-active-border-color: #5a23c8;
+			--bs-btn-active-bg: #FF00FF;
+			--bs-btn-active-border-color: #FF00FF;
+		}
+
+		.btn-secondary,
+		.btn-bd-secondary {
+			--bd-violet-bg: #663399;
+			--bd-violet-rgb: 102, 51, 153;
+			--bs-btn-font-weight: 600;
+			--bs-btn-color: var(--bs-light);
+			--bs-btn-bg: var(--bd-violet-bg);
+			--bs-btn-border-color: var(--bd-violet-bg);
+			--bs-btn-hover-color: var(--bs-light);
+			--bs-btn-hover-bg: #7E45B7;
+			--bs-btn-hover-border-color: #7E45B7;
+			--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+			--bs-btn-active-color: var(--bs-btn-hover-color);
+			--bs-btn-active-bg: #663399;
+			--bs-btn-active-border-color: #663399;
+		}
+
+		.btn-orange,
+		.btn-bd-orange {
+			--bd-violet-bg: #FF9500;
+			--bd-violet-rgb: 102, 51, 153;
+			--bs-btn-font-weight: 600;
+			--bs-btn-color: var(--bs-dark);
+			--bs-btn-bg: var(--bd-violet-bg);
+			--bs-btn-border-color: var(--bd-violet-bg);
+			--bs-btn-hover-color: var(--bs-dark);
+			--bs-btn-hover-bg: #FFAF40;
+			--bs-btn-hover-border-color: #FFAF40;
+			--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+			--bs-btn-active-color: var(--bs-btn-hover-color);
+			--bs-btn-active-bg: #FF9500;
+			--bs-btn-active-border-color: #FF9500;
 		}
 
 		.bd-mode-toggle {
@@ -961,8 +1023,8 @@
 		</symbol>
 	</svg>
 
-	<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-		<button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+	<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3">
+		<button class="btn btn-bd-primary py-2 d-flex align-items-center"
 						id="bd-theme"
 						type="button"
 						aria-expanded="false"
@@ -1012,28 +1074,137 @@
 			<div class="col-md-12 col-lg-12 make_store">
 				<div class="products">
 					<div class="manage_sales_toolbar"></div>
-					<div style="display: flex; justify-content: space-between; flex-wrap: wrap; align-items: left;">
-							<h2 class="name_instructions">Name your store</h2>
-							<input class="store_name">
-					</div>
-					<a class="connect_nostr " target="_blank"><button>Connect <code>nostr</code></button></a>
-				</div>
+							<h2 class="name_instructions">GoodStr Settings</h2>
+
+							<hr>
+							<div class="row g-3">
+							  <div class="col-md-12">
+
+									<div class="row">
+										<div class="col-sm-6">
+									    <label for="basic-url" class="col-form-label">Current webstore name:</label>
+										</div>
+									    <div class="col-6">
+												<div class="input-group">
+													<input type="text" placeholder="Store Name & Co." class="store_name form-control" aria-describedby="basic-url">
+												  <button class="btn btn-outline-secondary" type="button" id="basic-url">Save</button>
+												</div>
+									    </div>
+									  </div>
+									<hr>
+								</div>
+								<div class="col-md-12 mt-1">
+									<button class="connect_nostr btn btn-secondary" style="float: right;" target="_blank">Start</button>
+									<label for="basic-url" class="form-label">Connect  <code>nostr</code>:</label><br/>
+									<small style="opacity: 0.5;">You can use existing npub key or generate a new one. Up to You!</small>
+									<hr>
+								 </div>
+						 </div>
+					 </div>
 			</div>
 			<div class="store_meta col-md-5 col-lg-4 order-md-last">
 		</div>
 		<div class="make_store col-md-7 col-lg-8 ">
 			<div class="products">
-				<h2 class="mb-3">Create Products</h4>
+				<h2 class="mb-3">Create Product(s)</h4>
+					<p class="lead">From the form below you'll be able to add new product to your webstore.</p>
 
-	     	<a class="public_link" target="_blank"><button>View store</button></a>
 	     	<div class="products_wrapper">
 	        <div class="product">
-              <input placeholder="product name"><input placeholder="image url"><textarea placeholder="description" class="desc"></textarea><select placeholder="shipping zone"><option>--- Shipping zone ---</option><option>Free (digital)</option><option>Worldwide</option><option>Europe</option><option>Australia</option><option>Austria</option><option>Belgium</option><option>Brazil</option><option>Canada</option><option>Denmark</option><option>Finland</option><option>France</option><option>Germany</option><option>Greece</option><option>Hong Kong</option><option>Hungary</option><option>Ireland</option><option>Indonesia</option><option>Israel</option><option>Italy</option><option>Japan</option><option>Kazakhstan</option><option>Korea</option><option>Luxembourg</option><option>Malaysia</option><option>Mexico</option><option>Netherlands</option><option>New Zealand</option><option>Norway</option><option>Poland</option><option>Portugal</option><option>Russia</option><option>Saudi Arabia</option><option>Singapore</option><option>Spain</option><option>Sweden</option><option>Switzerland</option><option>Thailand</option><option>Turkey</option><option>Ukraine</option><option>United Kingdom</option><option>United States</option><option>Vietnam</option><option>China</option></select><input placeholder="usd price (e.g. 5.99)" class="price" type="number" step="0.01" min="0"><div style="margin-bottom: 1rem;"><input type="checkbox" style="width: 1rem;vertical-align: middle;margin-bottom: auto;" id="no_price_0"><label for="no_price_0" style="display: inline;vertical-align: middle;">Let users set the price</label></div><button class="preview">Product preview</button><button class="plus_and_minus">Add another product</button>
+						<div class="row">
+							<div class="col-10 form-floating mb-3">
+						  	<input type="text" class="form-control" id="floatingName" placeholder="Start Writing here...">
+						  	<label for="floatingName" style="margin-left: 12spx;">Product Name</label>
+							</div>
+							<div class="col-2 form-floating mb-3">
+								<label for="exampleColorInput" class="form-label" style="position: absolute; top: -12px; font-size: 14px;left: 14px; opacity: 0.63;">Color</label>
+								<input type="color" class="w-100 form-control form-control-color" id="exampleColorInput" value="#663399" title="Select color">
+							</div>
+						</div>
+						<div class="form-floating mb-3">
+						  <textarea type="text" class="form-control desc" style="height: 120px" id="floatingInput" placeholder="Start Writing here..."></textarea>
+						  <label for="floatingInput">Description</label>
+						</div>
+						<div class="form-floating mb-3">
+						  <input type="text" class="form-control" id="floatingURL" placeholder="https://image.url/path/to/image.png">
+						  <label for="floatingURL">Image URL</label>
+						</div>
+
+					<div class="row">
+					<div class="col-6 form-floating mb-3">
+						<label for="ship" style="position: absolute; top: -12px; font-size: 14px;left: 14px; opacity: 0.63;">Shipping</label>
+							<select id="ship" placeholder="Select Shipping Zone..." class="form-select form-select-lg mb-3" height="6" aria-label="Select Shipping Zone!">
+								<option>- Select Shipping zone -</option>
+								<option>Free (digital)</option>
+								<option>Worldwide</option>
+								<option>Europe</option>
+								<option>Australia</option>
+								<option>Austria</option>
+								<option>Belgium</option>
+								<option>Brazil</option>
+								<option>Canada</option>
+								<option>Denmark</option>
+								<option>Finland</option>
+								<option>France</option>
+								<option>Germany</option>
+								<option>Greece</option>
+								<option>Hong Kong</option>
+								<option>Hungary</option>
+								<option>Ireland</option>
+								<option>Indonesia</option>
+								<option>Israel</option>
+								<option>Italy</option>
+								<option>Japan</option>
+								<option>Kazakhstan</option>
+								<option>Korea</option>
+								<option>Luxembourg</option>
+								<option>Malaysia</option>
+								<option>Mexico</option>
+								<option>Netherlands</option>
+								<option>New Zealand</option>
+								<option>Norway</option>
+								<option>Poland</option>
+								<option>Portugal</option>
+								<option>Russia</option>
+								<option>Saudi Arabia</option>
+								<option>Singapore</option>
+								<option>Spain</option>
+								<option>Sweden</option>
+								<option>Switzerland</option>
+								<option>Thailand</option>
+								<option>Turkey</option>
+								<option>Ukraine</option>
+								<option>United Kingdom</option>
+								<option>United States</option>
+								<option>Vietnam</option>
+								<option>China</option>
+							</select>
+</div>
+<div class="col-6">
+								<div class="input-group form-floating mb-3">
+							  <input id="productPrice" placeholder="Product Price (e.g. 5.99)" type="number" step="0.01" min="0" class="price form-control" aria-label="Text input with dropdown button">
+							  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">$</button>
+							  <ul class="dropdown-menu dropdown-menu-end">
+									<li><a class="dropdown-item disabled" href="#" disabled>BTC</a></li>
+									<li><a class="dropdown-item disabled" href="#" disabled>sat</a></li>
+							    <li><hr class="dropdown-divider"></li>
+									<li><a class="dropdown-item" href="#">($) USD</a></li>
+							  </ul>
+								<label for="productPrice">Price</label>
+							</div>
+</div>
+</div>
+								<div style="margin-bottom: 1rem;">
+									<input type="checkbox" style="width: 1rem;vertical-align: middle;margin-bottom: auto;" id="no_price_0">
+									<label for="no_price_0" style="display: inline;vertical-align: middle;">Let users set the price</label>
+							  </div>
+								<button class="preview btn btn-info w-100 mb-3">Product preview</button>
+								<button class="plus_and_minus btn btn-warning w-100 mb-3">Add another product</button>
           </div>
       	</div>
   		</div>
 
-			<p><button class="store_maker">Submit</button></p>
+			<button class="store_maker btn btn-orange w-100">Publish Product(s)</button>
 			<div class="preview_pane"></div>
 			<div class="progress" style="display: none;">
 					<h2>Progress bar <span id="goal" style="font-size: .8em; font-weight: normal;"></span></h2>
@@ -1050,6 +1221,8 @@
 	        <div class="minicart"><div class="d-grid gap-2"><button class="btn btn-primary view_cart my-3">View cart (<span class="minicart_item_count">0</span> items)</button></div></div>
 	        <div class="store_products" style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;"></div>
 	    </div>
+			<a class="public_link" target="_blank"><button class="btn btn-secondary w-100	">View store</button></a>
+
 	    <div class="blank_view"></div>
 
 
@@ -1106,8 +1279,8 @@
 	            if ( store_meta.owner_nym ) message += `<div class="profile_label">&nbsp;&nbsp;Store owner</div><a href="https://nostr.band/${pubkeyToNpub( store_meta.owner_pub )}" target="_blank" class="nostr_profile"><div class="pic" style="background-image: url(${owner_pic});"></div><div class="nym">${store_meta.owner_nym}</div></a><br>`;
 	            message += `
 							<h4 class="d-flex justify-content-between align-items-center mb-3">
-								<span class="text-primary">Your Magic Stats</span>
-								<span class="badge bg-primary rounded-pill">💸</span>
+								<span class="text-purple">Your Magic Stats</span>
+								<span class="badge bg-purple purple-bg rounded-pill">💸</span>
 							</h4>
 							<ul class="list-group mb-3">
 								<li class="list-group-item d-flex justify-content-between lh-sm">
@@ -1153,8 +1326,12 @@
 									<span class="text-success">−$5</span>
 								</li -->
 								<li class="list-group-item d-flex justify-content-between">
+									<span>Total (BTC)</span>
+									<strong>₿0.00 000 000<small>丰</small></strong>
+								</li>
+								<li class="list-group-item d-flex justify-content-between">
 									<span>Total (USD)</span>
-									<strong>$20</strong>
+									<strong>$0.00</strong>
 								</li>
 							</ul>
 							<!-- form class="card p-2">
@@ -1229,12 +1406,22 @@
 	            var price = !checked ? Number( e.target.parentElement.children[ 4 ].value ):`Set an amount<div>$<input style="width: 90%;"></div>`;
 	            if ( typeof price == "number" ) price = "$" + price.toFixed( 2 );
 	            var html = `
-	                <h2>Preview pane</h2>
-	                <div class="store_product" style="background-color: lightgrey; border: 1px solid black; border-radius: 1rem; width: 100%; max-width: 13rem; text-align: center; padding: 1rem; word-wrap: break-word;">
-	                    <img src="${e.target.parentElement.children[ 1 ].value}" style="border: 1px solid black; width: 100%; max-width: 10rem; margin: auto;">
+	                <h2>Preview panel</h2>
+									<div class="card" style="width: 18rem;">
+									  <img src="${e.target.parentElement.children[ 1 ].value}" class="card-img-top" alt="">
+									  <div class="card-body">
+									    <h5 class="card-title">Card title</h5>
+									    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+											<button class="btn btn-link purple">View product</button>
+									    <button class="btn btn-primary add_to_cart">Add to Cart</a>
+									  </div>
+									</div>
+
+									<div class="store_product" style="background-color: lightgrey; border: 1px solid black; border-radius: 1rem; width: 100%; max-width: 13rem; text-align: center; padding: 1rem; word-wrap: break-word;">
+	                    <img src="" style="border: 1px solid black; width: 100%; max-width: 10rem; margin: auto;">
 	                    <div>${e.target.parentElement.children[ 0 ].value}</div>
 	                    <div>${price}</div>
-	                    <button>View product</button>
+	                    <button class="btn btn-secondary">View product</button>
 	                    <button class="add_to_cart">Add to cart</button>
 	                </div>
 	            `;
@@ -1611,7 +1798,9 @@
 	            $( '.make_store' ).style.display = "none";
 	        }
 	        if ( $_GET[ "privkey" ] ) {
-	            var html = `<div class="minicart"><span class="sales_count">0</span> new sales <button class="manage_sales_btn">Manage sales</button></div>`;
+	            var html = `<div class="minicart" style="float: right;">
+							<span class="badge rounded-pill text-bg-dark sales_count"><code>0</code></span> New sales <button class="ms-3 btn btn-secondary manage_sales_btn">Manage sales</button>
+							</div>`;
 	            $( '.manage_sales_toolbar' ).innerHTML = html;
 	            var manageSales = async () => {
 	                $( '.splash_screen' ).style.display = "block";
@@ -1937,7 +2126,7 @@
 	                });
 	                relay_list += `</ul>`;
 	                var auth_sig = await nobleSecp256k1.schnorr.sign( pubKey, privKey );
-	                showModal( `<p style="font-weight: bold;">Step 1 of 4. Let's find your profile</p><p>Enter your regular nostr account's npub and a relay you use. We'll try to find your profile.</p><p><input class="auth_npub" placeholder="npub1..."></p><p><input class="auth_relay" placeholder="wss://..."></p><p><button class="submit_auth">Submit</button></p>` );
+	                showModal( `<p style="font-weight: bold;">Step 1 of 4. Let's find your profile</p><p>Enter your regular nostr account's npub and a relay you use. We'll try to find your profile.</p><p><input class="auth_npub" placeholder="npub1..."></p><p><input class="auth_relay" placeholder="wss://..."></p><p><button class="submit_auth">Save</button></p>` );
 	                $( '.submit_auth' ).onclick = async () => {
 	                    var users_npub = $( '.auth_npub' ).value;
 	                    if ( !users_npub || !users_npub.startsWith( "npub1" ) ) return alert( "That is not a valid npub, please try again. And remember, the relay must start with npub1" );
@@ -2035,14 +2224,14 @@
 </main>
 
 <footer class="my-5 pt-5 text-body-secondary text-center text-small">
-		Baked with <a href="https://GoodStr.io" target="_blank"><img src="assets/img/GoodStr_logoG.png" width="auto" height="21" style="margin-bottom: 3px;" border="0" alt="GoodStr" title="GoodStr"></a> <small>SINCE BLOCK <a href="https://mempool.space/block/777777" target="_blank">777777</a></small>
-		<small><ul class="list-inline">
+		Baked with <a href="https://GoodStr.io" target="_blank"><img src="assets/img/GoodStr_logoG.png" width="auto" height="21" style="margin-bottom: 3px;" border="0" alt="GoodStr" title="GoodStr"></a> <small>SINCE BLOCK <a class="rosa" href="https://mempool.space/block/777777" target="_blank">777777</a></small>
+		<code style="rosa"><small><ul class="list-inline">
        • <li class="list-inline-item"><a href="/privacy.html">Privacy</a></li>
        • <li class="list-inline-item"><a href="/freedom.html">Freedom</a></li>
        • <li class="list-inline-item"><a href="/terms.html">Terms</a></li>
        • <li class="list-inline-item"><a href="/onboarding.html#help">Support</a></li>
 			 •
-    </ul></small>
+    </ul></small></code>
 </footer>
 </div>
 
