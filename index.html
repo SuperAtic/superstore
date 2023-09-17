@@ -1095,8 +1095,8 @@
 								</div>
 								<div class="col-md-12 mt-1">
 									<button class="connect_nostr btn btn-secondary" style="float: right;" target="_blank">Start</button>
-									<label for="basic-url" class="form-label">Connect  <code>nostr</code>:</label><br/>
-									<small style="opacity: 0.5;">You can use existing npub key or generate a new one. Up to You!</small>
+									<label for="basic-url" class="form-label">Select Relay:</label><br/>
+									<small style="opacity: 0.5;">You can use existing npub key or generate a new one. Up to you!</small>
 									<hr>
 								 </div>
 						 </div>
@@ -1114,7 +1114,7 @@
 						<div class="row">
 							<div class="col-10 form-floating mb-3">
 						  	<input type="text" class="form-control" id="floatingName" placeholder="Start Writing here...">
-						  	<label for="floatingName" style="margin-left: 12spx;">Product Name</label>
+						  	<label for="floatingName" style="margin-left: 12px;">Product Name</label>
 							</div>
 							<div class="col-2 form-floating mb-3">
 								<label for="exampleColorInput" class="form-label" style="position: absolute; top: -12px; font-size: 14px;left: 14px; opacity: 0.63;">Color</label>
@@ -2068,7 +2068,33 @@
 	            waiting_for_auth = true;
 	            if ( window.nostr ) {
 	                var primary_relay = Object.keys( relays_obj )[ 0 ];
-	                showModal( `<p style="font-weight: bold;">Step 1 of 2. Let's find your profile</p><p>Enter your regular nostr account's <code>npub</code> and a <code>relay</code> you'd like to use. We'll try to find your profile.</p><p><input class="auth_npub" placeholder="npub..."></p><p><input class="auth_relay" placeholder="wss://..."></p><p><button class="submit_auth">Catch Me</button></p>` );
+	                showModal( `
+										<div class="modal" tabindex="-1">
+										  <div class="modal-dialog">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title">Step 1 of 2. Let's find your profile</h5>
+														<p class="lead" >Let's find or <a href="#"generate>generate</a> your webstore profile.</p>
+														<p>Enter your regular nostr account's <code>npub</code> and a <code>relay</code> you'd like to use. We'll try to find your profile, if you do not have one you can generate one <a href="#generate">clicking here</a>.</p>
+										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										      </div>
+										      <div class="modal-body">
+
+													<div class="form-floating mb-3">
+													  <input type="text" class="form-control auth_npub" placeholder="npub.."". id="nPub">
+													  <label for="nPub">Your Nostr npub</label>
+													</div>
+													<div class="form-floating mb-3">
+													  <input type="text" class="form-control auth_relay" placeholder="wss://..." id="relay">
+													  <label for="relay">COnnect to relay</label>
+													</div>
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-primary submit_auth bt btn-primary">Continue</button>
+										      </div>
+										    </div>
+										  </div>
+										</div>` );
 	                $( '.submit_auth' ).onclick = async () => {
 	                    var users_npub = $( '.auth_npub' ).value;
 	                    if ( !users_npub || !users_npub.startsWith( "npub1" ) ) return alert( "That is not a valid npub, please try again. And remember, the relay must start with npub1" );
@@ -2168,11 +2194,73 @@
 	                        relays_obj[ relay ].send( JSON.stringify( [ "EVENT", signedEvent ] ) );
 	                    });
 	                    await eventWasReplayedTilSeen( signedEvent, users_relay );
-	                    showModal( `<p>We found your profile!</p><p style="font-weight: bold;">Step 2 of 4. Connect your store's relays</p><p>Ensure your regular nostr account is connected to one or more of these relays</p>${relay_list}<p><button class="confirm_connection">I'm connected</button></p>` );
+	                    showModal( `
+												<div class="modal" tabindex="-1">
+												  <div class="modal-dialog">
+												    <div class="modal-content">
+												      <div class="modal-header">
+												        <h5 class="modal-title">Step 2 of 2. Let's find your profile</h5>
+																<p class="lead" >Connect your store's relays! What?</p>
+												        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+												      </div>
+												      <div class="modal-body">
+
+															<p>Enter your regular nostr account's <code>npub</code> and a <code>relay</code> you'd like to use. We'll try to find your profile, if you do not have one you can generate one <a href="#generate">clicking here</a>.</p>
+															<p>We found your profile!</p>
+															<p>Ensure your regular nostr account is connected to one or more of these relays</p>
+															${relay_list}
+
+												      </div>
+												      <div class="modal-footer">
+												        <button type="button" class="confirm_connection btn btn-primary submit_auth bt btn-primary">I'm Connected</button>
+												      </div>
+												    </div>
+												  </div>
+												</div>` );
 	                    $( '.confirm_connection' ).onclick = () => {
-	                        showModal( `<p style="font-weight: bold;">Step 3 of 4. Open a DM</p>Copy this npub into your regular nostr client and prepare to send it a DM (but don't hit Send yet). If you can't find it, consider using https://iris.to, you can use its search function to find it and then click Message.</p><pre class="attestation_text">${pubkeyToNpub( auth_pubkey )}</pre><p><button class="ready_for_dm">I'm ready</button></p>` );
+	                        showModal( `
+														<div class="modal" tabindex="-1">
+														  <div class="modal-dialog">
+														    <div class="modal-content">
+														      <div class="modal-header">
+														        <h5 class="modal-title">Step 3 of 4</h5>
+																		<p class="lead" >Open a DM.</p>
+														        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+														      </div>
+														      <div class="modal-body">
+
+																	<p>Enter your regular nostr account's <code>npub</code> and a <code>relay</code> you'd like to use. We'll try to find your profile, if you do not have one you can generate one <a href="#generate">clicking here</a>.</p>
+
+																	<p>Copy this npub into your regular nostr client and prepare to send it a DM (but don't hit Send yet). If you can't find it, consider using https://iris.to, you can use its search function to find it and then click Message.</p>
+																	<pre class="attestation_text">${pubkeyToNpub( auth_pubkey )}</pre>
+														      </div>
+														      <div class="modal-footer">
+														        <button type="button" class="ready_for_dm btn btn-primary submit_auth bt btn-primary">I'm ready!</button>
+														      </div>
+														    </div>
+														  </div>
+														</div>` );
 	                        $( '.ready_for_dm' ).onclick = () => {
-	                            showModal( `<p style="font-weight: bold;">Step 4 of 4. Send the proof of ownership</p><p>The following text contains a base64-encoded proof of ownership of this store. Send it as a DM to the npub from the previous step and you should see a confirmation message on this screen. If the confirmation message does not appear quickly, try again.</p><pre class="attestation_text">${attestation_text}</pre>` );
+	                            showModal( `
+																<div class="modal" tabindex="-1">
+																  <div class="modal-dialog">
+																    <div class="modal-content">
+																      <div class="modal-header">
+																        <h5 class="modal-title">Step 4 of 4</h5>
+																				<p class="lead" >Send the proof of Ownership</p>
+																        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+																      </div>
+																      <div class="modal-body">
+
+																			<p>The following text contains a base64-encoded proof of ownership of this store. </p>
+
+																			<p>Send it as a DM to the npub from the previous step and you should see a confirmation message on this screen. If the confirmation message does not appear quickly, try again.</p>
+																			<pre class="attestation_text">${attestation_text}</pre>
+
+																			</div>
+																    </div>
+																  </div>
+																</div>` );
 	                        }
 	                    }
 	                }
@@ -2190,7 +2278,7 @@
 	                        if ( !$_GET[ "privkey" ] ) {
 	                            msg += `please ask the store owner to fix the issue.`;
 	                        } else {
-	                            msg += `please replace the relay (your current set of relays is in your url bar) with another one from this list: https://nostr.watch, then press enter, then resubmit your store with your new set of relays, then click "view store" and share your updated store link publicly so that people stop using the old one with the relay that isn't working. If this message is confusing, please ask the developer of this app, Super Testnet, for assistance by raising an issue on his github: github.com/supertestnet/superstore/`;
+	                            msg += `please replace the relay (your current set of relays is in your url bar) with another one from this list: https://nostr.watch, then press enter, then resubmit your store with your new set of relays, then click "View store" and share your updated store link publicly so that people stop using the old one with the relay that isn't working. If this message is confusing, please <a href="mailto:goodstr@pm.me">ask us for assistance</a>.`;
 	                        }
 	                        relays_obj[ relay ] = new WebSocket( relay );
 	                        relays_obj[ relay ].removeEventListener( 'open', openConnection );
@@ -2234,6 +2322,15 @@
     </ul></small></code>
 </footer>
 </div>
+
+<script>
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 	<script src="assets/checkout.js"></script>
