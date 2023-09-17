@@ -115,11 +115,11 @@ Got questions? We've got answers. Dive into our [FAQ](https://alpha.GoodStr.io/o
 
 ## Credits
 
-Design & Coms: https://SuperAtic.com
-Illustrations: https://UnDraw.io 
-Fonts: https://fonts.Google.com
-Engine: https://github.com/supertestnet/superstore/
-Matrix: https://archive.ph/iBAr8
+- Design & Coms: https://SuperAtic.com
+- Illustrations: https://UnDraw.io
+- Fonts: https://fonts.Google.com
+- Engine: https://github.com/supertestnet/superstore/
+- Matrix: https://archive.ph/iBAr8
 
 
 ## License

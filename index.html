@@ -29,6 +29,10 @@
 		.logo sup {font-weight: 400 !important;
 		opacity: .5;}
 
+		.minicart {
+			float:right;
+		}
+
 		sub {bottom:0em;
 		opacity: .5;
 	font-style: italic;}
@@ -698,8 +702,8 @@
                             <div class="product_name"></div>
                             <div>$<span class="product_price"></span></div>
                             <div style="display: none;" class="shipping_zone"></span></div>
-                            <button class="view_product_btn">View product</button>
-                            <button class="add_to_cart">Add to cart</button>
+                            <button class="btn btn-secondary view_product_btn">View product</button>
+                            <button class="btn btn-primary add_to_cart">Add to cart</button>
                         </div>
                     `;
                     $( '.store_products' ).innerHTML += ( html );
@@ -723,7 +727,7 @@
                             $( '.store_products' ).style.display = "none";
                             $( '.blank_view' ).innerHTML = `
                                 <div class="viewed_product">
-                                    <div onclick="$( '.blank_view' ).style.display = 'none';$( '.store_products' ).style.display = 'flex';">⇦ <span class="back">Back</span></div>
+                                    <div class="btn btn-outline-secondary" onclick="$( '.blank_view' ).style.display = 'none';$( '.store_products' ).style.display = 'flex';">⇦ <span class="back">Back</span></div>
                                     <div>Product</div>
                                     <div><span class="product_name"></span></div><br>
                                     <img class="product_image"><br><br>
@@ -988,7 +992,7 @@
 
 	  <main>
 	    <h1 class="text-body-emphasis"><div class="title"></div></h1>
-	    <p class="fs-5 col-md-8 lead">Quickly and easily get started with your new GooddStr or, for zero-tracking, <a hrer="https://github.com/SuperAtic/superstore/archive/refs/heads/main.zip">download</a> the code on your local machine and open the <code>index.html</code> file.</p>
+	    <p class="fs-5 col-md-8 lead">Quickly and easily get started with your new GoodStr or, for zero-tracking, <a hrer="https://github.com/SuperAtic/superstore/archive/refs/heads/main.zip">download</a> the code on your local machine and open the <code>index.html</code> file with your preferred browser, on desktop, tablet and mobile.</p>
 
 
 <div class="splash_screen"><i class="bi bi-battery-charging"></i> Loading...</div>
@@ -1017,7 +1021,7 @@
 		</div>
 </div>
 <div class="view_store">
-		<div class="minicart">Cart (<span class="minicart_item_count">0</span> items) <button class="view_cart">View cart</button></div>
+		<div class="minicart">Cart (<span class="minicart_item_count">0</span> items) <button class="view_cart btn btn-outline-secondary ">View cart</button></div>
 		<div class="store_products"></div>
 </div>
 <div class="blank_view"></div>
@@ -1194,7 +1198,7 @@
 						private += `&network=${$_GET[ "network" ]}`;
 				}
 				// var content = `<p><a href="${shareable}" target="_blank">Click here</a> to share your store</p><p><a href="${private}" target="_blank">Click here</a> to manage your store and withdraw your earnings</p>`;
-				var content = `Success, your store is now ready`;
+				var content = `<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Holy guacamole!</strong>, your store is <code>now</code> ready <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`;
 				showModal( content, true );
 				await getNote( "modal_cleared" );
 				//alert( "Here is your sharable store url:\n\n" + url + "?pubkey=" + original_pubkey +
@@ -1218,13 +1222,13 @@
 				if ( requires_shipping ) shipping_div = `<div>Enter what you want on your shipping label (and, if desired, a message for the merchant)</div><textarea class="shipping_label_form"></textarea>`
 				$( '.blank_view' ).innerHTML = `
 						<div>
-								<div onclick="$( '.blank_view' ).style.display = 'none';$( '.view_store' ).style.display = 'block';">⇦ <span>Back</span></div>
+								<div class="btn btn-outline-secondary" onclick="$( '.blank_view' ).style.display = 'none';$( '.view_store' ).style.display = 'block';">⇦ <span>Back</span></div>
 								<h2>Your cart</h2>
 								<div class="items">${items}</div>
 								${total_div}
 								${edelivery_div}
 								${shipping_div}
-								<div><button class="checkout">Checkout</button></div>
+								<div><button class="btn btn-primary checkout">Checkout</button></div>
 						</div>
 				`;
 				$( '.view_store' ).style.display = "none";
@@ -1237,7 +1241,7 @@
 						if ( $( '.shipping_label_form' ) ) sessionStorage.shipping_label_form = $( '.shipping_label_form' ).value;
 						if ( $( '.edelivery_form' ) ) sessionStorage.edelivery_form = $( '.edelivery_form' ).value;
 						$( '.blank_view' ).innerHTML = `
-								<div onclick="renderCart();">⇦ <span class="back">Back</span></div>
+								<div class="btn btn-outline-secondary" onclick="renderCart();">⇦ <span class="back">Back</span></div>
 								<h2>Checkout</h2>
 								Please send <span class="sats_to_pay">${dollarsToSats( ( total / 100 ).toFixed( 2 ) )}</span> sats and wait for your auto-generated receipt (your shipment is not guaranteed til you have your receipt)
 								<br><br>
@@ -1453,7 +1457,7 @@
 						$( '.blank_view' ).style.display = "block";
 						$( '.blank_view' ).innerHTML = `
 								<div>
-										<div onclick="$( '.blank_view' ).style.display = 'none';$( '.products' ).style.display = 'block';$( '.store_maker' ).parentElement.style.display = 'block';">⇦ <span class="back">Back</span></div>
+										<div class="btn btn-outline-secondary" onclick="$( '.blank_view' ).style.display = 'none';$( '.products' ).style.display = 'block';$( '.store_maker' ).parentElement.style.display = 'block';">⇦ <span class="back">Back</span></div>
 										<div><div class="bold">Wallet</div><button class="connect_node">Connect your node</button></div><br>
 										<div class="wallet"><div>Base layer balance: $<span class="usd_balance">0.00</span> (<span class="btc_balance">0</span>&nbsp;sats)</div><div><button class="withdraw">Withdraw</button></div></div><br>
 						`;
