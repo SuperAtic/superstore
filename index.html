@@ -21,8 +21,6 @@
 		.container {
 		  max-width: 960px;
 		}
-
-
 		.purple,
 		.text-purple,
 		.blue {
@@ -48,7 +46,81 @@
 		color: #FFFF00 ;
 		}
 
-				.list-inline-item:not(:last-child) {
+		@keyframes gradientChange {
+					0%, 100% {
+						  background-image: linear-gradient(90deg, #663399, #FFFF00, #FF9500, #FF00FF, #e685b5);
+					}
+					5% {
+							background-image: linear-gradient(90deg, #FFFF00, #FF9500, #FF00FF, #e685b5, #663399);
+					}
+					10% {
+							background-image: linear-gradient(90deg, #FF9500, #FF00FF, #e685b5, #663399, #FFFF00);
+					}
+					15% {
+							background-image: linear-gradient(90deg, #FF00FF, #e685b5, #663399, #FFFF00, #FF9500);
+					}
+					20% {
+							background-image: linear-gradient(90deg, #e685b5, #663399, #FFFF00, #FF9500, #FF00FF);
+					}
+					25% {
+							background-image: linear-gradient(90deg, #663399, #FFFF00, #FF9500, #FF00FF, #e685b5);
+					}
+					30% {
+							background-image: linear-gradient(90deg, #FFFF00, #FF9500, #FF00FF, #e685b5, #663399);
+					}
+					35% {
+							background-image: linear-gradient(90deg, #FF9500, #FF00FF, #e685b5, #663399, #FFFF00);
+					}
+					40% {
+							background-image: linear-gradient(90deg, #FF00FF, #e685b5, #663399, #FFFF00, #FF9500);
+					}
+					45% {
+					 	  background-image: linear-gradient(90deg, #e685b5, #663399, #FFFF00, #FF9500, #FF00FF);
+					}
+					50% {
+						  background-image: linear-gradient(90deg, #663399, #FFFF00, #FF9500, #FF00FF, #e685b5);
+					}
+					55% {
+							background-image: linear-gradient(90deg, #FFFF00, #FF9500, #FF00FF, #e685b5, #663399);
+					}
+					60% {
+							background-image: linear-gradient(90deg, #FF9500, #FF00FF, #e685b5, #663399, #FFFF00);
+					}
+					65% {
+							background-image: linear-gradient(90deg, #FF00FF, #e685b5, #663399, #FFFF00, #FF9500);
+					}
+					70% {
+							background-image: linear-gradient(90deg, #e685b5, #663399, #FFFF00, #FF9500, #FF00FF);
+					}
+					75% {
+							background-image: linear-gradient(90deg, #663399, #FFFF00, #FF9500, #FF00FF, #e685b5);
+					}
+					80% {
+							background-image: linear-gradient(90deg, #FFFF00, #FF9500, #FF00FF, #e685b5, #663399);
+					}
+					85% {
+							background-image: linear-gradient(90deg, #FF9500, #FF00FF, #e685b5, #663399, #FFFF00);
+					}
+					90% {
+							background-image: linear-gradient(90deg, #FF00FF, #e685b5, #663399, #FFFF00, #FF9500);
+					}
+					95% {
+					 	  background-image: linear-gradient(90deg, #e685b5, #663399, #FFFF00, #FF9500, #FF00FF);
+					}
+		}
+
+
+		.gradient-loop-text {
+		    animation: gradientChange 1s infinite;
+				color: #663399;
+				background-image: -webkit-linear-gradient(45deg, #e685b5 20%, #663399 40%, #FFFF00 60%, #FF9500 80%, #FF00FF);
+				background-clip: text;
+				-webkit-background-clip: text;
+				text-fill-color: transparent;
+				-webkit-text-fill-color: transparent;
+
+				        		}
+		.list-inline-item:not(:last-child) {
     margin-right: 0rem;
 		}
 		.logo {
@@ -174,7 +246,56 @@
 
 		.bd-mode-toggle .dropdown-menu .active .bi {
 			display: block !important;
-		}		</style>
+		}
+		/* The browser correctly supports hyphenation */
+		p[lang="en"] {
+				text-align: justify;
+				hyphens: auto;
+		}
+
+		/* The browser does NOT correctly support hyphenation */
+		p[lang="it"] {
+				text-align: left;
+				hyphens: none;
+		}
+		@supports (font-size-adjust: 1;) {
+				main {
+						font-size-adjust: 0.5;
+				}
+		}
+		p {
+				line-height: calc(1ex / 0.32);
+		}
+		main h1 {
+				font-size: 2.5em;
+				line-height: calc(1ex / 0.42);
+				margin: calc(1ex / 0.42) 0;
+		}
+
+		main h2 {
+				font-size: 2em;
+				line-height: calc(1ex / 0.42);
+				margin: calc(1ex / 0.42) 0;
+		}
+
+		main h3 {
+				font-size: 1.75em;
+				line-height: calc(1ex / 0.38);
+				margin: calc(1ex / 0.38) 0;
+		}
+
+		main h4 {
+				font-size: 1.5em;
+				line-height: calc(1ex / 0.37);
+				margin: calc(1ex / 0.37) 0;
+		}
+
+		main p {
+				font-size: 1em;
+				line-height: calc(1ex / 0.32);
+				margin: calc(1ex / 0.32) 0;
+		}
+	</style>
 		<script src="https://bitcoincore.tech/apps/bitcoinjs-ui/lib/bitcoinjs-lib.js"></script>
 		<script src="https://supertestnet.github.io/bitcoin-chess/js/qrcode.js"></script>
 		<script src="https://bundle.run/noble-secp256k1@1.2.14"></script>
@@ -1074,7 +1195,7 @@
 			<div class="col-md-12 col-lg-12 make_store">
 				<div class="products">
 					<div class="manage_sales_toolbar"></div>
-							<h2 class="name_instructions">GoodStr Settings</h2>
+							<h2 class="name_instructions">🧰 GoodStr Settings</h2>
 
 							<hr>
 							<div class="row g-3">
@@ -1094,9 +1215,9 @@
 									<hr>
 								</div>
 								<div class="col-md-12 mt-1">
-									<button class="connect_nostr btn btn-secondary" style="float: right;" target="_blank">Start</button>
-									<label for="basic-url" class="form-label">Select Relay:</label><br/>
-									<small style="opacity: 0.5;">You can use existing npub key or generate a new one. Up to you!</small>
+									<button class="connect_nostr btn btn-secondary" style="float: right;" target="_blank">🗝️ Connect <code><strong>nostr</strong></code></button>
+									<label for="basic-url" class="form-label mb-0">Setup GoodStr in 4 simple steps:</label>
+									<p class="m-0"><small style="opacity: 0.5;">You can use existing npub key or generate a new one. Up to you!</small></p>
 									<hr>
 								 </div>
 						 </div>
@@ -1106,7 +1227,7 @@
 		</div>
 		<div class="make_store col-md-7 col-lg-8 ">
 			<div class="products">
-				<h2 class="mb-3">Create Product(s)</h4>
+				<h2 class="mb-3">✨ Create Product(s)</h4>
 					<p class="lead">From the form below you'll be able to add new product to your webstore.</p>
 
 	     	<div class="products_wrapper">
@@ -1117,7 +1238,7 @@
 						  	<label for="floatingName" style="margin-left: 12px;">Product Name</label>
 							</div>
 							<div class="col-2 form-floating mb-3">
-								<label for="exampleColorInput" class="form-label" style="position: absolute; top: -12px; font-size: 14px;left: 14px; opacity: 0.63;">Color</label>
+								<label for="exampleColorInput" class="form-label" style="position: absolute; top: -12px; font-size: 13px;left: 14px; opacity: 0.63;">Color</label>
 								<input type="color" class="w-100 form-control form-control-color" id="exampleColorInput" value="#663399" title="Select color">
 							</div>
 						</div>
@@ -1198,13 +1319,13 @@
 									<input type="checkbox" style="width: 1rem;vertical-align: middle;margin-bottom: auto;" id="no_price_0">
 									<label for="no_price_0" style="display: inline;vertical-align: middle;">Let users set the price</label>
 							  </div>
-								<button class="preview btn btn-info w-100 mb-3">Product preview</button>
-								<button class="plus_and_minus btn btn-warning w-100 mb-3">Add another product</button>
+								<button class="preview btn btn-info w-100 mb-3">📸 Product preview</button>
+								<button class="plus_and_minus btn btn-warning w-100 mb-3">✨ Add another product</button>
           </div>
       	</div>
   		</div>
 
-			<button class="store_maker btn btn-orange w-100">Publish Product(s)</button>
+			<button class="store_maker btn btn-orange w-100">🖨️ Publish Product(s)</button>
 			<div class="preview_pane"></div>
 			<div class="progress" style="display: none;">
 					<h2>Progress bar <span id="goal" style="font-size: .8em; font-weight: normal;"></span></h2>
@@ -1218,10 +1339,10 @@
 <!--  SuperStore below  -->
 
 	    <div class="view_store">
-	        <div class="minicart"><div class="d-grid gap-2"><button class="btn btn-primary view_cart my-3">View cart (<span class="minicart_item_count">0</span> items)</button></div></div>
+	        <div class="minicart"><div class="d-grid gap-2"><button class="btn btn-primary view_cart my-3">🛒 View cart (<span class="minicart_item_count">0</span> items)</button></div></div>
 	        <div class="store_products" style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;"></div>
 	    </div>
-			<a class="public_link" target="_blank"><button class="btn btn-secondary w-100	">View store</button></a>
+			<a class="public_link" target="_blank"><button class="btn btn-secondary w-100	">💈 View store</button></a>
 
 	    <div class="blank_view"></div>
 
@@ -1234,7 +1355,7 @@
 	        $( '.store_name' ).value = "";
 	        var title = {
 	          html: () => {
-	            var default_name = "Welcome to <strong class='logo'>GoodStr</strong> <sup><br/>A simple bitcoin webstore</sup>";
+	            var default_name = "Welcome to <strong class='logo gradient-loop-text'>GoodStr</strong> <sup><br/>A simple bitcoin webstore</sup>";
 	            var name = title.name ? title.name : default_name;
 	            return `
 	              <h1>${name}</h1> <img class="dropper" src="https://static.thenounproject.com/png/716717-200.png" style="height: 2rem; cursor: pointer;">
@@ -1279,7 +1400,7 @@
 	            if ( store_meta.owner_nym ) message += `<div class="profile_label">&nbsp;&nbsp;Store owner</div><a href="https://nostr.band/${pubkeyToNpub( store_meta.owner_pub )}" target="_blank" class="nostr_profile"><div class="pic" style="background-image: url(${owner_pic});"></div><div class="nym">${store_meta.owner_nym}</div></a><br>`;
 	            message += `
 							<h4 class="d-flex justify-content-between align-items-center mb-3">
-								<span class="text-purple">Your Magic Stats</span>
+								<span class="text-purple">🔮 Your Magic Stats</span>
 								<span class="badge bg-purple purple-bg rounded-pill">💸</span>
 							</h4>
 							<ul class="list-group mb-3">
@@ -1799,7 +1920,7 @@
 	        }
 	        if ( $_GET[ "privkey" ] ) {
 	            var html = `<div class="minicart" style="float: right;">
-							<span class="badge rounded-pill text-bg-dark sales_count"><code>0</code></span> New sales <button class="ms-3 btn btn-secondary manage_sales_btn">Manage sales</button>
+							<span class="badge rounded-pill text-bg-dark sales_count"><code>0</code></span> New sales <button class="ms-3 btn btn-outline-secondary manage_sales_btn">🛍 Manage sales</button>
 							</div>`;
 	            $( '.manage_sales_toolbar' ).innerHTML = html;
 	            var manageSales = async () => {
@@ -2075,14 +2196,14 @@
 										      <div class="modal-header">
 										        <h5 class="modal-title">Step 1 of 2. Let's find your profile</h5>
 														<p class="lead" >Let's find or <a href="#"generate>generate</a> your webstore profile.</p>
-														<p>Enter your regular nostr account's <code>npub</code> and a <code>relay</code> you'd like to use. We'll try to find your profile, if you do not have one you can generate one <a href="#generate">clicking here</a>.</p>
+														<p>Enter your regular <code><strong>nostr</strong></code> account's <code>npub</code> and a <code>relay</code> you'd like to use. We'll try to find your profile, if you do not have one you can generate one <a href="#generate">clicking here</a>.</p>
 										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 										      </div>
 										      <div class="modal-body">
 
 													<div class="form-floating mb-3">
 													  <input type="text" class="form-control auth_npub" placeholder="npub.."". id="nPub">
-													  <label for="nPub">Your Nostr npub</label>
+													  <label for="nPub">Your <span class="purple">Nostr</span> npub</label>
 													</div>
 													<div class="form-floating mb-3">
 													  <input type="text" class="form-control auth_relay" placeholder="wss://..." id="relay">
@@ -2104,7 +2225,7 @@
 	                    var profile = await getMeta( pubkeyFromNpub( users_npub ), users_relay, true );
 	                    if ( profile == "time is up" ) {
 	                        modalVanish();
-	                        return showModal( "<p>We could not load your profile at that relay. Please try again. Troubleshooting tips:</p><p>(1) Try using a different relay.</p><p>(2) Resubmit your profile in your regular nostr client before trying again to ensure that all your relays have a recent copy. This helps because some relays return recent events faster than old events, and the profile getter on Magic Webstore times out if the relay takes too long.</p><p>(3) In some clients you need to make a minor change, e.g. to your bio, before you can resubmit it.</p>" );
+	                        return showModal( "<p>We could not load your profile at that relay. Please try again. Troubleshooting tips:</p><p>(1) Try using a different relay.</p><p>(2) Resubmit your profile in your regular <code><strong>nostr</strong></code> client before trying again to ensure that all your relays have a recent copy. This helps because some relays return recent events faster than old events, and the profile getter on Magic Webstore times out if the relay takes too long.</p><p>(3) In some clients you need to make a minor change, e.g. to your bio, before you can resubmit it.</p>" );
 	                    }
 	                    //rebroadcast the user's profile to all their relays
 	                    await eventWasReplayedTilSeen( profile, primary_relay );
@@ -2143,7 +2264,7 @@
 	                    showModal( "Authenticating your store..." );
 	                    await eventWasReplayedTilSeen( event, Object.keys( relays_obj )[ 0 ] );
 	                    waiting_for_auth = false;
-	                    showModal( `Success, your store is now authenticated with your regular nostr account. If the "Store Owner" badge doesn't show up on the frontend, resubmit your store by clicking the "Submit" button on your backend.` );
+	                    showModal( `Success, your store is now authenticated with your regular <code><strong>nostr</strong></code> account. If the "Store Owner" badge doesn't show up on the frontend, resubmit your store by clicking the "Submit" button on your backend.` );
 	                }
 	            } else {
 	                var relay_list = `<ul style="background-color: tan; padding: 1rem;">`;
@@ -2152,7 +2273,7 @@
 	                });
 	                relay_list += `</ul>`;
 	                var auth_sig = await nobleSecp256k1.schnorr.sign( pubKey, privKey );
-	                showModal( `<p style="font-weight: bold;">Step 1 of 4. Let's find your profile</p><p>Enter your regular nostr account's npub and a relay you use. We'll try to find your profile.</p><p><input class="auth_npub" placeholder="npub1..."></p><p><input class="auth_relay" placeholder="wss://..."></p><p><button class="submit_auth">Save</button></p>` );
+	                showModal( `<p style="font-weight: bold;">Step 1 of 4. Let's find your profile</p><p>Enter your regular <code><strong>nostr</strong></code> account's npub and a relay you use. We'll try to find your profile.</p><p><input class="auth_npub" placeholder="npub1..."></p><p><input class="auth_relay" placeholder="wss://..."></p><p><button class="submit_auth">Save</button></p>` );
 	                $( '.submit_auth' ).onclick = async () => {
 	                    var users_npub = $( '.auth_npub' ).value;
 	                    if ( !users_npub || !users_npub.startsWith( "npub1" ) ) return alert( "That is not a valid npub, please try again. And remember, the relay must start with npub1" );
@@ -2167,7 +2288,7 @@
 	                    });
 	                    if ( profile == "time is up" ) {
 	                        modalVanish();
-	                        return showModal( "<p>We could not load your profile at that relay. Please try again. Troubleshooting tips:</p><p>(1) Try using a different relay.</p><p>(2) Resubmit your profile in your regular nostr client before trying again to ensure that all your relays have a recent copy. This helps because some relays return recent events faster than old events, and the profile getter on Magic Webstore times out if the relay takes too long.</p><p>(3) In some clients you need to make a minor change, e.g. to your bio, before you can resubmit it.</p>" );
+	                        return showModal( "<p>We could not load your profile at that relay. Please try again. Troubleshooting tips:</p><p>(1) Try using a different relay.</p><p>(2) Resubmit your profile in your regular <code><strong>nostr</strong></code> client before trying again to ensure that all your relays have a recent copy. This helps because some relays return recent events faster than old events, and the profile getter on Magic Webstore times out if the relay takes too long.</p><p>(3) In some clients you need to make a minor change, e.g. to your bio, before you can resubmit it.</p>" );
 	                    }
 	                    var message = encrypt( auth_privkey, pubkeyFromNpub( users_npub ), "This is your webstore. Please reply with your proof of ownership from step 4." );
 	                    var event = {
@@ -2205,9 +2326,9 @@
 												      </div>
 												      <div class="modal-body">
 
-															<p>Enter your regular nostr account's <code>npub</code> and a <code>relay</code> you'd like to use. We'll try to find your profile, if you do not have one you can generate one <a href="#generate">clicking here</a>.</p>
+															<p>Enter your regular <code><strong>nostr</strong></code> account's <code>npub</code> and a <code>relay</code> you'd like to use. We'll try to find your profile, if you do not have one you can generate one <a href="#generate">clicking here</a>.</p>
 															<p>We found your profile!</p>
-															<p>Ensure your regular nostr account is connected to one or more of these relays</p>
+															<p>Ensure your regular <code><strong>nostr</strong></code> account is connected to one or more of these relays</p>
 															${relay_list}
 
 												      </div>
@@ -2229,9 +2350,9 @@
 														      </div>
 														      <div class="modal-body">
 
-																	<p>Enter your regular nostr account's <code>npub</code> and a <code>relay</code> you'd like to use. We'll try to find your profile, if you do not have one you can generate one <a href="#generate">clicking here</a>.</p>
+																	<p>Enter your regular <code><strong>nostr</strong></code> account's <code>npub</code> and a <code>relay</code> you'd like to use. We'll try to find your profile, if you do not have one you can generate one <a href="#generate">clicking here</a>.</p>
 
-																	<p>Copy this npub into your regular nostr client and prepare to send it a DM (but don't hit Send yet). If you can't find it, consider using https://iris.to, you can use its search function to find it and then click Message.</p>
+																	<p>Copy this npub into your regular <code><strong>nostr</strong></code> client and prepare to send it a DM (but don't hit Send yet). If you can't find it, consider using https://iris.to, you can use its search function to find it and then click Message.</p>
 																	<pre class="attestation_text">${pubkeyToNpub( auth_pubkey )}</pre>
 														      </div>
 														      <div class="modal-footer">
@@ -2278,7 +2399,7 @@
 	                        if ( !$_GET[ "privkey" ] ) {
 	                            msg += `please ask the store owner to fix the issue.`;
 	                        } else {
-	                            msg += `please replace the relay (your current set of relays is in your url bar) with another one from this list: https://nostr.watch, then press enter, then resubmit your store with your new set of relays, then click "View store" and share your updated store link publicly so that people stop using the old one with the relay that isn't working. If this message is confusing, please <a href="mailto:goodstr@pm.me">ask us for assistance</a>.`;
+	                            msg += `please replace the relay (your current set of relays is in your url bar) with another one from this list: https://nostr.watch, then press enter, then resubmit your store with your new set of relays, then click "💈 View store" and share your updated store link publicly so that people stop using the old one with the relay that isn't working. If this message is confusing, please <a href="mailto:goodstr@pm.me">ask us for assistance</a>.`;
 	                        }
 	                        relays_obj[ relay ] = new WebSocket( relay );
 	                        relays_obj[ relay ].removeEventListener( 'open', openConnection );
