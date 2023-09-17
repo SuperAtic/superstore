@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src="/assets/color-modes.js"></script>
+		<script src="assets/color-modes.js"></script>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<meta name="description" content="GoodStr is focused on reducing the headaches of running a webstore. GoodStr lets you monetize your life freely and anonymously.">
@@ -12,14 +12,45 @@
 		<!-- link rel="stylesheet" href="assets/bootstrap.css"-->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100;0,400;0,600;0,900;1,100;1,400;1,600;1,900&display=swap" rel="stylesheet">
 
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-		<style>
+		<style type="text/css">
+		.container {
+		  max-width: 960px;
+		}
 
+
+		.purple,
+		.text-purple,
+		.blue {
+		color: #663399 ;
+		}
+		.purple-bg {
+		background-color: #663399 !important;
+		}
+		.pink,
+		main a:focus, main a:hover, code a, a code{
+		color: #FF00FF !important;
+		}
+		.rosa,
+		a.link-secondary:focus, a.link-secondary:hover, main a, main a:visited {color: #e685b5 !important;}
+
+		.pink-bg {
+		background-color: #FF00FF !important;
+		}
+		.orange, .btc {
+		color: #FF9500 ;
+		}
+		.yellow {
+		color: #FFFF00 ;
+		}
+
+				.list-inline-item:not(:last-child) {
+    margin-right: 0rem;
+		}
 		.logo {
 		font-weight: 900 !important;
 		font-style: italic !important;
@@ -29,80 +60,128 @@
 		.logo sup {font-weight: 400 !important;
 		opacity: .5;}
 
-		.minicart {
-			float:right;
-		}
-
-		sub {bottom:0em;
+		sup {bottom:0em;
 		opacity: .5;
 	font-style: italic;}
 
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
 
-      .b-example-divider {
-        width: 100%;
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
 
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
+		.b-example-divider {
+			width: 100%;
+			height: 3rem;
+			background-color: rgba(0, 0, 0, .1);
+			border: solid rgba(0, 0, 0, .15);
+			border-width: 1px 0;
+			box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+		}
 
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
+		.b-example-vr {
+			flex-shrink: 0;
+			width: 1.5rem;
+			height: 100vh;
+		}
 
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
+		.bi {
+			vertical-align: -.125em;
+			fill: currentColor;
+		}
 
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
+		.nav-scroller {
+			position: relative;
+			z-index: 2;
+			height: 2.75rem;
+			overflow-y: hidden;
+		}
 
-      .bd-mode-toggle {
-        z-index: 1500;
-      }
+		.nav-scroller .nav {
+			display: flex;
+			flex-wrap: nowrap;
+			padding-bottom: 1rem;
+			margin-top: -1px;
+			overflow-x: auto;
+			text-align: center;
+			white-space: nowrap;
+			-webkit-overflow-scrolling: touch;
+		}
 
-      .bd-mode-toggle .dropdown-menu .active .bi {
-        display: block !important;
-      }
-    </style>
+		.btn-primary,
+		.btn-bd-primary {
+			--bd-violet-bg: #FF00FF;
+			--bd-violet-rgb: 255, 0, 255;
+			--bs-btn-font-weight: 600;
+			--bs-btn-color: var(--bs-dark);
+			--bs-btn-bg: var(--bd-violet-bg);
+			--bs-btn-border-color: var(--bd-violet-bg);
+			--bs-btn-hover-color: var(--bs-dark);
+			--bs-btn-hover-bg: #E800E8;
+			--bs-btn-hover-border-color: #E800E8;
+			--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+			--bs-btn-active-color: var(--bs-btn-hover-color);
+			--bs-btn-active-bg: #FF00FF;
+			--bs-btn-active-border-color: #FF00FF;
+		}
 
-    <script src="https://bitcoincore.tech/apps/bitcoinjs-ui/lib/bitcoinjs-lib.js"></script>
-    <script src="https://supertestnet.github.io/bitcoin-chess/js/qrcode.js"></script>
-    <script src="https://bundle.run/noble-secp256k1@1.2.14"></script>
-    <script src="https://bundle.run/browserify-cipher@1.0.1"></script>
-    <script src="https://bundle.run/buffer@6.0.3"></script>
+		.btn-secondary,
+		.btn-bd-secondary {
+			--bd-violet-bg: #663399;
+			--bd-violet-rgb: 102, 51, 153;
+			--bs-btn-font-weight: 600;
+			--bs-btn-color: var(--bs-light);
+			--bs-btn-bg: var(--bd-violet-bg);
+			--bs-btn-border-color: var(--bd-violet-bg);
+			--bs-btn-hover-color: var(--bs-light);
+			--bs-btn-hover-bg: #7E45B7;
+			--bs-btn-hover-border-color: #7E45B7;
+			--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+			--bs-btn-active-color: var(--bs-btn-hover-color);
+			--bs-btn-active-bg: #663399;
+			--bs-btn-active-border-color: #663399;
+		}
+
+		.btn-orange,
+		.btn-bd-orange {
+			--bd-violet-bg: #FF9500;
+			--bd-violet-rgb: 102, 51, 153;
+			--bs-btn-font-weight: 600;
+			--bs-btn-color: var(--bs-dark);
+			--bs-btn-bg: var(--bd-violet-bg);
+			--bs-btn-border-color: var(--bd-violet-bg);
+			--bs-btn-hover-color: var(--bs-dark);
+			--bs-btn-hover-bg: #FFAF40;
+			--bs-btn-hover-border-color: #FFAF40;
+			--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+			--bs-btn-active-color: var(--bs-btn-hover-color);
+			--bs-btn-active-bg: #FF9500;
+			--bs-btn-active-border-color: #FF9500;
+		}
+
+		.bd-mode-toggle {
+			z-index: 1500;
+		}
+
+		.bd-mode-toggle .dropdown-menu .active .bi {
+			display: block !important;
+		}		</style>
+		<script src="https://bitcoincore.tech/apps/bitcoinjs-ui/lib/bitcoinjs-lib.js"></script>
+		<script src="https://supertestnet.github.io/bitcoin-chess/js/qrcode.js"></script>
+		<script src="https://bundle.run/noble-secp256k1@1.2.14"></script>
+		<script src="https://bundle.run/browserify-cipher@1.0.1"></script>
+		<script src="https://bundle.run/bech32@2.0.0"></script>
+		<script src="https://bundle.run/buffer@6.0.3"></script>
+
     <script>
         var $ = document.querySelector.bind( document );
         var $$ = document.querySelectorAll.bind( document );
@@ -697,15 +776,23 @@
                     var price = content[ "price" ] / 100;
                     var existing_num = $$( '.store_product' ).length;
                     var html = `
-                        <div class="store_product">
-                            <img class="product_image" >
-                            <div class="product_name"></div>
-                            <div>$<span class="product_price"></span></div>
-                            <div style="display: none;" class="shipping_zone"></span></div>
-                            <button class="btn btn-secondary view_product_btn">View product</button>
-                            <button class="btn btn-primary add_to_cart">Add to cart</button>
-                        </div>
-                    `;
+										<div class="store_product row row-cols-1 row-cols-md-2 g-4">
+										  <div class="col">
+										    <div class="card">
+										      <img class="product_image" src="..." class="card-img-top" alt="...">
+										      <div class="card-body">
+													<div>$<span class="product_price"></span></div>
+													<div style="display: none;" class="shipping_zone"></span></div>
+										      </div>
+													<div class="card-footer">
+														<div class="btn-group" role="group" aria-label="Basic example">
+														  <button type="button" class="view_product_btn btn btn-primary">View</button>
+														  <button type="button" class="add_to_cart btn btn-secondary">Add to Cart</button>
+														</div>
+												   </div>
+											    </div>
+										  </div>
+											</div>`;
                     $( '.store_products' ).innerHTML += ( html );
                     $$( '.store_product .product_image' )[ existing_num ].src = content.image;
                     $$( '.store_product .product_name' )[ existing_num ].innerText = content.product;
@@ -919,818 +1006,1237 @@
         }
     </script>
 </head>
-<body>
-	    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-	      <symbol id="check2" viewBox="0 0 16 16">
-	        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-	      </symbol>
-	      <symbol id="circle-half" viewBox="0 0 16 16">
-	        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
-	      </symbol>
-	      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-	        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
-	        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
-	      </symbol>
-	      <symbol id="sun-fill" viewBox="0 0 16 16">
-	        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-	      </symbol>
-	    </svg>
-
-	    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-	      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-	              id="bd-theme"
-	              type="button"
-	              aria-expanded="false"
-	              data-bs-toggle="dropdown"
-	              aria-label="Toggle theme (auto)">
-	        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
-	        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-	      </button>
-	      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-	        <li>
-	          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-	            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-	            Light
-	            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-	          </button>
-	        </li>
-	        <li>
-	          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-	            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-	            Dark
-	            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-	          </button>
-	        </li>
-	        <li>
-	          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-	            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
-	            Auto
-	            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-	          </button>
-	        </li>
-	      </ul>
-	    </div>
-
-
+<body class="bg-body-tertiary">
 	<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-	  <symbol id="arrow-right-circle" viewBox="0 0 16 16">
-	    <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
-	  </symbol>
-	  <symbol id="bootstrap" viewBox="0 0 118 94">
-	    <title>GoodStr</title>
-	    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
-	  </symbol>
+		<symbol id="check2" viewBox="0 0 16 16">
+			<path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+		</symbol>
+		<symbol id="circle-half" viewBox="0 0 16 16">
+			<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+		</symbol>
+		<symbol id="moon-stars-fill" viewBox="0 0 16 16">
+			<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+			<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+		</symbol>
+		<symbol id="sun-fill" viewBox="0 0 16 16">
+			<path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+		</symbol>
 	</svg>
 
-	<div class="col-lg-8 mx-auto p-4 py-md-5">
-	  <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
-	    <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
-				<img src="assets/img/GoodStr_ava.svg" class="logobag" alt="GoodStr" width="28" height="28" style="margin-top:4px;">
-	      <span class="pl-1 fs-4"><strong class="logo">GoodStr<sup>α</sup></strong> <sub>- Create yours!</sub></span>
-	    </a>
-	  </header>
+	<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3">
+		<button class="btn btn-bd-primary py-2 d-flex align-items-center"
+						id="bd-theme"
+						type="button"
+						aria-expanded="false"
+						data-bs-toggle="dropdown"
+						aria-label="Toggle theme (auto)">
+			<svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+			<span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+		</button>
+		<ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+			<li>
+				<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+					<svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+					Light
+					<svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+				</button>
+			</li>
+			<li>
+				<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+					<svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+					Dark
+					<svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+				</button>
+			</li>
+			<li>
+				<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+					<svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+					Auto
+					<svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+				</button>
+			</li>
+		</ul>
+	</div>
 
-	  <main>
-	    <h1 class="text-body-emphasis"><div class="title"></div></h1>
-	    <p class="fs-5 col-md-8 lead">Quickly and easily get started with your new GoodStr or, for zero-tracking, <a hrer="https://github.com/SuperAtic/superstore/archive/refs/heads/main.zip">download</a> the code on your local machine and open the <code>index.html</code> file with your preferred browser, on desktop, tablet and mobile.</p>
 
+<div class="container">
+<main>
 
-<div class="splash_screen"><i class="bi bi-battery-charging"></i> Loading...</div>
-<div class="make_store">
-		<div class="products">
-				<div class="manage_sales_toolbar"></div>
-				<div>
-						<h2 class="name_instructions">Name your store</h2>
-						<a class="public_link" target="_blank"><button>View store</button></a>
-				</div>
-				<input class="store_name">
-				<h2 class="product_instructions">Add products</h2>
-				<div class="product">
-						<input placeholder="product name"><input placeholder="image url"><textarea placeholder="description" class="desc"></textarea><select placeholder="shipping zone"><option>--- Shipping zone ---</option><option>Free (digital)</option><option>Worldwide</option><option>Europe</option><option>Australia</option><option>Austria</option><option>Belgium</option><option>Brazil</option><option>Canada</option><option>Denmark</option><option>Finland</option><option>France</option><option>Germany</option><option>Greece</option><option>Hong Kong</option><option>Hungary</option><option>Ireland</option><option>Indonesia</option><option>Israel</option><option>Italy</option><option>Japan</option><option>Kazakhstan</option><option>Korea</option><option>Luxembourg</option><option>Malaysia</option><option>Mexico</option><option>Netherlands</option><option>New Zealand</option><option>Norway</option><option>Poland</option><option>Portugal</option><option>Russia</option><option>Saudi Arabia</option><option>Singapore</option><option>Spain</option><option>Sweden</option><option>Switzerland</option><option>Thailand</option><option>Turkey</option><option>Ukraine</option><option>United Kingdom</option><option>United States</option><option>Vietnam</option><option>China</option></select><input placeholder="usd price (e.g. 5.99)" class="price" type="number" step="0.01" min="0"><button class="preview">Product preview</button><button class="plus_and_minus">Add another product</button>
-				</div>
-		</div>
-		<p><button class="store_maker">Submit</button></p>
-		<div class="preview_pane"></div>
-		<div class="progress" style="display: none;">
-				<h2>Progress bar <span id="goal"></span></h2>
-				<div class="progressOutline">
-						<div class="progressBar">
-						</div>
-				</div>
-				<div class="status"></div>
-		</div>
-</div>
-<div class="view_store">
-		<div class="minicart">Cart (<span class="minicart_item_count">0</span> items) <button class="view_cart btn btn-outline-secondary ">View cart</button></div>
-		<div class="store_products"></div>
-</div>
-<div class="blank_view"></div>
-<script>
-		if ( !$_GET[ "pubkey" ] && !$_GET[ "privkey" ] ) $( '.title' ).style.display = "block";
-		$( '.store_name' ).value = "";
-		var title = {
-			html: () => {
-				var default_name = "Welcome to <strong class='logo'>GoodStr</strong> <sub>, a simple bitcoin webstore</sub>";
-				var name = title.name ? title.name : default_name;
-				return `
-					<h1>
-						${name}
-					</h1>
-				`;
-			},
-			name: "",
-			setState: (callback) => {
-				callback();
-				title.render();
-			},
-			render: () => {
-				$( ".title" ).innerHTML = title.html();
-			}
-		};
-		title.render();
-		$( '.store_name' ).onkeyup = () => {
-				title.setState( () => title.name = $( '.store_name' ).value );
-		}
-		if ( $_GET[ "pubkey" ] ) {$( '.products' ).style.display = "none";$( '.store_maker' ).style.display = "none";}
-		var cart = [];
-		$$( '.price' ).forEach( function( item, index ) {
-				$$( '.price' )[ index ].value = "";
-				item.onkeyup = ( e ) => {
-						if ( e.key === "$" ) {
-								alert( "Error, please do not include a dollar sign. Just type 5.00 or similar." );
-								$$( '.price' )[ index ].blur();
-								$$( '.price' )[ index ].value = "";
-								return;
-						}
-				}
-				item.onchange = () => {
-						$$( '.price' )[ index ].value = Number( $$( '.price' )[ index ].value ).toFixed(2);
-						if ( $$( '.price' )[ index ].value == "0.00" || $$( '.price' )[ index ].value == "0" ) $$( '.price' )[ index ].value = "";
-				}
-		});
-		$( '.plus_and_minus' ).onclick = () => {
-				var product = document.createElement( "div" );
-				product.className = "product";
-				product.innerHTML = `<input placeholder="product name"><input placeholder="image url"><textarea placeholder="description" class="desc"></textarea><select placeholder="shipping zone"><option>--- Shipping zone ---</option><option>Free (digital)</option><option>Worldwide</option><option>Europe</option><option>Australia</option><option>Austria</option><option>Belgium</option><option>Brazil</option><option>Canada</option><option>Denmark</option><option>Finland</option><option>France</option><option>Germany</option><option>Greece</option><option>Hong Kong</option><option>Hungary</option><option>Ireland</option><option>Indonesia</option><option>Israel</option><option>Italy</option><option>Japan</option><option>Kazakhstan</option><option>Korea</option><option>Luxembourg</option><option>Malaysia</option><option>Mexico</option><option>Netherlands</option><option>New Zealand</option><option>Norway</option><option>Poland</option><option>Portugal</option><option>Russia</option><option>Saudi Arabia</option><option>Singapore</option><option>Spain</option><option>Sweden</option><option>Switzerland</option><option>Thailand</option><option>Turkey</option><option>Ukraine</option><option>United Kingdom</option><option>United States</option><option>Vietnam</option><option>China</option></select><input placeholder="usd price (e.g. 5.99)" class="price" type="number" step="0.01" min="0">`;
-				var button = document.createElement( "button" );
-				button.innerText = "Product preview";
-				button.onclick = (e) => {
-						var price = Number( e.target.parentElement.children[ 4 ].value );
-						var html = `
-								<h2>Preview pane</h2>
-								<div class="store_product">
-										<img src="${e.target.parentElement.children[ 1 ].value}">
-										<div>${e.target.parentElement.children[ 0 ].value}</div>
-										<div>$${price.toFixed( 2 )}</div>
-										<button>View product</button>
-										<button class="add_to_cart">Add to cart</button>
-								</div>
-						`;
-						$( '.preview_pane' ).innerHTML = html;
-				}
-				product.append( button );
-				//append an input and a minus button
-				var button = document.createElement( "button" );
-				button.className = "plus_and_minus";
-				button.innerText = "Remove this product";
-				button.onclick = () => button.parentElement.remove();
-				product.append( button );
-				$( '.products' ).insertBefore( product, $( '.products' ).lastElementChild );
-				$$( '.price' ).forEach( function( item, index ) {
-						item.onchange = () => {
-								item.onkeyup = ( e ) => {
-										if ( e.key === "$" ) {
-												alert( "Error, please do not include a dollar sign. Just type 5.00 or similar." );
-												$$( '.price' )[ index ].blur();
-												$$( '.price' )[ index ].value = "";
-												return;
-										}
-								}
-								$$( '.price' )[ index ].value = Number( $$( '.price' )[ index ].value ).toFixed(2);
-								if ( $$( '.price' )[ index ].value == "0.00" || $$( '.price' )[ index ].value == "0" ) $$( '.price' )[ index ].value = "";
-						}
-				});
-		}
-		$( '.preview' ).onclick = (e) => {
-				var price = Number( e.target.parentElement.children[ 4 ].value );
-				var html = `
-						<h2>Preview pane</h2>
-						<div class="store_product">
-								<img src="${e.target.parentElement.children[ 1 ].value}">
-								<div>${e.target.parentElement.children[ 0 ].value}</div>
-								<div>$${price.toFixed( 2 )}</div>
-								<button>View product</button>
-								<button class="add_to_cart">Add to cart</button>
-						</div>
-				`;
-				$( '.preview_pane' ).innerHTML = html;
-		}
-		$( '.store_maker' ).onclick = async () => {
-				$( '.progress' ).style.display = "block";
-				var i; for ( i=0; i<$$( 'select' ).length; i++ ) {
-						var item = $$( 'select' )[ i ];
-						if ( item.value.includes( "---" ) ) {
-								alert( "You forgot to select a shipping zone on one of your products. Please try again." );
-								return;
-						}
-				}
-				var product_ids = [];
-				var i; for ( i=0; i<$$( '.product' ).length; i++ ) {
-						var array = [...$$( '.product' )[ i ].children];
-						array.pop();
-						array.forEach( ( item, index ) => array[ index ] = item.value);
-						var obj = {
-								product: array[ 0 ],
-								image: array[ 1 ],
-								description: array[ 2 ],
-								shipping_zone: array[ 3 ],
-								price: Number( array[ 4 ] * 100 )
-						}
-						var content = JSON.stringify( obj );
-						var event = {
-								"content"    : content,
-								"created_at" : Math.floor( Date.now() / 1000 ),
-								"kind"       : 42196,
-								"tags"       : [],
-								"pubkey"     : pubKey,
-						}
-						var signedEvent = await getSignedEvent(event, privKey);
-						console.log( "signed product event:", signedEvent );
-						product_ids.push( signedEvent.id );
-						Object.keys( relays_obj ).forEach( function( relay ) {
-								relays_obj[ relay ].send(JSON.stringify([ "EVENT", signedEvent ]));
-						});
-						// socket.send(JSON.stringify([ "EVENT", signedEvent ]));
-						await waitSomeSeconds( 1 );
-						console.log( i + 1, $$( '.product' ).length, Math.floor( ( ( Number( i ) + Number( 1 ) ) / $$( '.product' ).length ) * 100 ) );
-						var percent = String( Math.floor( ( ( Number( i ) + Number( 1 ) ) / $$( '.product' ).length ) * 100 ) ) + "%";
-						$( '.progressBar' ).style.width = percent;
-						$( '.status' ).innerText = String( ( Number( i ) + Number( 1 ) ) ) + " out of " + String( $$( '.product' ).length ) + " products created";
-				}
-				console.log( "product ids:", product_ids );
-				var store_info = {}
-				store_info[ "whisper_address_linking_key" ] = original_pubkey;
-				await ensureWalletIsAvailable();
-				var domain = JSON.parse( localStorage[ "wallet_info" ] )[ "wallet_url" ].substring( 0, JSON.parse( localStorage[ "wallet_info" ] )[ "wallet_url" ].indexOf( "/wallet" ) );
-				var readkey = JSON.parse( localStorage[ "wallet_info" ] )[ "readkey" ];
-				store_info[ "lnbits_public" ] = {domain, readkey}
-				store_info[ "lnbits_secret" ] = encrypt( privKey, pubKey, localStorage[ "wallet_info" ] );
-				store_info[ "store_name" ] = $( '.title' ).innerText;
-				var event = {
-						"content"    : JSON.stringify( store_info ),
-						"created_at" : Math.floor( Date.now() / 1000 ),
-						"kind"       : 12196,
-						"tags"       : [ [ "products", ...product_ids ] ],
-						"pubkey"     : pubKey,
-				}
-				var signedEvent = await getSignedEvent(event, privKey);
-				console.log( "signed store event:", signedEvent );
-				Object.keys( relays_obj ).forEach( function( relay ) {
-						relays_obj[ relay ].send(JSON.stringify([ "EVENT", signedEvent ]));
-				});
-				// socket.send(JSON.stringify([ "EVENT", signedEvent ]));
-				if ( window.location.href.indexOf( "?" ) > -1 ) var url = window.location.href.substring( 0, window.location.href.indexOf( "?" ) ); else var url = window.location.href;
-				sessionStorage.removeItem( "modal_cleared" );
-				var shareable = `${url}?pubkey=${original_pubkey}&relays=${encodeURI( JSON.stringify( relays ) )}`;
-				var private = `${url}?privkey=${privKey}&relays=${encodeURI( JSON.stringify( relays ) )}`;
-				if ( $_GET[ "network" ] ) {
-						shareable += `&network=${$_GET[ "network" ]}`;
-						private += `&network=${$_GET[ "network" ]}`;
-				}
-				// var content = `<p><a href="${shareable}" target="_blank">Click here</a> to share your store</p><p><a href="${private}" target="_blank">Click here</a> to manage your store and withdraw your earnings</p>`;
-				var content = `<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>Holy guacamole!</strong>, your store is <code>now</code> ready <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`;
-				showModal( content, true );
-				await getNote( "modal_cleared" );
-				//alert( "Here is your sharable store url:\n\n" + url + "?pubkey=" + original_pubkey +
-				// "\n\nHere is your private management url:\n\n" + url + "?privkey=" + privKey );
-				window.location.href = private;
-		}
-		var renderCart = () => {
-				var total = 0;
-				var items = ``;
-				var requires_edelivery = false;
-				var requires_shipping = false;
-				cart.forEach( function( item ) {
-						if ( item[ "shipping_zone" ] != "Free (digital)" ) requires_shipping = true; else requires_edelivery = true;
-						total = total + item[ "price" ];
-						items += `<div class="minicart"><div>${item[ "item" ]}</div><div>$${( item[ "price" ] / 100 ).toFixed( 2 )} <span onclick="var child = this.parentElement.parentElement;var parent = child.parentNode;var index = Array.prototype.indexOf.call(parent.children, child);cart.splice( index, 1 );renderCart();$( '.minicart_item_count' ).innerText = Number( $( '.minicart_item_count' ).innerText ) - 1;">&times;</span></div></div>`;
-				});
-				var total_div = `<div class="minicart"><div>Total</div><div>$${( total / 100 ).toFixed( 2 )} aka ${dollarsToSats( ( total / 100 ).toFixed( 2 ) )} sats</div></div>`;
-				var edelivery_div = ``;
-				if ( requires_edelivery ) edelivery_div = `<div>Enter instructions for how to deliver your digital good(s) (e.g. email address? telegram handle? Please leave detailed instructions about what you want us to do)</div><textarea class="edelivery_form"></textarea>`
-				var shipping_div = ``;
-				if ( requires_shipping ) shipping_div = `<div>Enter what you want on your shipping label (and, if desired, a message for the merchant)</div><textarea class="shipping_label_form"></textarea>`
-				$( '.blank_view' ).innerHTML = `
-						<div>
-								<div class="btn btn-outline-secondary" onclick="$( '.blank_view' ).style.display = 'none';$( '.view_store' ).style.display = 'block';">⇦ <span>Back</span></div>
-								<h2>Your cart</h2>
-								<div class="items">${items}</div>
-								${total_div}
-								${edelivery_div}
-								${shipping_div}
-								<div><button class="btn btn-primary checkout">Checkout</button></div>
-						</div>
-				`;
-				$( '.view_store' ).style.display = "none";
-				$( '.blank_view' ).style.display = "block";
-				$( '.checkout' ).onclick = async () => {
-						if ( ( $( '.shipping_label_form' ) && !$( '.shipping_label_form' ).value ) || ( $( '.edelivery_form' ) && !$( '.edelivery_form' ).value ) ) {
-								alert( "You forgot to enter delivery instructions, please do so and click the checkout button again" );
-								return;
-						}
-						if ( $( '.shipping_label_form' ) ) sessionStorage.shipping_label_form = $( '.shipping_label_form' ).value;
-						if ( $( '.edelivery_form' ) ) sessionStorage.edelivery_form = $( '.edelivery_form' ).value;
-						$( '.blank_view' ).innerHTML = `
-								<div class="btn btn-outline-secondary" onclick="renderCart();">⇦ <span class="back">Back</span></div>
-								<h2>Checkout</h2>
-								Please send <span class="sats_to_pay">${dollarsToSats( ( total / 100 ).toFixed( 2 ) )}</span> sats and wait for your auto-generated receipt (your shipment is not guaranteed til you have your receipt)
-								<br><br>
-								<div class="payment_box"></div>
-						`;
-						if ( ln_domain && ln_readkey ) {
-								$( '.payment_box' ).innerHTML += `
-										<div>
-												<button class="ln_button">Lightning</button>
-												<button class="bl_button">Base layer</button>
+	<!--  CheckOut below  -->
+	<div class="splash_screen"><i class="bi bi-battery-charging"></i> Loading...</div>
+
+	<div class="py-5 text-center">
+		<img class="d-block mx-auto mb-4" src="assets/img/GoodStr_ava.svg" alt="GoodStr">
+		<h2><div class="title_wrapper"><div class="title"></div></div></h2>
+	</div>
+
+		<div class="meta_wrapper row g-5">
+			<div class="col-md-12 col-lg-12 make_store">
+				<div class="products">
+					<div class="manage_sales_toolbar"></div>
+							<h2 class="name_instructions">GoodStr Settings</h2>
+
+							<hr>
+							<div class="row g-3">
+							  <div class="col-md-12">
+
+									<div class="row">
+										<div class="col-sm-6">
+									    <label for="basic-url" class="col-form-label">Current webstore name:</label>
 										</div>
-										<div class="ln_box"></div>
-								`;
-								$( '.bl_button' ).onclick = () => {
-										$( '.bl_box' ).style.display = "block";
-										$( '.ln_box' ).style.display = "none";
-								}
-								$( '.ln_button' ).onclick = async () => {
-										$( '.bl_box' ).style.display = "none";
-										$( '.ln_box' ).style.display = "block";
-								}
-								getInvoice( total );
-						}
-						var div = document.createElement( "div" );
-						div.className = "bl_box";
-						$( '.payment_box' ).append( div );
-						$( '.bl_box' ).append( createQR( whisper_address ) );
-						$( '.bl_box' ).append( whisper_address );
-						var was_it_stopped = await loopTilAddressReceivesMoney( whisper_address, mempoolNetwork );
-						if ( was_it_stopped == "stopped" ) return;
-						await waitSomeSeconds( 2 );
-						var txinfo = await addressReceivedMoneyInThisTx( whisper_address, mempoolNetwork );
-						if ( txinfo[ 2 ] >= dollarsToSats( ( total / 100 ).toFixed( 2 ) ) ) {
-								var buyer_info = {}
-								buyer_info[ "whisper_key" ] = whisper_key;
-								if ( sessionStorage.edelivery_form ) buyer_info[ "edelivery_info" ] = sessionStorage.edelivery_form;
-								if ( sessionStorage.shipping_label_form ) buyer_info[ "shipping_info" ] = sessionStorage.shipping_label_form;
-								var message = JSON.stringify( [ buyer_info, [...cart] ] );
-								var encrypted = encrypt( privKey, $_GET[ "pubkey" ].substring( 2 ), message );
-								var event = {
-										"content"    : encrypted,
-										"created_at" : Math.floor( Date.now() / 1000 ),
-										"kind"       : 4,
-										"tags"       : [ [ 'p', $_GET[ "pubkey" ].substring( 2 ) ] ],
-										"pubkey"     : pubKey,
-								}
-								var signedEvent = await getSignedEvent(event, privKey);
-								Object.keys( relays_obj ).forEach( function( relay ) {
-										relays_obj[ relay ].send( JSON.stringify([ "EVENT", signedEvent ]) );
-								});
-								// socket.send( JSON.stringify([ "EVENT", signedEvent ]) );
-								console.log( "make sure this gets to the relay:", JSON.stringify([ "EVENT", signedEvent ]) );
-								await waitSomeSeconds( 2 );
-								sessionStorage.removeItem( "modal_cleared" );
-								var receipt_items = ``;
-								cart.forEach( function( item, index ) {
-										receipt_items += `<div>Item: ${item[ "item" ]} | Price: $${( item[ "price" ] / 100 ).toFixed( 2 )}</div>`;
-								});
-								cart = [];
-								if ( $( '.minicart_item_count' ) ) $( '.minicart_item_count' ).innerText = 0;
-								var content = `<p>Thank you for your business. Here is your receipt:</p><p class="bold">Items purchased</p>${receipt_items}<p>Total: $${( total / 100 ).toFixed( 2 )}</p><p>Proof of payment: ${whisper_key}</p><p>Keep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.</p>`;
-								showModal( content, true );
-								await getNote( "modal_cleared" );
-								// alert( `Thank you for your business. Here is your proof of payment: ${whisper_key}\n\nKeep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.` );
-						}
-				}
-		}
-		$( '.view_cart' ).onclick = renderCart;
-		var getInvoice = async ( total ) => {
-				var invoice_data = await postData( `${ln_domain}/api/v1/payments`, `{"out": false, "amount": ${Number( $( '.sats_to_pay' ).innerText )}}`, "application/json", ln_readkey );
-				$( '.ln_box' ).append( createQR( JSON.parse( invoice_data )[ "payment_request" ] ) );
-				$( '.ln_box' ).append( JSON.parse( invoice_data )[ "payment_request" ] );
-				await loopTilInvoiceIsPaid( JSON.parse( invoice_data )[ "payment_hash" ] );
-				var buyer_info = {}
-				buyer_info[ "pmthash" ] = JSON.parse( invoice_data )[ "payment_hash" ];
-				if ( sessionStorage.edelivery_form ) buyer_info[ "edelivery_info" ] = sessionStorage.edelivery_form;
-				if ( sessionStorage.shipping_label_form ) buyer_info[ "shipping_info" ] = sessionStorage.shipping_label_form;
-				var message = JSON.stringify( [ buyer_info, [...cart] ] );
-				var encrypted = encrypt( privKey, $_GET[ "pubkey" ].substring( 2 ), message );
-				var event = {
-						"content"    : encrypted,
-						"created_at" : Math.floor( Date.now() / 1000 ),
-						"kind"       : 4,
-						"tags"       : [ [ 'p', $_GET[ "pubkey" ].substring( 2 ) ] ],
-						"pubkey"     : pubKey,
-				}
-				var signedEvent = await getSignedEvent(event, privKey);
-				Object.keys( relays_obj ).forEach( function( relay ) {
-						relays_obj[ relay ].send( JSON.stringify([ "EVENT", signedEvent ]) );
-				});
-				// socket.send( JSON.stringify([ "EVENT", signedEvent ]) );
-				console.log( "make sure this gets to the relay:", JSON.stringify([ "EVENT", signedEvent ]) );
-				await waitSomeSeconds( 2 );
-				sessionStorage.removeItem( "modal_cleared" );
-				var receipt_items = ``;
-				cart.forEach( function( item, index ) {
-						receipt_items += `<div>Item: ${item[ "item" ]} | Price: $${( item[ "price" ] / 100 ).toFixed( 2 )}</div>`;
-				});
-				cart = [];
-				if ( $( '.minicart_item_count' ) ) $( '.minicart_item_count' ).innerText = 0;
-				var content = `<p>Thank you for your business. Here is your receipt:</p><p class="bold">Items purchased</p>${receipt_items}<p>Total: $${( total / 100 ).toFixed( 2 )}</p><p>Proof of payment: ${buyer_info[ "pmthash" ]}</p><p>Keep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.</p>`;
-				showModal( content, true );
-				await getNote( "modal_cleared" );
-		}
-		var checkInvoice = async ( pmthash ) => {
-				var status = await getData( `${ln_domain}/api/v1/payments/${pmthash}`, "application/json", ln_readkey );
-				status = JSON.parse( status );
-				return status;
-		}
-		var loopTilInvoiceIsPaid = async ( pmthash ) => {
-				var status = await checkInvoice( pmthash );
-				if ( !status[ "paid" ] ) {
-						await waitSomeSeconds( 2 );
-						console.log( "waiting..." );
-						return loopTilInvoiceIsPaid( pmthash );
-				} else {
-						return true;
-				}
-		}
-		var labelAsShipped = async ( order_id ) => {
-				var event = {
-						"content"    : "shipped",
-						"created_at" : Math.floor( Date.now() / 1000 ),
-						"kind"       : 42197,
-						"tags"       : [ [ "e", order_id ] ],
-						"pubkey"     : pubKey,
-				}
-				var signedEvent = await getSignedEvent(event, privKey);
-				Object.keys( relays_obj ).forEach( function( relay ) {
-						relays_obj[ relay ].send(JSON.stringify([ "EVENT", signedEvent ]));
-				});
-		}
-</script>
-<script>
-		async function openConnection() {
-				console.log( "connected to " + this.url );
-				var subId   = ( "00" + bitcoinjs.ECPair.makeRandom().privateKey.toString( "hex" ) ).substring( 0, 16 );
-				if ( $_GET[ "pubkey"] ) {
-						var filter  = { authors: [ $_GET[ "pubkey" ].substring( 2 ) ], kinds: [ 12196, 42197 ] }
-						var subscription = [ "REQ", subId, filter ];
-				}
-				if ( $_GET[ "privkey"] ) {
-						var filter  = { "#p": [ pubKey ], kinds: [ 4 ] }
-						var filter2  = { authors: [ pubKey ], kinds: [ 12196, 42197 ] }
-						var subscription = [ "REQ", subId, filter, filter2 ];
-				}
-				this.send(JSON.stringify( subscription ));
-				// socket.send(JSON.stringify( subscription ));
-				//I decided to pull in my wallet when I get my 12196 event, only
-				//there are two problems with that: first, in its current position,
-				//it will check if I have a wallet (and potentially make a new one)
-				//*before* getting my 12196 event, and second, I have to think of
-				//where to move it. If I move it *inside* the function that gets
-				//my 12196 event, it won't fire when someone is first creating a
-				//store, because I only reach out for a 12196 event if the user
-				//is viewing or managing an existing store -- and if I just move
-				//it to *after* the part where they request my 12196 event, which
-				//I might do so that it waits to make a wallet til after one has
-				//been found, I will still have to ensure that it runs *after* my
-				//12196 event (if any) has been found -- which might be hard since
-				//that can take a variable amount of time
-				//so the solution is: make a function that checks if I am getting
-				//a 12196 event, which is the same thing as checking if there is a
-				//url query parameter of privkey or pubkey; if there is not, it
-				//should immediately run ensureWalletIsAvailable, otherwise it
-				//should wait for some variable to be marked true (one that I mark
-				//true when I get a result after searching nostr for my 12196
-				//event) and *then* run ensureWalletIsAvailable -- and this
-				//function should run when I connect to a relay, otherwise the
-				//ensureWalletIsAvailable function might not work, since it
-				//sometimes has to send a message to a relay
-				if ( !$_GET[ "pubkey" ] && !$_GET[ "privkey" ] ) {
-						ensureWalletIsAvailable();
-				} else {
-						await getNote( "wallet_found_if_any" );
-						ensureWalletIsAvailable();
-				}
-		}
-		var openConnections = async () => {
-				var i; for ( i=0; i<relays.length; i++ ) {
-						var myrelay = relays[ i ];
-						relays_obj[ myrelay ] = new WebSocket( myrelay );
-						relays_obj[ myrelay ].addEventListener( 'open', openConnection );
-						relays_obj[ myrelay ].addEventListener( 'message', handleMessage );
-						await waitSomeSeconds( 1 );
-				}
-		}
-		openConnections();
-		// socket.addEventListener( 'open', openConnection );
-		if ( $_GET[ "pubkey" ] ) {
-				//this codeblock creates the whisper address
-				var linking_pubkey = $_GET[ "pubkey" ];
-				var whisper_key = makeSmallPrivkey();
-				var whisper_pubkey = getCompressedPubkeyHexFromPrivkeyHex( whisper_key );
-				var combokey = getCompressedPubkeyHexFromUncompressedPubkeyHex( add2Pubkeys( linking_pubkey, whisper_pubkey ) );
-				var whisper_address = getNativeSegwitAddressFromPubkeyHex( combokey, mempoolNetwork );
-				$( '.make_store' ).style.display = "none";
-		}
-		if ( $_GET[ "privkey" ] ) {
-				var html = `<div class="minicart"><span class="sales_count">0</span> new sales <button class="manage_sales_btn">Manage sales</button></div>`;
-				$( '.manage_sales_toolbar' ).innerHTML = html;
-				var manageSales = async () => {
-						$( '.splash_screen' ).style.display = "block";
-						$( '.products' ).style.display = "none";
-						$( '.store_maker' ).style.display = "none";
-						await getNote( "btc_price" );
-						await getNote( "wallet_found_if_any" );
-						$( '.splash_screen' ).style.display = "none";
-						$( '.store_maker' ).style.display = "inline";
-						$( '.products' ).style.display = "none";
-						$( '.preview_pane' ).style.display = "none"
-						$( '.store_maker' ).parentElement.style.display = "none";
-						$( '.blank_view' ).style.display = "block";
-						$( '.blank_view' ).innerHTML = `
-								<div>
-										<div class="btn btn-outline-secondary" onclick="$( '.blank_view' ).style.display = 'none';$( '.products' ).style.display = 'block';$( '.store_maker' ).parentElement.style.display = 'block';">⇦ <span class="back">Back</span></div>
-										<div><div class="bold">Wallet</div><button class="connect_node">Connect your node</button></div><br>
-										<div class="wallet"><div>Base layer balance: $<span class="usd_balance">0.00</span> (<span class="btc_balance">0</span>&nbsp;sats)</div><div><button class="withdraw">Withdraw</button></div></div><br>
-						`;
-						if ( ln_domain && ln_readkey ) $( '.blank_view' ).innerHTML += `
-										<div class="ln_wallet"><div>Lightning balance: $<span class="usd_balance">0.00</span> (<span class="btc_balance">0</span>&nbsp;sats)</div><div><button class="withdraw">Manage</button></div></div><br>
-						`;
-						$( '.blank_view' ).innerHTML += `
-										<div>Sales</div><br>
-										<div class="orders"></div>
+									    <div class="col-6">
+												<div class="input-group">
+													<input type="text" placeholder="Store Name & Co." class="store_name form-control" aria-describedby="basic-url">
+												  <button class="btn btn-outline-secondary" type="button" id="basic-url">Save</button>
+												</div>
+									    </div>
+									  </div>
+									<hr>
 								</div>
-						`;
-						$( '.connect_node' ).onclick = async () => {
-								var content = `
-										<p>
-												Base-layer bitcoin payments on GoodStr are fully self-custodied by you. You alone have the private key to that money. However, for the lightning network, GoodStr automatically sets you up with a custodial lightning wallet from lnbits.com. Custodial solutions are typically easy to get started, but they usually stop operating at some point, so it's good to prepare for that.
-										</p>
-										<p>
-												A really good way to ensure you don't lose your funds on lightning when lnbits eventually ceases operations is to run your own lightning node. If you don't know what that is, <a href="https://thebitcoinmanual.com/behind-btc/nodes/lightning-node/" target="_blank">click here</a>. I'm not finished making it easy to connect your store to your own lightning node, but in the meantime, if you're brave and you already have a lightning node running with your own lnbits instance, you can hook GoodStr up to your node with a little in-browser coding. Here are instructions:
-										</p>
-										<ul>
-												<li>
-														enter this into your browser console: console.log(&nbsp;localStorage[&nbsp;"wallet_info"&nbsp;]&nbsp;)
-												</li>
-												<li>
-														it will show you your lnbits info in json format
-												</li>
-												<li>
-														use a text editor to change the info in the json so that it shows info from your own node (or e.g. a voltage node)
-												</li>
-												<li>
-														then enter this into your browser console: var&nbsp;json&nbsp;=&nbsp;your_modified_json (but replace your_modified_json with the text you modified using your text editor)
-												</li>
-												<li>
-														then enter this into your browser console: localStorage[&nbsp;"wallet_info"&nbsp;]&nbsp;=&nbsp;JSON.stringify(json)
-												</li>
-												<li>
-														then resubmit your store
-												</li>
-										</ul>
-										<p>
-												If you do all that, all the sats you earn on lightning will flow to your own node. But beware! If your lnbits instance is a hidden service on tor, as most of them are, people won't be able to send you funds on lightning unless they happen to be using a tor compatible web browser. So test it first to make sure it works how you want it to.
-										</p>
-										<p>
-												If all of that stuff sounds confusing or daunting, you have a few options: first, you can learn. Don't be afraid to learn how bitcoin works so you can take full advantage of its awesome features. Second, you can freely ignore this message because the site works fine without running your own node. Just know that if you don't run your own node you can easily and quickly lose any money you have on the lightning network.
-										</p>
-										<p>
-												A decent compromise is to daily withdraw any money you earn on lightning to a lightning wallet like breez or phoenix. Those phone wallets are easy to set up on your phone so give them a try! And let me know if you have any issues. On twitter I am @super_testnet.
-										</p>
-								`;
-								showModal( content );
-						}
-						if ( ln_domain && ln_readkey ) {
-								var ln_balance = await getLNBalance();
-								$$( '.btc_balance' )[ 1 ].innerText = ln_balance;
-								$$( '.usd_balance' )[ 1 ].innerText = satsToDollars( ln_balance ).toFixed( 2 );
-						}
-						sales.forEach( async function( sale, index ) {
-								if ( "whisper_key" in sale[ 0 ] ) {
-										var whisper_key = sale[ 0 ][ "whisper_key" ];
-										var privkey = addKeys( privKey, whisper_key );
-										var combokey = getCompressedPubkeyHexFromPrivkeyHex( privkey );
-										var whisper_address = getNativeSegwitAddressFromPubkeyHex( combokey, mempoolNetwork );
-										var txinfo = await addressReceivedMoneyInThisTx( whisper_address, mempoolNetwork );
-										//if the address *currently* has less money than it originally held
-										//then the order was shipped
-										var current_utxos = await getUTXOs( privkey, mempoolNetwork );
-										var current_balance = 0;
-										current_utxos.forEach( function( utxo ) {
-												current_balance = current_balance + Number( utxo[ "amount" ] );
-										});
-										if ( txinfo[ 2 ] > current_balance ) {
-												txinfo[ 2 ] = current_balance;
-												sale[ 3 ] = 1;
-										}
-								}
-								if ( "pmthash" in sale[ 0 ] ) {
-										var status = await checkInvoice( sale[ 0 ][ "pmthash" ] );
-										var txinfo = [];
-										txinfo[ 0 ] = sale[ 0 ][ "pmthash" ];
-										txinfo[ 1 ] = 0;
-										txinfo[ 2 ] = Number( ( status[ "details" ][ "amount" ] / 1000 ).toFixed( 0 ) );
-										//the following line helps me determine later that it is a lightning payment
-										txinfo[ 3 ] = true;
-								}
-								if ( $_GET[ "debug" ] == "true" || !txinfo[ 0 ] ) {
-									if ( !txinfo[ 0 ] ) txinfo[ 0 ] = "abababababababababababababababababababababababababababababababab";
-									if ( !txinfo[ 1 ] ) txinfo[ 1 ] = 0;
-									if ( !txinfo[ 2 ] ) txinfo[ 2 ] = 0;
-								}
-								//don't display orders that are not paid for
-								//but do show them if they only *seem* unpaid for but really are
-								//because the money was withdrawn before they were shipped
-								//I detect that (or try to) by checking if the item was shipped
-								//because if the amount paid is zero *and* the amount was shipped
-								//then I can be pretty confident the order was paid for (otherwise
-								//the seller wouldn't mark it shipped) but then they just withdrew
-								//their money before marking it as shipped -- the stuff about
-								//changing txinfo items to other things is a tool that helps me
-								//when trying stuff on testnet. Mainnet orders that got shipped
-								//show up with undefined info that makes the total amount available
-								//in my wallet "turn into" an NaN. By pretending there are values
-								//and setting them to 0 I fixed that error while still allowing me
-								//to spend the money that actually *is* in my wallet.
-								if ( shipped_orders.includes( sale[ 2 ] ) ) {
-									sale[ 3 ] = 1;
-									if ( !txinfo[ 0 ] ) txinfo[ 0 ] = "abababababababababababababababababababababababababababababababab";
-									if ( !txinfo[ 1 ] ) txinfo[ 1 ] = 0;
-									txinfo[ 2 ] = 0;
-								}
-								var address_balance = txinfo[ 2 ];
-								// var address_balance = await getAddressBalance( whisper_address, mempoolNetwork );
-								var balance_in_dollars = satsToDollars( address_balance ).toFixed( 2 );
-								if ( balance_in_dollars == "0.00" && !sale[ 3 ] ) return;
-								if ( !txinfo[ 3 ] ) {
-										$$( '.btc_balance' )[ 0 ].innerText = Number( $$( '.btc_balance' )[ 0 ].innerText ) + address_balance;
-								} else {
-										// $$( '.btc_balance' )[ 1 ].innerText = Number( $$( '.btc_balance' )[ 1 ].innerText ) + address_balance;
-								}
-								if ( !txinfo[ 3 ] ) {
-										$$( '.usd_balance' )[ 0 ].innerText = satsToDollars( Number( $$( '.btc_balance' )[ 0 ].innerText ) ).toFixed( 2 );
-								} else {
-										// $$( '.usd_balance' )[ 1 ].innerText = satsToDollars( Number( $$( '.btc_balance' )[ 1 ].innerText ) ).toFixed( 2 );
-								}
-								if ( !private_keys.includes( privkey ) && !txinfo[ 3 ] ) private_keys.push( privkey );
-								var bgcolor = "pink";
-								var shipped_instructions = "click when shipped";
-								if ( sale[ 3 ] ) {
-										bgcolor = "lightgreen";
-										shipped_instructions = "shipped";
-								}
-								var total = 0;
-								var items = ``;
-								var names_and_prices = [];
-								sale[ 1 ].forEach( function( item, index ) {
-										total = total + Number( item[ "price" ] );
-										items += `<div class="minicart"><div class="product_name"></div><div class="product_price"></div></div>`;
-										names_and_prices.push( [ item[ "item" ], item[ "price" ] ] );
-								});
-								var paid_amount = balance_in_dollars;
-								//if the item is shipped, display the amount as paid even if the address is empty
-								//because the address probably *is* empty -- that just means the merchant withdrew
-								//the money
-								if ( sale[ 3 ] ) paid_amount = ( total / 100 ).toFixed( 2 );
-								var delivery_info = (sale[ 0 ][ "shipping_info" ]) ? sale[ 0 ][ "shipping_info" ]:sale[ 0 ][ "edelivery_info" ];
-								var order = `
-										<div class="minicart order" style="background-color: ${bgcolor};" data-order_id="${sale[ 2 ]}"><div>Delivery info:<br><div class="delivery_info"></div></div><div class="payment_info">They paid: $${paid_amount} <button class="order_details" onclick="if ( this.parentElement.parentElement.nextElementSibling.style.display != 'none' ) this.parentElement.parentElement.nextElementSibling.style.display = 'none'; else this.parentElement.parentElement.nextElementSibling.style.display = 'block';">details</button> <button class="click_when_shipped" onclick="if ( sales[ ${index} ][ 3 ] ) return;var conf = confirm( 'Are you sure you want to mark this order as shipped?' );if ( !conf ) return;this.parentElement.parentElement.style.backgroundColor = 'lightgreen';this.innerText = 'shipped';this.onclick = () => {return false};sales[ ${index} ][ 3 ] = 1;$( '.sales_count' ).innerText = Number( $( '.sales_count' ).innerText ) - 1;shipped_orders.push( sales[ ${index} ][ 2 ] );localStorage.shipped_orders = JSON.stringify( shipped_orders );var order_id = this.parentElement.parentElement.getAttribute( 'data-order_id' );labelAsShipped( order_id );">${shipped_instructions}</button></div></div>
-								`;
-								if ( !txinfo[ 3 ] ) {ßst
-										order += `
-												<div><div class="bold">Details</div><br>${items}<div>Total they owed: $${( total / 100 ).toFixed( 2 )}</div><div >Total they paid: $${paid_amount}</div><div ><a href="https://mempool.space/${mempoolNetwork}tx/${txinfo[ 0 ]}:${txinfo[ 1 ]}" target="_blank">Inspect transaction</a></div></div>
-										`;
-								} else {
-										order += `
-												<div><div class="bold">Details</div><br>${items}<div >Total they owed: $${( total / 100 ).toFixed( 2 )}</div><div >Total they paid: $${paid_amount}</div><div ><a href="${JSON.parse( localStorage.wallet_info )[ "wallet_url" ]}" target="_blank">Inspect transaction</a></div></div>
-										`;
-								}
-								$( '.orders' ).innerHTML += order;
-								$$( '.delivery_info' )[ $$( '.delivery_info' ).length - 1 ].innerText = delivery_info;
-								var existing_number = $$( '.blank_view .minicart .product_name' ).length;
-								names_and_prices.forEach( function( item, index ) {
-										//must be -2 the first time and -1 the second time
-										//names_and_prices.length is 2 so I can emulate -2 with - names_and_prices.length - index
-										//then the second time it will be names_and_prices.length - 1 which is -1
-										$$( '.blank_view .minicart .product_name' )[ existing_number - ( names_and_prices.length - index ) ].innerText = item[ 0 ];
-										$$( '.blank_view .minicart .product_price' )[ existing_number - ( names_and_prices.length - index ) ].innerText = "$" + ( item[ 1 ] / 100 ).toFixed( 2 )
-								});
-						});
-						$$( '.withdraw' )[ 0 ].onclick = async () => {
-								var some_unshipped_items = false;
-								sales.forEach( function( sale ) {
-										if ( !sale[ 3 ] ) some_unshipped_items = true;
-								});
-								if ( some_unshipped_items ) {
-										alert( `You cannot withdraw your money til you ship all your orders.` );
-										return;
-								}
-								var from_amount = 0;
-								var i; for ( i=0; i<private_keys.length; i++ ) {
-										var utxos_in_this_address = await getUTXOs( private_keys[ i ], mempoolNetwork );
-										utxos_in_this_address.forEach( function( utxo ) {
-												available_utxos.push( utxo );
-												from_amount = from_amount + utxo[ "amount" ];
-										});
-								}
-								var destino = prompt( "Enter the bitcoin address where you want your sats to go" );
-								var base_size = 200;
-								var full_size = base_size + ( available_utxos.length * 50 );
-								var fee_options = await getThreeFeeRates( mempoolNetwork );
-								var sats_per_byte = prompt( `Please enter a fee rate as a number. Specifically, the number of sats per byte you want to pay. The minimum rate is ${fee_options[ 0 ]}, the average rate is ${fee_options[ 1 ]}, and the urgent rate is ${fee_options[ 2 ]}.` );
-								var sats_per_byte = Number( sats_per_byte );
-								if ( !sats_per_byte ) {
-										alert( "You entered an invalid fee rate. You must enter a number greater than 0, such as 5, 10, or 25. Please try again." );
-										return;
-								}
-								var txfee = sats_per_byte * full_size;
-								var txhex = craftTransaction( available_utxos, from_amount - txfee, destino, mempoolNetwork );
-								var conf = confirm( `Click ok if this is what you want to do:\n\nAmount this shop has: ${from_amount} sats\n\nMining fee for this tx: ${txfee} sats\n\nAmount you will receive: ${from_amount - txfee} sats\n\nAmount this shop will have leftover: 0 sats\n\nDestination address: ${destino}\n\n` );
-								if ( !conf ) return;
-								var txid = await pushBTCpmt( txhex, mempoolNetwork );
-								if ( txid && txid != "error" ) {
-										sessionStorage.removeItem( "modal_cleared" );
-										var content = `<p>Success! You can <a href="https://mempool.space/${mempoolNetwork}tx/${txid}:0" target="_blank">view your transaction here</a></p>`;
-										showModal( content, true );
-										await getNote( "modal_cleared" );
-										// alert( `Success! You can view your transaction here: https://mempool.space/${mempoolNetwork}tx/${txid}` );
-								} else {
-										sessionStorage.removeItem( "modal_cleared" );
-										var content = `<p>Oh no, there was a transaction failure! Try broadcasting your raw transaction <a href="https://mempool.space/${mempoolNetwork}tx/push" target="_blank">here</a></p><p>${txhex}</p>`;
-										showModal( content, true );
-										await getNote( "modal_cleared" );
-										// alert( `Oh no, there was a transaction failure! Try broadcasting your raw transaction here: https://mempool.space/${mempoolNetwork}tx/push\n\n${txhex}` );
-								}
-								console.log( "raw tx:", txhex );
-								await waitSomeSeconds( 2 );
-								$( '.manage_sales_btn' ).click();
-						}
-						if ( $$( '.withdraw' )[ 1 ] ) $$( '.withdraw' )[ 1 ].onclick = async () => {
-								window.open( JSON.parse( localStorage[ "wallet_info" ] )[ "wallet_url" ], '_blank' );
-						}
-				}
-				$( '.manage_sales_btn' ).onclick = manageSales;
-		}
-</script>
-<script>
-		function checkHeartbeat() {
-				setTimeout( () => {
-						//it is important that this be inside the timeout otherwise
-						//it may detect a connection loss on pageload
-						Object.keys( relays_obj ).forEach( function( relay ) {
-								if ( relays_obj[ relay ].readyState != 1 ) {
-										alert( "You lost your connection to one of your relays. If you receive this message several times, please refresh your browser." );
-										relays_obj[ relay ] = new WebSocket( relay );
-										relays_obj[ relay ].removeEventListener( 'open', openConnection );
-										relays_obj[ relay ].removeEventListener( 'message', handleMessage );
-										relays_obj[ relay ] = new WebSocket( relay );
-										relays_obj[ relay ].addEventListener( 'message', handleMessage );
-										relays_obj[ relay ].addEventListener( 'open', openConnection );
-								}
-						});
-						// if ( socket.readyState != 1 ) {
-						//     alert( "You lost your connection to your relay. If you receive this message twice, please refresh your browser." );
-						//     socket = new WebSocket( relay );
-						//     socket.removeEventListener( 'open', openConnection );
-						//     socket.removeEventListener( 'message', handleMessage );
-						//     socket = new WebSocket( relay );
-						//     socket.addEventListener( 'message', handleMessage );
-						//     socket.addEventListener( 'open', openConnection );
-						// }
-						checkHeartbeat();
-				}, 10000 );
-		}
-		async function init() {
-				$( '.splash_screen' ).style.display = "none";
-				$( '.make_store' ).style.display = "block";
-				sessionStorage[ "btc_price" ] = await getBitcoinPrice();
-				checkHeartbeat();
-		}
-		init();
-</script>
-<div class="black-bg"></div>
-<div class="modal"></div>
+								<div class="col-md-12 mt-1">
+									<button class="connect_nostr btn btn-secondary" style="float: right;" target="_blank">Start</button>
+									<label for="basic-url" class="form-label">Connect  <code>nostr</code>:</label><br/>
+									<small style="opacity: 0.5;">You can use existing npub key or generate a new one. Up to You!</small>
+									<hr>
+								 </div>
+						 </div>
+					 </div>
+			</div>
+			<div class="store_meta col-md-5 col-lg-4 order-md-last">
+		</div>
+		<div class="make_store col-md-7 col-lg-8 ">
+			<div class="products">
+				<h2 class="mb-3">Create Product(s)</h4>
+					<p class="lead">From the form below you'll be able to add new product to your webstore.</p>
+
+	     	<div class="products_wrapper">
+	        <div class="product">
+						<div class="row">
+							<div class="col-10 form-floating mb-3">
+						  	<input type="text" class="form-control" id="floatingName" placeholder="Start Writing here...">
+						  	<label for="floatingName" style="margin-left: 12spx;">Product Name</label>
+							</div>
+							<div class="col-2 form-floating mb-3">
+								<label for="exampleColorInput" class="form-label" style="position: absolute; top: -12px; font-size: 14px;left: 14px; opacity: 0.63;">Color</label>
+								<input type="color" class="w-100 form-control form-control-color" id="exampleColorInput" value="#663399" title="Select color">
+							</div>
+						</div>
+						<div class="form-floating mb-3">
+						  <textarea type="text" class="form-control desc" style="height: 120px" id="floatingInput" placeholder="Start Writing here..."></textarea>
+						  <label for="floatingInput">Description</label>
+						</div>
+						<div class="form-floating mb-3">
+						  <input type="text" class="form-control" id="floatingURL" placeholder="https://image.url/path/to/image.png">
+						  <label for="floatingURL">Image URL</label>
+						</div>
+
+					<div class="row">
+					<div class="col-6 form-floating mb-3">
+						<label for="ship" style="position: absolute; top: -12px; font-size: 14px;left: 14px; opacity: 0.63;">Shipping</label>
+							<select id="ship" placeholder="Select Shipping Zone..." class="form-select form-select-lg mb-3" height="6" aria-label="Select Shipping Zone!">
+								<option>- Select Shipping zone -</option>
+								<option>Free (digital)</option>
+								<option>Worldwide</option>
+								<option>Europe</option>
+								<option>Australia</option>
+								<option>Austria</option>
+								<option>Belgium</option>
+								<option>Brazil</option>
+								<option>Canada</option>
+								<option>Denmark</option>
+								<option>Finland</option>
+								<option>France</option>
+								<option>Germany</option>
+								<option>Greece</option>
+								<option>Hong Kong</option>
+								<option>Hungary</option>
+								<option>Ireland</option>
+								<option>Indonesia</option>
+								<option>Israel</option>
+								<option>Italy</option>
+								<option>Japan</option>
+								<option>Kazakhstan</option>
+								<option>Korea</option>
+								<option>Luxembourg</option>
+								<option>Malaysia</option>
+								<option>Mexico</option>
+								<option>Netherlands</option>
+								<option>New Zealand</option>
+								<option>Norway</option>
+								<option>Poland</option>
+								<option>Portugal</option>
+								<option>Russia</option>
+								<option>Saudi Arabia</option>
+								<option>Singapore</option>
+								<option>Spain</option>
+								<option>Sweden</option>
+								<option>Switzerland</option>
+								<option>Thailand</option>
+								<option>Turkey</option>
+								<option>Ukraine</option>
+								<option>United Kingdom</option>
+								<option>United States</option>
+								<option>Vietnam</option>
+								<option>China</option>
+							</select>
+</div>
+<div class="col-6">
+								<div class="input-group form-floating mb-3">
+							  <input id="productPrice" placeholder="Product Price (e.g. 5.99)" type="number" step="0.01" min="0" class="price form-control" aria-label="Text input with dropdown button">
+							  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">$</button>
+							  <ul class="dropdown-menu dropdown-menu-end">
+									<li><a class="dropdown-item disabled" href="#" disabled>BTC</a></li>
+									<li><a class="dropdown-item disabled" href="#" disabled>sat</a></li>
+							    <li><hr class="dropdown-divider"></li>
+									<li><a class="dropdown-item" href="#">($) USD</a></li>
+							  </ul>
+								<label for="productPrice">Price</label>
+							</div>
+</div>
+</div>
+								<div style="margin-bottom: 1rem;">
+									<input type="checkbox" style="width: 1rem;vertical-align: middle;margin-bottom: auto;" id="no_price_0">
+									<label for="no_price_0" style="display: inline;vertical-align: middle;">Let users set the price</label>
+							  </div>
+								<button class="preview btn btn-info w-100 mb-3">Product preview</button>
+								<button class="plus_and_minus btn btn-warning w-100 mb-3">Add another product</button>
+          </div>
+      	</div>
+  		</div>
+
+			<button class="store_maker btn btn-orange w-100">Publish Product(s)</button>
+			<div class="preview_pane"></div>
+			<div class="progress" style="display: none;">
+					<h2>Progress bar <span id="goal" style="font-size: .8em; font-weight: normal;"></span></h2>
+					<div class="progressOutline" style="height: 2em; border: 1px solid grey; border-radius: 25px; overflow: hidden;">
+							<div class="progressBar" style="height: 2em; background-color: #61eb34; width: 0%; transition: width 1s;">
+							</div>
+					</div>
+					<div class="status"></div>
+			</div>
+
+<!--  SuperStore below  -->
+
+	    <div class="view_store">
+	        <div class="minicart"><div class="d-grid gap-2"><button class="btn btn-primary view_cart my-3">View cart (<span class="minicart_item_count">0</span> items)</button></div></div>
+	        <div class="store_products" style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;"></div>
+	    </div>
+			<a class="public_link" target="_blank"><button class="btn btn-secondary w-100	">View store</button></a>
+
+	    <div class="blank_view"></div>
 
 
-<hr class="col-3 col-md-2 mb-5">
+					</div>
+				</div>
+
+	    <script>
+	        if ( !$_GET[ "pubkey" ] && !$_GET[ "privkey" ] ) $( '.title' ).style.display = "flex";
+	        $( '.store_name' ).value = "";
+	        var title = {
+	          html: () => {
+	            var default_name = "Welcome to <strong class='logo'>GoodStr</strong> <sup><br/>A simple bitcoin webstore</sup>";
+	            var name = title.name ? title.name : default_name;
+	            return `
+	              <h1>${name}</h1> <img class="dropper" src="https://static.thenounproject.com/png/716717-200.png" style="height: 2rem; cursor: pointer;">
+	            `;
+	          },
+	          name: "",
+	          setState: (callback) => {
+	            callback();
+	            title.render();
+	          },
+	          render: () => {
+	            $( ".title" ).innerHTML = title.html();
+	            if ( $_GET[ "privkey" ] ) $( '.dropper' ).style.display = "none";
+	            $( '.dropper' ).addEventListener( "click", showMeta );
+	          }
+	        };
+	        title.render();
+	        var showMeta = () => {
+	            $( '.store_meta' ).style.marginTop = "1rem";
+	            $( '.dropper' ).removeEventListener( "click", showMeta );
+	            $( '.dropper' ).addEventListener( "click", hideMeta );
+	            $( '.dropper' ).style.transform = `rotate(180deg)`;
+	        }
+	        var hideMeta = () => {
+	            $( '.store_meta' ).style.marginTop = "-220%";
+	            $( '.dropper' ).removeEventListener( "click", hideMeta );
+	            $( '.dropper' ).addEventListener( "click", showMeta );
+	            $( '.dropper' ).style.transform = `rotate(0deg)`;
+	        }
+	        var store_meta = {
+	          html: () => {
+	            var order_or_orders = "orders";
+	            var time_or_times = "times";
+	            var order_or_orders_2 = "orders";
+	            if ( store_meta.shipment_ids.length == 1 ) order_or_orders = "order";
+	            if ( store_meta.checkin_ids.length == 1 ) time_or_times = "time";
+	            if ( store_meta.recent_orders.length == 1 ) order_or_orders_2 = "order";
+	            var last_purchase = store_meta.last_purchase ? new Date( store_meta.last_purchase * 1000 ).toLocaleDateString() : "never";
+	            var last_shipment = store_meta.last_shipment ? new Date( store_meta.last_shipment * 1000 ).toLocaleDateString() : "never";
+	            var message = ``;
+	            var owner_pic = store_meta.owner_pic || "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg";
+	            if ( store_meta.owner_nym ) message += `<div class="profile_label">&nbsp;&nbsp;Store owner</div><a href="https://nostr.band/${pubkeyToNpub( store_meta.owner_pub )}" target="_blank" class="nostr_profile"><div class="pic" style="background-image: url(${owner_pic});"></div><div class="nym">${store_meta.owner_nym}</div></a><br>`;
+	            message += `
+							<h4 class="d-flex justify-content-between align-items-center mb-3">
+								<span class="text-purple">Your Magic Stats</span>
+								<span class="badge bg-purple purple-bg rounded-pill">💸</span>
+							</h4>
+							<ul class="list-group mb-3">
+								<li class="list-group-item d-flex justify-content-between lh-sm">
+									<div>
+										<h6 class="my-0">Lifetime purchases: </h6>
+										<small class="text-body-secondary">Since the beginning of time...</small>
+									</div>
+									<span class="text-body-secondary">${store_meta.lifetime_orders.length}</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between lh-sm">
+									<div>
+										<h6 class="my-0">Last purchase</h6>
+										<small class="text-body-secondary">Happened...</small>
+									</div>
+									<span class="text-body-secondary">${last_purchase}</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between lh-sm">
+									<div>
+										<h6 class="my-0">Shipment Request</h6>
+										<small class="text-body-secondary">Last received...</small>
+									</div>
+									<span class="text-body-secondary">${last_shipment}</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between lh-sm">
+									<div>
+										<h6 class="my-0">Weekly Orders</h6>
+										<small class="text-body-secondary">Total received last 7 days...</small>
+									</div>
+									<span class="text-body-secondary">${store_meta.recent_orders.length} ${order_or_orders_2}</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between lh-sm">
+									<div>
+										<h6 class="my-0">Weekly Shipped</h6>
+										<small class="text-body-secondary">Total shipped last 7 days...</small>
+									</div>
+									<span class="text-body-secondary">${store_meta.shipment_ids.length} ${order_or_orders}</span>
+								</li>
+								<!-- li class="list-group-item d-flex justify-content-between bg-body-tertiary">
+									<div class="text-success">
+										<h6 class="my-0">Promo code</h6>
+										<small>GOODSTR2023</small>
+									</div>
+									<span class="text-success">−$5</span>
+								</li -->
+								<li class="list-group-item d-flex justify-content-between">
+									<span>Total (BTC)</span>
+									<strong>₿0.00 000 000<small>丰</small></strong>
+								</li>
+								<li class="list-group-item d-flex justify-content-between">
+									<span>Total (USD)</span>
+									<strong>$0.00</strong>
+								</li>
+							</ul>
+							<!-- form class="card p-2">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Promo code">
+									<button type="submit" class="btn btn-secondary">Redeem</button>
+								</div>
+							</form -->`
+							;
+	            var now = Math.floor( Date.now() / 1000 );
+	            if ( 1692047296 - now < 0 && store_meta.checkin_ids.length ) message += `
+							<div class="card p-2">
+							<small>The owner also checked for new orders <strong>${store_meta.checkin_ids.length} ${time_or_times}</strong> this week.</small>
+							</div>
+							`;
+	            return message;
+	          },
+	          checkin_ids: [],
+	          shipment_ids: [],
+	          recent_orders: [],
+	          last_purchase: 0,
+	          last_shipment: 0,
+	          lifetime_orders: [],
+	          owner_pub: "",
+	          owner_rel: [],
+	          owner_nym: "",
+	          owner_pic: "",
+	          setState: (callback) => {
+	            callback();
+	            store_meta.render();
+	          },
+	          render: () => {
+	            $( '.store_meta' ).innerHTML = ``;
+	            $( '.store_meta' ).innerHTML = store_meta.html();
+	          }
+	        };
+	        store_meta.render();
+	        $( '.store_name' ).onkeyup = () => {
+	            title.setState( () => title.name = $( '.store_name' ).value );
+	        }
+	        if ( $_GET[ "pubkey" ] ) {$( '.products' ).style.display = "none";$( '.store_maker' ).style.display = "none";}
+	        $( '.product label' ).previousElementSibling.checked = false;
+	        $( '.product label' ).previousElementSibling.onclick = () => {
+	            var elem = $( '.product label' ).previousElementSibling;
+	            if ( elem.checked ) {
+	                elem.parentElement.previousElementSibling.disabled = true;
+	                elem.parentElement.previousElementSibling.style.backgroundColor = "#ccc";
+	                elem.parentElement.previousElementSibling.value = "";
+	            } else {
+	                elem.parentElement.previousElementSibling.disabled = false;
+	                elem.parentElement.previousElementSibling.style.backgroundColor = "transparent";
+	            }
+	        }
+	        var cart = [];
+	        $$( '.price' ).forEach( function( item, index ) {
+	            $$( '.price' )[ index ].value = "";
+	            item.onkeyup = ( e ) => {
+	                if ( e.key === "$" ) {
+	                    alert( "Error, please do not include a dollar sign. Just type 5.00 or similar." );
+	                    $$( '.price' )[ index ].blur();
+	                    $$( '.price' )[ index ].value = "";
+	                    return;
+	                }
+	            }
+	            item.onchange = () => {
+	                $$( '.price' )[ index ].value = Number( $$( '.price' )[ index ].value ).toFixed(2);
+	                if ( $$( '.price' )[ index ].value == "0.00" || $$( '.price' )[ index ].value == "0" ) $$( '.price' )[ index ].value = "";
+	            }
+	        });
+	        $( '.preview' ).onclick = (e) => {
+	            var checked = e.target.parentElement.children[ 5 ].children[ 0 ].checked;
+	            var price = !checked ? Number( e.target.parentElement.children[ 4 ].value ):`Set an amount<div>$<input style="width: 90%;"></div>`;
+	            if ( typeof price == "number" ) price = "$" + price.toFixed( 2 );
+	            var html = `
+	                <h2>Preview panel</h2>
+									<div class="card" style="width: 18rem;">
+									  <img src="${e.target.parentElement.children[ 1 ].value}" class="card-img-top" alt="">
+									  <div class="card-body">
+									    <h5 class="card-title">Card title</h5>
+									    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+											<button class="btn btn-link purple">View product</button>
+									    <button class="btn btn-primary add_to_cart">Add to Cart</a>
+									  </div>
+									</div>
+
+									<div class="store_product" style="background-color: lightgrey; border: 1px solid black; border-radius: 1rem; width: 100%; max-width: 13rem; text-align: center; padding: 1rem; word-wrap: break-word;">
+	                    <img src="" style="border: 1px solid black; width: 100%; max-width: 10rem; margin: auto;">
+	                    <div>${e.target.parentElement.children[ 0 ].value}</div>
+	                    <div>${price}</div>
+	                    <button class="btn btn-secondary">View product</button>
+	                    <button class="add_to_cart">Add to cart</button>
+	                </div>
+	            `;
+	            $( '.preview_pane' ).innerHTML = html;
+	            $( '.preview_pane' ).style.display = "block";
+	        }
+	        $( '.store_maker' ).onclick = async () => {
+	            $( '.progress' ).style.display = "block";
+	            var i; for ( i=0; i<$$( 'select' ).length; i++ ) {
+	                var item = $$( 'select' )[ i ];
+	                if ( item.value.includes( "---" ) ) {
+	                    alert( "You forgot to select a shipping zone on one of your products. Please try again." );
+	                    return;
+	                }
+	            }
+	            var product_ids = [];
+	            var i; for ( i=0; i<$$( '.product' ).length; i++ ) {
+	                var array = [...$$( '.product' )[ i ].children];
+	                array.pop();
+	                array.pop();
+	                var checked = array[ array.length - 1 ].children[ 0 ].checked;
+	                array.pop();
+	                array.forEach( ( item, index ) => array[ index ] = item.value);
+	                array.push( checked );
+	                var obj = {
+	                    product: array[ 0 ],
+	                    image: array[ 1 ],
+	                    description: array[ 2 ],
+	                    shipping_zone: array[ 3 ],
+	                    price: !checked ? Number( array[ 4 ] * 100 ) : "custom"
+	                }
+	                var content = JSON.stringify( obj );
+	                var event = {
+	                    "content"    : content,
+	                    "created_at" : Math.floor( Date.now() / 1000 ),
+	                    "kind"       : 42196,
+	                    "tags"       : [],
+	                    "pubkey"     : pubKey,
+	                }
+	                var signedEvent = await getSignedEvent(event, privKey);
+	                product_ids.push( signedEvent.id );
+	                Object.keys( relays_obj ).forEach( function( relay ) {
+	                    relays_obj[ relay ].send(JSON.stringify([ "EVENT", signedEvent ]));
+	                });
+	                // socket.send(JSON.stringify([ "EVENT", signedEvent ]));
+	                await waitSomeSeconds( 1 );
+	                var percent = String( Math.floor( ( ( Number( i ) + Number( 1 ) ) / $$( '.product' ).length ) * 100 ) ) + "%";
+	                $( '.progressBar' ).style.width = percent;
+	                $( '.status' ).innerText = String( ( Number( i ) + Number( 1 ) ) ) + " out of " + String( $$( '.product' ).length ) + " products created";
+	            }
+	            var store_info = {}
+	            store_info[ "whisper_address_linking_key" ] = original_pubkey;
+	            await ensureWalletIsAvailable();
+	            var domain = JSON.parse( localStorage[ "wallet_info" ] )[ "wallet_url" ].substring( 0, JSON.parse( localStorage[ "wallet_info" ] )[ "wallet_url" ].indexOf( "/wallet" ) );
+	            var readkey = JSON.parse( localStorage[ "wallet_info" ] )[ "readkey" ];
+	            store_info[ "lnbits_public" ] = {domain, readkey}
+	            store_info[ "lnbits_secret" ] = encrypt( privKey, pubKey, localStorage[ "wallet_info" ] );
+	            store_info[ "store_name" ] = $( '.title' ).innerText;
+	            store_info[ "auth_privkey" ] = auth_privkey;
+	            var event = {
+	                "content"    : JSON.stringify( store_info ),
+	                "created_at" : Math.floor( Date.now() / 1000 ),
+	                "kind"       : 12196,
+	                "tags"       : [ [ "products", ...product_ids ] ],
+	                "pubkey"     : pubKey,
+	            }
+	            var signedEvent = await getSignedEvent(event, privKey);
+	            Object.keys( relays_obj ).forEach( function( relay ) {
+	                relays_obj[ relay ].send(JSON.stringify([ "EVENT", signedEvent ]));
+	            });
+	            // socket.send(JSON.stringify([ "EVENT", signedEvent ]));
+	            if ( window.location.href.indexOf( "?" ) > -1 ) var url = window.location.href.substring( 0, window.location.href.indexOf( "?" ) ); else var url = window.location.href;
+	            sessionStorage.removeItem( "modal_cleared" );
+	            var shareable = `${url}?pubkey=${original_pubkey}&relays=${encodeURI( JSON.stringify( relays ) )}`;
+	            var private = `${url}?privkey=${privKey}&relays=${encodeURI( JSON.stringify( relays ) )}`;
+	            if ( $_GET[ "network" ] ) {
+	                shareable += `&network=${$_GET[ "network" ]}`;
+	                private += `&network=${$_GET[ "network" ]}`;
+	            }
+	            // var content = `<p><a href="${shareable}" target="_blank">Click here</a> to share your store</p><p><a href="${private}" target="_blank">Click here</a> to manage your store and withdraw your earnings</p>`;
+	            var content = `Success, <a href="${shareable}" target="_blank">your store</a> is now ready. When you X out of this popup you will be redirected to its backend automatically.`;
+	            showModal( content, true );
+	            await getNote( "modal_cleared" );
+	            window.location.href = private;
+	        }
+	        var renderCart = () => {
+	            var total = 0;
+	            var items = ``;
+	            var requires_edelivery = false;
+	            var requires_shipping = false;
+	            cart.forEach( function( item ) {
+	                if ( item[ "shipping_zone" ] != "Free (digital)" ) requires_shipping = true; else requires_edelivery = true;
+	                total = total + item[ "price" ];
+	                items += `<div class="minicart" style="display: flex; justify-content: space-between; text-align: left;"><div>${item[ "item" ]}</div><div style="text-align: right;align-self: center;">$${( item[ "price" ] / 100 ).toFixed( 2 )} <span style="border: 1px solid black;border-radius: 50%;width: 1.5rem;height: 1.5rem;display: inline-block;text-align: center; cursor: pointer;" onclick="var child = this.parentElement.parentElement;var parent = child.parentNode;var index = Array.prototype.indexOf.call(parent.children, child);cart.splice( index, 1 );renderCart();$( '.minicart_item_count' ).innerText = Number( $( '.minicart_item_count' ).innerText ) - 1;">&times;</span></div></div>`;
+	            });
+	            var total_div = `<div class="minicart" style="display: flex; justify-content: space-between; text-align: left;"><div>Total</div><div>$${( total / 100 ).toFixed( 2 )} aka ${dollarsToSats( ( total / 100 ).toFixed( 2 ) )} sats</div></div>`;
+	            var edelivery_div = ``;
+	            if ( requires_edelivery ) edelivery_div = `<div>Enter instructions for how to deliver your digital good(s) (e.g. email address? telegram handle? Please leave detailed instructions about what you want us to do)</div><textarea class="edelivery_form" style="width: 100%; height: 5rem;"></textarea>`
+	            var shipping_div = ``;
+	            if ( requires_shipping ) shipping_div = `<div>Enter what you want on your shipping label (and, if desired, a message for the merchant)</div><textarea class="shipping_label_form" style="width: 100%; height: 5rem;"></textarea>`
+	            $( '.blank_view' ).innerHTML = `
+	                <div>
+	                    <div style="display: flex; align-items: center; cursor: pointer;" onclick="$( '.blank_view' ).style.display = 'none';$( '.store_products' ).style.display = 'flex';$( '.view_store' ).style.display = 'block';"><div style="display: flex; align-items: center; font-weight: bold; font-size: 3rem; margin-right: 0.5rem;">⇦</div><div style="font-weight: bold; font-size: 1.5rem;">Back</div></div>
+	                    <h2>Your cart</h2>
+	                    <div class="items">${items}</div>
+	                    ${total_div}
+	                    ${edelivery_div}
+	                    ${shipping_div}
+	                    <div style="text-align: right;"><button class="checkout">Checkout</button></div>
+	                </div>
+	            `;
+	            $( '.view_store' ).style.display = "none";
+	            $( '.blank_view' ).style.display = "block";
+	            $( '.checkout' ).onclick = async () => {
+	                if ( ( $( '.shipping_label_form' ) && !$( '.shipping_label_form' ).value ) || ( $( '.edelivery_form' ) && !$( '.edelivery_form' ).value ) ) {
+	                    alert( "You forgot to enter delivery instructions, please do so and click the checkout button again" );
+	                    return;
+	                }
+	                if ( $( '.shipping_label_form' ) ) sessionStorage.shipping_label_form = $( '.shipping_label_form' ).value;
+	                if ( $( '.edelivery_form' ) ) sessionStorage.edelivery_form = $( '.edelivery_form' ).value;
+	                var memo = sessionStorage.shipping_label_form;
+	                if ( !memo ) memo = sessionStorage.edelivery_form;
+	                if ( !memo ) memo = "Donation";
+	                //eliminate all linebreaks from the memo
+	                memo = memo.replaceAll( "\n", " | " );
+	                memo = memo.replaceAll( " |  | ", " | " );
+	                //shorten the memo to 159 characters because the max number of bytes the memo field
+	                //can be is 639 and the max size of a utf8 character is 4 bytes and floor(639/4)=159
+	                memo = memo.substring( 0, 159 );
+	                $( '.blank_view' ).innerHTML = `
+	                    <div style="display: flex; align-items: center; cursor: pointer;" onclick="renderCart();"><div style="display: flex; align-items: center; font-weight: bold; font-size: 3rem; margin-right: 0.5rem;">⇦</div><div style="font-weight: bold; font-size: 1.5rem;">Back</div></div>
+	                    <h2>Checkout</h2>
+	                    Please send <span class="sats_to_pay">${dollarsToSats( ( total / 100 ).toFixed( 2 ) )}</span> sats and wait for your auto-generated receipt (your shipment is not guaranteed til you have your receipt)
+	                    <br><br>
+	                    <div class="payment_box"></div>
+	                `;
+	                if ( ln_domain && ln_readkey ) {
+	                    $( '.payment_box' ).innerHTML += `
+	                        <div style="display: flex;justify-content: center;">
+	                            <button class="ln_button">Lightning</button>
+	                            <button class="bl_button">Base layer</button>
+	                        </div>
+	                        <div class="ln_box"></div>
+	                    `;
+	                    $( '.bl_button' ).onclick = () => {
+	                        $( '.bl_box' ).style.display = "block";
+	                        $( '.ln_box' ).style.display = "none";
+	                    }
+	                    $( '.ln_button' ).onclick = async () => {
+	                        $( '.bl_box' ).style.display = "none";
+	                        $( '.ln_box' ).style.display = "block";
+	                    }
+	                    getInvoice( total, memo );
+	                }
+	                var div = document.createElement( "div" );
+	                div.className = "bl_box";
+	                $( '.payment_box' ).append( div );
+	                $( '.bl_box' ).append( createQR( whisper_data[ "whisper_address" ] ) );
+	                $( '.bl_box' ).append( whisper_data[ "whisper_address" ] );
+	                var was_it_stopped = await loopTilAddressReceivesMoney( whisper_data[ "whisper_address" ], mempoolNetwork );
+	                if ( was_it_stopped == "stopped" ) return;
+	                await waitSomeSeconds( 2 );
+	                var txinfo = await addressReceivedMoneyInThisTx( whisper_data[ "whisper_address" ], mempoolNetwork );
+	                if ( txinfo[ 2 ] >= dollarsToSats( ( total / 100 ).toFixed( 2 ) ) ) {
+	                    var buyer_info = {}
+	                    buyer_info[ "whisper_key" ] = whisper_data[ "whisper_key" ];
+	                    if ( sessionStorage.edelivery_form ) buyer_info[ "edelivery_info" ] = sessionStorage.edelivery_form;
+	                    if ( sessionStorage.shipping_label_form ) buyer_info[ "shipping_info" ] = sessionStorage.shipping_label_form;
+	                    var message = JSON.stringify( [ buyer_info, [...cart] ] );
+	                    var encrypted = encrypt( privKey, $_GET[ "pubkey" ].substring( 2 ), message );
+	                    var event = {
+	                        "content"    : encrypted,
+	                        "created_at" : Math.floor( Date.now() / 1000 ),
+	                        "kind"       : 4,
+	                        "tags"       : [ [ 'p', $_GET[ "pubkey" ].substring( 2 ) ] ],
+	                        "pubkey"     : pubKey,
+	                    }
+	                    var signedEvent = await getSignedEvent(event, privKey);
+	                    // I commented out the old send method because I now have one
+	                    // that verifies a relay got the message, which is better
+	                    // Object.keys( relays_obj ).forEach( function( relay ) {
+	                    //     relays_obj[ relay ].send( JSON.stringify([ "EVENT", signedEvent ]) );
+	                    // });
+	                    // var was_seen = await eventWasReplayedTilSeen( signedEvent );
+	                    var was_seen = await ensureEventWasSeenByTwoRelays( signedEvent );
+	                    // socket.send( JSON.stringify([ "EVENT", signedEvent ]) );
+	                    console.log( "make sure this gets to the relay:", JSON.stringify([ "EVENT", signedEvent ]) );
+	                    //notify the store owner if they are authenticated
+	                    if ( store_meta.owner_pub ) {
+	                        var encrypted = encrypt( stores_auth_privkey, store_meta.owner_pub, "This is a notification of sale. Check your magic webstore for more details." );
+	                        var event = {
+	                            "content"    : encrypted,
+	                            "created_at" : Math.floor( Date.now() / 1000 ),
+	                            "kind"       : 4,
+	                            "tags"       : [ [ 'p', store_meta.owner_pub ] ],
+	                            "pubkey"     : stores_auth_pubkey,
+	                        }
+	                        var signedEvent = await getSignedEvent( event, stores_auth_privkey );
+	                        Object.keys( relays_obj ).forEach( function( relay ) {
+	                            relays_obj[ relay ].send( JSON.stringify([ "EVENT", signedEvent ]) );
+	                        });
+	                        eventWasReplayedTilSeen( signedEvent, store_meta.owner_rel );
+	                    }
+	                    await waitSomeSeconds( 2 );
+	                    sessionStorage.removeItem( "modal_cleared" );
+	                    var receipt_items = ``;
+	                    cart.forEach( function( item, index ) {
+	                        receipt_items += `<div>Item: ${item[ "item" ]} | Price: $${( item[ "price" ] / 100 ).toFixed( 2 )}</div>`;
+	                    });
+	                    cart = [];
+	                    if ( $( '.minicart_item_count' ) ) $( '.minicart_item_count' ).innerText = 0;
+	                    var content = `<p>Thank you for your business. Here is your receipt:</p><p style="font-weight: bold;">Items purchased</p>${receipt_items}<p>Total: $${( total / 100 ).toFixed( 2 )}</p><p>Proof of payment: ${whisper_data[ "whisper_key" ]}</p><p>Keep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.</p>`;
+	                    showModal( content, true );
+	                    await getNote( "modal_cleared" );
+	                }
+	            }
+	        }
+	        $( '.view_cart' ).onclick = renderCart;
+	        var getInvoice = async ( total, memo ) => {
+	            $( '.ln_box' ).innerHTML = `Loading...(if this doesn't load after 30 seconds, notify the store admin)`;
+	            var invoice_data = await postData( `${ln_domain}/api/v1/payments`, `{"out": false, "amount": ${Number( $( '.sats_to_pay' ).innerText )}, "memo": "${memo}"}`, "application/json", ln_readkey );
+	            $( '.ln_box' ).innerHTML = ``;
+	            $( '.ln_box' ).append( createQR( JSON.parse( invoice_data )[ "payment_request" ] ) );
+	            $( '.ln_box' ).append( JSON.parse( invoice_data )[ "payment_request" ] );
+	            await loopTilInvoiceIsPaid( JSON.parse( invoice_data )[ "payment_hash" ] );
+	            var buyer_info = {}
+	            buyer_info[ "pmthash" ] = JSON.parse( invoice_data )[ "payment_hash" ];
+	            if ( sessionStorage.edelivery_form ) buyer_info[ "edelivery_info" ] = sessionStorage.edelivery_form;
+	            if ( sessionStorage.shipping_label_form ) buyer_info[ "shipping_info" ] = sessionStorage.shipping_label_form;
+	            var message = JSON.stringify( [ buyer_info, [...cart] ] );
+	            var encrypted = encrypt( privKey, $_GET[ "pubkey" ].substring( 2 ), message );
+	            var event = {
+	                "content"    : encrypted,
+	                "created_at" : Math.floor( Date.now() / 1000 ),
+	                "kind"       : 4,
+	                "tags"       : [ [ 'p', $_GET[ "pubkey" ].substring( 2 ) ] ],
+	                "pubkey"     : pubKey,
+	            }
+	            var signedEvent = await getSignedEvent(event, privKey);
+	            // I commented out the old send method because I now have one
+	            // that verifies a relay got the message, which is better
+	            // Object.keys( relays_obj ).forEach( function( relay ) {
+	            //     relays_obj[ relay ].send( JSON.stringify([ "EVENT", signedEvent ]) );
+	            // });
+	            var was_seen = await eventWasReplayedTilSeen( signedEvent );
+	            // socket.send( JSON.stringify([ "EVENT", signedEvent ]) );
+	            console.log( "make sure this gets to the relay:", JSON.stringify([ "EVENT", signedEvent ]) );
+	            //notify the store owner if they are authenticated
+	            if ( store_meta.owner_pub ) {
+	                var encrypted = encrypt( stores_auth_privkey, store_meta.owner_pub, "This is a notification of sale. Check your magic webstore for more details." );
+	                var event = {
+	                    "content"    : encrypted,
+	                    "created_at" : Math.floor( Date.now() / 1000 ),
+	                    "kind"       : 4,
+	                    "tags"       : [ [ 'p', store_meta.owner_pub ] ],
+	                    "pubkey"     : stores_auth_pubkey,
+	                }
+	                var signedEvent = await getSignedEvent( event, stores_auth_privkey );
+	                Object.keys( relays_obj ).forEach( function( relay ) {
+	                    relays_obj[ relay ].send( JSON.stringify([ "EVENT", signedEvent ]) );
+	                });
+	                var was_seen = await eventWasReplayedTilSeen( signedEvent, store_meta.owner_rel );
+	            }
+	            await waitSomeSeconds( 2 );
+	            sessionStorage.removeItem( "modal_cleared" );
+	            var receipt_items = ``;
+	            cart.forEach( function( item, index ) {
+	                receipt_items += `<div>Item: ${item[ "item" ]} | Price: $${( item[ "price" ] / 100 ).toFixed( 2 )}</div>`;
+	            });
+	            cart = [];
+	            if ( $( '.minicart_item_count' ) ) $( '.minicart_item_count' ).innerText = 0;
+	            var content = `<p>Thank you for your business. Here is your receipt:</p><p style="font-weight: bold;">Items purchased</p>${receipt_items}<p>Total: $${( total / 100 ).toFixed( 2 )}</p><p>Proof of payment: ${buyer_info[ "pmthash" ]}</p><p>Keep this on you til you recieve your item. If the seller does not send you your item, contact them and show them your proof of payment.</p>`;
+	            showModal( content, true );
+	            await getNote( "modal_cleared" );
+	        }
+	        var checkInvoice = async ( pmthash ) => {
+	            var status = await getData( `${ln_domain}/api/v1/payments/${pmthash}`, "application/json", ln_readkey );
+	            status = JSON.parse( status );
+	            return status;
+	        }
+	        var loopTilInvoiceIsPaid = async ( pmthash ) => {
+	            var status = await checkInvoice( pmthash );
+	            if ( !status[ "paid" ] ) {
+	                await waitSomeSeconds( 2 );
+	                console.log( "waiting for invoice to be paid..." );
+	                return loopTilInvoiceIsPaid( pmthash );
+	            } else {
+	                return true;
+	            }
+	        }
+	        var labelAsShipped = async ( order_id ) => {
+	            var event = {
+	                "content"    : "shipped",
+	                "created_at" : Math.floor( Date.now() / 1000 ),
+	                "kind"       : 42197,
+	                "tags"       : [ [ "e", order_id ] ],
+	                "pubkey"     : pubKey,
+	            }
+	            var signedEvent = await getSignedEvent(event, privKey);
+	            Object.keys( relays_obj ).forEach( function( relay ) {
+	                relays_obj[ relay ].send(JSON.stringify([ "EVENT", signedEvent ]));
+	            });
+	        }
+	    </script>
+
+	    <script>
+	        async function openConnection() {
+	            console.log( "connected to " + this.url );
+	            if ( !relays_i_connected_to.includes( this.url ) ) relays_i_connected_to.push( this.url );
+	            var subId   = ( "00" + bitcoinjs.ECPair.makeRandom().privateKey.toString( "hex" ) ).substring( 0, 16 );
+	            if ( $_GET[ "pubkey"] ) {
+	                var filter  = { authors: [ $_GET[ "pubkey" ].substring( 2 ) ], kinds: [ 12196, 42199 ] }
+	                var filter2 = { authors: [ $_GET[ "pubkey" ].substring( 2 ) ], kinds: [ 42198 ], since: Math.floor( Date.now() / 1000 ) - 604800 }
+	                var filter3 = { "#p": [ $_GET[ "pubkey" ].substring( 2 ) ], kinds: [ 4 ] }
+	                var filter4 = { authors: [ $_GET[ "pubkey" ].substring( 2 ) ], kinds: [ 42197 ] }
+	                var subscription = [ "REQ", subId, filter, filter2, filter3, filter4 ];
+	            }
+	            if ( $_GET[ "privkey"] ) {
+	                var filter  = { "#p": [ pubKey ], kinds: [ 4 ] }
+	                var filter2  = { authors: [ pubKey ], kinds: [ 12196, 42197 ] }
+	                var subscription = [ "REQ", subId, filter, filter2 ];
+	            }
+	            this.send(JSON.stringify( subscription ));
+	            // socket.send(JSON.stringify( subscription ));
+	            //I decided to pull in my wallet when I get my 12196 event, only
+	            //there are two problems with that: first, in its current position,
+	            //it will check if I have a wallet (and potentially make a new one)
+	            //*before* getting my 12196 event, and second, I have to think of
+	            //where to move it. If I move it *inside* the function that gets
+	            //my 12196 event, it won't fire when someone is first creating a
+	            //store, because I only reach out for a 12196 event if the user
+	            //is viewing or managing an existing store -- and if I just move
+	            //it to *after* the part where they request my 12196 event, which
+	            //I might do so that it waits to make a wallet til after one has
+	            //been found, I will still have to ensure that it runs *after* my
+	            //12196 event (if any) has been found -- which might be hard since
+	            //that can take a variable amount of time
+	            //so the solution is: make a function that checks if I am getting
+	            //a 12196 event, which is the same thing as checking if there is a
+	            //url query parameter of privkey or pubkey; if there is not, it
+	            //should immediately run ensureWalletIsAvailable, otherwise it
+	            //should wait for some variable to be marked true (one that I mark
+	            //true when I get a result after searching nostr for my 12196
+	            //event) and *then* run ensureWalletIsAvailable -- and this
+	            //function should run when I connect to a relay, otherwise the
+	            //ensureWalletIsAvailable function might not work, since it
+	            //sometimes has to send a message to a relay
+	            if ( auth_sub ) this.send( JSON.stringify( auth_sub ) );
+	            if ( !$_GET[ "pubkey" ] && !$_GET[ "privkey" ] ) {
+	                ensureWalletIsAvailable();
+	            } else {
+	                await getNote( "wallet_found_if_any" );
+	                ensureWalletIsAvailable();
+	            }
+	            //if the user is the admin, fire off a message so that
+	            //users can see if the admin "checked in" on their store
+	            //recently
+	            if ( $_GET[ "privkey" ] && !signedCheckinEvent ) await make_checkin_event();
+	            if ( $_GET[ "privkey" ] ) this.send( JSON.stringify( [ "EVENT", signedCheckinEvent ] ) );
+	        }
+	        var openConnections = async () => {
+	            var i; for ( i=0; i<relays.length; i++ ) {
+	                var myrelay = relays[ i ];
+	                relays_obj[ myrelay ] = new WebSocket( myrelay );
+	                relays_obj[ myrelay ].addEventListener( 'open', openConnection );
+	                relays_obj[ myrelay ].addEventListener( 'message', handleMessage );
+	                await waitSomeSeconds( 1 );
+	            }
+	        }
+	        openConnections();
+	        // socket.addEventListener( 'open', openConnection );
+	        if ( $_GET[ "pubkey" ] ) {
+	            var whisper_data = {}
+	            $( '.make_store' ).style.display = "none";
+	        }
+	        if ( $_GET[ "privkey" ] ) {
+	            var html = `<div class="minicart" style="float: right;">
+							<span class="badge rounded-pill text-bg-dark sales_count"><code>0</code></span> New sales <button class="ms-3 btn btn-secondary manage_sales_btn">Manage sales</button>
+							</div>`;
+	            $( '.manage_sales_toolbar' ).innerHTML = html;
+	            var manageSales = async () => {
+	                $( '.splash_screen' ).style.display = "block";
+	                $( '.products' ).style.display = "none";
+	                $( '.store_maker' ).style.display = "none";
+	                await getNote( "btc_price" );
+	                await getNote( "wallet_found_if_any" );
+	                $( '.splash_screen' ).style.display = "none";
+	                $( '.store_maker' ).style.display = "inline";
+	                $( '.products' ).style.display = "none";
+	                $( '.preview_pane' ).style.display = "none";
+	                $( '.store_maker' ).parentElement.style.display = "none";
+	                $( '.blank_view' ).style.display = "block";
+	                $( '.blank_view' ).innerHTML = `
+	                    <div>
+	                        <div style="display: flex; align-items: center; cursor: pointer;" onclick="$( '.blank_view' ).style.display = 'none';$( '.products' ).style.display = 'block';$( '.store_maker' ).parentElement.style.display = 'block';"><div style="display: flex; align-items: center; font-weight: bold; font-size: 3rem; margin-right: 0.5rem;">⇦</div><div style="font-size: 1.5rem; font-weight: bold;">Back</div></div>
+	                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between;"><div style="font-weight: bold;">Wallet</div><button class="connect_node">Connect your node</button></div><br>
+	                        <div class="wallet" style="display: flex;justify-content: space-between;background-color: orange;padding: 0.5rem;align-items: center;"><div>Base layer balance: $<span class="usd_balance">0.00</span> (<span class="btc_balance">0</span>&nbsp;sats)</div><div><button class="withdraw">Withdraw</button></div></div><br>
+	                `;
+	                if ( ln_domain && ln_readkey ) $( '.blank_view' ).innerHTML += `
+	                        <div class="ln_wallet" style="display: flex;justify-content: space-between;background-color: lightblue;padding: 0.5rem;align-items: center;"><div>Lightning balance: $<span class="usd_balance">0.00</span> (<span class="btc_balance">0</span>&nbsp;sats)</div><div><button class="withdraw">Manage</button></div></div><br>
+	                `;
+	                $( '.blank_view' ).innerHTML += `
+	                        <div class="visa_card" style="display: flex;justify-content: space-between;background-color: pink;padding: 0.5rem;align-items: center;"><div>Buy a visa gift card <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/320px-Visa.svg.png" style="height: 1rem; vertical-align: middle;"></div><div><button class="visa_info">More info</button></div></div><br>
+	                        <div style="font-weight: bold;">Sales</div><br>
+	                        <div class="orders"></div>
+	                    </div>
+	                `;
+	                $( '.connect_node' ).onclick = async () => {
+	                    var content = `
+	                        <p>
+	                            Base-layer bitcoin payments on Magic Webstore are fully self-custodied by you. You alone have the private key to that money. However, for the lightning network, Magic Webstore automatically sets you up with a custodial lightning wallet from lnbits.com. Custodial solutions are typically easy to get started, but they usually stop operating at some point, so it's good to prepare for that.
+	                        </p>
+	                        <p>
+	                            A really good way to ensure you don't lose your funds on lightning when lnbits eventually ceases operations is to run your own lightning node. If you don't know what that is, <a href="https://thebitcoinmanual.com/behind-btc/nodes/lightning-node/" target="_blank">click here</a>. I'm not finished making it easy to connect your store to your own lightning node, but in the meantime, if you're brave and you already have a lightning node running with your own lnbits instance, you can hook Magic Webstore up to your node with a little in-browser coding. Here are instructions:
+	                        </p>
+	                        <div class="tutorial_video_wrapper">
+	                            <iframe src="https://www.youtube.com/embed/SyPTVPWXLm4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="tutorial_video"></iframe>
+	                        </div>
+	                        <ul style="text-align: left;">
+	                            <li>
+	                                enter this into your browser console: console.log(&nbsp;localStorage[&nbsp;"wallet_info"&nbsp;]&nbsp;)
+	                            </li>
+	                            <li>
+	                                it will show you your lnbits info in json format
+	                            </li>
+	                            <li>
+	                                use a text editor to change the info in the json so that it shows info from your own node (or e.g. a voltage node)
+	                            </li>
+	                            <li>
+	                                then enter this into your browser console: var&nbsp;json&nbsp;=&nbsp;your_modified_json (but replace your_modified_json with the text you modified using your text editor)
+	                            </li>
+	                            <li>
+	                                then enter this into your browser console: localStorage[&nbsp;"wallet_info"&nbsp;]&nbsp;=&nbsp;JSON.stringify(json)
+	                            </li>
+	                            <li>
+	                                then resubmit your store
+	                            </li>
+	                        </ul>
+	                        <p>
+	                            If you do all that, all the sats you earn on lightning will flow to your own node. But beware! If your lnbits instance is a hidden service on tor, as most of them are, people won't be able to send you funds on lightning unless they happen to be using a tor compatible web browser. So test it first to make sure it works how you want it to.
+	                        </p>
+	                        <p>
+	                            If all of that stuff sounds confusing or daunting, you have a few options: first, you can learn. Don't be afraid to learn how bitcoin works so you can take full advantage of its awesome features. Second, you can freely ignore this message because the site works fine without running your own node. Just know that if you don't run your own node you can easily and quickly lose any money you have on the lightning network.
+	                        </p>
+	                        <p>
+	                            A decent compromise is to daily withdraw any money you earn on lightning to a lightning wallet like breez or phoenix. Those phone wallets are easy to set up on your phone so give them a try! And let me know if you have any issues. On twitter I am @super_testnet.
+	                        </p>
+	                    `;
+	                    showModal( content );
+	                }
+	                if ( ln_domain && ln_readkey ) {
+	                    var ln_balance = await getLNBalance();
+	                    $$( '.btc_balance' )[ 1 ].innerText = ln_balance;
+	                    $$( '.usd_balance' )[ 1 ].innerText = satsToDollars( ln_balance ).toFixed( 2 );
+	                }
+	                sales.forEach( async function( sale, index ) {
+	                    if ( "whisper_key" in sale[ 0 ] ) {
+	                        var whisper_key = sale[ 0 ][ "whisper_key" ];
+	                        var privkey = addKeys( privKey, whisper_key );
+	                        var combokey = getCompressedPubkeyHexFromPrivkeyHex( privkey );
+	                        var whisper_address = getNativeSegwitAddressFromPubkeyHex( combokey, mempoolNetwork );
+	                        var txinfo = await addressReceivedMoneyInThisTx( whisper_address, mempoolNetwork );
+	                        //if the address *currently* has less money than it originally held
+	                        //then the order was shipped
+	                        var current_utxos = await getUTXOs( privkey, mempoolNetwork );
+	                        var current_balance = 0;
+	                        current_utxos.forEach( function( utxo ) {
+	                            current_balance = current_balance + Number( utxo[ "amount" ] );
+	                        });
+	                        if ( txinfo[ 2 ] > current_balance ) {
+	                            txinfo[ 2 ] = current_balance;
+	                            sale[ 3 ] = 1;
+	                        }
+	                    }
+	                    if ( "pmthash" in sale[ 0 ] ) {
+	                        var status = await checkInvoice( sale[ 0 ][ "pmthash" ] );
+	                        var txinfo = [];
+	                        txinfo[ 0 ] = sale[ 0 ][ "pmthash" ];
+	                        txinfo[ 1 ] = 0;
+	                        txinfo[ 2 ] = Number( ( status[ "details" ][ "amount" ] / 1000 ).toFixed( 0 ) );
+	                        //the following line helps me determine later that it is a lightning payment
+	                        txinfo[ 3 ] = true;
+	                    }
+	                    if ( $_GET[ "debug" ] == "true" || !txinfo[ 0 ] ) {
+	                        if ( !txinfo[ 0 ] ) txinfo[ 0 ] = "abababababababababababababababababababababababababababababababab";
+	                        if ( !txinfo[ 1 ] ) txinfo[ 1 ] = 0;
+	                        if ( !txinfo[ 2 ] ) txinfo[ 2 ] = 0;
+	                    }
+	                    //don't display orders that are not paid for
+	                    //but do show them if they only *seem* unpaid for but really are
+	                    //because the money was withdrawn before they were shipped
+	                    //I detect that (or try to) by checking if the item was shipped
+	                    //because if the amount paid is zero *and* the amount was shipped
+	                    //then I can be pretty confident the order was paid for (otherwise
+	                    //the seller wouldn't mark it shipped) but then they just withdrew
+	                    //their money before marking it as shipped -- the stuff about
+	                    //changing txinfo items to other things is a tool that helps me
+	                    //when trying stuff on testnet. Mainnet orders that got shipped
+	                    //show up with undefined info that makes the total amount available
+	                    //in my wallet "turn into" an NaN. By pretending there are values
+	                    //and setting them to 0 I fixed that error while still allowing me
+	                    //to spend the money that actually *is* in my wallet.
+	                    if ( shipped_orders.includes( sale[ 2 ] ) ) {
+	                        sale[ 3 ] = 1;
+	                        if ( !txinfo[ 0 ] ) txinfo[ 0 ] = "abababababababababababababababababababababababababababababababab";
+	                        if ( !txinfo[ 1 ] ) txinfo[ 1 ] = 0;
+	                        txinfo[ 2 ] = 0;
+	                    }
+	                    var address_balance = txinfo[ 2 ];
+	                    // var address_balance = await getAddressBalance( whisper_address, mempoolNetwork );
+	                    var balance_in_dollars = satsToDollars( address_balance ).toFixed( 2 );
+	                    if ( balance_in_dollars == "0.00" && !sale[ 3 ] ) return;
+	                    if ( !txinfo[ 3 ] ) {
+	                        $$( '.btc_balance' )[ 0 ].innerText = Number( $$( '.btc_balance' )[ 0 ].innerText ) + address_balance;
+	                    } else {
+	                        // $$( '.btc_balance' )[ 1 ].innerText = Number( $$( '.btc_balance' )[ 1 ].innerText ) + address_balance;
+	                    }
+	                    if ( !txinfo[ 3 ] ) {
+	                        $$( '.usd_balance' )[ 0 ].innerText = satsToDollars( Number( $$( '.btc_balance' )[ 0 ].innerText ) ).toFixed( 2 );
+	                    } else {
+	                        // $$( '.usd_balance' )[ 1 ].innerText = satsToDollars( Number( $$( '.btc_balance' )[ 1 ].innerText ) ).toFixed( 2 );
+	                    }
+	                    if ( !private_keys.includes( privkey ) && !txinfo[ 3 ] ) private_keys.push( privkey );
+	                    var bgcolor = "pink";
+	                    var shipped_instructions = "click when shipped";
+	                    if ( sale[ 3 ] ) {
+	                        bgcolor = "lightgreen";
+	                        shipped_instructions = "shipped";
+	                    }
+	                    var total = 0;
+	                    var items = ``;
+	                    var names_and_prices = [];
+	                    sale[ 1 ].forEach( function( item, index ) {
+	                        var item_price = Number( item[ "price" ] );
+	                        var item_name = item[ "item" ];
+	                        var claimed_price = Number( item[ "price" ] );
+	                        if ( "id" in item && $( `[data-id="${item[ "id" ]}"]` ) ) {
+	                            var the_item = $( `[data-id="${item[ "id" ]}"]` );
+	                            item_price = Number( the_item.getElementsByClassName( "price" )[ 0 ].value ) * 100;
+	                            item_name = the_item.getElementsByTagName( "input" )[ 0 ].value;
+	                        }
+	                        total = total + item_price;
+	                        items += `<div class="minicart" style="display: flex; justify-content: space-between; text-align: left;"><div class="product_name"></div><div class="product_price" style="text-align: right;align-self: center;"></div></div>`;
+	                        names_and_prices.push( [ item_name, item_price ] );
+	                    });
+	                    var paid_amount = balance_in_dollars;
+	                    //if the item is shipped, display the amount as paid even if the address is empty
+	                    //because the address probably *is* empty -- that just means the merchant withdrew
+	                    //the money
+	                    if ( sale[ 3 ] ) paid_amount = ( total / 100 ).toFixed( 2 );
+	                    var delivery_info = (sale[ 0 ][ "shipping_info" ]) ? sale[ 0 ][ "shipping_info" ]:sale[ 0 ][ "edelivery_info" ];
+	                    var order = `
+	                        <div class="minicart order" style="background-color: ${bgcolor};" data-order_id="${sale[ 2 ]}"><div class="order_box">Delivery info:<br><div class="delivery_info"></div></div><div class="payment_info" style="text-align: right;align-self: center;">They paid: $${paid_amount} <button class="order_details" onclick="if ( this.parentElement.parentElement.nextElementSibling.style.display != 'none' ) this.parentElement.parentElement.nextElementSibling.style.display = 'none'; else this.parentElement.parentElement.nextElementSibling.style.display = 'block';">details</button> <button class="click_when_shipped" onclick="if ( sales[ ${index} ][ 3 ] ) return;var conf = confirm( 'Are you sure you want to mark this order as shipped?' );if ( !conf ) return;this.parentElement.parentElement.style.backgroundColor = 'lightgreen';this.innerText = 'shipped';this.onclick = () => {return false};sales[ ${index} ][ 3 ] = 1;$( '.sales_count' ).innerText = Number( $( '.sales_count' ).innerText ) - 1;shipped_orders.push( sales[ ${index} ][ 2 ] );localStorage.shipped_orders = JSON.stringify( shipped_orders );labelAsShipped( this.parentElement.parentElement.getAttribute( 'data-order_id' ) );">${shipped_instructions}</button></div></div>
+	                    `;
+	                    if ( !txinfo[ 3 ] ) {
+	                        order += `
+	                            <div style="display: none; border: 1px solid black; border-radius: 1rem; padding: 1rem; margin-bottom: 1rem;"><div style="font-weight: bold;">Details</div><br>${items}<div style="text-align: right;">Total they owed: $${( total / 100 ).toFixed( 2 )}</div><div style="text-align: right;">Total they paid: $${paid_amount}</div><div style="text-align: right;"><a href="https://mempool.space/${mempoolNetwork}tx/${txinfo[ 0 ]}:${txinfo[ 1 ]}" target="_blank">Inspect transaction</a></div></div>
+	                        `;
+	                    } else {
+	                        order += `
+	                            <div style="display: none; border: 1px solid black; border-radius: 1rem; padding: 1rem; margin-bottom: 1rem;"><div style="font-weight: bold;">Details</div><br>${items}<div style="text-align: right;">Total they owed: $${( total / 100 ).toFixed( 2 )}</div><div style="text-align: right;">Total they paid: $${paid_amount}</div><div style="text-align: right;"><a href="${JSON.parse( localStorage.wallet_info )[ "wallet_url" ]}" target="_blank">Inspect transaction</a></div></div>
+	                        `;
+	                    }
+	                    $( '.orders' ).innerHTML += order;
+	                    $$( '.delivery_info' )[ $$( '.delivery_info' ).length - 1 ].innerText = delivery_info;
+	                    var existing_number = $$( '.blank_view .minicart .product_name' ).length;
+	                    names_and_prices.forEach( function( item, index ) {
+	                        //must be -2 the first time and -1 the second time
+	                        //names_and_prices.length is 2 so I can emulate -2 with - names_and_prices.length - index
+	                        //then the second time it will be names_and_prices.length - 1 which is -1
+	                        $$( '.blank_view .minicart .product_name' )[ existing_number - ( names_and_prices.length - index ) ].innerText = item[ 0 ];
+	                        $$( '.blank_view .minicart .product_price' )[ existing_number - ( names_and_prices.length - index ) ].innerText = "$" + ( item[ 1 ] / 100 ).toFixed( 2 )
+	                    });
+	                });
+	                $$( '.withdraw' )[ 0 ].onclick = async () => {
+	                    var some_unshipped_items = false;
+	                    sales.forEach( function( sale ) {
+	                        if ( !sale[ 3 ] ) some_unshipped_items = true;
+	                    });
+	                    if ( some_unshipped_items ) {
+	                        alert( `You cannot withdraw your money til you ship all your orders.` );
+	                        return;
+	                    }
+	                    var from_amount = 0;
+	                    var i; for ( i=0; i<private_keys.length; i++ ) {
+	                        var utxos_in_this_address = await getUTXOs( private_keys[ i ], mempoolNetwork );
+	                        utxos_in_this_address.forEach( function( utxo ) {
+	                            available_utxos.push( utxo );
+	                            from_amount = from_amount + utxo[ "amount" ];
+	                        });
+	                    }
+	                    var destino = prompt( "Enter the bitcoin address where you want your sats to go" );
+	                    if ( !destino || !isValidAddress( destino ) ) {
+	                        alert( "You entered an invalid bitcoin address. Please try again." );
+	                        return;
+	                    }
+	                    var base_size = 200;
+	                    var full_size = base_size + ( available_utxos.length * 50 );
+	                    var fee_options = await getThreeFeeRates( mempoolNetwork );
+	                    var sats_per_byte = prompt( `Please enter a fee rate as a number. Specifically, the number of sats per byte you want to pay. The minimum rate is ${fee_options[ 0 ]}, the average rate is ${fee_options[ 1 ]}, and the urgent rate is ${fee_options[ 2 ]}.` );
+	                    var sats_per_byte = Number( sats_per_byte );
+	                    if ( !sats_per_byte ) {
+	                        alert( "You entered an invalid fee rate. You must enter a number greater than 0, such as 5, 10, or 25. Please try again." );
+	                        return;
+	                    }
+	                    var txfee = sats_per_byte * full_size;
+	                    if ( from_amount - txfee < 294 ) {
+	                        alert( `Unfortunately you do not have enough sats to pay the mining fee necessary to withdraw your money. Your shop only has ${from_amount} sats available and your mining fee would be ${txfee} sats. Try using a lower mining fee rate or make a few more sales to increase the amount of sats you have available to withdraw.` );
+	                        return;
+	                    }
+	                    var txhex = craftTransaction( available_utxos, from_amount - txfee, destino, mempoolNetwork );
+	                    var conf = confirm( `Click ok if this is what you want to do:\n\nAmount this shop has: ${from_amount} sats\n\nMining fee for this tx: ${txfee} sats\n\nAmount you will receive: ${from_amount - txfee} sats\n\nAmount this shop will have leftover: 0 sats\n\nDestination address: ${destino}\n\n` );
+	                    if ( !conf ) return;
+	                    var txid = await pushBTCpmt( txhex, mempoolNetwork );
+	                    if ( txid && txid != "error" ) {
+	                        sessionStorage.removeItem( "modal_cleared" );
+	                        var content = `<p>Success! You can <a href="https://mempool.space/${mempoolNetwork}tx/${txid}:0" target="_blank">view your transaction here</a></p>`;
+	                        showModal( content, true );
+	                        await getNote( "modal_cleared" );
+	                    } else {
+	                        sessionStorage.removeItem( "modal_cleared" );
+	                        var content = `<p>Oh no, there was a transaction failure! Try broadcasting your raw transaction <a href="https://mempool.space/${mempoolNetwork}tx/push" target="_blank">here</a></p><p>${txhex}</p>`;
+	                        showModal( content, true );
+	                        await getNote( "modal_cleared" );
+	                        // alert( `Oh no, there was a transaction failure! Try broadcasting your raw transaction here: https://mempool.space/${mempoolNetwork}tx/push\n\n${txhex}` );
+	                    }
+	                    console.log( "raw tx:", txhex );
+	                    await waitSomeSeconds( 2 );
+	                    $( '.manage_sales_btn' ).click();
+	                }
+	                if ( $$( '.withdraw' )[ 1 ] ) $$( '.withdraw' )[ 1 ].onclick = async () => {
+	                    window.open( JSON.parse( localStorage[ "wallet_info" ] )[ "wallet_url" ], '_blank' );
+	                }
+	                $( '.visa_info' ).onclick = () => {
+	                    showModal( `<img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Hsbc-card.jpg" style="width: 100%; max-width: 300px"><p>If you need US dollars for business purposes, use your bitcoin earnings to buy a virtual visa gift card. Any amount greater than $5.00 will instantly get you a digital copy of the card's 16 digit number and 3 digit CVC number. Use a zip code of 94404 (Visa headquarters) if necessary to enter the card into your regular point of sale system. You can even order a physical card for a small fee.</p><p><button class="buy_visa">Buy visa card</button></p>` );
+	                    $( '.buy_visa' ).onclick = async () => {
+	                        window.open( `https://app.thebitcoincompany.com/giftcard/GiftCard_83215b023391`, '_blank' );
+	                    }
+	                }
+	            }
+	            $( '.manage_sales_btn' ).onclick = manageSales;
+	        }
+	        $( '.connect_nostr' ).onclick = async () => {
+	            waiting_for_auth = true;
+	            if ( window.nostr ) {
+	                var primary_relay = Object.keys( relays_obj )[ 0 ];
+	                showModal( `<p style="font-weight: bold;">Step 1 of 2. Let's find your profile</p><p>Enter your regular nostr account's <code>npub</code> and a <code>relay</code> you'd like to use. We'll try to find your profile.</p><p><input class="auth_npub" placeholder="npub..."></p><p><input class="auth_relay" placeholder="wss://..."></p><p><button class="submit_auth">Catch Me</button></p>` );
+	                $( '.submit_auth' ).onclick = async () => {
+	                    var users_npub = $( '.auth_npub' ).value;
+	                    if ( !users_npub || !users_npub.startsWith( "npub1" ) ) return alert( "That is not a valid npub, please try again. And remember, the relay must start with npub1" );
+	                    var users_relay = $( '.auth_relay' ).value;
+	                    if ( !users_relay || !users_relay.startsWith( "wss://" ) ) return alert( "That is not a valid relay, please try again. And remember, the relay must start with wss://" );
+	                    showModal( `loading...(if this is still loading after 30 seconds, refresh and try again using a different relay)` );
+	                    var profile = await getMeta( pubkeyFromNpub( users_npub ), users_relay, true );
+	                    if ( profile == "time is up" ) {
+	                        modalVanish();
+	                        return showModal( "<p>We could not load your profile at that relay. Please try again. Troubleshooting tips:</p><p>(1) Try using a different relay.</p><p>(2) Resubmit your profile in your regular nostr client before trying again to ensure that all your relays have a recent copy. This helps because some relays return recent events faster than old events, and the profile getter on Magic Webstore times out if the relay takes too long.</p><p>(3) In some clients you need to make a minor change, e.g. to your bio, before you can resubmit it.</p>" );
+	                    }
+	                    //rebroadcast the user's profile to all their relays
+	                    await eventWasReplayedTilSeen( profile, primary_relay );
+	                    Object.keys( relays_obj ).forEach( function( relay ) {
+	                        relays_obj[ relay ].send( JSON.stringify( [ "EVENT", profile ] ) );
+	                    });
+	                    var auth_sig = await nobleSecp256k1.schnorr.sign( pubKey, privKey );
+	                    var user_pubkey = await window.nostr.getPublicKey();
+	                    var note = hexToBase64( auth_sig ) + "|" + hexToBase64( textToHex( Object.keys( relays_obj )[ 0 ] ) );
+	                    console.log( "here is the note:", note, Object.keys( relays_obj )[ 0 ] );
+	                    var encrypted = await window.nostr.nip04.encrypt( auth_pubkey, note );
+	                    var event = {
+	                        "content"    : encrypted,
+	                        "created_at" : Math.floor( Date.now() / 1000 ),
+	                        "kind"       : 4,
+	                        "tags"       : [["p", auth_pubkey]],
+	                        "pubkey"     : user_pubkey,
+	                    }
+	                    var eventArray = [
+	                        0,
+	                        event['pubkey'],
+	                        event['created_at'],
+	                        event['kind'],
+	                        event['tags'],
+	                        event['content']
+	                    ];
+	                    var eventData = JSON.stringify( eventArray );
+	                    event.id  = sha256( eventData ).toString( 'hex' );
+	                    console.log( "here is the event:", event );
+	                    var signedEvent = await window.nostr.signEvent( event );
+	                    if ( typeof( signedEvent ) == "string" ) {
+	                        event.sig = signedEvent;
+	                    } else {
+	                        event.sig = signedEvent.sig;
+	                    }
+	                    showModal( "Authenticating your store..." );
+	                    await eventWasReplayedTilSeen( event, Object.keys( relays_obj )[ 0 ] );
+	                    waiting_for_auth = false;
+	                    showModal( `Success, your store is now authenticated with your regular nostr account. If the "Store Owner" badge doesn't show up on the frontend, resubmit your store by clicking the "Submit" button on your backend.` );
+	                }
+	            } else {
+	                var relay_list = `<ul style="background-color: tan; padding: 1rem;">`;
+	                Object.keys( relays_obj ).forEach( item => {
+	                    relay_list += `<li>${item}</li>`;
+	                });
+	                relay_list += `</ul>`;
+	                var auth_sig = await nobleSecp256k1.schnorr.sign( pubKey, privKey );
+	                showModal( `<p style="font-weight: bold;">Step 1 of 4. Let's find your profile</p><p>Enter your regular nostr account's npub and a relay you use. We'll try to find your profile.</p><p><input class="auth_npub" placeholder="npub1..."></p><p><input class="auth_relay" placeholder="wss://..."></p><p><button class="submit_auth">Save</button></p>` );
+	                $( '.submit_auth' ).onclick = async () => {
+	                    var users_npub = $( '.auth_npub' ).value;
+	                    if ( !users_npub || !users_npub.startsWith( "npub1" ) ) return alert( "That is not a valid npub, please try again. And remember, the relay must start with npub1" );
+	                    var users_relay = $( '.auth_relay' ).value;
+	                    if ( !users_relay || !users_relay.startsWith( "wss://" ) ) return alert( "That is not a valid relay, please try again. And remember, the relay must start with wss://" );
+	                    var attestation_text = hexToBase64( auth_sig ) + "|" + hexToBase64( textToHex( users_relay ) );
+	                    showModal( `loading...(if this is still loading after 30 seconds, refresh and try again using a different relay)` );
+	                    var profile = await getMeta( pubkeyFromNpub( users_npub ), users_relay, true );
+	                    //rebroadcast the user's profile to all their relays
+	                    Object.keys( relays_obj ).forEach( function( relay ) {
+	                        relays_obj[ relay ].send( JSON.stringify( [ "EVENT", profile ] ) );
+	                    });
+	                    if ( profile == "time is up" ) {
+	                        modalVanish();
+	                        return showModal( "<p>We could not load your profile at that relay. Please try again. Troubleshooting tips:</p><p>(1) Try using a different relay.</p><p>(2) Resubmit your profile in your regular nostr client before trying again to ensure that all your relays have a recent copy. This helps because some relays return recent events faster than old events, and the profile getter on Magic Webstore times out if the relay takes too long.</p><p>(3) In some clients you need to make a minor change, e.g. to your bio, before you can resubmit it.</p>" );
+	                    }
+	                    var message = encrypt( auth_privkey, pubkeyFromNpub( users_npub ), "This is your webstore. Please reply with your proof of ownership from step 4." );
+	                    var event = {
+	                        "content"    : message,
+	                        "created_at" : Math.floor( Date.now() / 1000 ),
+	                        "kind"       : 4,
+	                        "tags"       : [ [ "p", pubkeyFromNpub( users_npub ) ] ],
+	                        "pubkey"     : auth_pubkey,
+	                    }
+	                    var signedEvent = await getSignedEvent(event, auth_privkey);
+	                    Object.keys( relays_obj ).forEach( function( relay ) {
+	                        relays_obj[ relay ].send( JSON.stringify( [ "EVENT", signedEvent ] ) );
+	                    });
+	                    await eventWasReplayedTilSeen( signedEvent, users_relay );
+	                    var event = {
+	                        "content"    : JSON.stringify({"name":"Your webstore","about":"","picture":""}),
+	                        "created_at" : Math.floor( Date.now() / 1000 ),
+	                        "kind"       : 0,
+	                        "tags"       : [],
+	                        "pubkey"     : auth_pubkey,
+	                    }
+	                    var signedEvent = await getSignedEvent(event, auth_privkey);
+	                    Object.keys( relays_obj ).forEach( function( relay ) {
+	                        relays_obj[ relay ].send( JSON.stringify( [ "EVENT", signedEvent ] ) );
+	                    });
+	                    await eventWasReplayedTilSeen( signedEvent, users_relay );
+	                    showModal( `<p>We found your profile!</p><p style="font-weight: bold;">Step 2 of 4. Connect your store's relays</p><p>Ensure your regular nostr account is connected to one or more of these relays</p>${relay_list}<p><button class="confirm_connection">I'm connected</button></p>` );
+	                    $( '.confirm_connection' ).onclick = () => {
+	                        showModal( `<p style="font-weight: bold;">Step 3 of 4. Open a DM</p>Copy this npub into your regular nostr client and prepare to send it a DM (but don't hit Send yet). If you can't find it, consider using https://iris.to, you can use its search function to find it and then click Message.</p><pre class="attestation_text">${pubkeyToNpub( auth_pubkey )}</pre><p><button class="ready_for_dm">I'm ready</button></p>` );
+	                        $( '.ready_for_dm' ).onclick = () => {
+	                            showModal( `<p style="font-weight: bold;">Step 4 of 4. Send the proof of ownership</p><p>The following text contains a base64-encoded proof of ownership of this store. Send it as a DM to the npub from the previous step and you should see a confirmation message on this screen. If the confirmation message does not appear quickly, try again.</p><pre class="attestation_text">${attestation_text}</pre>` );
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	    </script>
+	    <script>
+	        function checkHeartbeat() {
+	            setTimeout( () => {
+	                //it is important that this be inside the timeout otherwise
+	                //it may detect a connection loss on pageload
+	                Object.keys( relays_obj ).forEach( function( relay ) {
+	                    if ( relays_obj[ relay ].readyState != 1 ) {
+	                        var msg = `You lost your connection to this relay: ${relay}. If you receive this message several times, please refresh your browser. If the issue persists, `;
+	                        if ( !$_GET[ "privkey" ] ) {
+	                            msg += `please ask the store owner to fix the issue.`;
+	                        } else {
+	                            msg += `please replace the relay (your current set of relays is in your url bar) with another one from this list: https://nostr.watch, then press enter, then resubmit your store with your new set of relays, then click "view store" and share your updated store link publicly so that people stop using the old one with the relay that isn't working. If this message is confusing, please ask the developer of this app, Super Testnet, for assistance by raising an issue on his github: github.com/supertestnet/superstore/`;
+	                        }
+	                        relays_obj[ relay ] = new WebSocket( relay );
+	                        relays_obj[ relay ].removeEventListener( 'open', openConnection );
+	                        relays_obj[ relay ].removeEventListener( 'message', handleMessage );
+	                        relays_obj[ relay ] = new WebSocket( relay );
+	                        relays_obj[ relay ].addEventListener( 'message', handleMessage );
+	                        relays_obj[ relay ].addEventListener( 'open', openConnection );
+	                        if ( relays_i_connected_to.length < 2 && $_GET[ "pubkey" ] ) showModal( msg );
+	                        if ( $_GET[ "privkey" ] ) {
+	                            setTimeout( () => {
+	                                if ( relays_obj[ Object.keys( relays_obj )[ 0 ] ].readyState != 1 ) showModal( msg );
+	                            }, 5000 );
+	                        }
+	                    }
+	                });
+	                checkHeartbeat();
+	            }, 10000 );
+	        }
+	        async function init() {
+	            $( '.splash_screen' ).style.display = "none";
+	            $( '.make_store' ).style.display = "block";
+	            sessionStorage[ "btc_price" ] = await getBitcoinPrice();
+	            checkHeartbeat();
+	        }
+	        init();
+	    </script>
+	    <div class="toast"></div>
+	    <div class="black-bg"></div>
+	    <div class="modal"></div>
 
 </main>
-<footer class="pt-5 my-5 text-body-secondary border-top">
-	Baked with <a href="https://GoodStr.io" target="_blank"><img src="assets/img/GoodStr_logoG.png" width="auto" height="21" style="margin-bottom: 3px;" border="0" alt="GoodStr" title="GoodStr"></a> <small>SINCE BLOCK <a href="https://mempool.space/block/777777" target="_blank">777777</a></small>
+
+<footer class="my-5 pt-5 text-body-secondary text-center text-small">
+		Baked with <a href="https://GoodStr.io" target="_blank"><img src="assets/img/GoodStr_logoG.png" width="auto" height="21" style="margin-bottom: 3px;" border="0" alt="GoodStr" title="GoodStr"></a> <small>SINCE BLOCK <a class="rosa" href="https://mempool.space/block/777777" target="_blank">777777</a></small>
+		<code style="rosa"><small><ul class="list-inline">
+       • <li class="list-inline-item"><a href="/privacy.html">Privacy</a></li>
+       • <li class="list-inline-item"><a href="/freedom.html">Freedom</a></li>
+       • <li class="list-inline-item"><a href="/terms.html">Terms</a></li>
+       • <li class="list-inline-item"><a href="/onboarding.html#help">Support</a></li>
+			 •
+    </ul></small></code>
 </footer>
 </div>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+	<script src="assets/checkout.js"></script>
 
-
-	    </body>
-	</html>
+	</body>
+</html>
