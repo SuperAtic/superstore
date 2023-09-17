@@ -65,27 +65,41 @@ You'll be guided through a simple three step procedure: first, backup your "magi
 
 Important! Save your magic string. It contains your private key which you'll need to access your money and manage your store. If you lose your magic string you lose your money. Keep it secret, keep it safe!
 
+<<<<<<< HEAD
 Also make sure you withdraw your money from the store frequently. The site uses whisper keys, which are sent to you in dms and not stored anywhere except on whatever relay you use. We don't trust nostr relays to store my dms forever so we recommend you withdraw your money quickly when you receive it, don't just let it sit there for weeks on end or the nostr relay you are connected to might delete your dms or go offline and leave you stranded without access to your money
+=======
+Also make sure you withdraw your money from the store frequently. The site uses whisper keys, which are sent to you in dms and not stored anywhere except on whatever relays you use. I personally don't trust nostr relays to store my dms forever so I recommend you withdraw your money quickly when you receive it, don't just let it sit there for weeks on end or the nostr relay you are connected to might delete your dms or go offline and leave you stranded without access to your money
+>>>>>>> d4853688a0d51f73099701046cbb81be398b2dd6
 
 # What are some upcoming features?
 
 Not sure. Usually after we get a project to a state like this one is in we abandon it in favor of something else that's more exciting. But if we do keep at it I'd like to add these features:
 
-- [ ] Give merchants a button to let customers set the price on an item (e.g. for "donation" items or "pay what you want" items)
-- [ ] Include the product id with each product in a customer's order
-- [ ] Create a uuid for each order and put it in the invoice description
-- [ ] On a lightning payment's "Inspect transaction" link, instead of opening to lnbits, show a modal with instructions: "open lnbits, go to the searchbar, type this in"
-- [ ] Educate merchants about resources like thebitcoincompany.com where they can use their earnings to buy visa gift cards -- e.g. merchants with a fiat webshop can load a visa card via bitcoin and unload it as usd in their regular shop, thus putting their bitcoin earnings into their regular workflow
-- [ ] Make a downloadable version with a rest api
-- [ ] Custom ordering -- people have complained that the order in which products appear on their frontend does not match the order in which they appear on the backend, and they'd also like to be able to set them in a particular order without needing to copy/paste stuff between different boxes
+- [ ] Move the libraries this page depends on onto my own github
+- [ ] Make a relay management page
+- [ ] Give users more default relays
+- [ ] Let merchants price their goods in sats
+- [ ] Let merchants toggle whether an item is enabled or disabled
+- [ ] When a merchant changes their relays show them their new magic string
+- [ ] When a merchant changes their relays send one last message to their old relays announcing their new ones, and have clients who detect that message automatically drop the old connections and start up the new ones
+- [ ] Make a downloadable version of magic webstore with a rest api
 - [ ] Custom styling -- people like to make things look nice and feel like it's themed after their regular blog or website or whatever. Ok cool but visual flare isn't very important to me so maybe someone else can add code for that. Do a pull request!
+- [ ] Connect your node -- right now Magic Webstore gives you an lnbits account but that is probably not a very scalable model and it's also custodial, meaning everyone will probably eventually get rugpulled by lnbits. To fix that, I want to make it easy for merchants to connect this app to their own node, that way they can only rug themselves. I hope to do this by writing an LND wrapper that lets you expose the "getInvoice" function and the "checkInvoice" function over nostr. We'll see how that goes
 - [ ] An aggregator -- what if the shop client aggregated all the products that ship to your region and displayed them all on one page regardless of who the actual merchant is? That could be super cool, like a craigslist but on bitcoin+nostr! Plus you could have categories and e.g. just browse all the offers by people who sell gift cards, or browse all the offers by people who want to trade fiat for bitcoin, etc.
+<<<<<<< HEAD
 - [ ] Ratings -- these would become very important if there was an aggregator service but they are a frequent request anyway, even without that. We hesitate to add ratings because we don't know a good way to do them on nostr (they are easy to spoof and we don't currently know a decent way to filter out spoofs -- someone tell me how to do it!)
 - [ ] Celebrity escrow -- we think it would be cool if merchants could list several bitcoin celebrities who they are ok with using as an escrow agent. People like Matt Odell or Peter McCormack could advertise that they are willing to play the role of an escrow if anyone wants to use them as one. Then users could add them as an escrow by including their nostr pubkey as 1 of 3 keys in a multisig. Most of the time, this escrow option would probably not be used, so the escrow agent may never even even know their services were enlisted. But if the two parties can't agree on what to do, they can DM their escrow agent and say "Hey we used your key in our bitcoin transaction and now we have a dispute, please side with me/them!" It would be so cool, and very useful if people start using this for fiat-to-bitcoin trades
 - [ ] Satoshi escrow -- many years ago Satoshi had an idea to do escrow without a third party. His idea was that you could put money in an address that your counterparty can withdraw from only if you give them a secret piece of data. Then you withhold that secret piece of data til they send you your product. If they never send you the product, you're out of luck, but at least they don't get to run off with your money. It would be pretty easy to modify GoodStr to support this -- right now your browser DMs the whisper key to the seller as soon as you pay, but if we just DM'd a proof of knowledge of that key instead, you could wait til the seller delivers your product before actually giving him or her the key that actually lets them access the money
 - [ ] The hebrew hodl -- another model of escrow without a third party is where the buyer and the seller both deposit the full value of the trade into a 2 of 2 address. Then they've got each other by the balls, so to speak, because either one can burn the other one's money. (The name "hebrew hodl" comes from a passage in the bible where Abraham and his servant swore an oath to each other which, in part, involved one of them letting the other one grab him by the balls to prove he had complete confidence in him.) So they'd better not have an irreconcilable dispute or both will lose their money. The only way both make it out ahead is through cooperation. We am thinking about adding all of these escrow models as options that merchants can advertise support for so that users can select one if they don't fully trust the seller.
 - [ ] Connect your node -- right now GoodStr gives you an lnbits account but that is probably not a very scalable model and it's also custodial, meaning everyone will probably eventually get rugpulled by lnbits. To fix that, we want to make it easy for merchants to connect this app to their own node, that way they can only rug themselves. We hope to do this by writing an LND wrapper that lets you expose the "getInvoice" function and the "checkInvoice" function over nostr. We'll see how that goes
 - [ ] Add more items to this upcoming features list -- yes, this is a meta feature, but we don't want to think about more stuff to add to this list so just write an issue so we can think about it ok?
+=======
+- [ ] Ratings & comments -- these would become very important if there was an aggregator service but they are a frequent request anyway, even without that. A difficulty with ratings and comments is that they are easy to spoof, so I'll need to filter out spoofs. I think I can probably do that by only displaying ratings and comments made by friends and "friends of friends." But that will require users to essentially "log in" via nostr -- i.e. tell me their pubkey and one of the relays they use -- so I can get their "follow" list, then get all the follow lists of the pubkeys on their follow list, and then treat the resulting list of pubkeys as a filter so that I only display comments made by pubkeys on that list. (Maybe I could put the rest in a tab labeled "possible spoofed comments and ratings.")
+- [ ] Celebrity escrow -- I think it would be cool if merchants could list several bitcoin celebrities who they are ok with using as an escrow agent. People like Matt Odell or Peter McCormack could advertise that they are willing to play the role of an escrow if anyone wants to use them as one. Then users could add them as an escrow by including their nostr pubkey as 1 of 3 keys in a multisig. Most of the time, this escrow option would probably not be used, so the escrow agent may never even even know their services were enlisted. But if the two parties can't agree on what to do, they can DM their escrow agent and say "Hey we used your key in our bitcoin transaction and now we have a dispute, please side with me/them!" It would be so cool, and very useful if people start using this for fiat-to-bitcoin trades
+- [ ] Satoshi escrow -- many years ago Satoshi had an idea to do escrow without a third party. His idea was that you could put money in an address that your counterparty can withdraw from only if you give them a secret piece of data. Then you withhold that secret piece of data til they send you your product. If they never send you the product, you're out of luck, but at least they don't get to run off with your money. It would be pretty easy to modify Magic Webstore to support this -- right now your browser DMs the whisper key to the seller as soon as you pay, but if I just DM'd a proof of knowledge of that key instead, you could wait til the seller delivers your product before actually giving him or her the key that actually lets them access the money
+- [ ] The hebrew hodl -- another model of escrow without a third party is where the buyer and the seller both deposit the full value of the trade into a 2 of 2 address. Then they've got each other by the balls, so to speak, because either one can burn the other one's money. (The name "hebrew hodl" comes from a passage in the bible where Abraham and his servant swore an oath to each other which, in part, involved one of them letting the other one grab him by the balls to prove he had complete confidence in him.) So they'd better not have an irreconcilable dispute or both will lose their money. The only way both make it out ahead is through cooperation. I am thinking about adding all of these escrow models as options that merchants can advertise support for so that users can select one if they don't fully trust the seller. 
+- [ ] Add more items to this upcoming features list -- yes, this is a meta feature, but I don't want to think about more stuff to add to this list so just write an issue so I can think about it ok?
+>>>>>>> d4853688a0d51f73099701046cbb81be398b2dd6
 
 # Things that used to be upcoming features but are now added (or fixed, if they were bugs)
 
@@ -98,6 +112,7 @@ Not sure. Usually after we get a project to a state like this one is in we aband
 - [x] Better error handling -- sometimes mempool.space's api starts rate-limiting you, which causes errors, which can stop the page from running. Worst case scenario: you just paid for an order when the page crashes and you lose your money forever.
 - [x] Change "sign up" to "get started"
 - [x] Revise homepage to look more like an altcoin website such as getmonero.org -- they really know how to make a site look nice
+<<<<<<< HEAD
 
 ---
 
@@ -131,3 +146,18 @@ This project is licensed under the XYZ License - see the [LICENSE.md](#) file fo
 **GoodStrᵅ - Simplifying E-commerce, One Store at a Time.**
 
 ---
+=======
+- [x] Give merchants a button to let customers set the price on an item (e.g. for "donation" items or "pay what you want" items)
+- [x] Include the product id with each product in a customer's order
+- [x] In "Manage Sales," use each purchased item's product id to determine its price *should* be
+- [x] I decided not to do the next two because (1) a purchase message's event id already *is* essentially a uuid (2) it is more intuitive to find someone's invoice by searching something personal, like their delivery instructions (3) I recently added the user's delivery instructions to the invoice memo so there will sometimes probably be insufficient room left for a uuid (which, if you are helping someone debug an order, a uuid is less intuitive than asking someone what their delivery instructions were anyway) -- but even though I did not do them I am marking them off as if I did
+- [x] Create a uuid for each order and put it in the invoice description
+- [x] On a lightning payment's "Inspect transaction" link, instead of opening to lnbits, show a modal with instructions: "open lnbits, enter this in the searchbar"
+- [x] Add "loading..." to lightning invoice box in case the user clicks it before the invoice has actually loaded
+- [x] Custom ordering -- people have complained that the order in which products appear on their frontend does not match the order in which they appear on the backend, and they'd also like to be able to set them in a particular order without needing to copy/paste stuff between different boxes
+- [x] Educate merchants about resources like thebitcoincompany.com where they can use their earnings to buy visa gift cards -- e.g. merchants with a fiat webshop can load a visa card via bitcoin and unload it as usd in their regular shop, thus putting their bitcoin earnings into their regular workflow
+- [x] Show buyers a measurement of merchant activity -- e.g. did the merchant check their store this week? Did they fulfill any orders this week?
+- [x] Add a way to authenticate your store by connecting it to your nostr identity
+- [x] Automatically send notification dms to authenticated store owners
+- [x] Investigate and fix the error where donation amounts do not display properly on the checkout page
+>>>>>>> d4853688a0d51f73099701046cbb81be398b2dd6
