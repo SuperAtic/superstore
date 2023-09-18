@@ -46,6 +46,10 @@
 		color: #FFFF00 ;
 		}
 
+		micro {
+			font-size: 0.7em;
+		}
+
 		@keyframes gradientChange {
 					0%, 100% {
 						  background-image: linear-gradient(90deg, #663399, #FFFF00, #FF9500, #FF00FF, #e685b5);
@@ -129,12 +133,12 @@
 		font-family: "Azeret Mono", "SF Mono", "Courier New", courier, monospace !important;
 		}
 
-		.logo sup {font-weight: 400 !important;
-		opacity: .5;}
+		.logo sup {font-weight: 400 !important;}
 
-		sup {bottom:0em;
-		opacity: .5;
-	font-style: italic;}
+opac, .logo sup, sup
+		{opacity: .4;}
+
+		sup {bottom:0em;}
 
 		.bd-placeholder-img {
 			font-size: 1.125rem;
@@ -1448,11 +1452,11 @@
 								</li -->
 								<li class="list-group-item d-flex justify-content-between">
 									<span>Total (BTC)</span>
-									<strong>₿0.00 000 000<small>丰</small></strong>
+									<strong><opac>₿</opac>0.00 000 000<small><opac>丰</opac></small></strong>
 								</li>
 								<li class="list-group-item d-flex justify-content-between">
 									<span>Total (USD)</span>
-									<strong>$0.00</strong>
+									<strong><opac>$</opac>0.00</strong>
 								</li>
 							</ul>
 							<!-- form class="card p-2">
@@ -2433,10 +2437,10 @@
 </main>
 
 <footer class="my-5 pt-5 text-body-secondary text-center text-small">
-		Baked with <a href="https://GoodStr.io" target="_blank"><img src="assets/img/GoodStr_logoG.png" width="auto" height="21" style="margin-bottom: 3px;" border="0" alt="GoodStr" title="GoodStr"></a> <small>SINCE BLOCK <a class="rosa" href="https://mempool.space/block/777777" target="_blank">777777</a></small>
+		ʙᴀᴄᴋᴇᴅ ᴡɪᴛʜ <a href="https://GoodStr.io" target="_blank"><img src="assets/img/GoodStr_logoG.png" width="auto" height="21" style="margin-bottom: 3px;" border="0" alt="GoodStr" title="GoodStr"></a> sɪɴᴄᴇ ʙʟᴏᴄᴋ <a class="rosa" href="https://mempool.space/block/777777" target="_blank"><micro>777777</micro></a>.
 		<code style="rosa"><small><ul class="list-inline">
        • <li class="list-inline-item"><a href="/privacy.html">Privacy</a></li>
-       • <li class="list-inline-item"><a href="/freedom.html">Freedom</a></li>
+       • <li class="list-inline-item"><a href="/guides/freedom.html">Freedom</a></li>
        • <li class="list-inline-item"><a href="/terms.html">Terms</a></li>
        • <li class="list-inline-item"><a href="/onboarding.html#help">Support</a></li>
 			 •
