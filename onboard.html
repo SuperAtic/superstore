@@ -180,6 +180,9 @@
 			.yellow {
 			color: #FFFF00 ;
 			}
+			.yellow-shade {
+			text-shadow: 1px 1px 0px #FFFF00, 2px 2px 0px #FFFF00, 3px 3px 0px #FFFF00;
+		}
 			.onboard {
 				background-image: url(assets/img/bg-onboarding.png);
 		    background-size: contain;
@@ -343,6 +346,24 @@
 				--bs-btn-active-border-color: #663399;
 			}
 
+			.btn-yellow,
+			.btn-warning,
+			.btn-bd-yellow {
+				--bd-violet-bg: #FFFF00;
+				--bd-violet-rgb: 102, 51, 153;
+				--bs-btn-font-weight: 600;
+				--bs-btn-color: var(--bs-dark);
+				--bs-btn-bg: var(--bd-violet-bg);
+				--bs-btn-border-color: var(--bd-violet-bg);
+				--bs-btn-hover-color: var(--bs-dark);
+				--bs-btn-hover-bg: #f8f800;
+				--bs-btn-hover-border-color: #f8f800;
+				--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+				--bs-btn-active-color: var(--bs-btn-hover-color);
+				--bs-btn-active-bg: #FFFF00;
+				--bs-btn-active-border-color: #FFFF00;
+			}
+
 			/* The browser correctly supports hyphenation */
 			p[lang="en"] {
 			    text-align: justify;
@@ -401,9 +422,12 @@
 			var $_GET = {}
 			for ( var key of url_keys ) $_GET[ key ] = url_params.get( key );
 			var relays = [
-			    "wss://nostrue.com",
-			    "wss://relayable.org",
-			    "wss://nostr.oxtr.dev"
+				"wss://relay.damus.io",
+				"wss://nostr-pub.wellorder.net",
+				"wss://nostr.bolt.fun",
+		    "wss://nostrue.com",
+		    "wss://relayable.org",
+		    "wss://nostr.oxtr.dev"
 			]
 		</script>
 		<script>
@@ -621,10 +645,10 @@
 								</a>
 							</li>
 							<!-- li class="nav-item"><a class="nav-link" href="#up">Welcome</a></li-->
-							<li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-							<li class="nav-item"><a class="nav-link" href="/discover">Discover</a></li>
-							<li class="nav-item"><a class="nav-link" href="#faqs">FAQs</a></li>
-							<li class="nav-item"><a class="nav-link" href="#help  ">Help</a></li>
+							<li class="nav-item"><a class="nav-link" href="/discover.html">🔎 Discover</a></li>
+							<li class="nav-item"><a class="nav-link" href="#features">✨ Features</a></li>
+							<li class="nav-item"><a class="nav-link" href="#faqs">🔮 FAQs</a></li>
+							<li class="nav-item"><a class="nav-link" href="#help">🛟 Help</a></li>
 							<!-- li class="nav-item"><a class="nav-link" href="#">
 								<i class="bi bi-cart"></i> BagStr
 								</a></li>
@@ -650,8 +674,12 @@
 						<button type="button" class="btn btn-lg btn-primary btn-outline" data-bs-toggle="modal" data-bs-target="#signup">💈 Open a NewStr</button>
 					</div>
 				</div>
-				<div class="product-device shadow-sm d-none d-md-block"></div>
-				<div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+				<div class="product-device shadow-sm d-none d-md-block">
+					<img src="assets/3d/GoodStr_11.png" style="margin-top: -63px;" class="img-fluid" alt="3D illustration">
+				</div>
+				<div class="product-device product-device-2 shadow-sm d-none d-md-block">
+					<img src="assets/3d/GoodStr_11.png" style="margin-top: -63px;" class="img-fluid" alt="3D illustration">
+				</div>
 				<canvas id="canvas" width="1280" height="780" style="margin:0 auto;opacity:.5; position: absolute; top: 0px; left: 0px; min-height: 100vh !important; width: 100%;z-index:-1;"></canvas>
 			</div>
 
@@ -662,13 +690,13 @@
 						<p class="lead">With Goostr, anyone can earn their first <code>sats</code> online. Just start with what you know, see what sticks, and get value back. It’s that easy!</p>
 					</div>
 					<div class="text-bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-					<img src="assets/3d/GoodStr_11.png" style="margin-top: -63px;" class="img-fluid" alt="3D illustration">
+					<img src="assets/3d/GoodStr_11.png" style="margin-top: -163px;" class="img-fluid" alt="3D illustration">
 				</div>
 				</div>
 				<div id="bigs" class="text-bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 					<div class="my-3 p-3">
-						<h2 class="display-5">Think BIG <br/s> Start small</h2>
-						<p class="lead">You know all those great ideas you have? We want you to try them, lots of them, and find out what works. Dreaming Big it’s exciting! Small bets are rewarding!</p>
+						<h2 class="display-5 mt-1">Think BIG <br/s> Start small</h2>
+						<p class="lead">You know all those great ideas you have? We want you to try them and find out what works. Dreaming Big it’s exciting! Small bets are rewarding!</p>
 					</div>
 					<div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
 						<img src="assets/3d/GoodStr_07.png" style="margin-top: -63px;" class="img-fluid" alt="3D illustration">
@@ -692,7 +720,7 @@
 						<p class="lead">Create and customize your store with our all-in-one platform or choose to use your personal site instead. With <span class="purple">Nostr</span>, you can seamlessly connect your GoodStr account to thousands of nostriches in the current stack.</p>
 					</div>
 					<div class="text-bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-						<img src="assets/3d/GoodStr_03.png" style="margin-top: -83px;" class="img-fluid" alt="3D illustration">
+						<img src="assets/3d/GoodStr_03.png" style="margin-top: -33px;" class="img-fluid" alt="3D illustration">
 					</div>
 				</div>
 			</div>
@@ -701,7 +729,7 @@
 				<div class="col-md-6 p-lg-5 mx-auto my-5">
 					<h1 class="display-3 fw-bold">Make your own GoodSt(o)r(e)</h1>
 					<h3 class="fw-normal text-muted mb-3">Whether you need more balance, flexibility, or just a different gig, we make it easier to chart a new path.</h3>
-					<p>You don't have to be a tech expert or even understand how to start a business, not to uderstand <span class="orange">Bitcoin</span>. You just gotta take what you know and sell it.</p>
+					<p class="lead">You don't have to be a tech expert or even understand how to start a business, not to uderstand <span class="orange">Bitcoin</span>. You just gotta take what you know and sell it.</p>
 					<div class="big_buttons gap-3 justify-content-center lead fw-normal">
 						<code>Access yours with <span class="blue" onclick="useString()">Magic String</span> or</code><br/><br/>
 						<button type="button" class="btn btn-lg btn-primary btn-outline" data-bs-toggle="modal" data-bs-target="#signup">💈 Open a NewStr</button>
@@ -723,7 +751,7 @@
 				<div id="stock" class="bg-body-secondary pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 					<div class="my-3 py-3">
 						<h2 class="display-5">Decentralized Stock</h2>
-						<p class="lead">Once you publish an item, it will be bradcasted along the <code><strong>nostr</strong></code>  protocol unter the <a href="https://github.com/nostr-protocol/nips/blob/master/15.md" target="_blank">NIP15</a> reserved for <span class="purple">Nostr</span> Marketplace items. You just start adding products to your store and then share the link with people or embed it in your website. They can view your products, buy items from you, and send you <code><strong>nostr</strong></code> encrypted messages.</p>
+						<p class="lead">Once you publish an item, it will be bradcasted along the <code><strong>nostr</strong></code>  protocol unter the <a href="https://github.com/nostr-protocol/nips/blob/master/15.md" target="_blank">NIP15</a> reserved for <span class="purple">Nostr</span> Marketplace items. Share the link with people or <a href="embed.html">embed it in your website</a>. They can view your products, buy items from you, and send you <code><strong>nostr</strong></code> encrypted messages.</p>
 					</div>
 					<div class="text-bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
 						<img src="assets/3d/GoodStr_10.png" style="margin-top: -63px;" class="img-fluid" alt="3D illustration">
@@ -735,7 +763,7 @@
 				<div id="simple" class="bg-body-secondary pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 					<div class="my-3 py-3">
 						<h2 class="display-5">Ecommerce Simplified</h2>
-						<p class="lead">GoodStr is focused on reducing the headaches of selling items online and easily collect payments. GoodStr lets you monetize your life. Have a youtube channel? A blog?  Start selling merchandise through GoodStr. Let people support you through sales and branding. Want to sell items at a farmer's market? Treat GoodStr as your point of sale (POS) system and let people check out with ease.</p>
+						<p class="lead">GoodStr is focused on reducing the headaches of selling items online and easily collect payments, it lets you monetize your life. Have a youtube channel? A blog?  Start selling merchandise through GoodStr. Let people support you through sales and branding. Want to sell items at a farmer's market? Treat GoodStr as your POS system and let people check out with ease.</p>
 					</div>
 					<div class="text-bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
 						<img src="assets/3d/GoodStr_05.png" class="img-fluid" alt="3D illustration">
@@ -754,9 +782,10 @@
 
 			<div id="dream" class="position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary">
 				<div class="col-md-6 p-lg-5 mx-auto my-5">
-					<h1 class="display-3 fw-bold">Instant <span class="btc"><span class="orange">Bitcoin</span></span> Cashouts</h1>
+					<img src="assets/3d/GoodStr_21.png" class="mx-5 px-5 img-fluid" width="69%" height="auto" alt="3D illustration">
+						<h1 class="display-3 fw-bold"><span class="yellow-shade">Instant</span> <span class="btc"><span class="orange">Bitcoin</span></span> Cashouts</h1>
 					<h3 class="fw-normal text-muted mb-3">A Dream Come True! No more waiting for business hours or dealing with bank runs. With GoodStr, every day is a payday!</h3>
-					<p>While traditional banks keep you waiting, especially on weekends and public holidays, GoodStr empowers you with the freedom of <span class="orange">Bitcoin</span>. Cash out effortlessly 24/7, 365 days a year.</p>
+					<p class="lead">While traditional banks keep you waiting, especially on weekends and public holidays, GoodStr empowers you with the freedom of <span class="orange">Bitcoin</span>. Cash out effortlessly 24/7, 365 days a year.</p>
 					<div class="big_buttons gap-3 justify-content-center lead fw-normal">
 						<code>Access yours with <span class="blue" onclick="useString()">Magic String</span> or</code><br/><br/>
 						<button type="button" class="btn btn-lg btn-primary btn-outline" data-bs-toggle="modal" data-bs-target="#signup">💈 Open a NewStr</button>
@@ -776,8 +805,6 @@
 					</figure>
 				</div>
 			</div>
-
-
 
 			<div id="discover " class="col-lg-8 mx-auto p-4 py-md-5 my-5">
 				<div class="my-5">
@@ -891,36 +918,36 @@
 						</div>
 					</div>
 
-						<div class="container-fluid row align-items-md-stretch">
+						<div class="row">
 
-							<div id="faqs" class="col-md-6 mt-5">
-								<div class="h-100 p-5 pink-bg border rounded-3">
+							<div id="faqs" class="col-md-6 mt-4">
+								<div class="p-5 pink-bg border rounded-3">
 									<img src="assets/3d/GoodStr_06.png" class="img-fluid" alt="3D illustration">
-									<h2 class="text-body-emphasis ">Do you have any qiestion?</h2>
-									<p class="simple_desc">We got Answers :)</p>
+									<h2 class="mb-0 text-body-emphasis ">Do you have any qiestion?</h2>
+									<p class="simple_desc mb-5">We got Answers :)</p>
 								</div>
 							</div>
 
-							<div id="help" class="col-md-6 my-5">
-									<div class="h-100 p-5 bg-body-secondary border rounded-3">
+							<div id="help" class="col-md-6 mt-4">
+									<div class="p-5 bg-body-secondary border rounded-3">
 										<span class="h1">📇</span>
 									<h2 class="text-body-emphasis ">Get in Touch</h2>
 									<p class="simple_desc">Feel free to sent us all your enquiries via nostr: <code>npub1hwluk4vax4g9lq882gktv75scuseferw3gvht7sdq6gthd7rqyxqluj4z3</code><br/>
 										<br/>
-									 <a href="https://snort.social/p/npub1hwluk4vax4g9lq882gktv75scuseferw3gvht7sdq6gthd7rqyxqluj4z3" class="btn btn-outline-secondary" type="button">📝 Send a Note</a>
+									 <a href="https://snort.social/p/npub1hwluk4vax4g9lq882gktv75scuseferw3gvht7sdq6gthd7rqyxqluj4z3" class="btn btn-outline-secondary" type="button">📝 Send Us a Note</a>
                   </p>
 									<hr>
                   <p> Or send us a PGP message to
 										<br/><code><u>GoodStr[at]pm[dot]me</u></code><br/>
 										<br/>
-                   <a href="mailto:goodstr@pm.me" class="btn btn-outline-secondary" type="button">📮 Send an Email</a>
+                   <a href="mailto:goodstr@pm.me" class="btn btn-outline-secondary" type="button">📮 Send Us an Email</a>
                    <!-- code>PGP Key: </code-->
                  </p>
 								</div>
 							</div>
 
-  						<div id="onch" class="col-md-6 mt-5">
-								<div class="h-100 p-5 bg-body-secondary border rounded-3">
+  						<div id="onch" class="col-md-6 mt-4">
+								<div class="p-5 bg-body-secondary border rounded-3">
 									<h2 class="text-body-emphasis ">Support the Project</h2>
 									<p class="simple_desc">Hopingt that you find this tool helpful, we always welcome anny type of contrybution</p>
 									<p>Contribute to code: <code>git clone <a href="https://github.com/superatic/superstore" target="_blank">https://GitHub.com/SuperAtic/SuperStore</a></code></p>
@@ -930,9 +957,11 @@
 								</div>
 							</div>
 
-							<div id="sats" class="col-md-6 mt-5">
-								<div class="h-100 p-5 purple-bg border rounded-3">
-									<h2 class="text-body-emphasis ">⚡</h2>
+							<div id="sats" class="col-md-6 mt-4">
+								<div class="p-5 purple-bg border rounded-3">
+									<h2 class="text-body-emphasis mb-1">⚡ Send us a Zap to</h2>
+									<p class="mt-3" style="text-align: center;"><code><u>GoodStr[at]GetAlby[dot]com</u></code>
+								  </p>
 									<lightning-widget
 										name="Thank You!"
 										accent="#ff00ff"
@@ -958,7 +987,7 @@
           <p></p>
 					<!--h5>About</h5-->
 					<ul class="list-unstyled text-small">
-						<li><a class="link-secondary text-decoration-none" href="https://stacker.news/goodstr/r/02a0eb55b5" target="_blank">News</a></li>
+						<li><a class="link-secondary text-decoration-none" href="https://stacker.news/02a0eb55b5/r/02a0eb55b5" target="_blank">News</a></li>
 						<li><a class="link-secondary text-decoration-none" href="https://bolt.fun/project/goodstr" target="_blank">Blog</a></li>
 						<li><a class="link-secondary text-decoration-none" href="/privacy.html">Privacy</a></li>
 						<li><a class="link-secondary text-decoration-none" href="/terms.html">Terms</a></li>
@@ -1000,18 +1029,19 @@
 				<div id="sellers" class="col-6 col-md">
 					<h5 class="mt-2">Resources <sup> for...</sup></h5>
 					<ul class="list-unstyled text-small">
-						<li><a class="link-secondary text-decoration-none" href="/guides/goodstr" target="_blank">How to <span class="gradient-loop-text">GoodStr</span>?</a> <sup>Ecommerce</sup></li>
-						<li><a class="link-secondary text-decoration-none" href="/guides/nostr" target="_blank"><span class="purple">Nostr</span> Protocol</a> <sup>Communication</sup></li>
-						<li><a class="link-secondary text-decoration-none" href="/guides/lightning" target="_blank" target="_blank"><span class="yellow">Lightning</span> Network</a> <sup>Payments</sup></li>
-						<li><a class="link-secondary text-decoration-none" href="/guides/bitcoin" target="_blank"><span class="orange">Bitcoin</span> Blockchain</a> <sup>Ledger</sup></li>
-						<li><a class="link-secondary text-decoration-none" href="/guides/value4value" target="_blank">Value <span class="link-danger">4 Value</span></a> <sup>Wealth</sup></li>
+						<li><a class="link-secondary text-decoration-none" href="/guides/goodstr.html" target="_blank">How to <span class="gradient-loop-text">GoodStr</span>?</a> <sup>Ecommerce</sup></li>
+						<li><a class="link-secondary text-decoration-none" href="/guides/nostr.html" target="_blank"><span class="purple">Nostr</span> Protocol</a> <sup>Communication</sup></li>
+						<li><a class="link-secondary text-decoration-none" href="/guides/lightning.html.html" target="_blank" target="_blank"><span class="yellow">Lightning</span> Network</a> <sup>Payments</sup></li>
+						<li><a class="link-secondary text-decoration-none" href="/guides/bitcoin.html" target="_blank"><span class="orange">Bitcoin</span> Blockchain</a> <sup>Ledger</sup></li>
+						<li><a class="link-secondary text-decoration-none" href="/guides/value4value.html" target="_blank">Value <span class="link-danger">4 Value</span></a> <sup>Wealth</sup></li>
 					</ul>
 					<h5 class="mt-5">Guides <sup> for...</sup></h5>
 					<ul class="list-unstyled text-small">
-						<li><a class="link-secondary text-decoration-none" href="/guides/run-it-locally" target="_blank">Run it locally</a></li>
-						<li><a class="link-secondary text-decoration-none" href="/guides/browser" target="_blank">Browser Extension</a></li>
-						<li><a class="link-secondary text-decoration-none" href="/guides/embed-products" target="_blank">Embed Product</a></li>
-						<li><a class="link-secondary text-decoration-none" href="/guides/embed-store" target="_blank">Embed GoodStr</a></li>
+						<li><a class="link-secondary text-decoration-none" href="/guides/pwa.html" target="_blank">Mobile App</a></li>
+						<li><a class="link-secondary text-decoration-none" href="/guides/pwa.html" target="_blank">Insall PWA</a></li>
+						<li><a class="link-secondary text-decoration-none" href="/guides/run-it-locally.html" target="_blank">Run it locally</a></li>
+						<li><a class="link-secondary text-decoration-none" href="/guides/embed.html#products" target="_blank">Embed Product</a></li>
+						<li><a class="link-secondary text-decoration-none" href="/guides/embed.html#store" target="_blank">Embed GoodStr</a></li>
 					</ul>
 				</div>
 			</div>

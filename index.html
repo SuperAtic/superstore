@@ -17,10 +17,14 @@
 		<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100;0,400;0,600;0,900;1,100;1,400;1,600;1,900&display=swap" rel="stylesheet">
 
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+		<!-- link rel="stylesheet" href="assets/original.css" -->
 		<style type="text/css">
 		.container {
 		  max-width: 960px;
 		}
+		main a { text-decoration: none;}
+		main a:hover, main a:focus { border-bottom: 1px dotted #ff00ff;}
 		.purple,
 		.text-purple,
 		.blue {
@@ -115,7 +119,7 @@
 
 
 		.gradient-loop-text {
-		    animation: gradientChange 1s infinite;
+		    animation: gradientChange 3s infinite;
 				color: #663399;
 				background-image: -webkit-linear-gradient(45deg, #e685b5 20%, #663399 40%, #FFFF00 60%, #FF9500 80%, #FF00FF);
 				background-clip: text;
@@ -244,6 +248,51 @@ opac, .logo sup, sup
 			--bs-btn-active-border-color: #FF9500;
 		}
 
+		.btn-yellow,
+		.btn-warning,
+		.btn-bd-yellow {
+			--bd-violet-bg: #FFFF00;
+			--bd-violet-rgb: 102, 51, 153;
+			--bs-btn-font-weight: 600;
+			--bs-btn-color: var(--bs-dark);
+			--bs-btn-bg: var(--bd-violet-bg);
+			--bs-btn-border-color: var(--bd-violet-bg);
+			--bs-btn-hover-color: var(--bs-dark);
+			--bs-btn-hover-bg: #f8f800;
+			--bs-btn-hover-border-color: #f8f800;
+			--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+			--bs-btn-active-color: var(--bs-btn-hover-color);
+			--bs-btn-active-bg: #FFFF00;
+			--bs-btn-active-border-color: #FFFF00;
+		}
+
+
+		.products_wrapper ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		  color: transparent !important;
+		}
+		.products_wrapper ::-moz-placeholder { /* Firefox 19+ */
+		  color: transparent !important;
+		}
+		.products_wrapper :-ms-input-placeholder { /* IE 10+ */
+		  color: transparent !important;
+		}
+		.products_wrapper :-moz-placeholder { /* Firefox 18- */
+		  color: transparent !important;
+		}
+
+		::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			color: lightgrey !important;
+		}
+		::-moz-placeholder { /* Firefox 19+ */
+			color: lightgrey !important;
+		}
+		:-ms-input-placeholder { /* IE 10+ */
+			color: lightgrey !important;
+		}
+		:-moz-placeholder { /* Firefox 18- */
+			color: lightgrey !important;
+		}
+
 		.bd-mode-toggle {
 			z-index: 1500;
 		}
@@ -299,6 +348,9 @@ opac, .logo sup, sup
 				line-height: calc(1ex / 0.32);
 				margin: calc(1ex / 0.32) 0;
 		}
+
+		/* ORIGIAL CSS */
+
 	</style>
 		<script src="https://bitcoincore.tech/apps/bitcoinjs-ui/lib/bitcoinjs-lib.js"></script>
 		<script src="https://supertestnet.github.io/bitcoin-chess/js/qrcode.js"></script>
@@ -906,7 +958,7 @@ opac, .logo sup, sup
 										    <div class="card">
 										      <img class="product_image" src="..." class="card-img-top" alt="...">
 										      <div class="card-body">
-													<div>$<span class="product_price"></span></div>
+													<div><span class="product_price"></span>$</div>
 													<div style="display: none;" class="shipping_zone"></span></div>
 										      </div>
 													<div class="card-footer">
@@ -939,18 +991,20 @@ opac, .logo sup, sup
                             $( '.store_products' ).style.display = "none";
                             $( '.blank_view' ).innerHTML = `
                                 <div class="viewed_product">
-                                    <div class="btn btn-outline-secondary" onclick="$( '.blank_view' ).style.display = 'none';$( '.store_products' ).style.display = 'flex';">⇦ <span class="back">Back</span></div>
+                                    <div class="btn btn-outline-secondary" onclick="$( '.blank_view' ).style.display = 'none';$( '.store_products' ).style.display = 'flex';"><span class="btn btn-outline-secondary back mt-5">⇦ Back</span></div>
                                     <div>Product</div>
-                                    <div><span class="product_name"></span></div><br>
+																		<div class="card">
+                                    <div class="card"><span class="product_name"></span></div><br>
                                     <img class="product_image"><br><br>
                                     <div>Price</div>
-                                    <div>$<span class="product_price"></span></div><br>
+                                  <div><span class="product_price"></span>$</div><br>
                                     <div>Description</div>
                                     <div class="product_description"></div><br>
                                     <div>Ships to</div>
                                     <div class="shipping_zone"></div><br>
                                     <button class="add_to_cart">Add to cart</button>
-                                </div>
+																	</div>
+																</div>
                             `;
                             $( '.viewed_product .product_name' ).innerText = c2.product;
                             $( '.viewed_product .product_image' ).src = c2.image;
@@ -1203,25 +1257,41 @@ opac, .logo sup, sup
 
 							<hr>
 							<div class="row g-3">
-							  <div class="col-md-12">
+								<div class="col-md-12">
 
 									<div class="row">
 										<div class="col-sm-6">
-									    <label for="basic-url" class="col-form-label">Current webstore name:</label>
+									    <label for="basic-url" class="col-form-label mb-0 p-0">Current webstore name:</label>
+											<p class="m-0"><small style="opacity: 0.5;">You can set it up there 👉</small></p>
 										</div>
 									    <div class="col-6">
-												<div class="input-group">
-													<input type="text" placeholder="Store Name & Co." class="store_name form-control" aria-describedby="basic-url">
-												  <button class="btn btn-outline-secondary" type="button" id="basic-url">Save</button>
+												<div class="input-group input-group-lg">
+													<input type="text"  placeholder="Store Name & Co." class="store_name form-control" aria-describedby="basic-name">
+												  <button class="form control btn btn-yellow" type="button" id="basic-url" style="border-left-width:0px;border: 1px solid rgb(222, 226, 230);">Save</button>
+												</div>
+									    </div>
+									  </div>
+									<hr class="mb-1">
+								</div>
+
+								<div class="col-md-12">
+									<div class="row">
+										<div class="col-sm-6">
+									    <label for="basic-url" class="col-form-label mb-0 p-0">Webstore logo:</label>
+											<p class="m-0"><small style="opacity: 0.5;">It will replace the current GoodStr one up there 👆.</small></p>
+										</div>
+									    <div class="col-6">
+												<div class="input-group input-group-lg">
+													<input type="text" placeholder="https://insert.link/path/to/logo.png" class="store_logo form-control" aria-describedby="basic-url">
 												</div>
 									    </div>
 									  </div>
 									<hr>
 								</div>
 								<div class="col-md-12 mt-1">
-									<button class="connect_nostr btn btn-secondary" style="float: right;" target="_blank">🗝️ Connect <code><strong>nostr</strong></code></button>
+									<button class="connect_nostr btn btn-secondary btn-lg" style="float: right;" target="_blank">🗝️ Connect <code><strong>nostr</strong></code></button>
 									<label for="basic-url" class="form-label mb-0">Setup GoodStr in 4 simple steps:</label>
-									<p class="m-0"><small style="opacity: 0.5;">You can use existing npub key or generate a new one. Up to you!</small></p>
+									<p class="m-0"><small style="opacity: 0.5;">You'll need to connect to receive customer messages and orders notifications.</small></p>
 									<hr>
 								 </div>
 						 </div>
@@ -1232,10 +1302,19 @@ opac, .logo sup, sup
 		<div class="make_store col-md-7 col-lg-8 ">
 			<div class="products">
 				<h2 class="mb-3">✨ Create Product(s)</h4>
-					<p class="lead">From the form below you'll be able to add new product to your webstore.</p>
 
-	     	<div class="products_wrapper">
-	        <div class="product">
+					<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+					  <symbol id="info-fill" viewBox="0 0 16 16">
+					    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+					  </symbol>
+					</svg>
+
+					<div class="alert alert-primary d-flex align-items-center" role="alert">
+							<span class="lead"><!-- Shows ONLY when connected Welcome <code>NIP05@nostr.relay</code>,--> You'll be able to add new products to your webstore. Once published, you'll be able to continue managing all your items from this same page. <a href="#" onclick="bookmarkThisPage()">Bookmark this page</a>, <a href="/guides/run-it-locally.html" target="_blank">run it locally</a> and/or <a href="/guides/pwa.html" target="_blank">save it as a PWA</a>.</span>
+					</div>
+
+					<div class="products_wrapper">
+	        <div class="product card px-3 pt-3 mb-3">
 						<div class="row">
 							<div class="col-10 form-floating mb-3">
 						  	<input type="text" class="form-control" id="floatingName" placeholder="Start Writing here...">
@@ -1249,6 +1328,7 @@ opac, .logo sup, sup
 						<div class="form-floating mb-3">
 						  <textarea type="text" class="form-control desc" style="height: 120px" id="floatingInput" placeholder="Start Writing here..."></textarea>
 						  <label for="floatingInput">Description</label>
+							<small><opac>Remember to add some <a href="#">#HashTags</a> at the end so it will be easily <a href="/discover.html" target="_blank">discovered</a>.</opac></small>
 						</div>
 						<div class="form-floating mb-3">
 						  <input type="text" class="form-control" id="floatingURL" placeholder="https://image.url/path/to/image.png">
@@ -1256,55 +1336,6 @@ opac, .logo sup, sup
 						</div>
 
 					<div class="row">
-					<div class="col-6 form-floating mb-3">
-						<label for="ship" style="position: absolute; top: -12px; font-size: 14px;left: 14px; opacity: 0.63;">Shipping</label>
-							<select id="ship" placeholder="Select Shipping Zone..." class="form-select form-select-lg mb-3" height="6" aria-label="Select Shipping Zone!">
-								<option>- Select Shipping zone -</option>
-								<option>Free (digital)</option>
-								<option>Worldwide</option>
-								<option>Europe</option>
-								<option>Australia</option>
-								<option>Austria</option>
-								<option>Belgium</option>
-								<option>Brazil</option>
-								<option>Canada</option>
-								<option>Denmark</option>
-								<option>Finland</option>
-								<option>France</option>
-								<option>Germany</option>
-								<option>Greece</option>
-								<option>Hong Kong</option>
-								<option>Hungary</option>
-								<option>Ireland</option>
-								<option>Indonesia</option>
-								<option>Israel</option>
-								<option>Italy</option>
-								<option>Japan</option>
-								<option>Kazakhstan</option>
-								<option>Korea</option>
-								<option>Luxembourg</option>
-								<option>Malaysia</option>
-								<option>Mexico</option>
-								<option>Netherlands</option>
-								<option>New Zealand</option>
-								<option>Norway</option>
-								<option>Poland</option>
-								<option>Portugal</option>
-								<option>Russia</option>
-								<option>Saudi Arabia</option>
-								<option>Singapore</option>
-								<option>Spain</option>
-								<option>Sweden</option>
-								<option>Switzerland</option>
-								<option>Thailand</option>
-								<option>Turkey</option>
-								<option>Ukraine</option>
-								<option>United Kingdom</option>
-								<option>United States</option>
-								<option>Vietnam</option>
-								<option>China</option>
-							</select>
-</div>
 <div class="col-6">
 								<div class="input-group form-floating mb-3">
 							  <input id="productPrice" placeholder="Product Price (e.g. 5.99)" type="number" step="0.01" min="0" class="price form-control" aria-label="Text input with dropdown button">
@@ -1318,10 +1349,59 @@ opac, .logo sup, sup
 								<label for="productPrice">Price</label>
 							</div>
 </div>
+<div class="col-6 form-floating mb-0">
+	<label for="ship" style="position: absolute; top: -12px; font-size: 14px;left: 14px; opacity: 0.63;">Shipping</label>
+		<select id="ship" placeholder="Select Shipping Zone..." class="form-select form-select-lg mb-3" height="6" aria-label="Select Shipping Zone!">
+			<option>- Select Shipping zone -</option>
+			<option>Free (digital)</option>
+			<option>Worldwide</option>
+			<option>Europe</option>
+			<option>Australia</option>
+			<option>Austria</option>
+			<option>Belgium</option>
+			<option>Brazil</option>
+			<option>Canada</option>
+			<option>Denmark</option>
+			<option>Finland</option>
+			<option>France</option>
+			<option>Germany</option>
+			<option>Greece</option>
+			<option>Hong Kong</option>
+			<option>Hungary</option>
+			<option>Ireland</option>
+			<option>Indonesia</option>
+			<option>Israel</option>
+			<option>Italy</option>
+			<option>Japan</option>
+			<option>Kazakhstan</option>
+			<option>Korea</option>
+			<option>Luxembourg</option>
+			<option>Malaysia</option>
+			<option>Mexico</option>
+			<option>Netherlands</option>
+			<option>New Zealand</option>
+			<option>Norway</option>
+			<option>Poland</option>
+			<option>Portugal</option>
+			<option>Russia</option>
+			<option>Saudi Arabia</option>
+			<option>Singapore</option>
+			<option>Spain</option>
+			<option>Sweden</option>
+			<option>Switzerland</option>
+			<option>Thailand</option>
+			<option>Turkey</option>
+			<option>Ukraine</option>
+			<option>United Kingdom</option>
+			<option>United States</option>
+			<option>Vietnam</option>
+			<option>China</option>
+		</select>
+</div>
 </div>
 								<div style="margin-bottom: 1rem;">
 									<input type="checkbox" style="width: 1rem;vertical-align: middle;margin-bottom: auto;" id="no_price_0">
-									<label for="no_price_0" style="display: inline;vertical-align: middle;">Let users set the price</label>
+									<label for="no_price_0" style="display: inline;vertical-align: middle;"><small>Let users set the price, it help promote <a href="/guides/value4value.html" target="_black">V4V</a> model.</small></label>
 							  </div>
 								<button class="preview btn btn-info w-100 mb-3">📸 Product preview</button>
 								<button class="plus_and_minus btn btn-warning w-100 mb-3">✨ Add another product</button>
@@ -1343,10 +1423,10 @@ opac, .logo sup, sup
 <!--  SuperStore below  -->
 
 	    <div class="view_store">
-	        <div class="minicart"><div class="d-grid gap-2"><button class="btn btn-primary view_cart my-3">🛒 View cart (<span class="minicart_item_count">0</span> items)</button></div></div>
+	        <div class="minicart"><div class="d-grid gap-2"><button class="btn btn-primary view_cart mt-3">🛒 View cart (<span class="minicart_item_count">0</span> items)</button></div></div>
 	        <div class="store_products" style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;"></div>
 	    </div>
-			<a class="public_link" target="_blank"><button class="btn btn-secondary w-100	">💈 View store</button></a>
+			<a class="public_link" target="_blank"><button class="btn btn-secondary w-100	mt-3">💈 View store</button></a>
 
 	    <div class="blank_view"></div>
 
@@ -1359,7 +1439,7 @@ opac, .logo sup, sup
 	        $( '.store_name' ).value = "";
 	        var title = {
 	          html: () => {
-	            var default_name = "Welcome to <strong class='logo gradient-loop-text'>GoodStr</strong> <sup><br/>A simple bitcoin webstore</sup>";
+	            var default_name = "Welcome to <strong class='logo gradient-loop-text'>GoodStr</strong> <br/><sup>A simple bitcoin webstore</sup>";
 	            var name = title.name ? title.name : default_name;
 	            return `
 	              <h1>${name}</h1> <img class="dropper" src="https://static.thenounproject.com/png/716717-200.png" style="height: 2rem; cursor: pointer;">
@@ -1404,41 +1484,41 @@ opac, .logo sup, sup
 	            if ( store_meta.owner_nym ) message += `<div class="profile_label">&nbsp;&nbsp;Store owner</div><a href="https://nostr.band/${pubkeyToNpub( store_meta.owner_pub )}" target="_blank" class="nostr_profile"><div class="pic" style="background-image: url(${owner_pic});"></div><div class="nym">${store_meta.owner_nym}</div></a><br>`;
 	            message += `
 							<h4 class="d-flex justify-content-between align-items-center mb-3">
-								<span class="text-purple">🔮 Your Magic Stats</span>
-								<span class="badge bg-purple purple-bg rounded-pill">💸</span>
+								<span class="text-purple">🔮 Magic Stats</span>
+								<span class="badge bg-purple purple-bg rounded-pill">🎲</span>
 							</h4>
 							<ul class="list-group mb-3">
 								<li class="list-group-item d-flex justify-content-between lh-sm">
 									<div>
-										<h6 class="my-0">Lifetime purchases: </h6>
-										<small class="text-body-secondary">Since the beginning of time...</small>
+										<h6 class="my-0">Lifetime orders: </h6>
+										<small class="text-body-secondary">Received by this shop from day one.</small>
 									</div>
 									<span class="text-body-secondary">${store_meta.lifetime_orders.length}</span>
 								</li>
 								<li class="list-group-item d-flex justify-content-between lh-sm">
 									<div>
-										<h6 class="my-0">Last purchase</h6>
-										<small class="text-body-secondary">Happened...</small>
+										<h6 class="my-0">Last order:</h6>
+										<small class="text-body-secondary">Received on...</small>
 									</div>
 									<span class="text-body-secondary">${last_purchase}</span>
 								</li>
 								<li class="list-group-item d-flex justify-content-between lh-sm">
 									<div>
-										<h6 class="my-0">Shipment Request</h6>
-										<small class="text-body-secondary">Last received...</small>
+										<h6 class="my-0">Last Shippment:</h6>
+										<small class="text-body-secondary">Request received on....</small>
 									</div>
 									<span class="text-body-secondary">${last_shipment}</span>
 								</li>
 								<li class="list-group-item d-flex justify-content-between lh-sm">
 									<div>
-										<h6 class="my-0">Weekly Orders</h6>
+										<h6 class="my-0">Weekly Orders:</h6>
 										<small class="text-body-secondary">Total received last 7 days...</small>
 									</div>
 									<span class="text-body-secondary">${store_meta.recent_orders.length} ${order_or_orders_2}</span>
 								</li>
 								<li class="list-group-item d-flex justify-content-between lh-sm">
 									<div>
-										<h6 class="my-0">Weekly Shipped</h6>
+										<h6 class="my-0">Weekly Shippments:</h6>
 										<small class="text-body-secondary">Total shipped last 7 days...</small>
 									</div>
 									<span class="text-body-secondary">${store_meta.shipment_ids.length} ${order_or_orders}</span>
@@ -1451,12 +1531,12 @@ opac, .logo sup, sup
 									<span class="text-success">−$5</span>
 								</li -->
 								<li class="list-group-item d-flex justify-content-between">
-									<span>Total (BTC)</span>
+									<span><strong>Total</strong> <sup>(BTC)</sup></span>
 									<strong><opac>₿</opac>0.00 000 000<small><opac>丰</opac></small></strong>
 								</li>
 								<li class="list-group-item d-flex justify-content-between">
-									<span>Total (USD)</span>
-									<strong><opac>$</opac>0.00</strong>
+									<span><strong>Total</strong> <sup>(USD)</sup></span>
+									<strong>0.00<opac>$</opac></strong>
 								</li>
 							</ul>
 							<!-- form class="card p-2">
@@ -1464,8 +1544,7 @@ opac, .logo sup, sup
 									<input type="text" class="form-control" placeholder="Promo code">
 									<button type="submit" class="btn btn-secondary">Redeem</button>
 								</div>
-							</form -->`
-							;
+							</form -->`;
 	            var now = Math.floor( Date.now() / 1000 );
 	            if ( 1692047296 - now < 0 && store_meta.checkin_ids.length ) message += `
 							<div class="card p-2">
@@ -1640,24 +1719,65 @@ opac, .logo sup, sup
 	            cart.forEach( function( item ) {
 	                if ( item[ "shipping_zone" ] != "Free (digital)" ) requires_shipping = true; else requires_edelivery = true;
 	                total = total + item[ "price" ];
-	                items += `<div class="minicart" style="display: flex; justify-content: space-between; text-align: left;"><div>${item[ "item" ]}</div><div style="text-align: right;align-self: center;">$${( item[ "price" ] / 100 ).toFixed( 2 )} <span style="border: 1px solid black;border-radius: 50%;width: 1.5rem;height: 1.5rem;display: inline-block;text-align: center; cursor: pointer;" onclick="var child = this.parentElement.parentElement;var parent = child.parentNode;var index = Array.prototype.indexOf.call(parent.children, child);cart.splice( index, 1 );renderCart();$( '.minicart_item_count' ).innerText = Number( $( '.minicart_item_count' ).innerText ) - 1;">&times;</span></div></div>`;
+	                items += `
+									<li class="minicart" list-group-item d-flex justify-content-between lh-sm">
+										<div>
+											<h6 class="my-0">${item[ "item" ]}</h6>
+											<small class="text-body-secondary"><span style="border: 1px solid black;border-radius: 50%;width: 1.5rem;height: 1.5rem;display: inline-block;text-align: center; cursor: pointer;" onclick="var child = this.parentElement.parentElement;var parent = child.parentNode;var index = Array.prototype.indexOf.call(parent.children, child);cart.splice( index, 1 );renderCart();$( '.minicart_item_count' ).innerText = Number( $( '.minicart_item_count' ).innerText ) - 1;">Remove from Cart</span></small>
+										</div>
+										<span class="text-body-secondary">$${( item[ "price" ] / 100 ).toFixed( 2 )}</span>
+									</li>`;
 	            });
-	            var total_div = `<div class="minicart" style="display: flex; justify-content: space-between; text-align: left;"><div>Total</div><div>$${( total / 100 ).toFixed( 2 )} aka ${dollarsToSats( ( total / 100 ).toFixed( 2 ) )} sats</div></div>`;
+	            var total_div = `
+							<!-- div class="minicart" -->
+							<li class="list-group-item d-flex justify-content-between">
+									<span><strong>Total</strong> <sup>(BTC)</sup></span>
+									<strong><opac>₿</opac>${dollarsToSats( ( total / 100 ).toFixed( 2 ) )}<small><opac>丰</opac></small></strong>
+								</li>
+								<li class="list-group-item d-flex justify-content-between">
+									<span><strong>Total</strong> <sup>(USD)</sup></span>
+									<strong>${( total / 100 ).toFixed( 2 )}<opac>$</opac></strong>
+								</li>
+								<!-- div/ -->`;
 	            var edelivery_div = ``;
-	            if ( requires_edelivery ) edelivery_div = `<div>Enter instructions for how to deliver your digital good(s) (e.g. email address? telegram handle? Please leave detailed instructions about what you want us to do)</div><textarea class="edelivery_form" style="width: 100%; height: 5rem;"></textarea>`
+	            if ( requires_edelivery ) edelivery_div = `
+							<li class="list-group-item d-flex justify-content-between card p-2">
+								<div class="input-group">
+									<textarea type="text" class="edelivery_form form-control" placeholder="Enter instructions for how to deliver your digital good(s) (e.g. email address? telegram handle? Please leave detailed instructions about what you want us to do)"></textarea>
+								</div>
+							</li>`
 	            var shipping_div = ``;
-	            if ( requires_shipping ) shipping_div = `<div>Enter what you want on your shipping label (and, if desired, a message for the merchant)</div><textarea class="shipping_label_form" style="width: 100%; height: 5rem;"></textarea>`
+	            if ( requires_shipping ) shipping_div = `
+							<li class="list-group-item d-flex justify-content-between card p-2">
+								<div class="input-group">
+									<textarea type="text" class="shipping_label_form form-control" placeholder="Enter what you want on your shipping label (and, if desired, a message for the merchant)"></textarea>
+								</div>
+							</li>`
 	            $( '.blank_view' ).innerHTML = `
-	                <div>
-	                    <div style="display: flex; align-items: center; cursor: pointer;" onclick="$( '.blank_view' ).style.display = 'none';$( '.store_products' ).style.display = 'flex';$( '.view_store' ).style.display = 'block';"><div style="display: flex; align-items: center; font-weight: bold; font-size: 3rem; margin-right: 0.5rem;">⇦</div><div style="font-weight: bold; font-size: 1.5rem;">Back</div></div>
-	                    <h2>Your cart</h2>
-	                    <div class="items">${items}</div>
-	                    ${total_div}
-	                    ${edelivery_div}
-	                    ${shipping_div}
-	                    <div style="text-align: right;"><button class="checkout">Checkout</button></div>
-	                </div>
-	            `;
+							<div style="display: flex; align-items: center; cursor: pointer;" onclick="$( '.blank_view' ).style.display = 'none';$( '.store_products' ).style.display = 'flex';$( '.view_store' ).style.display = 'block';"><span class="btn btn-outline-secondary back mt-5">⇦ Back</span></div>
+							<h4 class="d-flex justify-content-between align-items-center mb-3">
+								<span class="text-purple">🛒 Your Cart</span>
+								<span class="badge bg-purple purple-bg rounded-pill"><span class="minicart_item_count">0</span></span>
+							</h4>
+							<ul class="items list-group mb-3">
+							${items}
+							${edelivery_div}
+							${shipping_div}
+								<!-- li class="list-group-item d-flex justify-content-between bg-body-tertiary">
+									<div class="text-success">
+										<h6 class="my-0">Promo code</h6>
+										<small>GOODSTR2023</small>
+									</div>
+									<span class="text-success">−$5</span>
+								</li -->
+								${total_div}
+							</ul>
+							<!-- form class="card p-2">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Promo code">
+									<button type="submit" class="btn btn-secondary">Redeem</button>
+								</div>
+							</form -->`;
 	            $( '.view_store' ).style.display = "none";
 	            $( '.blank_view' ).style.display = "block";
 	            $( '.checkout' ).onclick = async () => {
@@ -1677,7 +1797,7 @@ opac, .logo sup, sup
 	                //can be is 639 and the max size of a utf8 character is 4 bytes and floor(639/4)=159
 	                memo = memo.substring( 0, 159 );
 	                $( '.blank_view' ).innerHTML = `
-	                    <div style="display: flex; align-items: center; cursor: pointer;" onclick="renderCart();"><div style="display: flex; align-items: center; font-weight: bold; font-size: 3rem; margin-right: 0.5rem;">⇦</div><div style="font-weight: bold; font-size: 1.5rem;">Back</div></div>
+	                    <div style="display: flex; align-items: center; cursor: pointer;" onclick="renderCart();"><span class="btn btn-outline-secondary back mt-5">⇦ Back</span></div>
 	                    <h2>Checkout</h2>
 	                    Please send <span class="sats_to_pay">${dollarsToSats( ( total / 100 ).toFixed( 2 ) )}</span> sats and wait for your auto-generated receipt (your shipment is not guaranteed til you have your receipt)
 	                    <br><br>
@@ -1941,7 +2061,7 @@ opac, .logo sup, sup
 	                $( '.blank_view' ).style.display = "block";
 	                $( '.blank_view' ).innerHTML = `
 	                    <div>
-	                        <div style="display: flex; align-items: center; cursor: pointer;" onclick="$( '.blank_view' ).style.display = 'none';$( '.products' ).style.display = 'block';$( '.store_maker' ).parentElement.style.display = 'block';"><div style="display: flex; align-items: center; font-weight: bold; font-size: 3rem; margin-right: 0.5rem;">⇦</div><div style="font-size: 1.5rem; font-weight: bold;">Back</div></div>
+	                        <div style="display: flex; align-items: center; cursor: pointer;" onclick="$( '.blank_view' ).style.display = 'none';$( '.products' ).style.display = 'block';$( '.store_maker' ).parentElement.style.display = 'block';"><span class="btn btn-outline-5">⇦ Back</span></div>
 	                        <div style="display: flex; flex-wrap: wrap; justify-content: space-between;"><div style="font-weight: bold;">Wallet</div><button class="connect_node">Connect your node</button></div><br>
 	                        <div class="wallet" style="display: flex;justify-content: space-between;background-color: orange;padding: 0.5rem;align-items: center;"><div>Base layer balance: $<span class="usd_balance">0.00</span> (<span class="btc_balance">0</span>&nbsp;sats)</div><div><button class="withdraw">Withdraw</button></div></div><br>
 	                `;
@@ -2103,11 +2223,11 @@ opac, .logo sup, sup
 	                    `;
 	                    if ( !txinfo[ 3 ] ) {
 	                        order += `
-	                            <div style="display: none; border: 1px solid black; border-radius: 1rem; padding: 1rem; margin-bottom: 1rem;"><div style="font-weight: bold;">Details</div><br>${items}<div style="text-align: right;">Total they owed: $${( total / 100 ).toFixed( 2 )}</div><div style="text-align: right;">Total they paid: $${paid_amount}</div><div style="text-align: right;"><a href="https://mempool.space/${mempoolNetwork}tx/${txinfo[ 0 ]}:${txinfo[ 1 ]}" target="_blank">Inspect transaction</a></div></div>
+	                            <div style="display: none; border: 1px solid black; border-radius: 1rem; padding: 1rem; margin-bottom: 1rem;"><div style="font-weight: bold;">Details</div><br>${items}<div style="text-align: right;">Total owed: $${( total / 100 ).toFixed( 2 )}</div><div style="text-align: right;">Total paid: $${paid_amount}</div><div style="text-align: right;"><a href="https://mempool.space/${mempoolNetwork}tx/${txinfo[ 0 ]}:${txinfo[ 1 ]}" target="_blank">Inspect transaction</a></div></div>
 	                        `;
 	                    } else {
 	                        order += `
-	                            <div style="display: none; border: 1px solid black; border-radius: 1rem; padding: 1rem; margin-bottom: 1rem;"><div style="font-weight: bold;">Details</div><br>${items}<div style="text-align: right;">Total they owed: $${( total / 100 ).toFixed( 2 )}</div><div style="text-align: right;">Total they paid: $${paid_amount}</div><div style="text-align: right;"><a href="${JSON.parse( localStorage.wallet_info )[ "wallet_url" ]}" target="_blank">Inspect transaction</a></div></div>
+	                            <div style="display: none; border: 1px solid black; border-radius: 1rem; padding: 1rem; margin-bottom: 1rem;"><div style="font-weight: bold;">Details</div><br>${items}<div style="text-align: right;">Total owed: $${( total / 100 ).toFixed( 2 )}</div><div style="text-align: right;">Total paid: $${paid_amount}</div><div style="text-align: right;"><a href="${JSON.parse( localStorage.wallet_info )[ "wallet_url" ]}" target="_blank">Inspect transaction</a></div></div>
 	                        `;
 	                    }
 	                    $( '.orders' ).innerHTML += order;
@@ -2211,7 +2331,7 @@ opac, .logo sup, sup
 													</div>
 													<div class="form-floating mb-3">
 													  <input type="text" class="form-control auth_relay" placeholder="wss://..." id="relay">
-													  <label for="relay">COnnect to relay</label>
+													  <label for="relay">Connect</label>
 													</div>
 										      </div>
 										      <div class="modal-footer">
@@ -2277,7 +2397,20 @@ opac, .logo sup, sup
 	                });
 	                relay_list += `</ul>`;
 	                var auth_sig = await nobleSecp256k1.schnorr.sign( pubKey, privKey );
-	                showModal( `<p style="font-weight: bold;">Step 1 of 4. Let's find your profile</p><p>Enter your regular <code><strong>nostr</strong></code> account's npub and a relay you use. We'll try to find your profile.</p><p><input class="auth_npub" placeholder="npub1..."></p><p><input class="auth_relay" placeholder="wss://..."></p><p><button class="submit_auth">Save</button></p>` );
+	                showModal( `
+										<div class="row">
+												<h5>Step 1 of 4. Let's find your profile</h5>
+														<p>Enter your regular <code><strong>nostr</strong></code> account's npub and a <code>relay</code> you use so we'll try to find your profile.  If you do not use a <code>nostr</code> client yet, you can choose one <a href="https://nostr.how/en/clients" target="_blank">here</a>.</p>
+											  <div class="mb-3 form-floating">
+											    <label for="auth_npub" class="form-label">Nostr <code>npub</code></label>
+											    <input placeholder="npub1..." type="text" class="auth_npub form-control" id="auth_npub" aria-describedby="auth_npub">
+											  </div>
+											  <div class="mb-3 form-floating">
+											    <label for="auth_relay" class="form-label">Relay</label>
+											    <input type="text" class="auth_relay form-control" id="auth_relay" placeholder="wss://...">
+											  </div>
+											  <button type="submit" class="submit_auth btn btn-primary">Connect</button>
+											</div>` );
 	                $( '.submit_auth' ).onclick = async () => {
 	                    var users_npub = $( '.auth_npub' ).value;
 	                    if ( !users_npub || !users_npub.startsWith( "npub1" ) ) return alert( "That is not a valid npub, please try again. And remember, the relay must start with npub1" );
