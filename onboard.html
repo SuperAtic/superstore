@@ -152,7 +152,9 @@
 			.purple,
 			.text-purple,
 			.blue {
-			color: #663399 ;
+			color: #663399 !important;
+			-webkit-text-decoration-color: #663399 !important;
+	    text-decoration-color: #663399!important;
 			}
 			.purple-bg {
 			background-color: #663399 !important;
@@ -177,8 +179,11 @@
 			.pink-bg {
 			background-color: #FF00FF !important;
 			}
-			.orange, .btc {
-			color: #FF9500 ;
+			.orange {
+			color: #FF9500 !important;
+			-webkit-text-decoration-color: #FF9500 !important;
+	    text-decoration-color: #FF9500!important;
+	}
 			}
 			.yellow {
 			color: #FFFF00 ;
@@ -623,7 +628,7 @@
 				<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
 			</symbol>
 		</svg>
-		<nav id="up" class="navbar navbar-expand-md bg-dark border-bottom" data-bs-theme="dark">
+		<nav id="up" class="navbar navbar-expand-md border-bottom" data-bs-theme="dark">
 			<div class="container">
 				<a class="navbar-brand d-md-none" href="#">
 					<!-- svg class="bi" width="24" height="24"><use xlink:href="#goodstr"/></svg-->
@@ -648,10 +653,10 @@
 								</a>
 							</li>
 							<!-- li class="nav-item"><a class="nav-link" href="#up">Welcome</a></li-->
-							<li class="nav-item"><a class="nav-link" href="/discover.html">🔎 Discover</a></li>
-							<li class="nav-item"><a class="nav-link" href="#features">✨ Features</a></li>
-							<li class="nav-item"><a class="nav-link" href="#faqs">🔮 FAQs</a></li>
-							<li class="nav-item"><a class="nav-link" href="#help">🛟 Help</a></li>
+							<li class="nav-item"><a class="nav-link link-secondary" href="/discover.html">🔎 Discover</a></li>
+							<li class="nav-item"><a class="nav-link link-secondary" href="#features">✨ Features</a></li>
+							<li class="nav-item"><a class="nav-link link-secondary link-secondary" href="#faqs">🔮 FAQs</a></li>
+							<li class="nav-item"><a class="nav-link link-secondary" href="#help">🛟 Help</a></li>
 							<!-- li class="nav-item"><a class="nav-link" href="#">
 								<i class="bi bi-cart"></i> BagStr
 								</a></li>
@@ -690,10 +695,10 @@
 				<div id="0to1" class="bg-body-secondary pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 					<div class="my-3 py-3">
 						<h2 class="display-5">Go from Zero to 1M</h2>
-						<p class="lead">With Goostr, anyone can earn their first <code>sats</code> online. Just start with what you know, see what sticks, and get value back. It’s that easy!</p>
+						<p class="lead">With Goostr, anyone can earn their first <a href="/lightning.html" class="link-warning">sats</a> online. Just start with what you know, see what sticks, and get value back. It’s that easy!</p>
 					</div>
 					<div class="text-bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-						<span class="huge"> 💾 </span>
+						<span class="huge">  </span>
 					<!-- img src="assets/3d/GoodStr_11.png" style="margin-top: -163px;" class="img-fluid" alt="3D illustration" -->
 				</div>
 				</div>
@@ -721,7 +726,7 @@
 				<div id="anyw" class="bg-body-secondary pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 					<div class="my-3 p-3">
 						<h2 class="display-5">Sell from anywhere</h2>
-						<p class="lead">Create and customize your store with our all-in-one platform or choose to use your personal site instead. With <span class="purple">Nostr</span>, you can seamlessly connect your GoodStr account to thousands of nostriches in the current stack.</p>
+						<p class="lead">Create and customize your store with our all-in-one platform or choose to use your personal site instead. With <a href="/nostr.html" class="purple">Nostr</a>, you can seamlessly connect your GoodStr account to thousands of nostriches in the current stack.</p>
 					</div>
 					<div class="text-bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
 						<span class="huge"> 🛸 </span>
@@ -733,7 +738,7 @@
 				<div class="col-md-6 p-lg-5 mx-auto my-5">
 					<h1 class="display-3 fw-bold">Make your own GoodSt(o)r(e)</h1>
 					<h3 class="fw-normal text-muted mb-3">Whether you need more balance, flexibility, or just a different gig, we make it easier to chart a new path.</h3>
-					<p class="lead">You don't have to be a tech expert or even understand how to start a business, not to uderstand <span class="orange">Bitcoin</span>. You just gotta take what you know and sell it.</p>
+					<p class="lead">You don't have to be a tech expert or even understand how to start a business, not to uderstand <a class="orange" href="/bitcoin.html">Bitcoin</a>. You just gotta take what you know and sell it.</p>
 					<div class="big_buttons gap-3 justify-content-center lead fw-normal">
 						<code>Access yours with <span class="blue" onclick="useString()">Magic String</span> or</code><br/><br/>
 						<button type="button" class="btn btn-lg btn-primary btn-outline" data-bs-toggle="modal" data-bs-target="#signup">💈 Open a NewStr</button>
@@ -755,7 +760,7 @@
 				<div id="stock" class="bg-body-secondary pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 					<div class="my-3 py-3">
 						<h2 class="display-5">Decentralized Stock</h2>
-						<p class="lead">Once you publish an item, it will be bradcasted along the <code><strong>nostr</strong></code>  protocol unter the <a href="https://github.com/nostr-protocol/nips/blob/master/15.md" target="_blank">NIP15</a> reserved for <span class="purple">Nostr</span> Marketplace items. Share the link with people or <a href="embed.html">embed it in your website</a>. They can view your products, buy items from you, and send you <code><strong>nostr</strong></code> encrypted messages.</p>
+						<p class="lead">Once you publish an item, it will be bradcasted along the <code><strong>nostr</strong></code>  protocol unter the <a href="https://github.com/nostr-protocol/nips/blob/master/15.md" target="_blank">NIP15</a> reserved for <a href="/nostr.html" class="purple">Nostr</a> Marketplace items. Share the link with people or <a href="embed.html">embed it in your website</a>. They can view your products, buy items from you, and send you <code><strong>nostr</strong></code> encrypted messages.</p>
 					</div>
 					<div class="text-bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
 						<span class="huge"> 🧱 </span> <!--🪬🕸-->
@@ -776,7 +781,7 @@
 				<div id="magic" class="text-bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 					<div class="my-3 p-3">
 						<h2 class="display-5">The Magic String</h2>
-						<p class="lead">With GoodStr, your entire store is contained in your magic string, like a genie in a lamp. You just need to save that one string (safely!). You just need to save that one string (back it up and store it safely) and you can do everything you need: add products to your store, manage your inventory, track your income, and keep your money safe.</p>
+						<p class="lead">With GoodStr, your entire store is contained in your magic string, like a genie in a lamp. You just need to save that one string, safely! You just need to save that one string (back it up and store it safely) and you can do everything you need: add products to your store, manage your inventory, track your income, and keep your money safe.</p>
 					</div>
 					<div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
 						<span class="huge"> 🌈 </span> <!---->
@@ -788,9 +793,9 @@
 				<div class="col-md-6 p-lg-5 mx-auto my-5">
 					<span class="huge">🧡</span><span style="margin-left: -14rem;
     font-size: 13rem;}"class="huge">⚡</span>
-						<h1 class="display-3 fw-bold"><span class="yellow-shade">Instant</span> <span class="btc"><span class="orange">Bitcoin</span></span> Cashouts</h1>
+						<h1 class="display-3 fw-bold"><span class="yellow-shade">Instant</span> <a class="orange" href="/bitcoin.html">Bitcoin</a> Cashouts</h1>
 					<h3 class="fw-normal text-muted mb-3">A Dream Come True! No more waiting for business hours or dealing with bank runs. With GoodStr, every day is a payday!</h3>
-					<p class="lead">While traditional banks keep you waiting, especially on weekends and public holidays, GoodStr empowers you with the freedom of <span class="orange">Bitcoin</span>. Cash out effortlessly 24/7, 365 days a year.</p>
+					<p class="lead">While traditional banks keep you waiting, especially on weekends and public holidays, GoodStr empowers you with the freedom of <a href="/bitcoin.html" class="orange">Bitcoin</a>. Cash out effortlessly 24/7, 365 days a year.</p>
 					<div class="big_buttons gap-3 justify-content-center lead fw-normal">
 						<code>Access yours with <span class="blue" onclick="useString()">Magic String</span> or</code><br/><br/>
 						<button type="button" class="btn btn-lg btn-primary btn-outline" data-bs-toggle="modal" data-bs-target="#signup">💈 Open a NewStr</button>
@@ -802,7 +807,7 @@
 				<div class="col-md-6 p-lg-5 mx-auto my-5">
 					<figure class="text-center">
 						<blockquote class="blockquote">
-							<p style="color:#fff;" class="lead">"I launched btcPacks as an experimental side gig; but within 2 months those tips were earning more than my 6-figure salary in sats. Leaving in favor of GoodStr enabled me to explore other aspects of my art, develop new hobbies, and finally prioritize my personal life.'</p>
+							<p style="color:#fff;" class="lead">"I launched btcPacks as an experimental side gig; but within 2 months those tips were earning more than my 6-figure salary in <a href="/lightning.html" class="link-warning">sats</a>. Leaving in favor of GoodStr enabled me to explore other aspects of my art, develop new hobbies, and finally prioritize my personal life.'</p>
 						</blockquote>
 						<figcaption class="purple blockquote-footer">
 							Max Saver sells <cite title="Source Title">BTC Saving Pack</cite>
@@ -874,14 +879,14 @@
 					</div>
 					<div class="col-md-6">
 						<h2 class="text-body-emphasis">GoodStr Webstores</h2>
-						<p>Try it out today! GoodStr is proudly built on bitcoin, the money of the internet, and nostr, a distributed data caching protocol. GoodStr is completely free and open source and you can dive into its source code by <a href="https://github.com/supertestnet/GoodStr" target="_blank">clicking here</a>.</p>
+						<p>Try it out today! GoodStr is proudly built on <a href="/bitcoin.html" class="orange">bitcoin</a>, the money of the internet, and <a href="/nostr.html" class="purple">nostr</a>, a distributed data caching protocol. GoodStr is completely free and open source software (FOSS), and you can dive into its source code by <a href="https://github.com/supertestnet/GoodStr" target="_blank">clicking here</a>.</p>
 						<ul class="list-unstyled ps-0">
 							<liid="#btc">
 							<a class="icon-link mb-1" href="#">
 								<svg class="bi" width="16" height="16">
 									<use xlink:href="#arrow-right-circle"/>
 								</svg>
-								What's <span class="orange">Bitcoin</span>?
+								What's <a href="/bitcoin.html" class="orange">Bitcoin</a>?
 							</a>
 							</li>
 							<li id="#ln">
@@ -889,7 +894,7 @@
 									<svg class="bi" width="16" height="16">
 										<use xlink:href="#arrow-right-circle"/>
 									</svg>
-									What's <span class="yellow">Lightning</span>?
+									What's <a href="/lightning.html" class="yellow">Lightning</a>?
 								</a>
 							</li>
 							<li id="#nostr">
@@ -897,7 +902,7 @@
 									<svg class="bi" width="16" height="16">
 										<use xlink:href="#arrow-right-circle"/>
 									</svg>
-									What's <span class="purple">Nostr</span>?
+									What's <a href="/nostr.html" class="purple">Nostr</a>?
 								</a>
 							</li>
 							<li id="#v4v">
@@ -957,16 +962,16 @@
 								<div class="p-5 bg-body-secondary border rounded-3">
 									<span class="h1">✨</span>
 									<h2 class="text-body-emphasis ">Support the Project</h2>
-									<p class="simple_desc">Hopingt that you find this tool helpful, we always welcome anny type of contrybution</p>
+									<p class="simple_desc">Hopingt that you find this tool helpful, we always welcome any type of contrybution:</p>
 									<p>Contribute to code: <code>git clone <a href="https://github.com/superatic/superstore" target="_blank">https://GitHub.com/SuperAtic/SuperStore</a></code></p>
 									<p>On-chain donation: <code><a href="https://GetAlby.com/GoodStr">bc1qj4gga0uwczclaa0g0acxm3kt9ch4gy79pal90x</a></code></p>
-									<p>Or sen us some <code>sats</code> usig the near form <span  class="mx-2">👉</span></p>
+									<p>Or sen us some <a href="/lightning.html" class="link-warning">sats</a> usig the nearest form <span  class="mx-2">👉</span></p>
 									<p>👇</p>
 								</div>
 							</div>
 
 							<div id="sats" class="col-md-6 mt-4">
-								<div class="p-5 purple-bg border rounded-3">
+								<div class="p-5 purple-bg border rounded-3 text-center">
 									<span class="h1">⚡</span>
 									<h2 class="text-body-emphasis mb-1">Send us a Zap to</h2>
 									<p class="mt-3" style="text-align: center;"><code><u>GoodStr[at]GetAlby[dot]com</u></code>
@@ -998,6 +1003,7 @@
 					<ul class="list-unstyled text-small">
 						<li><a class="link-secondary text-decoration-none" href="https://stacker.news/02a0eb55b5/r/02a0eb55b5" target="_blank">News</a></li>
 						<li><a class="link-secondary text-decoration-none" href="https://bolt.fun/project/goodstr" target="_blank">Blog</a></li>
+						<li><a class="link-secondary text-decoration-none" href="https://github.com/supertestnet/GoodStr" target="_blank">Source</a></li>
 						<li><a class="link-secondary text-decoration-none" href="/privacy.html">Privacy</a></li>
 						<li><a class="link-secondary text-decoration-none" href="/terms.html">Terms</a></li>
 					</ul>
