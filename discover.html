@@ -20,6 +20,55 @@
 		<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100;0,400;0,600;0,900;1,100;1,400;1,600;1,900&display=swap" rel="stylesheet">
 		<style type="text/css">
 
+		.huge {font-size: 12rem;}
+		.giant {font-size: 3.86rem;}
+
+		.flip45 {
+			rotate: 45deg;
+			transform:rotate(45deg);-moz-transform: scale(-1, 1);
+			-webkit-transform: scale(-1, 1);
+			-o-transform: scale(-1, 1);
+		-ms-transform: scale(-1, 1);
+		transform: scale(-1, 1);
+		}
+
+		ul.bay {
+		    white-space: nowrap;
+				overflow-x: auto; /* Hide horizontal scrollbar */
+			 -ms-overflow-style: none; /* IE and Edge */
+				scrollbar-width: none; /* Firefox */
+		}
+
+		ul.bay::-webkit-scrollbar {
+		    display: none;}/* For IE, Edge and Firefox */
+		}
+
+
+		ul.bay li {
+		    display: inline-block;
+		    float: none;
+		}
+
+		ul.list-unstyled  li{
+			margin: 0px 0.4rem;
+				}
+
+
+		.shade {
+			width: 283px;
+			background: rgb(33,37,41);
+			background: linear-gradient(90deg, rgba(33,37,41,0) 0%, rgba(33,37,41,1) 100%);
+			right: 0px;
+			    position: absolute;
+			    z-index: 999;
+					--bs-gutter-x: 1.5rem;
+			    --bs-gutter-y: 0;
+				 	visibility: visible;
+			    margin-right: 4.4%;
+					pointer-events: none !important;
+					scroller:;
+			}
+
 		.bd-callout-warning {
 		    --bd-callout-color: var(--bs-info-text-emphasis);
 		    --bd-callout-bg: var(--bs-info-bg-subtle);
@@ -540,8 +589,8 @@
     <section class="text-center container">
       <div class="col-lg-12 mx-auto text-start"><small>
         <ul class="bay list-inline m-0" style="display:flex;">
-          <li><a href="#" class="m-2 pe-1 list-inline-item active">Home</a></li>
-          <li><a href="#" class="m-2 pe-1 list-inline-item icon-link"><i style="font-size:69%;  vertical-align: -.125em;" class="bi  bi-heart-fill"></i> Saved</a></li>
+          <li><a href="#" class="m-2 pe-1 list-inline-item active">⛺ Home</a></li>
+          <li><a href="#" class="m-2 pe-1 list-inline-item icon-link">💖 Saved</a></li>
           <li><a href="#" class="m-2 pe-1 list-inline-item">Audio Books</a></li>
           <li><a href="#" class="m-2 pe-1 list-inline-item">Business & Money</a></li>
           <li><a href="#" class="m-2 pe-1 list-inline-item">Drawing & Painting</a></li>
@@ -554,6 +603,7 @@
           <li><a href="#" class="m-2 pe-1 list-inline-item">Illustrations</a></li>
           <li><a href="#" class="m-2 pe-1 list-inline-item">Music & Sounds</a></li>
           <li><a href="#" class="m-2 pe-1 list-inline-item">Photography</a></li>
+					<li class="shade float-end rosa p-2 text-end"><i class="bi bi-chevron-right"></i></li>
         </ul></small>
         <hr class="my-0">
 
@@ -561,9 +611,9 @@
     <div class="row py-lg-5">
       <div class="col-lg-3 mx-auto text-start">
         <h1 class="mb-0">Way more than just cards</h1>
-        <p class="lead text-body-secondary m-1">Whatever collectable you’re collecting, you can find them here!</p>
+        <p class="lead text-body-primary m-1">Whatever collectable you’re collecting, you can find them here!</p>
         <p class="m-1">
-          <a href="#" class="btn btn-secondary my-2">Score now <i class="bi bi-chevron-right"></i></a>
+          <a href="#" class="btn btn-primary my-2 "><span class="text-dark">Score now <i class="bi bi-chevron-right"></i></span></a>
         </p>
       </div>
       <div class="col-lg-9 mx-auto text-start">
@@ -577,62 +627,31 @@
       <h3>Daily Deals <sup><a href="#"  class="fs-6 all" aria-label="See All Deals">See All</a><i class="bi bi-chevron-right rosa"></i></sup></h3>
 
       <div class="row row-cols-2 row-cols-sm-3 row-cols-md-6 g-3">
-        <div class="col">
+
+				<div class="col">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
             <div class="card-body p-2">
-              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+              <p class="card-text mt-0 mb-1">Product Like Visited...</p>
               <div class="d-flex justify-content-between align-items-center">
                 <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                  <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body p-2">
-              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                  <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body p-2">
-              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                  <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
+									<button type="button" class="btn btn-sm">💛</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col">
+				<div class="col">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
             <div class="card-body p-2">
-              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+              <p class="card-text mt-0 mb-1">Product Like Hover...</p>
               <div class="d-flex justify-content-between align-items-center">
                 <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                  <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
+									<button type="button" class="btn btn-sm">🧡</button>
                 </div>
               </div>
             </div>
@@ -646,8 +665,51 @@
               <div class="d-flex justify-content-between align-items-center">
                 <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                  <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
+									<button type="button" class="btn btn-sm">❤️</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <div class="card-body p-2">
+              <p class="card-text mt-0 mb-1">Product Like Focus...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+                <div class="btn-group">
+									<button type="button" class="btn btn-sm">💜</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+				<div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <div class="card-body p-2">
+              <p class="card-text mt-0 mb-1">Product Like Visited...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+                <div class="btn-group">
+									<button type="button" class="btn btn-sm">💛</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+				<div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <div class="card-body p-2">
+              <p class="card-text mt-0 mb-1">Product Like Hover...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+                <div class="btn-group">
+									<button type="button" class="btn btn-sm">🧡</button>
                 </div>
               </div>
             </div>
@@ -661,8 +723,79 @@
               <div class="d-flex justify-content-between align-items-center">
                 <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                  <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
+									<button type="button" class="btn btn-sm">❤️</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <div class="card-body p-2">
+              <p class="card-text mt-0 mb-1">Product Like Focus...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+                <div class="btn-group">
+									<button type="button" class="btn btn-sm">💜</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+				<div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <div class="card-body p-2">
+              <p class="card-text mt-0 mb-1">Product Like Visited...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+                <div class="btn-group">
+									<button type="button" class="btn btn-sm">💛</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+				<div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <div class="card-body p-2">
+              <p class="card-text mt-0 mb-1">Product Like Hover...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+                <div class="btn-group">
+									<button type="button" class="btn btn-sm">🧡</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <div class="card-body p-2">
+              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+                <div class="btn-group">
+									<button type="button" class="btn btn-sm">❤️</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <div class="card-body p-2">
+              <p class="card-text mt-0 mb-1">Product Like Focus...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+                <div class="btn-group">
+									<button type="button" class="btn btn-sm">💜</button>
                 </div>
               </div>
             </div>
@@ -671,197 +804,310 @@
 
       </div>
 
-      <h3>Popular items <sup><a href="#"  class="fs-6 all" aria-label="See All Deals">See All</a><i class="bi bi-chevron-right rosa"></i></sup></h3>
+			<h3>Popular items <sup><a href="#"  class="fs-6 all" aria-label="See All Deals">See All</a><i class="bi bi-chevron-right rosa"></i></sup></h3>
 
-      <div class="flex row row-cols-2 row-cols-sm-3 row-cols-md-6 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body p-2">
-              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                  <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body p-2">
-              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                  <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body p-2">
-              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                  <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+			<div class="flex row row-cols-2 row-cols-sm-3 row-cols-md-6 g-3">
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body p-2">
-              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                  <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body p-2">
-              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                  <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body p-2">
-              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                  <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
+				<div class="col">
+					<div class="card shadow-sm">
+						<svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+						<div class="card-body p-2">
+							<p class="card-text mt-0 mb-1">Product Like Visited...</p>
+							<div class="d-flex justify-content-between align-items-center">
+								<small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+								<div class="btn-group">
+									<button type="button" class="btn btn-sm">💛</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col">
+					<div class="card shadow-sm">
+						<svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+						<div class="card-body p-2">
+							<p class="card-text mt-0 mb-1">Product Like Hover...</p>
+							<div class="d-flex justify-content-between align-items-center">
+								<small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+								<div class="btn-group">
+									<button type="button" class="btn btn-sm">🧡</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col">
+				<div class="card shadow-sm">
+					<svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+					<div class="card-body p-2">
+						<p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm">❤️</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card shadow-sm">
+					<svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+					<div class="card-body p-2">
+						<p class="card-text mt-0 mb-1">Product Like Focus...</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm">💜</button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 
-        <h3>Staff Pics <sup><a href="#"  class="fs-6 all" aria-label="See All Deals">See All</a><i class="bi bi-chevron-right rosa"></i></sup></h3>
-
-        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-6 g-3">
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body p-2">
-                <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                    <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body p-2">
-                <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                    <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body p-2">
-                <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                    <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body p-2">
-                <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                    <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body p-2">
-                <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                    <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-							<div class="card-body p-2">
-                <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-danger"><i alt="Delete" class="bi bi-trash2-fill"></i></button>
-                    <button type="button" class="btn btn-sm btn-outline-warning"><i alt="Edit" class="bi bi-pencil-fill"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
+			<div class="col">
+				<div class="card shadow-sm">
+					<svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+					<div class="card-body p-2">
+						<p class="card-text mt-0 mb-1">Product Like Visited...</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm">💛</button>
+							</div>
+						</div>
 					</div>
 				</div>
+			</div>
+
+			<div class="col">
+				<div class="card shadow-sm">
+					<svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+					<div class="card-body p-2">
+						<p class="card-text mt-0 mb-1">Product Like Hover...</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm">🧡</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<h3>Staff Pics <sup><a href="#"  class="fs-6 all" aria-label="See All Deals">See All</a><i class="bi bi-chevron-right rosa"></i></sup></h3>
+
+		<div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-3">
+			<div class="col">
+				<div class="card shadow-sm">
+					<svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+					<div class="card-body p-2">
+						<p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-danger">🗑</button>
+								<button type="button" class="btn btn-sm btn-outline-warning">✏️</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card shadow-sm">
+					<svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+					<div class="card-body p-2">
+						<p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-danger">🗑</button>
+								<button type="button" class="btn btn-sm btn-outline-warning">✏️</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card shadow-sm">
+					<svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+					<div class="card-body p-2">
+						<p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-danger">🗑</button>
+								<button type="button" class="btn btn-sm btn-outline-warning">✏️</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="card shadow-sm">
+					<svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+					<div class="card-body p-2">
+						<p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-danger">🗑</button>
+								<button type="button" class="btn btn-sm btn-outline-warning">✏️</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card shadow-sm">
+					<svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+					<div class="card-body p-2">
+						<p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-danger">🗑</button>
+								<button type="button" class="btn btn-sm btn-outline-warning">✏️</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card shadow-sm">
+					<svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+					<div class="card-body p-2">
+						<p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-danger">🗑</button>
+								<button type="button" class="btn btn-sm btn-outline-warning">✏️</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+			<section class="text-center container">
+	    <div class="row py-lg-5">
+	      <div class="col-lg-3 mx-auto text-start">
+	        <h1 class="mb-0">Way more than just cards</h1>
+	        <p class="lead text-body-secondary m-1">Whatever collectable you’re collecting, you can find them here!</p>
+	        <p class="m-1">
+	          <a href="#" class="btn btn-secondary my-2">Score now <i class="bi bi-chevron-right"></i></a>
+	        </p>
+	      </div>
+	      <div class="col-lg-9 mx-auto text-start">
+	      </div>
+	    </div>
+	    </section>
+
+			<div class="edits py-5 bg-body-tertiary">
+	    <div class="container">
+
+				<h3>Your items <sup><a href="#"  class="fs-6 all" aria-label="See All Deals">👀 Only for You!</a></sup></h3>
+
+	      <div class="flex row row-cols-2 row-cols-sm-3 row-cols-md-6 g-3">
+	        <div class="col">
+	          <div class="card shadow-sm">
+	            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+	            <div class="card-body p-2">
+	              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+	              <div class="d-flex justify-content-between align-items-center">
+	                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+	                <div class="btn-group">
+	                  <button type="button" class="btn btn-sm btn-outline-danger">🗑</button>
+	                  <button type="button" class="btn btn-sm btn-outline-warning">✏️</button>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="col">
+	          <div class="card shadow-sm">
+	            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+	            <div class="card-body p-2">
+	              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+	              <div class="d-flex justify-content-between align-items-center">
+	                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+	                <div class="btn-group">
+	                  <button type="button" class="btn btn-sm btn-outline-danger">🗑</button>
+	                  <button type="button" class="btn btn-sm btn-outline-warning">✏️</button>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="col">
+	          <div class="card shadow-sm">
+	            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+	            <div class="card-body p-2">
+	              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+	              <div class="d-flex justify-content-between align-items-center">
+	                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+	                <div class="btn-group">
+	                  <button type="button" class="btn btn-sm btn-outline-danger">🗑</button>
+	                  <button type="button" class="btn btn-sm btn-outline-warning">✏️</button>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="col">
+	          <div class="card shadow-sm">
+	            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+	            <div class="card-body p-2">
+	              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+	              <div class="d-flex justify-content-between align-items-center">
+	                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+	                <div class="btn-group">
+	                  <button type="button" class="btn btn-sm btn-outline-danger">🗑</button>
+	                  <button type="button" class="btn btn-sm btn-outline-warning">✏️</button>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="col">
+	          <div class="card shadow-sm">
+	            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+	            <div class="card-body p-2">
+	              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+	              <div class="d-flex justify-content-between align-items-center">
+	                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+	                <div class="btn-group">
+	                  <button type="button" class="btn btn-sm btn-outline-danger">🗑</button>
+	                  <button type="button" class="btn btn-sm btn-outline-warning">✏️</button>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="col">
+	          <div class="card shadow-sm">
+	            <svg class="bd-placeholder-img card-img-top" width="100%" height="183" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+	            <div class="card-body p-2">
+	              <p class="card-text mt-0 mb-1">Product Name Shorten...</p>
+	              <div class="d-flex justify-content-between align-items-center">
+	                <small class="text-body-secondary">9,999 <small><opac>丰</opac></small></small>
+	                <div class="btn-group">
+	                  <button type="button" class="btn btn-sm btn-outline-danger">🗑</button>
+	                  <button type="button" class="btn btn-sm btn-outline-warning">✏️</button>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+					</div>
+				</div>
+
 
 					<div class="row my-5 g-3">
 						<div class="col-12">
@@ -876,241 +1122,388 @@
 					<div class="container">
 
 						<h3>Products by Category</h3>
-						<div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 g-3">
+						<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3">
 						<div class="col">
 						<div class="card shadow-sm">
-							<div class="card-body p-2">
+							<div class="card-body p-2 row">
+								<div class="col-md-3">
+									<span class="giant p-3"> 🧩 </span> <!--️🧊🧱⛄👻-->
+
+							</div>
+								<div class="col-9">
 								<p class="card-text mt-0 mb-1 fs-4">3D</p>
 								<p class="my-1">Perfect your craft with the same tools used at Dreamworks and Pixar.</p>
-								<small class="text-body-secondary">
-								<i class="bi bi-person-circle"></i> 13K creators
-								<i class="bi bi-archive-fill"></i> 69K products
-								<i class="bi bi-coin"></i> 15M sales
-								</small>
 							</div>
+							<div class="col-12 ">
+							<small class="text-body-secondary">
+							<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+							<li><i class="bi  bi-person-circle"></i> 13K creators</li>
+							<li><i class="bi bi-archive-fill"></i> 69K products</li>
+							<li><i class="bi bi-coin"></i> 15M sales</li></ul>
+							</small>
+						</div>
+					</div>
 						</div>
 					</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 🎨 </span> <!--️📐📏✏️-->
+								 </div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4">Design</p>
 									<p class="my-1" class="my-1">Code, design, and ship your dream product with these technical resources.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 19K creators
-									<i class="bi bi-archive-fill"></i> 80K products
-									<i class="bi bi-coin"></i> 24M sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								  <li><i class="bi  bi-person-circle"></i> 19K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 80K products</li>
+									<li><i class="bi bi-coin"></i> 24M sales</li></ul>
 									</small>
 								</div>
 							</div>
 						</div>
+						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 🖼 </span> <!-- 🌊  🖼 ️-->
+								  </div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4">Drawing & Painting</p>
 									<p class="my-1">Tutorials, plugins, and brushes from pro concept artists and illustrators.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 16K creators
-									<i class="bi bi-archive-fill"></i> 101K products
-									<i class="bi bi-coin"></i> 22M sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								  <li><i class="bi  bi-person-circle"></i> 16K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 101K products</li>
+									<li><i class="bi bi-coin"></i> 22M sales</li></ul>
 									</small>
 								</div>
 							</div>
 						</div>
+						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 💾 </span> <!--🖲️💽-->
+								</div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4">Software Development</p>
 									<p class="my-1">Learn to code and tools to help you code more productively.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 9K creators
-									<i class="bi bi-archive-fill"></i> 33K products
-									<i class="bi bi-coin"></i> 10M sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 9K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 33K products</li>
+									<li><i class="bi bi-coin"></i> 10M sales</li></ul>
 									</small>
 								</div>
+							</div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 🔮 </span> <!--🪞 🕶 🌸 🍀 🍄 🌱 🔮 🦋 💗🎯 💄-->
+								</div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs- fs-4">Self Improvement</p>
-									<p class="my-1">Move your body and your audience with guides, videos, and more.</p>
+									<p class="my-1">Move your body and your audience with guides and more.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 13K creators
-									<i class="bi bi-archive-fill"></i> 39K products
-									<i class="bi bi-coin"></i> 6M sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 13K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 39K products</li>
+									<li><i class="bi bi-coin"></i> 6M sales</li></ul>
 									</small>
 								</div>
+							</div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3 flip45"> 🥊 </span> <!--🎾 ⚽ 🏀 🏐 🥎 🎱 🏈 🎲 🥏 🎽-->
+								</div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4">Fitness & Health</p>
-									<p class="my-1">Whether you’re looking to shed or shred, here are coaches to pump you up.</p>
+									<p class="my-1">Whether you’re looking to shed or shred, here are those to pump you up.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 4K creators
-									<i class="bi bi-archive-fill"></i> 12K products
-									<i class="bi bi-coin"></i> 1M sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 4K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 12K products</li>
+									<li><i class="bi bi-coin"></i> 1M sales</li></ul>
 									</small>
 								</div>
+							</div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 🎷 </span> <!--🎵 🎺 🎻 🪘 🥁 🪗 🎸-->
+								</div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4">Music & Sound Design</p>
 									<p class="my-1">Tracks, beats, and loops from the best musicians and engineers in the biz.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 9K creators
-									<i class="bi bi-archive-fill"></i> 71K products
-									<i class="bi bi-coin"></i> 8M sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 9K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 71K products</li>
+									<li><i class="bi bi-coin"></i> 8M sales</li></ul>
 									</small>
+								</div>
 								</div>
 							</div>
 						</div>
 						<div class="col">
 						<div class="card shadow-sm">
-							<div class="card-body p-2">
+							<div class="card-body p-2 row">
+								<div class="col-md-3">
+									<span class="giant p-3"> 📸 </span> <!--📷🌆🏞️🌅🌄🌇️-->
+							</div>
+								<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4">Photography</p>
 									<p class="my-1">Get snapping with pro presets, stock imagery, and digi darkroom needs.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 7K creators
-									<i class="bi bi-archive-fill"></i> 59K products
-									<i class="bi bi-coin"></i> 4M sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 7K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 59K products</li>
+									<li><i class="bi bi-coin"></i> 4M sales</li></ul>
 									</small>
 								</div>
 							</div>
 						</div>
+						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 📝 </span> <!--🖌️🖋️✒️✏️-->
+								</div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4">Writing & Publishing</p>
 									<p class="my-1">Fill your brain with words and wisdom from creative authors and storytellers.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 18K creators
-									<i class="bi bi-archive-fill"></i> 72K products
-									<i class="bi bi-coin"></i> 5M sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 18K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 72K products</li>
+									<li><i class="bi bi-coin"></i> 5M sales</li></ul>
 									</small>
 								</div>
 							</div>
 						</div>
+						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 📇️ </span> <!--💸💰👔💼🏢🗃️🗂-->
+								</div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4 fs-4">Business & Money</p>
 									<p class="my-1">Learn to earn in an increasingly unpredictable world.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 13K creators
-									<i class="bi bi-archive-fill"></i> 26K products
-									<i class="bi bi-coin"></i> 3M sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 13K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 26K products</li>
+									<li><i class="bi bi-coin"></i> 3M sales</li></ul>
 									</small>
 								</div>
+							</div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 🎒 </span> <!--🏫🧮🖍️-->
+								</div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4">Education</p>
 									<p class="my-1">Pick up a new skill with courses and guides from world-class pros.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 22K creators
-									<i class="bi bi-archive-fill"></i> 101K products
-									<i class="bi bi-coin"></i> 15M sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 22K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 101K products</li>
+									<li><i class="bi bi-coin"></i> 15M sales</li></ul>
 									</small>
 								</div>
 							</div>
 						</div>
+						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 💥️ </span> <!--💭💬🗯-->
+								</div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4 fs-4">Comics & Graphic Novels</p>
 									<p class="my-1">Sequential art with loads of heart. Welcome to a paradise of panels.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 6K creators
-									<i class="bi bi-archive-fill"></i> 32K products
-									<i class="bi bi-coin"></i> 3M sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 6K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 32K products</li>
+									<li><i class="bi bi-coin"></i> 3M sales</li></ul>
 									</small>
 								</div>
+							</div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 📖 </span> <!--📙 📘 📗 📕 🔖 📚 📓 📔-->
+								</div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4">Fiction Books</p>
-									<p class="my-1">Short stories, novellas, and epic tomes full of interesting characters and worlds.</p>
+									<p class="my-1">Short stories, novellas, and epic tomes full of interesting learnings.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 2K creators
-									<i class="bi bi-archive-fill"></i> 4K products
-									<i class="bi bi-coin"></i> 238K sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 2K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 4K products</li>
+									<li><i class="bi bi-coin"></i> 238K sales</li></ul>
 									</small>
+								</div>
 								</div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 🔊 </span> <!--🔈🔉-->
+								</div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4">Audio</p>
 									<p class="my-1">Open your ears and mind to interviews, meditations, and true crime thrillers.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 1K creators
-									<i class="bi bi-archive-fill"></i> 12K products
-									<i class="bi bi-coin"></i> 652K sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 1K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 12K products</li>
+									<li><i class="bi bi-coin"></i> 652K sales</li></ul>
 									</small>
 								</div>
 							</div>
 						</div>
+						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 🎙 </span> <!-- 🎚️ 🎧 🎤 📻 🎛 ️-->
+								</div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4">Recorded Music</p>
 									<p class="my-1">Tracks and albums from the best musicians and artists in the biz.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 502 creators
-									<i class="bi bi-archive-fill"></i> 1K products
-									<i class="bi bi-coin"></i> 125K sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 502 creators</li>
+									<li><i class="bi bi-archive-fill"></i> 1K products</li>
+									<li><i class="bi bi-coin"></i> 125K sales</li></ul>
 									</small>
 								</div>
 							</div>
+					</div>
 						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 🎬 </span> <!--🎞️🎥📽️📺📹📼-->
+								</div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4">Films</p>
 									<p class="my-1">Have a movie night with some of the best stories to hit the small screen.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 7K creators
-									<i class="bi bi-archive-fill"></i> 84K products
-									<i class="bi bi-coin"></i> 7M sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 7K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 84K products</li>
+									<li><i class="bi bi-coin"></i> 7M sales</li></ul>
 									</small>
 								</div>
+							</div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 👾 </span> <!--🎰🕹️🎮 -->
+								</div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4">Gaming</p>
 									<p class="my-1">Explore new worlds from the world’s most creative indie developers.</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 6K creators
-									<i class="bi bi-archive-fill"></i> 36K products
-									<i class="bi bi-coin"></i> 5M sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 6K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 36K products</li>
+									<li><i class="bi bi-coin"></i> 5M sales</li></ul>
 									</small>
 								</div>
+							</div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="card shadow-sm">
-								<div class="card-body p-2">
+								<div class="card-body p-2 row">
+									<div class="col-md-3">
+										<span class="giant p-3"> 🍯 </span>
+								</div>
+									<div class="col-9">
 									<p class="card-text mt-0 mb-1 fs-4">Other</p>
-									<p class="my-1">Anything else...</p>
+									<p class="my-1">Literalli...<br/>Anything else!</p>
+									</div>
+									<div class="col-12">
 									<small class="text-body-secondary">
-									<i class="bi bi-person-circle"></i> 68K creators
-									<i class="bi bi-archive-fill"></i> 276K products
-									<i class="bi bi-coin"></i> 18M sales
+									<ul class="text-body-tertiary list-group list-group-horizontal list-unstyled float-end">
+								<li><i class="bi  bi-person-circle"></i> 68K creators</li>
+									<li><i class="bi bi-archive-fill"></i> 276K products</li>
+									<li><i class="bi bi-coin"></i> 18M sales</li></ul>
 									</small>
 								</div>
 							</div>
+							</div>
+							</div>
 						</div>
+				</div>
 
 
 								</div>
