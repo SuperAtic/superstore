@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="assets/color-modes.js"></script>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<meta name="description" content="GoodStr is focused on reducing the headaches of running a webstore. GoodStr lets you monetize your life freely and anonymously.">
+		<meta name="author" content="GoodStr and contributors">
+		<meta name="generator" content="GoodStr 0.118.2">
+		<title>GoodStrᵅ - Item</title>
+		<link rel="shortcut icon" type="image/png" href="favicon.png">
+		<!-- link rel="stylesheet" href="assets/bootstrap.css"-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+		<script src="https://bundle.run/noble-secp256k1@1.2.14"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400;1,600;1,900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100;0,400;0,600;0,900;1,100;1,400;1,600;1,900&display=swap" rel="stylesheet">
+		<style type="text/css">
+
+		.huge {font-size: 12rem;}
+		.giant {font-size: 3.86rem;}
+
+		.flip45 {
+			rotate: 45deg;
+			transform:rotate(45deg);-moz-transform: scale(-1, 1);
+			-webkit-transform: scale(-1, 1);
+			-o-transform: scale(-1, 1);
+		-ms-transform: scale(-1, 1);
+		transform: scale(-1, 1);
+		}
+
+		ul.bay {
+		    white-space: nowrap;
+				overflow-x: auto; /* Hide horizontal scrollbar */
+			 -ms-overflow-style: none; /* IE and Edge */
+				scrollbar-width: none; /* Firefox */
+		}
+
+		ul.bay::-webkit-scrollbar {
+		    display: none;}/* For IE, Edge and Firefox */
+		}
+
+
+		ul.bay li {
+		    display: inline-block;
+		    float: none;
+		}
+
+		ul.list-unstyled  li{
+			margin: 0px 0.4rem;
+				}
+
+
+		.shade {
+			width: 283px;
+			background: rgb(33,37,41);
+			background: linear-gradient(90deg, rgba(33,37,41,0) 0%, rgba(33,37,41,1) 100%);
+			right: 0px;
+			    position: absolute;
+			    z-index: 999;
+					--bs-gutter-x: 1.5rem;
+			    --bs-gutter-y: 0;
+				 	visibility: visible;
+			    margin-right: 4.4%;
+					pointer-events: none !important;
+					scroller:;
+			}
+
+		.bd-callout-warning {
+		    --bd-callout-color: var(--bs-info-text-emphasis);
+		    --bd-callout-bg: var(--bs-info-bg-subtle);
+		    --bd-callout-border: var(--bs-info-border-subtle);
+		}
+		.bd-callout {
+		    --bs-link-color-rgb: var(--bd-callout-link);
+		    --bs-code-color: var(--bd-callout-code-color);
+		    padding: 1.25rem;
+		    margin-top: 1.25rem;
+		    margin-bottom: 1.25rem;
+		    color: var(--bd-callout-color, inherit);
+		    background-color: var(--bd-callout-bg, var(--bs-gray-100));
+		    border-left: 0.25rem solid var(--bd-callout-border, var(--bs-gray-300));
+				border-radius: 0.375rem;
+		}
+
+      #search input,
+      #search button {border:0px;}
+
+      .all {font-weight: 300 !important;}
+
+      .all,
+      ul.bay li a,
+      ul.bay li a:visited {
+        text-decoration: none;
+      }
+
+      .all:hover,
+      ul.bay li a:hover,
+      ul.bay li a:focus  {
+        border-bottom: 1px dashed;
+        margin-bottom: -1px !important;
+      }
+
+      ul.bay li a.active {
+        border-bottom: 2px solid;
+        padding-bottom: 6px;
+        margin-bottom: -6px !important;
+      }
+
+
+      /** CUSTOM HERE **/
+      #root .card {
+			box-shadow: none !important;
+			}
+			.nav-link {
+			padding-top: 15px;
+			line-height: 1.5rem;
+			}
+			.logo,
+			#root .card h3 {
+			font-weight: 900 !important;
+			font-style: italic !important;
+			font-size: 1.6rem;
+			}
+			code,
+			.logo,
+			#root .card h3 {
+			font-family: "Azeret Mono", "SF Mono", "Courier New", courier, monospace !important;
+		  }
+			.title, h1, h2 {
+			font-family: "Playfair Display", cursive;
+			font-weight: 900 !important;
+			font-style: italic !important;
+			}
+			.opac, opac {opacity:.42 !important;}
+			.opac:hover, opac:hover {opacity:.84 !important;}
+
+			.logo sup {font-weight: 400 !important;opacity:.21 !important;}
+			#sellers sup {top: -0.12em;
+				opacity:.21 !important;}
+			.bg-body-tertiary  {
+      --bs-bg-opacity: 0.5;
+      background-color: rgb(51 51 51 / 50%);
+	    }
+			.logobag {
+			margin-top: -11px;
+			}
+			.magic_string_box {
+			text-align: center !important;
+			display: block!important;
+			}
+			.circle {
+			margin-bottom: -12px;
+			z-index: 999
+			}
+			.circle_row {
+			text-align: center !important;
+			}
+			.blue {
+			text-decoration: underline;
+			cursor: pointer !important;
+			/*cursor: url() !important;
+			*/
+			}
+			.bold {
+			font-weight: bold;
+			}
+			@keyframes gradientChange {
+						0%, 100% {
+							  background-image: linear-gradient(90deg, #663399, #FFFF00, #FF9500, #FF00FF, #e685b5);
+						}
+						5% {
+								background-image: linear-gradient(90deg, #FFFF00, #FF9500, #FF00FF, #e685b5, #663399);
+						}
+						10% {
+								background-image: linear-gradient(90deg, #FF9500, #FF00FF, #e685b5, #663399, #FFFF00);
+						}
+						15% {
+								background-image: linear-gradient(90deg, #FF00FF, #e685b5, #663399, #FFFF00, #FF9500);
+						}
+						20% {
+								background-image: linear-gradient(90deg, #e685b5, #663399, #FFFF00, #FF9500, #FF00FF);
+						}
+						25% {
+								background-image: linear-gradient(90deg, #663399, #FFFF00, #FF9500, #FF00FF, #e685b5);
+						}
+						30% {
+								background-image: linear-gradient(90deg, #FFFF00, #FF9500, #FF00FF, #e685b5, #663399);
+						}
+						35% {
+								background-image: linear-gradient(90deg, #FF9500, #FF00FF, #e685b5, #663399, #FFFF00);
+						}
+						40% {
+								background-image: linear-gradient(90deg, #FF00FF, #e685b5, #663399, #FFFF00, #FF9500);
+						}
+						45% {
+						 	  background-image: linear-gradient(90deg, #e685b5, #663399, #FFFF00, #FF9500, #FF00FF);
+						}
+						50% {
+							  background-image: linear-gradient(90deg, #663399, #FFFF00, #FF9500, #FF00FF, #e685b5);
+						}
+						55% {
+								background-image: linear-gradient(90deg, #FFFF00, #FF9500, #FF00FF, #e685b5, #663399);
+						}
+						60% {
+								background-image: linear-gradient(90deg, #FF9500, #FF00FF, #e685b5, #663399, #FFFF00);
+						}
+						65% {
+								background-image: linear-gradient(90deg, #FF00FF, #e685b5, #663399, #FFFF00, #FF9500);
+						}
+						70% {
+								background-image: linear-gradient(90deg, #e685b5, #663399, #FFFF00, #FF9500, #FF00FF);
+						}
+						75% {
+								background-image: linear-gradient(90deg, #663399, #FFFF00, #FF9500, #FF00FF, #e685b5);
+						}
+						80% {
+								background-image: linear-gradient(90deg, #FFFF00, #FF9500, #FF00FF, #e685b5, #663399);
+						}
+						85% {
+								background-image: linear-gradient(90deg, #FF9500, #FF00FF, #e685b5, #663399, #FFFF00);
+						}
+						90% {
+								background-image: linear-gradient(90deg, #FF00FF, #e685b5, #663399, #FFFF00, #FF9500);
+						}
+						95% {
+						 	  background-image: linear-gradient(90deg, #e685b5, #663399, #FFFF00, #FF9500, #FF00FF);
+						}
+			}
+
+
+			.gradient-loop-text {
+			    animation: gradientChange 1s infinite;
+					color: #663399;
+					background-image: -webkit-linear-gradient(45deg, #e685b5 20%, #663399 40%, #FFFF00 60%, #FF9500 80%, #FF00FF);
+				background-clip: text;
+				-webkit-background-clip: text;
+				text-fill-color: transparent;
+				-webkit-text-fill-color: transparent;
+			}
+			.purple,
+			.text-purple,
+			.blue {
+			color: #663399 ;
+			}
+			.purple-bg {
+			background-color: #663399 !important;
+			}
+
+			main {
+				/** background-image: url('assets/img/GoodStr_band.png');
+				background-size: content;
+				background-position: top center;
+				background-repeat: no-repeat;**/
+			}
+
+      .img-fluid {z-index: 9999}
+
+			.pink,
+			main a:focus, main a:hover, code a, a code{
+			color: #FF00FF !important;
+			}
+			.rosa,
+			a.link-secondary:focus, a.link-secondary:hover, main a, main a:visited {color: #e685b5 !important;}
+
+			.pink-bg {
+			background-color: #FF00FF !important;
+			}
+			.orange, .btc {
+			color: #FF9500 ;
+			}
+			.yellow {
+			color: #FFFF00 ;
+			}
+			.onboard {
+				background-image: url(assets/img/bg-onboarding.png);
+		    background-size: contain;
+		    background-position: center center;
+		    background-repeat: no-repeat;			}
+			::-moz-selection,
+			::selection {
+			color: inherit;
+			background-color: rgba(255,255,0,0.5) !important;
+			}
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+
+      .btn-primary,
+			.btn-bd-primary {
+				--bd-violet-bg: #FF00FF;
+				--bd-violet-rgb: 255, 0, 255;
+				--bs-btn-font-weight: 400;
+				--bs-btn-color: var(--bs-black);
+				--bs-btn-bg: var(--bd-violet-bg);
+				--bs-btn-border-color: var(--bd-violet-bg);
+				--bs-btn-hover-color: var(--bs-black);
+				--bs-btn-hover-bg: #E800E8;
+				--bs-btn-hover-border-color: #E800E8;
+				--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+				--bs-btn-active-color: var(--bs-btn-hover-color);
+				--bs-btn-active-bg: #FF00FF;
+				--bs-btn-active-border-color: #FF00FF;
+			}
+
+			.btn-secondary,
+			.btn-bd-secondary {
+				--bd-violet-bg: #663399;
+				--bd-violet-rgb: 102, 51, 153;
+				--bs-btn-font-weight: 400;
+				--bs-btn-color: var(--bs-white);
+				--bs-btn-bg: var(--bd-violet-bg);
+				--bs-btn-border-color: var(--bd-violet-bg);
+				--bs-btn-hover-color: var(--bs-white);
+				--bs-btn-hover-bg: #7E45B7;
+				--bs-btn-hover-border-color: #7E45B7;
+				--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+				--bs-btn-active-color: var(--bs-btn-hover-color);
+				--bs-btn-active-bg: #663399;
+				--bs-btn-active-border-color: #663399;
+			}
+
+			.btn-yellow,
+			.btn-warning,
+			.btn-bd-yellow {
+				--bd-violet-bg: #FFFF00;
+				--bd-violet-rgb: 102, 51, 153;
+				--bs-btn-font-weight: 600;
+				--bs-btn-color: var(--bs-dark);
+				--bs-btn-bg: var(--bd-violet-bg);
+				--bs-btn-border-color: var(--bd-violet-bg);
+				--bs-btn-hover-color: var(--bs-dark);
+				--bs-btn-hover-bg: #f8f800;
+				--bs-btn-hover-border-color: #f8f800;
+				--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+				--bs-btn-active-color: var(--bs-btn-hover-color);
+				--bs-btn-active-bg: #FFFF00;
+				--bs-btn-active-border-color: #FFFF00;
+			}
+
+			/* The browser correctly supports hyphenation */
+			p[lang="en"] {
+			    text-align: justify;
+			    hyphens: auto;
+			}
+
+			/* The browser does NOT correctly support hyphenation */
+			p[lang="it"] {
+			    text-align: left;
+			    hyphens: none;
+			}
+			@supports (font-size-adjust: 1;) {
+			    main {
+			        font-size-adjust: 0.5;
+			    }
+			}
+			p {
+			    line-height: calc(1ex / 0.32);
+			}
+			main h1 {
+			    font-size: 2.5em;
+			    line-height: calc(1ex / 0.42);
+			    margin: calc(1ex / 0.42) 0;
+			}
+
+			main h2 {
+			    font-size: 2em;
+			    line-height: calc(1ex / 0.42);
+			    margin: calc(1ex / 0.42) 0;
+			}
+
+			main h3 {
+			    font-size: 1.75em;
+			    line-height: calc(1ex / 0.38);
+			    margin: calc(1ex / 0.38) 0;
+			}
+
+			main h4 {
+			    font-size: 1.5em;
+			    line-height: calc(1ex / 0.37);
+			    margin: calc(1ex / 0.37) 0;
+			}
+
+			main p {
+			    font-size: 1em;
+			    line-height: calc(1ex / 0.32);
+			    margin: calc(1ex / 0.32) 0;
+			}
+
+    </style>
+
+		</head>
+		<body onload="init();" style="margin: 0; padding: 0;">
+		<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+			<symbol id="check2" viewBox="0 0 16 16">
+				<path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+			</symbol>
+			<symbol id="circle-half" viewBox="0 0 16 16">
+				<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+			</symbol>
+			<symbol id="moon-stars-fill" viewBox="0 0 16 16">
+				<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+				<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+			</symbol>
+			<symbol id="sun-fill" viewBox="0 0 16 16">
+				<path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+			</symbol>
+		</svg>
+		<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+			<button class="btn btn-bd-primary py-2  d-flex align-items-center"
+				id="bd-theme"
+				type="button"
+				aria-expanded="false"
+				data-bs-toggle="dropdown"
+				aria-label="Toggle theme (auto)">
+				<svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+					<use href="#circle-half"></use>
+				</svg>
+				<span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+			</button>
+			<ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+				<li>
+					<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+						<svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+							<use href="#sun-fill"></use>
+						</svg>
+						Light
+						<svg class="bi ms-auto d-none" width="1em" height="1em">
+							<use href="#check2"></use>
+						</svg>
+					</button>
+				</li>
+				<li>
+					<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+						<svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+							<use href="#moon-stars-fill"></use>
+						</svg>
+						Dark
+						<svg class="bi ms-auto d-none" width="1em" height="1em">
+							<use href="#check2"></use>
+						</svg>
+					</button>
+				</li>
+				<li>
+					<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+						<svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+							<use href="#circle-half"></use>
+						</svg>
+						Auto
+						<svg class="bi ms-auto d-none" width="1em" height="1em">
+							<use href="#check2"></use>
+						</svg>
+					</button>
+				</li>
+			</ul>
+		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+			<symbol id="goodstr" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+				<path d="M12.25 2.00521C13.1735 2.00521 14.0592 2.37972 14.7122 3.04635C15.3653 3.71299 15.7321 4.61713 15.7321 5.5599V6.27083H8.76786V5.5599C8.76786 4.61713 9.13472 3.71299 9.78775 3.04635C10.4408 2.37972 11.3265 2.00521 12.25 2.00521ZM17.125 6.27083V5.5599C17.125 4.24003 16.6114 2.97422 15.6971 2.04094C14.7829 1.10765 13.5429 0.583334 12.25 0.583334C10.9571 0.583334 9.71709 1.10765 8.80285 2.04094C7.88862 2.97422 7.375 4.24003 7.375 5.5599V6.27083H2.5V20.4896C2.5 21.2438 2.79349 21.9671 3.31592 22.5004C3.83834 23.0337 4.5469 23.3333 5.28571 23.3333H19.2143C19.9531 23.3333 20.6617 23.0337 21.1841 22.5004C21.7065 21.9671 22 21.2438 22 20.4896V6.27083H17.125Z" fill="url(#paint0_linear_649_568)"/>
+				<path d="M10.6381 9.75781C10.6579 9.68938 10.699 9.6293 10.7552 9.58658C10.8115 9.54386 10.8798 9.52079 10.9501 9.52083H13.5499C13.6014 9.52087 13.6521 9.53333 13.6979 9.55717C13.7437 9.58101 13.7833 9.61556 13.8133 9.65797C13.8434 9.70038 13.8632 9.74945 13.8709 9.80112C13.8787 9.85279 13.8742 9.9056 13.858 9.95519L12.7011 13.4815H15.1748C15.2357 13.4815 15.2953 13.4988 15.3469 13.5315C15.3986 13.5642 15.4402 13.611 15.4669 13.6665C15.4937 13.722 15.5045 13.784 15.4983 13.8455C15.492 13.907 15.4689 13.9655 15.4315 14.0142L10.8818 19.9553C10.8352 20.0165 10.7689 20.059 10.6946 20.0756C10.6202 20.0922 10.5424 20.0818 10.4749 20.0461C10.4073 20.0104 10.3543 19.9518 10.3249 19.8804C10.2956 19.809 10.2919 19.7295 10.3144 19.6556L11.485 15.7919H9.32517C9.27464 15.792 9.22481 15.78 9.17962 15.7571C9.13443 15.7341 9.09513 15.7008 9.06485 15.6597C9.03457 15.6186 9.01413 15.571 9.00516 15.5205C8.99619 15.47 8.99894 15.418 9.01319 15.3688L10.6381 9.75781Z" fill="url(#paint1_linear_649_568)"/>
+				<defs>
+					<linearGradient id="paint0_linear_649_568" x1="12.25" y1="0.583334" x2="12.25" y2="23.3333" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#663399"/>
+						<stop offset="1" stop-color="#FF00FF"/>
+					</linearGradient>
+					<linearGradient id="paint1_linear_649_568" x1="12.25" y1="9.52083" x2="12.25" y2="20.0833" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#FFFF00"/>
+						<stop offset="1" stop-color="#FF9500"/>
+					</linearGradient>
+				</defs>
+			</symbol>
+			<symbol id="cart" viewBox="0 0 16 16">
+				<path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+			</symbol>
+			<symbol id="chevron-right" viewBox="0 0 16 16">
+				<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+			</symbol>
+		</svg>
+		<nav id="up" class="navbar navbar-expand-md border-bottom" data-bs-theme="dark">
+			<div class="container">
+				<a class="navbar-brand d-md-none" href="#">
+					<!-- svg class="bi" width="24" height="24"><use xlink:href="#goodstr"/></svg-->
+					<img src="assets/img/GoodStr_ava.svg" class="logobag" alt="GoodStr" width="24" height="24">
+					<strong class="logo gradient-loop-text">GoodStr<sup>α</sup></strong>
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="#offcanvas" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="offcanvas offcanvas-end" tabindex="-1" id="#offcanvas" aria-labelledby="#offcanvasLabel">
+					<div class="offcanvas-header">
+						<h5 class="offcanvas-title" id="#offcanvasLabel">GoodStr</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+					</div>
+					<div class="offcanvas-body">
+						<ul class="navbar-nav flex-grow-1 justify-content-between">
+							<li class="nav-item">
+								<a class="nav-link" href="#up">
+									<!-- svg class="bi" width="24" height="24"><use xlink:href="#goodstr"/></svg-->
+									<img src="assets/img/GoodStr_ava.svg" class="logobag" alt="GoodStr" width="24" height="24">
+									<strong class="logo gradient-loop-text">GoodStr<sup>α</sup></strong>
+								</a>
+							</li>
+							<!-- li class="nav-item"><a class="nav-link" href="#up">Welcome</a></li-->
+              <form id="search" class="col-6" role="search">
+                <div class="input-group input-group-lg">
+                  <button class="btn btn-outline-secondary" type="submit" id="search"><span class="fs-5">🔎</span></button>
+                  <input type="search" class="form-control" placeholder="Discover..." aria-label="Discover" aria-describedby="search">
+                </div>
+              </form>
+              <li class="nav-item"><a class="nav-link link-secondary link-secondary" href="/onboard.html#features">✨ Features</a></li>
+							<!-- li class="nav-item"><a class="nav-link link-secondary" href="/">🔎 Discover</a></li-->
+							<li class="nav-item"><a class="nav-link link-secondary link-secondary" href="/onboard.html#faqs">🔮 FAQs</a></li>
+							<li class="nav-item"><a class="nav-link link-secondary" href="/onboard.html#help">🛟 Help</a></li>
+							<!-- li class="nav-item"><a class="nav-link link-secondary" href="#">
+								<i class="bi bi-cart"></i> BagStr
+								</a></li>
+								<li class="nav-item"><a class="nav-link" href="#">
+								<i class="bi bi-shop-window"></i> ManageStr
+								</a></li>
+								<li class="nav-item"><a class="nav-link" href="#">
+								<i class="bi bi-magic"></i> NewStr
+								</a></li-->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+    <main>
+
+    <section class="text-center container">
+    <div class="row py-lg-4">
+    <div class="col-12 mb-0 pb-0">
+      <div class="row">
+      <div class="col-md-2 mb-0 pb-0 fs-2 align-items-center">
+        <div class="d-flex">
+        <p class="text-body-secondary my-0" style="vertical-align:middle;"href="#" data-bs-toggle="tooltip" data-bs-title="$3,33ᴜsᴅ">9,999 <small><opac>丰</opac></small></p>
+        <div class="btn-group opac">
+          <button type="button" class="btn fs-3" href="#" data-bs-toggle="tooltip" data-bs-title="Like Me!">🧡</button>
+        </div>
+        </div>
+      </div>
+      <div class="col-md-7 mb-0 pb-0">
+        <h1 class="my-0">Product Item Name: a really really lo...</h1>
+
+      </div>
+      <div class="col-md-3 mb-0 pb-0">
+        <a href="#" class="btn btn-secondary my-2 "><span class="rosa">View Cart 👀</span></a>
+        <a href="#" class="btn btn-primary my-2 "><span class="text-light">Add To Cart ⚡</span></a>
+      </div>
+      <hr class="mt-4">
+    </div>
+    </div>
+
+
+      <div class="col-lg-12 mx-auto text-start">
+
+        <!-- Carousel wrapper -->
+        <div id="carouselMDExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+          <!-- Slides -->
+          <div class="carousel-inner mb-5 shadow-1-strong rounded-3">
+            <div class="carousel-item active">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(88).webp" class="d-block w-100" alt="..." />
+            </div>
+            <div class="carousel-item">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(121).webp" class="d-block w-100"
+                alt="..." />
+            </div>
+            <div class="carousel-item">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(31).webp" class="d-block w-100" alt="..." />
+            </div>
+          </div>
+          <!-- Slides -->
+
+          <!-- Controls -->
+          <button class="carousel-control-prev" type="button" data-mdb-target="#carouselMDExample"
+            data-mdb-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-mdb-target="#carouselMDExample"
+            data-mdb-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <!-- Controls -->
+
+          <!-- Thumbnails -->
+          <div class="carousel-indicators" style="margin-bottom: -20px;">
+            <button class="btn btn-link" type="button" data-mdb-target="#carouselMDExample" data-mdb-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1" style="width: 100px;">
+              <img class="d-block w-100 shadow-1-strong rounded"
+                src="https://mdbcdn.b-cdn.net/img/Photos/Others/Carousel-thumbs/img%20(88).webp" class="img-fluid" />
+            </button>
+            <button class="btn btn-link" type="button" data-mdb-target="#carouselMDExample" data-mdb-slide-to="1" aria-label="Slide 2"
+              style="width: 100px;">
+              <img class="d-block w-100 shadow-1-strong rounded"
+                src="https://mdbcdn.b-cdn.net/img/Photos/Others/Carousel-thumbs/img%20(121).webp" class="img-fluid" />
+            </button>
+            <button class="btn btn-link" type="button" data-mdb-target="#carouselMDExample" data-mdb-slide-to="2" aria-label="Slide 3"
+              style="width: 100px;">
+              <img class="d-block w-100 shadow-1-strong rounded"
+                src="https://mdbcdn.b-cdn.net/img/Photos/Others/Carousel-thumbs/img%20(31).webp" class="img-fluid" />
+            </button>
+          </div>
+          <!-- Thumbnails -->
+        </div>
+
+      </div>
+      <div class="col-lg-8 mx-auto text-start">
+        <h1 class="mt-4">Product Item Name: a really really long long one one zero one zero zero one zero one zero zero one one.</h1>
+
+        <div class="col-12 mb-0 pb-0">
+          <hr class="mt-0 mb-3">
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <p class="text-body-secondary my-0" style="vertical-align:middle;"href="#" data-bs-toggle="tooltip" data-bs-title="$3,33ᴜsᴅ">9,999 <small><opac>丰</opac></small></p>
+            </li>
+            <li class="list-inline-item">
+                          <div class="btn-group opac">
+                          <button type="button" class="btn" href="#" data-bs-toggle="tooltip" data-bs-title="Like Me!">🧡</button>
+                        </div>
+                      </li>
+            <li class="list-inline-item">
+              <a href="#" target="_blank"><img src="https://mdbcdn.b-cdn.net/img/Photos/Others/Carousel-thumbs/img%20(31).webp" width="21" height="21" class="rounded img-thumbnail" alt="https://insert.link/path/to/webstore_logo.png"></a>
+            </li>
+            <li class="list-inline-item">
+                        <p class="lead my-0"><a href="#" target="_blank">Webstore Name</a></p>
+                </li>
+            </ul>
+          <hr class="mt-2 mb-5">
+        </div>
+
+        <p class="lead text-body-primary m-1">Exercitationem commodi ea enim sit quam velit sit nemo. Officia cupiditate omnis sapiente nihil cupiditate animi commodi eum. Qui et voluptas id. Rerum perspiciatis libero repudiandae velit. Qui dolor sunt est deleniti impedit.</p>
+        <p class="lead text-body-primary m-1">Exercitationem commodi ea enim sit quam velit sit nemo. Officia cupiditate omnis sapiente nihil cupiditate animi commodi eum. Qui et voluptas id. Rerum perspiciatis libero repudiandae velit. Qui dolor sunt est deleniti impedit.</p>
+        <p class="lead text-body-primary m-1">Exercitationem commodi ea enim sit quam velit sit nemo. Officia cupiditate omnis sapiente nihil cupiditate animi commodi eum. Qui et voluptas id. Rerum perspiciatis libero repudiandae velit. Qui dolor sunt est deleniti impedit.</p>
+        <p class="lead text-body-primary m-1">Exercitationem commodi ea enim sit quam velit sit nemo. Officia cupiditate omnis sapiente nihil cupiditate animi commodi eum. Qui et voluptas id. Rerum perspiciatis libero repudiandae velit. Qui dolor sunt est deleniti impedit.</p>
+
+      </div>
+      <div class="col-lg-4 mx-auto">
+          <p class="">
+            <a href="#" class="w-100 btn btn-secondary my-2 "><span class="rosa">View Cart 👀</span></a>
+            <a href="#" class="w-100 btn btn-primary my-2 "><span class="text-light">Add To Cart ⚡</span></a>
+          </p>
+          <div class="bd-callout bd-callout-warning text-start">
+            <small><strong>Note:</strong> Officia cupiditate omnis sapiente nihil cupiditate animi commodi eum, cupiditate animi commodi eum.</small>
+          </div>
+
+          				<!-- div class="w-100 rating-block">
+          					<h4>Average user rating</h4>
+          					<h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
+          					<button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+          					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          					</button>
+          					<button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+          					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          					</button>
+          					<button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+          					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          					</button>
+          					<button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+          					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          					</button>
+          					<button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+          					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          					</button>
+          				</div>
+
+          				<div class="pull-left">
+          					<div class="pull-left" style="width:35px; line-height:1;">
+          						<div style="height:9px; margin:5px 0;">5 <span class="glyphicon glyphicon-star"></span></div>
+          					</div>
+          					<div class="pull-left" style="width:180px;">
+          						<div class="progress" style="height:9px; margin:8px 0;">
+          						  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
+          							<span class="sr-only">80% Complete (danger)</span>
+          						  </div>
+          						</div>
+          					</div>
+          					<div class="pull-right" style="margin-left:10px;">1</div>
+          				</div>
+          				<div class="pull-left">
+          					<div class="pull-left" style="width:35px; line-height:1;">
+          						<div style="height:9px; margin:5px 0;">4 <span class="glyphicon glyphicon-star"></span></div>
+          					</div>
+          					<div class="pull-left" style="width:180px;">
+          						<div class="progress" style="height:9px; margin:8px 0;">
+          						  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+          							<span class="sr-only">80% Complete (danger)</span>
+          						  </div>
+          						</div>
+          					</div>
+          					<div class="pull-right" style="margin-left:10px;">1</div>
+          				</div>
+          				<div class="pull-left">
+          					<div class="pull-left" style="width:35px; line-height:1;">
+          						<div style="height:9px; margin:5px 0;">3 <span class="glyphicon glyphicon-star"></span></div>
+          					</div>
+          					<div class="pull-left" style="width:180px;">
+          						<div class="progress" style="height:9px; margin:8px 0;">
+          						  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+          							<span class="sr-only">80% Complete (danger)</span>
+          						  </div>
+          						</div>
+          					</div>
+          					<div class="pull-right" style="margin-left:10px;">0</div>
+          				</div>
+          				<div class="pull-left">
+          					<div class="pull-left" style="width:35px; line-height:1;">
+          						<div style="height:9px; margin:5px 0;">2 <span class="glyphicon glyphicon-star"></span></div>
+          					</div>
+          					<div class="pull-left" style="width:180px;">
+          						<div class="progress" style="height:9px; margin:8px 0;">
+          						  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
+          							<span class="sr-only">80% Complete (danger)</span>
+          						  </div>
+          						</div>
+          					</div>
+          					<div class="pull-right" style="margin-left:10px;">0</div>
+          				</div>
+          				<div class="pull-left">
+          					<div class="pull-left" style="width:35px; line-height:1;">
+          						<div style="height:9px; margin:5px 0;">1 <span class="glyphicon glyphicon-star"></span></div>
+          					</div>
+          					<div class="pull-left" style="width:180px;">
+          						<div class="progress" style="height:9px; margin:8px 0;">
+          						  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
+          							<span class="sr-only">80% Complete (danger)</span>
+          						  </div>
+          						</div>
+          					</div>
+          					<div class="pull-right" style="margin-left:10px;">0</div>
+          				</div-->
+          			</div>
+
+
+
+    <div class="col-12 mt-4 mb-0 pb-0">
+      <hr class="mt-4">
+      <div class="row">
+      <div class="col-md-2 mb-0 pb-0 fs-2 align-items-center">
+        <div class="d-flex">
+        <p class="text-body-secondary my-0" style="vertical-align:middle;"href="#" data-bs-toggle="tooltip" data-bs-title="$3,33ᴜsᴅ">9,999 <small><opac>丰</opac></small></p>
+        <div class="btn-group opac">
+          <button type="button" class="btn fs-3" href="#" data-bs-toggle="tooltip" data-bs-title="Like Me!">🧡</button>
+        </div>
+        </div>
+      </div>
+      <div class="col-md-7 mb-0 pb-0">
+        <h1 class="my-0">Product Item Name: a really really lo...</h1>
+
+      </div>
+      <div class="col-md-3 mb-0 pb-0">
+        <a href="#" class="btn btn-secondary my-2 "><span class="rosa">View Cart 👀</span></a>
+        <a href="#" class="btn btn-primary my-2 "><span class="text-light">Add To Cart ⚡</span></a>
+      </div>
+    </div>
+    <hr class="mt-3 mb-4">
+    </div>
+
+
+      <div class="row g-3 text-start">
+  						<div class="col-12">
+  							<div class="bd-callout bd-callout-warning">
+  								<h2 class="mt-1 mb-2">Have you been selling on GoodStr already?</h2>
+  								<p class="lead mt-2 mb-1">Explore ways to monetize your items. Sell them online!</p>
+  								<a class="btn btn-outline-info float-end text-info" style="margin-top: -30px;">Read more 👉</a>
+  							</div>
+  						</div>
+  					</div>
+          </section>
+  </main>
+
+    <footer class="container pb-5">
+    <hr class="mb-5">
+    <div class="row">
+      <div class="col-6 col-md">
+        <img src="assets/img/GoodStr_ava.svg" class="logobag" alt="GoodStr" width="24" height="24" style="vertical-aligh: top;"> <strong class="logo gradient-loop-text">GoodStr<sup>α</sup></strong>
+        <code><small class="d-block mb-1">SINCE BLOCK <a href="https://mempool.space/block/777
+          777" target="_blank" class="rosa">777777</a></small></code>
+        <p></p>
+        <!--h5>About</h5-->
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="https://stacker.news/02a0eb55b5/r/02a0eb55b5" target="_blank">News</a></li>
+          <li><a class="link-secondary text-decoration-none" href="https://bolt.fun/project/goodstr" target="_blank">Blog</a></li>
+          <li><a class="link-secondary text-decoration-none" href="https://github.com/supertestnet/GoodStr" target="_blank">Source</a></li>
+          <li><a class="link-secondary text-decoration-none" href="/privacy.html">Privacy</a></li>
+          <li><a class="link-secondary text-decoration-none" href="/terms.html">Terms</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5 class="mt-2">Features</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#0to1">Go from Zero to 1M</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#bigs">Think BIG - Start small</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#anyo">Sell to anyone</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#anyw">Sell from anywhere</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#dream">Simple Withdrawn</a> <sup><span class="badge rounded-pill pink-bg">NEW</span></sup></li>
+          <li><a class="link-secondary text-decoration-none" href="#big">The Big Difference</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#stock">Decentralized Stock</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#simple">Ecommerce Simplified</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#magic">The Magic String</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5 class="mt-2">Popular Tags <sup><span class="badge rounded-pill purple-bg">🔥HOT!</span></sup></h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Audio Books</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Business & Money</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Comics & Graphic Novels</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Courses</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Drawing & Painting</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">E-books</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Education</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Films</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Fonts</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Gaming</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Icon Sets</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Illustrations</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Music & Sounds</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Photography</a></li>
+        </ul>
+      </div>
+      <div id="sellers" class="col-6 col-md">
+        <h5 class="mt-2">Resources <sup> for...</sup></h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="/guides/goodstr.html" target="_blank">How to <span class="gradient-loop-text">GoodStr</span>?</a> <sup>Ecommerce</sup></li>
+          <li><a class="link-secondary text-decoration-none" href="/guides/nostr.html" target="_blank"><span class="purple">Nostr</span> Protocol</a> <sup>Communication</sup></li>
+          <li><a class="link-secondary text-decoration-none" href="/guides/lightning.html.html" target="_blank" target="_blank"><span class="yellow">Lightning</span> Network</a> <sup>Payments</sup></li>
+          <li><a class="link-secondary text-decoration-none" href="/guides/bitcoin.html" target="_blank"><span class="orange">Bitcoin</span> Blockchain</a> <sup>Ledger</sup></li>
+          <li><a class="link-secondary text-decoration-none" href="/guides/value4value.html" target="_blank">Value <span class="link-danger">4 Value</span></a> <sup>Wealth</sup></li>
+        </ul>
+        <h5 class="mt-5">Guides <sup> for...</sup></h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="/guides/pwa.html" target="_blank">Mobile App</a></li>
+          <li><a class="link-secondary text-decoration-none" href="/guides/pwa.html" target="_blank">Insall PWA</a></li>
+          <li><a class="link-secondary text-decoration-none" href="/guides/run-it-locally.html" target="_blank">Run it locally</a></li>
+          <li><a class="link-secondary text-decoration-none" href="/guides/embed.html#products" target="_blank">Embed Product</a></li>
+          <li><a class="link-secondary text-decoration-none" href="/guides/embed.html#store" target="_blank">Embed GoodStr</a></li>
+        </ul>
+      </div>
+    </div>
+    </footer>
+    <!-- Modal -->
+
+  </body>
+</html>

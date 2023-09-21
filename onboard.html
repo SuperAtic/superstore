@@ -46,6 +46,9 @@
 			font-weight: 900 !important;
 			font-style: italic !important;
 			}
+			.opac, opac {opacity:.42 !important;}
+			.opac:hover {opacity:1 !important;}
+
 			.logo sup {font-weight: 400 !important; opacity:.42 !important;}
 			#sellers sup {top: -0.12em;}
 			.bg-body-tertiary  {
@@ -678,7 +681,7 @@
 					<h3 class="fw-normal text-muted mb-3">Buy & Sell anything you want,<br/><u>anonymously</u> with GoodStr</h3>
 					<div class="big_buttons gap-3 justify-content-center lead fw-normal">
 						<code>Access yours with <span class="blue" onclick="useString()">Magic String</span> or</code><br/><br/>
-						<button type="button" class="btn btn-lg btn-primary btn-outline" data-bs-toggle="modal" data-bs-target="#signup">💈 Open a NewStr</button>
+						<button type="button" class="signup_btn btn btn-lg btn-primary btn-outline" data-bs-toggle="modal" data-bs-target="#signup">💈 Open a NewStr</button>
 					</div>
 				</div>
 				<div class="product-device shadow-sm d-none d-md-block">
@@ -817,15 +820,15 @@
 
 			<div id="discover " class="col-lg-8 mx-auto p-4 py-md-5 my-5">
 				<div class="my-5">
-					<span class="huge 001"> 🥎🔔🏀 </span> <!---->
-					<span class="huge 002"> ⌚💎⛱️🎾 </span> <!---->
-					<span class="huge 003"> ⏳📦📸</span> <!---->
+					<span class="huge 001">🥎🔔🏀</span> <!---->
+					<span class="huge 003">⏳📸</span> <!---->
 				<h1 class="text-body-emphasis">Get started with <span class="gradient-loop-text">GoodStr</span></h1>
 				<p class="fs-5 col-md-8">Quickly and easily get started with GoodStr's webstore generator online, create barebone marketplaces featuring all your greatest products & services. Simple online payments guaranteed!</p>
 				<!-- Button trigger modal -->
 				<code>Access yours with <span class="blue" onclick="useString()">Magic String</span> or ...</code><br/><br/>
 				<button type="button" class="btn btn-lg btn-primary btn-outline" data-bs-toggle="modal" data-bs-target="#signup" style="margin-right:8px;">💈 Open a NewStr</button>
 			  </div>
+				<span class="huge 002">⌚💎⛱️🎾📦</span> <!---->
 
 				<hr class="col-3 col-md-2 my-5">
 
@@ -1066,7 +1069,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<h1 class="modal-title fs-5" id="exampleModalLabel">Get Your Magic String</h1>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						<button type="button" class="back_btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
 						<p>GoodStr does not use traditional <code>usernames</code> and <code>passwords</code>, it uses magic strings to identyfy and backup your store. Make sure to back yours Magic Strinng! It's the only way to access and manage your store.</p>
@@ -1099,7 +1102,7 @@
 							</div>
 							<i class="bi bi-door-open-fill" style="font-size:42px; opacity: .5;"></i>
 							<!--i class="bi bi-shop-window"></i -->
-							<div class="instruction"><button class="btn btn-primary" onclick="useString()">Connect</button> <br/> with your magic string.</div>
+							<div class="instruction"><button class="login_btn btn btn-primary" onclick="useString()">Connect</button> <br/> with your magic string.</div>
 							<small style="opacity:0.5;">You'll be redirected to your GoodStr Admin page to access and manage your product and/or services.</small>
 						</div>
 					</div>
@@ -1147,7 +1150,7 @@
 			    }, 600 );
 			}
 		</script>
-		<script>
+		<sscript>
 			$( '.signup_btn' ).onclick = () => {
 			    $( '.explain' ).style.display = "none";
 			    $( '.signup_btn' ).style.display = "none";
