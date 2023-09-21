@@ -12,8 +12,7 @@
 		<!-- link rel="stylesheet" href="assets/bootstrap.css"-->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-		<!--script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script-->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 		<script src="https://bundle.run/noble-secp256k1@1.2.14"></script>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +48,7 @@
 			}
 			.opac, opac {opacity:.42 !important;}
 			.opac:hover {opacity:1 !important;}
-
+			main a {text-decoration: none; }
 			.logo sup {font-weight: 400 !important; opacity:.42 !important;}
 			#sellers sup {top: -0.12em;}
 			.bg-body-tertiary  {
@@ -79,6 +78,7 @@
 			.bold {
 			font-weight: bold;
 			}
+
 			@keyframes gradientChange {
 						0%, 100% {
 							  background-image: linear-gradient(90deg, #663399, #FFFF00, #FF9500, #FF00FF, #e685b5);
@@ -686,10 +686,10 @@
 					</div>
 				</div>
 				<div class="product-device shadow-sm d-none d-md-block">
-					<span class="giant p-3"> 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾</span>
+					<span class="giant p-3">🧊 ⛄ 👻 💽 🪞 🕶 🌸 🍀 🍄 🔮 🦋 💗 🎯 💄 🥊 ⚽ 🏓 🏀 🏐 🎱 🏈 🎲 🥏 🎽 🎺 🎻 🪘 🥁 🪗 🎸 📷 🧱 ⌚ 💎 ⛱️ 🎾 📦 ⏳ 📸 🐚</span>
 				</div>
 				<div class="product-device product-device-2 shadow-sm d-none d-md-block">
-					<span class="giant p-3 mt-3"> 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾 💾</span>
+					<span class="giant p-3 mt-3">🧊 ⛄ 👻 💽 🪞 🕶 🌸 🍀 🍄 🔮 🦋 💗 🎯 💄 🥊 ⚽ 🏓 🏀 🏐 🎱 🏈 🎲 🥏 🎽 🎺 🎻 🪘 🥁 🪗 🎸 📷 🧱 ⌚ 💎 ⛱️ 🎾 📦 ⏳ 📸 🐚</span>
 				</div>
 				<canvas id="canvas" width="1280" height="780" style="margin:0 auto;opacity:.5; position: absolute; top: 0px; left: 0px; min-height: 100vh !important; width: 100%;z-index:-1;"></canvas>
 			</div>
@@ -763,10 +763,10 @@
 				<div id="stock" class="bg-body-secondary pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 					<div class="my-3 py-3">
 						<h2 class="display-5">Decentralized Stock</h2>
-						<p class="lead">Once you publish an item, it will be bradcasted along the <code><strong>nostr</strong></code>  protocol unter the <a href="https://github.com/nostr-protocol/nips/blob/master/15.md" target="_blank">NIP15</a> reserved for <a href="/nostr.html" class="purple">Nostr</a> Marketplace items. Share the link with people or <a href="embed.html">embed it in your website</a>. They can view your products, buy items from you, and send you <code><strong>nostr</strong></code> encrypted messages.</p>
+						<p class="lead">Once you publish an item, it will be bradcasted along the <code><strong>nostr</strong></code>  protocol unter the <a href="https://github.com/nostr-protocol/nips/blob/master/15.md" target="_blank">NIP15</a> reserved for <a href="${ __dirname}/nostr.html" class="purple">Nostr</a> Marketplace items. Share the link with people or <a href="embed.html">embed it in your website</a>. They can view your products, buy items from you, and send you <code><strong>nostr</strong></code> encrypted messages.</p>
 					</div>
 					<div class="text-bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-						<span class="huge"> 🧱 </span> <!--🪬🕸-->
+						<span class="huge"> 🫧 </span> <!--🧱🪬🕸-->
 						</div>
 				</div>
 			</div>
@@ -807,10 +807,10 @@
 			</div>
 
 			<div class="pink-bg position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary">
-				<div class="col-md-6 p-lg-5 mx-auto my-5">
+				<div class="col-md-10 p-lg-5 mx-auto my-2">
 					<figure class="text-center">
 						<blockquote class="blockquote">
-							<p style="color:#fff;" class="lead">"I launched btcPacks as an experimental side gig; but within 2 months those tips were earning more than my 6-figure salary in <a href="/lightning.html" class="link-warning">sats</a>. Leaving in favor of GoodStr enabled me to explore other aspects of my art, develop new hobbies, and finally prioritize my personal life.'</p>
+							<p style="color:#fff;" class="lead fs-3">"I launched btcPacks as an experimental side gig; but within 2 months those tips were earning more than my 6-figure salary in <a href="/lightning.html" class="link-warning">sats</a>. Leaving in favor of GoodStr enabled me to explore other aspects of my art, develop new hobbies, and finally prioritize my personal life.'</p>
 						</blockquote>
 						<figcaption class="purple blockquote-footer">
 							Max Saver sells <cite title="Source Title">BTC Saving Pack</cite>
@@ -839,44 +839,19 @@
 						<p class="simple_desc">GoodStr lets you monetize your life. Have a youtube channel? Start selling merchandise through GoodStr. Have a blog? Let people support you through sales and branding. Want to sell items at a farmer's market? Treat GoodStr as your point of sale system and let people check out with ease.</p>
 						<ul class="list-unstyled ps-0">
 							<li>
-								<a class="icon-link mb-1" href="#start">
-									<svg class="bi" width="16" height="16">
-										<use xlink:href="#arrow-right-circle"/>
-									</svg>
-									Quick Start
-								</a>
+								<a class="icon-link mb-1" href="/start.html">🏁 Quick Start</a>
 							</li>
 							<li>
-								<a class="icon-link mb-1" href="#payments">
-									<svg class="bi" width="16" height="16">
-										<use xlink:href="#arrow-right-circle"/>
-									</svg>
-									Simple Payments
-								</a>
+								<a class="icon-link mb-1" href="/payments.html">💰 Simple Payments</a>
 							</li>
 							<li>
-								<a class="icon-link mb-1" href="#parcels">
-									<svg class="bi" width="16" height="16">
-										<use xlink:href="#arrow-right-circle"/>
-									</svg>
-									Orgaize Parcels
-								</a>
+								<a class="icon-link mb-1" href="/ship.html">📦 Orgaize Parcels</a>
 							</li>
 							<li>
-								<a class="icon-link mb-1" href="#sellers">
-									<svg class="bi" width="16" height="16">
-										<use xlink:href="#arrow-right-circle"/>
-									</svg>
-									Sellers Guides
-								</a>
+								<a class="icon-link mb-1" href="/sellers.html">🏪 Sellers Guides</a>
 							</li>
 							<li>
-								<a class="icon-link mb-1" href="https://github.com/superatic/superstore/">
-									<svg class="bi" width="16" height="16">
-										<use xlink:href="#arrow-right-circle"/>
-									</svg>
-									Contribute
-								</a>
+								<a class="icon-link mb-1" href="https://github.com/superatic/superstore/">🛠️ Contribute</a>
 							</li>
 						</ul>
 					</div>
@@ -884,47 +859,27 @@
 						<h2 class="text-body-emphasis">GoodStr Webstores</h2>
 						<p>Try it out today! GoodStr is proudly built on <a href="/bitcoin.html" class="orange">bitcoin</a>, the money of the internet, and <a href="/nostr.html" class="purple">nostr</a>, a distributed data caching protocol. GoodStr is completely free and open source software (FOSS), and you can dive into its source code by <a href="https://github.com/supertestnet/GoodStr" target="_blank">clicking here</a>.</p>
 						<ul class="list-unstyled ps-0">
+							<li id="#nostr">
+							What's <a href="/nostr.html" class="purple">Nostr</a>?
+							</li>
 							<liid="#btc">
-							<a class="icon-link mb-1" href="#">
-								<svg class="bi" width="16" height="16">
-									<use xlink:href="#arrow-right-circle"/>
-								</svg>
-								What's <a href="/bitcoin.html" class="orange">Bitcoin</a>?
-							</a>
+							What's <a href="/bitcoin.html" class="orange">Bitcoin</a>?
 							</li>
 							<li id="#ln">
-								<a class="icon-link mb-1" href="#">
-									<svg class="bi" width="16" height="16">
-										<use xlink:href="#arrow-right-circle"/>
-									</svg>
-									What's <a href="/lightning.html" class="yellow">Lightning</a>?
-								</a>
-							</li>
-							<li id="#nostr">
-								<a class="icon-link mb-1" href="#">
-									<svg class="bi" width="16" height="16">
-										<use xlink:href="#arrow-right-circle"/>
-									</svg>
-									What's <a href="/nostr.html" class="purple">Nostr</a>?
-								</a>
+								What's <a href="/lightning.html" class="link-warning">Lightning</a>?
 							</li>
 							<li id="#v4v">
-								<a class="icon-link mb-1" href="#">
-									<svg class="bi" width="16" height="16">
-										<use xlink:href="#arrow-right-circle"/>
-									</svg>
-									Value <span class="link-danger">4 Value</span>
-								</a>
+								Value <a class="link-danger icon-link mb-1" href="#">4 Value</span></a>
 							</li>
 						</ul>
 					</div>
 
 					<div class="container-fluid row g-5 mb-5">
 					<div class="purple-bg position-relative overflow-hidden p-3 p-md-5 text-center bg-body-tertiary" 	style="border-radius: 21px;">
-						<div class="col-md-6 p-lg-5 mx-auto my-5">
+						<div class="col-md-10 p-lg-5 mx-auto my-2">
 							<figure class="text-center">
 								<blockquote class="blockquote">
-									<p style="color:#fff;" class="lead">“Originally, I took pre-orders for my Trend Reports on GoodStr. But I received... exactly $0. So I changed tactics: I made half of my report free, and the other half paid. Today, 99% of Trends Reports revenue is recurring in the form of annual and quarterly subscriptions.”</p>
+									<p style="color:#fff;" class="lead fs-3">“Originally, I took pre-orders for my Trend Reports on GoodStr. But I received... exactly $0. So I changed tactics: I made half of my report free, and the other half paid. Today, 99% of Trends Reports revenue is recurring in the form of annual and quarterly subscriptions.”</p>
 								</blockquote>
 								<figcaption class="rosa blockquote-footer">
 									Dru Relay sells <cite title="Source Title">BTC Trends Reports</cite>
@@ -1151,8 +1106,8 @@
 			    }, 600 );
 			}
 		</script>
-		<sscript>
-			$( '.signup_btn' ).onclick = () => {
+		<script type="text/javascript">
+			$('.signup_btn' ).onclick = () => {
 			    $( '.explain' ).style.display = "none";
 			    $( '.signup_btn' ).style.display = "none";
 			    $( '.back_btn' ).style.display = "inline";
