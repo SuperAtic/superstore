@@ -1083,82 +1083,82 @@ opac, .logo sup, sup
             dmsg = decryptedMessage + decipher.final( "utf8" );
             return dmsg;
         }
-        // async function getNostrNote( pubkey, kind ) {
-        //     var started_waiting_time = Math.floor( Date.now() / 1000 );
-        //     var socket = new WebSocket( relay );
-        //     var note = "";
-        //     socket.addEventListener( 'message', async function( event ) {
-        //         var event = JSON.parse( event.data );
-        //         if ( event[ 2 ] && event[ 2 ].kind == 4 && event[ 2 ].pubkey == pubKey ) {
-        //             var i; for ( i=0; i<event[ 2 ].tags.length; i++ ) {
-        //                 if ( event[ 2 ].tags[ i ] && event[ 2 ].tags[ i ][ 1 ] ) {
-        //                     var recipient = event[ 2 ].tags[ i ][ 1 ];
-        //                     if ( recipient == pubKey ) {
-        //                         var decrypted_message = decrypt( privKey, event[ 2 ].pubkey, event[ 2 ].content );
-        //                         if ( id != event[ 2 ].id ) {
-        //                             return;
-        //                         } else {
-        //                             note = ( decrypted_message );
-        //                         }
-        //                     } else if ( event[ 2 ].pubkey == pubKey ) {
-        //                         note = ( decrypt( privKey, recipient, event[ 2 ].content ) );
-        //                     }
-        //                 }
-        //             }
-        //         } else if ( event[ 2 ] && ( event[ 2 ].kind == kind ) && event[ 2 ].pubkey == pubKey ) {
-        //             var sig = event[ 2 ].sig;
-        //             var eventData = JSON.stringify([
-        //                 0,                    // Reserved for future use
-        //                 event[ 2 ]['pubkey'],        // The sender's public key
-        //                 event[ 2 ]['created_at'],    // Unix timestamp
-        //                 event[ 2 ]['kind'],        // Message “kind” or type
-        //                 event[ 2 ]['tags'],        // Tags identify replies/recipients
-        //                 event[ 2 ]['content']        // Your note contents
-        //             ]);
-        //             var id  = sha256( eventData ).toString( 'hex' );
-        //             var pubKeyPlusOne = ( BigInt( "0x" + pubKey ) + BigInt( "0x" + pubKey ) ).toString( 16 ).substring( 0, 64 );
-        //             var valid = await nobleSecp256k1.schnorr.verify( sig, id, pubKey );
-        //             if ( valid ) note = ( event[ 2 ].content );
-        //         }
-        //     });
-        //     socket.addEventListener( 'open', function open() {
-        //         var randomid = bitcoinjs.ECPair.makeRandom().privateKey.toString( "hex" ).substring( 0, 16 );
-        //         var filter = {
-        //             "#p": [
-        //                 pubkey
-        //             ]
-        //         }
-        //         var subscription = [ "REQ", randomid, filter ];
-        //         subscription = JSON.stringify( subscription );
-        //         var chaser = [ "CLOSE", randomid ];
-        //         chaser = JSON.stringify( chaser );
-        //         socket.send( subscription );
-        //         setTimeout( function() {socket.send( chaser );}, 1000 );
-        //         setTimeout( function() {socket.close();}, 2000 );
-        //     });
-        //     async function isNoteSetYet( note_i_seek ) {
-        //         return new Promise( function( resolve, reject ) {
-        //             if ( !note_i_seek ) {
-        //                 var current_time = Math.floor( Date.now() / 1000 );
-        //                 if ( started_waiting_time + 5 < current_time ) {
-        //                     //resolve( "time is up" );
-        //                 }
-        //                 setTimeout( async function() {
-        //                     var msg = await isNoteSetYet( note );
-        //                     resolve( msg );
-        //                 }, 100 );
-        //             } else {
-        //                 resolve( note_i_seek );
-        //             }
-        //         });
-        //     }
-        //     async function getTimeoutData() {
-        //         var note_i_seek = await isNoteSetYet( note );
-        //         return note_i_seek;
-        //     }
-        //     var returnable = await getTimeoutData();
-        //     return returnable;
-        // }
+         async function getNostrNote( pubkey, kind ) {
+             var started_waiting_time = Math.floor( Date.now() / 1000 );
+             var socket = new WebSocket( relay );
+             var note = "";
+             socket.addEventListener( 'message', async function( event ) {
+                 var event = JSON.parse( event.data );
+                 if ( event[ 2 ] && event[ 2 ].kind == 4 && event[ 2 ].pubkey == pubKey ) {
+                     var i; for ( i=0; i<event[ 2 ].tags.length; i++ ) {
+                         if ( event[ 2 ].tags[ i ] && event[ 2 ].tags[ i ][ 1 ] ) {
+                             var recipient = event[ 2 ].tags[ i ][ 1 ];
+                             if ( recipient == pubKey ) {
+                                 var decrypted_message = decrypt( privKey, event[ 2 ].pubkey, event[ 2 ].content );
+                                 if ( id != event[ 2 ].id ) {
+                                     return;
+                                 } else {
+                                     note = ( decrypted_message );
+                                 }
+                             } else if ( event[ 2 ].pubkey == pubKey ) {
+                                 note = ( decrypt( privKey, recipient, event[ 2 ].content ) );
+                             }
+                         }
+                     }
+                 } else if ( event[ 2 ] && ( event[ 2 ].kind == kind ) && event[ 2 ].pubkey == pubKey ) {
+                     var sig = event[ 2 ].sig;
+                     var eventData = JSON.stringify([
+                         0,                    // Reserved for future use
+                         event[ 2 ]['pubkey'],        // The sender's public key
+                         event[ 2 ]['created_at'],    // Unix timestamp
+                         event[ 2 ]['kind'],        // Message “kind” or type
+                         event[ 2 ]['tags'],        // Tags identify replies/recipients
+                         event[ 2 ]['content']        // Your note contents
+                     ]);
+                     var id  = sha256( eventData ).toString( 'hex' );
+                     var pubKeyPlusOne = ( BigInt( "0x" + pubKey ) + BigInt( "0x" + pubKey ) ).toString( 16 ).substring( 0, 64 );
+                     var valid = await nobleSecp256k1.schnorr.verify( sig, id, pubKey );
+                     if ( valid ) note = ( event[ 2 ].content );
+                 }
+             });
+             socket.addEventListener( 'open', function open() {
+                 var randomid = bitcoinjs.ECPair.makeRandom().privateKey.toString( "hex" ).substring( 0, 16 );
+                 var filter = {
+                     "#p": [
+                         pubkey
+                     ]
+                 }
+                 var subscription = [ "REQ", randomid, filter ];
+                 subscription = JSON.stringify( subscription );
+                 var chaser = [ "CLOSE", randomid ];
+                 chaser = JSON.stringify( chaser );
+                 socket.send( subscription );
+                 setTimeout( function() {socket.send( chaser );}, 1000 );
+                 setTimeout( function() {socket.close();}, 2000 );
+             });
+             async function isNoteSetYet( note_i_seek ) {
+                 return new Promise( function( resolve, reject ) {
+                     if ( !note_i_seek ) {
+                         var current_time = Math.floor( Date.now() / 1000 );
+                         if ( started_waiting_time + 5 < current_time ) {
+                             //resolve( "time is up" );
+                         }
+                         setTimeout( async function() {
+                             var msg = await isNoteSetYet( note );
+                             resolve( msg );
+                         }, 100 );
+                     } else {
+                         resolve( note_i_seek );
+                     }
+                 });
+             }
+             async function getTimeoutData() {
+                 var note_i_seek = await isNoteSetYet( note );
+                 return note_i_seek;
+             }
+             var returnable = await getTimeoutData();
+             return returnable;
+         }
     </script>
     <script>
         async function ensureWalletIsAvailable() {
@@ -1309,7 +1309,7 @@ opac, .logo sup, sup
 		</div>
 		<div class="make_store col-md-7 col-lg-8 ">
 			<div class="products">
-				<h2 class="mb-3">✨ Create Product(s)</h4>
+				<h2 class="mb-3">🫧 Create Product(s)</h4> <!--✨-->
 
 					<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
 					  <symbol id="info-fill" viewBox="0 0 16 16">
@@ -1318,7 +1318,7 @@ opac, .logo sup, sup
 					</svg>
 
 					<div class="alert alert-primary d-flex align-items-center" role="alert">
-							<span class="lead"><!-- Shows ONLY when connected Welcome <code>NIP05@nostr.relay</code>,--> You'll be able to add new products to your webstore. Once published, you'll be able to continue managing all your items from this same page. <a href="#" onclick="bookmarkThisPage()">Bookmark this page</a>, <a href="/guides/run-it-locally.html" target="_blank">run it locally</a> and/or <a href="/guides/pwa.html" target="_blank">save it as a PWA</a>.</span>
+							<span class="lead"><!-- Shows ONLY when connected Welcome <code>NIP05@nostr.relay</code>,--> You'll be able to add new products to your webstore. Once published, you'll be able to continue managing all your items from this same page. <a href="#" onclick="bookmarkThisPage()">Bookmark this page</a>, <a href="guides/run-it-locally.html" target="_blank">run it locally</a> and/or <a href="guides/pwa.html" target="_blank">save it as a PWA</a>.</span>
 					</div>
 
 					<div class="products_wrapper">
@@ -1336,7 +1336,7 @@ opac, .logo sup, sup
 						<div class="form-floating mb-3">
 						  <textarea type="text" class="form-control desc" style="height: 120px" id="floatingInput" placeholder="Start Writing here..."></textarea>
 						  <label for="floatingInput">Description</label>
-							<small><opac>Remember to add some <a href="#">#HashTags</a> at the end so it will be easily <a href="/discover.html" target="_blank">discovered</a>.</opac></small>
+							<small><opac>Remember to add some <a href="#">#HashTags</a> at the end so it will be easily <a href="discover.html" target="_blank">discovered</a>.</opac></small>
 						</div>
 						<div class="form-floating mb-3">
 						  <input type="text" class="form-control" id="floatingURL" placeholder="https://image.url/path/to/image.png">
@@ -1409,10 +1409,10 @@ opac, .logo sup, sup
 </div>
 								<div style="margin-bottom: 1rem;">
 									<input type="checkbox" style="width: 1rem;vertical-align: middle;margin-bottom: auto;" id="no_price_0">
-									<label for="no_price_0" style="display: inline;vertical-align: middle;"><small>Let users set the price, it help promote <a href="/guides/value4value.html" target="_black">V4V</a> model.</small></label>
+									<label for="no_price_0" style="display: inline;vertical-align: middle;"><small>Let users set the price, it help promote <a href="guides/value4value.html" target="_black">V4V</a> model.</small></label>
 							  </div>
 								<button class="preview btn btn-info w-100 mb-3">📸 Product preview</button>
-								<button class="plus_and_minus btn btn-warning w-100 mb-3">✨ Add another product</button>
+								<button class="plus_and_minus btn btn-warning w-100 mb-3">🫧 Add another product</button>
           </div>
       	</div>
   		</div>
@@ -1434,7 +1434,7 @@ opac, .logo sup, sup
 	        <div class="minicart"><div class="d-grid gap-2"><button class="btn btn-secondary view_cart mt-3">👀 View cart (<span class="minicart_item_count">0</span> items)</button></div></div>
 	        <div class="store_products" style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;"></div>
 	    </div>
-			<a class="public_link" target="_blank"><button class="btn btn-secondary w-100	mt-3">💈 View store</button></a>
+			<a class="public_link " target="_blank"><button class="btn btn-primary w-100 text-light	mt-3">💈 View store</button></a>
 
 	    <div class="blank_view"></div>
 
@@ -1556,7 +1556,7 @@ opac, .logo sup, sup
 	            var now = Math.floor( Date.now() / 1000 );
 	            if ( 1692047296 - now < 0 && store_meta.checkin_ids.length ) message += `
 							<div class="card p-2">
-							<small>The owner also checked for new orders <strong>${store_meta.checkin_ids.length} ${time_or_times}</strong> this week.</small>
+							<small>The seller also checked for new orders <strong>${store_meta.checkin_ids.length} ${time_or_times}</strong> this week.</small>
 							</div>
 							`;
 	            return message;
@@ -2580,10 +2580,10 @@ opac, .logo sup, sup
 <footer class="my-5 pt-5 text-body-secondary text-center text-small">
 		ʙᴀᴄᴋᴇᴅ ᴡɪᴛʜ <a href="https://GoodStr.io" target="_blank"><img src="assets/img/GoodStr_logoG.png" width="auto" height="21" style="margin-bottom: 3px;" border="0" alt="GoodStr" title="GoodStr"></a> sɪɴᴄᴇ ʙʟᴏᴄᴋ <a class="rosa" href="https://mempool.space/block/777777" target="_blank"><micro>777777</micro></a>.
 		<code style="rosa"><small><ul class="list-inline">
-       • <li class="list-inline-item"><a href="/privacy.html">Privacy</a></li>
-       • <li class="list-inline-item"><a href="/guides/freedom.html">Freedom</a></li>
-       • <li class="list-inline-item"><a href="/terms.html">Terms</a></li>
-       • <li class="list-inline-item"><a href="/onboarding.html#help">Support</a></li>
+       • <li class="list-inline-item"><a href="privacy.html">Privacy</a></li>
+       • <li class="list-inline-item"><a href="guides/freedom.html">Freedom</a></li>
+       • <li class="list-inline-item"><a href="terms.html">Terms</a></li>
+       • <li class="list-inline-item"><a href="onboarding.html#help">Support</a></li>
 			 •
     </ul></small></code>
 </footer>
