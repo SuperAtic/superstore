@@ -1100,7 +1100,49 @@
 							</div>
 							<i class="bi bi-door-open-fill" style="font-size:42px; opacity: .5;"></i>
 							<!--i class="bi bi-shop-window"></i -->
-							<div class="instruction"><button class="login_btn btn btn-primary" onclick="useString()">Connect</button> <br/> with your magic string.</div>
+							<!-- div class="instruction"><button class="login_btn btn btn-primary" onclick="useString()">Connect</button --> 
+							<script>
+async function fetchNostrJson(domain, name) {
+    const response = await fetch(`https://${domain}/.well-known/nostr.json?name=${name}`);
+    const data = await response.json();
+    return data;
+}
+
+async function loginWithNostr() {
+    const identifier = prompt("Enter your NIP-05 identifier (e.g., user@example.com):");
+    const [name, domain] = identifier.split('@');
+    
+    if (!name || !domain) {
+        alert("Invalid NIP-05 identifier.");
+        return;
+    }
+
+    try {
+        const nostrData = await fetchNostrJson(domain, name);
+        const pubkey = nostrData.names[name];
+        const relays = nostrData.relays[pubkey];
+
+        // Use nos2x extension for signing and login
+        if (window.nostr) {
+            const signedEvent = await window.nostr.signEvent({
+                pubkey: pubkey,
+                kind: 1, // Event kind
+                tags: [],
+                content: 'Login event',
+                created_at: Math.floor(Date.now() / 1000)
+            });
+            // Verify and proceed with the signedEvent
+            console.log('Signed Event:', signedEvent);
+        } else {
+            alert("nos2x extension not found. Please install the extension.");
+        }
+    } catch (error) {
+        console.error("Error fetching Nostr data:", error);
+        alert("Error fetching Nostr data.");
+    }
+}
+</script>
+							<div class="instruction"><button class="login_btn btn btn-primary" onclick="loginWithNostr()">Connect</button><br/> with your magic string.</div>
 							<small style="opacity:0.5;">You'll be redirected to your GoodStr Admin page to access and manage your product and/or services.</small>
 						</div>
 					</div>
@@ -1149,16 +1191,16 @@
 			}
 		</script>
 		<script type="text/javascript">
-			$('.signup_btn' ).onclick = () => {
-			    $( '.explain' ).style.display = "none";
-			    $( '.signup_btn' ).style.display = "none";
-			    $( '.back_btn' ).style.display = "inline";
-			    $( '.signup' ).style.display = "block";
-			    $( '.magic_string_box' ).style.display = "none";
-			}
-			$( '.login_btn' ).onclick = () => {
-			    useString();
-			}
+			// $('.signup_btn' ).onclick = () => {
+			//    $( '.explain' ).style.display = "none";
+			//    $( '.signup_btn' ).style.display = "none";
+			//    $( '.back_btn' ).style.display = "inline";
+			//    $( '.signup' ).style.display = "block";
+			//    $( '.magic_string_box' ).style.display = "none";
+			// }
+			// $( '.login_btn' ).onclick = () => {
+			//    useString();
+			// }
 			$( '.back_btn' ).onclick = () => {
 			    $( '.explain' ).style.display = "block";
 			    $( '.signup_btn' ).style.display = "inline";
